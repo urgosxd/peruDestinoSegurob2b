@@ -2,6 +2,7 @@ import axios from "axios"
 const API_URL = process.env.WORDPRESS_API_URL!!
 
 async function fetchAPI(query = '',variable="xx") {
+  console.log(API_URL+"GAAAAAAAAAAAAAAa")
   const headers:any = { 'Content-Type': 'application/json' }
 
   // if (process.env.WORDPRESS_AUTH_REFRESH_TOKEN) {
