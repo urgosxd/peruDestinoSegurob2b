@@ -1,3 +1,4 @@
+import axios from "axios"
 const API_URL = process.env.WORDPRESS_API_URL!!
 
 async function fetchAPI(query = '',variable="xx") {
@@ -10,27 +11,37 @@ async function fetchAPI(query = '',variable="xx") {
   // WPGraphQL Plugin must be enabled
 
   if(variable !=  "xx"){
-  const res = await fetch(API_URL+query+'?acf_format=standard&slug='+variable)
-  const data = await res.json()
-  if (data.errors) {
-    console.error(data.errors)
-    throw new Error('Failed to fetch API')
-  }
-  return data
+  try{
+  const res = await axios.get(API_URL+query+'?acf_format=standard&slug='+variable)
+  const data = await res.data
+      return data
+    }
+    catch(error){
+      if(axios.isAxiosError(error)){
+        console.log(error.message)
+      }
+
+    }
+
 
 
   }else{
-const res = await fetch(API_URL+query+'?acf_format=standard')
-  const data = await res.json()
-  if (data.errors) {
-    console.error(data.errors)
-    throw new Error('Failed to fetch API')
-  }
-  return data
+    
+    try{
+    const res = await axios.get(API_URL+query+'?acf_format=standard')
+  const data = await res.data
+      return data
+    }
+    catch(error){
+      if(axios.isAxiosError(error)){
+        console.log(error.message)
+      }
+
+    }
+
 
   }
-  console.log(API_URL+query+'?acf_format=standard');
-  }
+}
 
 
 // export async function getPreviewPost(id:string, idType = 'DATABASE_ID') {
@@ -84,3 +95,4 @@ export async function getBlogPage(){
   const data = await fetchAPI('blog_page/')
   return data
 }
+
