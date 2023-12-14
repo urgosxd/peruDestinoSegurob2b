@@ -1,5 +1,5 @@
 import axios from "axios";
-import { NextAuthOptions } from "next-auth";
+import { NextAuthOptions,Awaitable } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials"
 
@@ -98,7 +98,7 @@ const authOptions: NextAuthOptions = {
         }
       }
       else if (account?.provider == "credentials") {
-        return user
+        return true;
       }
       return false;
     },
