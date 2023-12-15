@@ -11,7 +11,7 @@ const CustomCarousel =({imgs}:Props) =>{
     <div className="h-[90vh] w-full">
  <Carousel autoplay loop transition={{ duration: 2 }} className="rounded-xl">
           {imgs.map((ele) => (
-            <Image src={ele.imgsrc} alt="ims" width={1000} height={1000} className="h-full w-full object-cover"></Image>
+            <Image src={ele.imgsrc} alt="ims" priority width={1800} height={900} className="h-full w-full object-cover"></Image>
           ))}
         </Carousel>
 </div>
