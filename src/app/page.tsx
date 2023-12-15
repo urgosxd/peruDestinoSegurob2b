@@ -41,10 +41,10 @@ export default async function Home({ }: Props) {
       {/* <SessionValidator>GAAAAAAAA</SessionValidator> */}
       {/* </SessionProvider> */}
       <Subtitle>Nuestros Paquetes</Subtitle>
-      <div className="grid grid-cols-3 gap-3 w-11/12">
+      <div className="grid grid-cols-3 gap-3 w-10/12">
         {paquetes.map(ele => (<ProfileCard imgSrc={ele.acf.imgsrc} txt1={ele.acf.txtunico} txt2={ele.acf.price} slug={ele.slug} time={ele.acf.time} incluido={ele.acf.incluido} excluido={ele.acf.excluido} />))}
       </div>
-      <Subtitle>Destinos</Subtitle>
+      <Subtitle >Destinos</Subtitle>
       <div className="grid grid-cols-3 gap-3 destinoCss">
         {destinos.map(ele => (<BackCard imgSrc={ele.imgsrc} txt={ele.txt_unique} />))}
       </div>

@@ -33,7 +33,7 @@ export default function BackBannerDiv({ imgSrc, txt, time }: Props) {
         className={`absolute inset-0 m-0 w-full rounded-none`}
       // style={{backgroundImage: `url(${imgSrc})`}}
       >
-        <Image src={imgSrc} fill={true} alt="aeo" className="rounded-none" />
+        <Image src={imgSrc} fill={true} priority alt="aeo" className="rounded-none" />
 
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/50 via-black/20" />
       </CardHeader>

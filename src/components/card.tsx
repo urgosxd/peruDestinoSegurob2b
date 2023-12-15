@@ -22,12 +22,12 @@ interface Props{
 }
 export default function ProfileCard({imgSrc,txt1,txt2,slug,time,incluido,excluido}:Props) {
   return (
-    <Card className="w-xs p-0 border rounded-lg">
+    <Card className="relative grid  w-full max-w-[28rem] p-0 border rounded-lg ">
       <CardHeader floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 " >
-        <Image src={imgSrc} width={600} height={600} alt="profile-picture" className="h-fit max-w-md"/>
+        className="m-0 w-full h-[80vh]" >
+        <Image src={imgSrc} fill  /* width={600} height={600} */ alt="profile-picture" className="h-[30vh] max-w-md"/>
       </CardHeader>
       <CardBody className="text-center">
         <Typography  as="p"  className="mb-2 text-3xl font-normal text-gray-800">
