@@ -100,17 +100,15 @@ export function NavbarDefault() {
         </IconButton>
       </div>
       <MobileNav open={openNav}>
-        <div className="container mx-auto ">
+        <ul className="container mx-auto ">
           {navList}
-          <div className="flex items-center gap-x-1">
+          <li className="flex items-center gap-x-1">
+
             <Button fullWidth variant="text" size="sm" className="">
               <span>Log In</span>
             </Button>
-            <Button fullWidth variant="gradient" size="sm" className="">
-              <span>Sign in</span>
-            </Button>
-          </div>
-        </div>
+          </li>
+        </ul>
       </MobileNav>
     </Navbar>
   );

@@ -22,7 +22,7 @@ function CollapseDefault({question,answer}:miniProps) {
  
   return (
     <div className="w-full items-left">
-      <Button className="rounded-none py-4 text-left w-full bg-white text-gray-900 flex justify-between" onClick={toggleOpen}>{question}{open ? <ChevronDownIcon className="w-3 inline-block"/>:<ChevronUpIcon className="w-3 inline-block"/> }</Button>
+      <Button aria-label="close-Open" className="rounded-none py-4 text-left w-full bg-white text-gray-900 flex justify-between" onClick={toggleOpen}>{question}{open ? <ChevronDownIcon className="w-3 inline-block"/>:<ChevronUpIcon className="w-3 inline-block"/> }</Button>
       <Collapse open={open}>
         <Card className="rounded-none ">
           <CardBody>
