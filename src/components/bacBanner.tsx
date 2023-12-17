@@ -34,10 +34,10 @@ export default function BackBanner({ imgSrc, txt }: Props) {
       </CardHeader>
       <CardBody className="relative p-0 pr-0  pt-0">
         <Typography
-          variant="h4"
+          variant="h1"
           color="white"
           className="mb-3 font-bold` leading-[1.5] w-fit border-solid  
-        border-b-2 border-red-700  text-left text-3xl"
+        border-b-2 border-red-700  text-left text-3xl font-bold"
         >
           {txt}
         </Typography>

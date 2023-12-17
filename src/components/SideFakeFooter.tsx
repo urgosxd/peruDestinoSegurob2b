@@ -9,17 +9,17 @@ return (
         <PhoneIcon className="w-10 pb-2 inline-block" color="#D20000"/>
         </div>
         <div className="pl-8">
-          <Typography
-          as="p"  className="font-bold text-lg"
+          <p
+            className="font-bold text-lg"
           >
               Telefono
-          </Typography>
-          <Typography as="p" className="text-lg">
+          </p>
+          <p  className="text-lg">
 +51 (084) 750156
-          </Typography>
-          <Typography as="p"  className="text-lg">
+          </p>
+          <p   className="text-lg">
 +51 (916) 041494
-          </Typography>
+          </p>
       </div>
         </div>
 
@@ -29,13 +29,13 @@ return (
         </div>
         <div  className="pl-8">
 
-          <Typography as="p"  className="font-bold text-lg">
+          <p   className="font-bold text-lg">
             Correo
-          </Typography>
-          <Typography as="p"  className="text-lg">
+          </p>
+          <p   className="text-lg">
 
                 ventas@pdsviajes.com
-          </Typography>
+          </p>
         </div>
       </div>
 
@@ -45,13 +45,13 @@ return (
         </div>
         <div className="pl-8" >
 
-          <Typography as="p"  className="font-bold text-lg">
+          <p  className="font-bold text-lg">
             Direccion
-          </Typography>
-          <Typography as="p"  className="text-lg">
+          </p>
+          <p   className="text-lg">
 
                 Av. Tacna Nro. 168 - Cusco
-          </Typography>
+          </p>
         </div>
       </div>
 

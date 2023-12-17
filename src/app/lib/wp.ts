@@ -96,4 +96,7 @@ export async function getBlogPage(){
   const data = await fetchAPI('blog_page/')
   return data
 }
-
+export async function getCalendarioPage(){
+  const data = await fetchAPI('calendario_page/')
+  return data
+}
