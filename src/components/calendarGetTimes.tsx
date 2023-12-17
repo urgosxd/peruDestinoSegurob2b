@@ -83,11 +83,11 @@ function setEvents(data:any[],year:string){
 
   for (let i = 1; i < 13; i++) {
     if(i<10){
-    customState[meses[`0${i}`]] = customState[meses[`0${i}`]].sort((a,b)=>(parseInt(a.d) - parseInt(a.d)))
-    customStateNext[meses[`0${i}`]+"1"] = customStateNext[meses[`0${i}`]+"1"].sort((a,b)=>(parseInt(a.d) - parseInt(a.d)))
+    customState[meses[`0${i}`]] = customState[meses[`0${i}`]].sort((a,b)=>(parseInt(a.d) - parseInt(b.d)))
+    customStateNext[meses[`0${i}`]+"1"] = customStateNext[meses[`0${i}`]+"1"].sort((a,b)=>(parseInt(a.d) - parseInt(b.d)))
     }else{
-    customState[meses[`${i}`]] = customState[meses[`${i}`]].sort((a,b)=>(parseInt(a.d) - parseInt(a.d)))
-    customStateNext[meses[`${i}`]+"1"] = customStateNext[meses[`${i}`]+"1"].sort((a,b)=>(parseInt(a.d) - parseInt(a.d)))
+    customState[meses[`${i}`]] = customState[meses[`${i}`]].sort((a,b)=>(parseInt(a.d) - parseInt(b.d)))
+    customStateNext[meses[`${i}`]+"1"] = customStateNext[meses[`${i}`]+"1"].sort((a,b)=>(parseInt(a.d) - parseInt(b.d)))
     }
     
   }
