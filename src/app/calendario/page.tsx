@@ -22,7 +22,7 @@ export default async  function Calendario() {
   const mes = new Date()
   
   return (
-  <div className="flex flex-col w-[97.5vw] items-center">
+  <div className="flex flex-col w-[98vw] items-center">
       
       <BackBanner imgSrc={contactoUnico.acf.imgback} txt="Nuestros proximos viajes" />
       <div className="mt-12 w-full flex flex-col items-center">

@@ -12,7 +12,7 @@ export default async  function Contacto() {
 
   
   return (
-  <div className="flex flex-col w-[100vw] items-center">
+  <div className="flex flex-col w-[98vw] items-center">
       
       <BackBanner imgSrc={contactoUnico.acf.imgback} txt="Contacto" />
       <div className="flex flex-row w-full mt-12">

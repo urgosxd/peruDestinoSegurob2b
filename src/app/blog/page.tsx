@@ -12,7 +12,7 @@ export default async  function Contacto() {
     const blogUnico = data[0]
   
   return (
-  <div className="flex flex-col w-[100vw] items-center">
+  <div className="flex flex-col w-[98vw] items-center">
       <BackBanner imgSrc={blogUnico.acf.imgback} txt="Blog"/>
 
       

@@ -21,7 +21,7 @@ export default async function Nosotros() {
   ]
 
   return (
-    <div className="w-[100vw] flex flex-col items-center">
+    <div className="w-[98vw] flex flex-col items-center">
 
       <BackBanner imgSrc={uniNosotros.imgback} txt="Acerca de Nosotros" />
       <div className="flex flex-row mt-20 px-10" >
