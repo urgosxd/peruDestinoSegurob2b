@@ -102,13 +102,11 @@ export function Footer() {
       </div>
       <hr className="my-8 border-blue-gray-50" />
 
-      <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
+      <div className="w-full flex flex-row flex-wrap justify-between gap-y-6 gap-x-12 bg-white text-center md:justify-between">
         <Typography color="blue-gray" className="text-center font-normal">
           Derechos reservados Peru Destino Seguro 2023
         </Typography>
-        <Typography color="blue-gray" className="text-center font-normal">
-          LOGOS TARJETAS
-        </Typography>
+            <img src="/tarjetas.png" alt="logo-ct" className="w-2/12" />
       </div>
     </footer>
   );

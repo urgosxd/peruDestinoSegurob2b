@@ -13,10 +13,9 @@ export default async function Nosotros() {
 
   const logos =["./respaldo2.png","./respaldo.png","./ytu.png","./safe.png","./TripAdvisor.png"]
   const valores = [
-    {img:"./iconitoVal.png",txt:"Responsabilidad"},
-    {img:"./iconitoVal.png",txt:"Lealtad"},
-    {img:"./iconitoVal.png",txt:"Honestidad"},
-    {img:"./iconitoVal.png",txt:"Puntualidad"},
+    {img:"./RESPONSABILIDAD.png",txt:"Responsabilidad"},
+    {img:"./LEALTAD.png",txt:"Lealtad"}, {img:"./iconitoVal.png",txt:"Honestidad"},
+    {img:"./PUNTUALIDAD.png",txt:"Puntualidad"},
     {img:"./iconitoVal.png",txt:"Disciplina"},
   ]
 
@@ -47,7 +46,7 @@ export default async function Nosotros() {
         </div>
 
       </div>
-      <div className="flex flex-row justify-center gap-x-16 mx-16 mt-12">
+      <div className="flex flex-row justify-center gap-x-16 mx-16 mt-28 mb-10">
         {
         exp.map(ele=>(<div className="w-1/3 flex  flex-col items-center">
           <Typography
@@ -72,9 +71,9 @@ export default async function Nosotros() {
         <Subtitle>
         Valores
       </Subtitle>
-        <div>
+        <div className="mb-10">
         <div className="flex flex-row gap-x-16">
-        {valores.map(ele=>(<div className="w-3/12 flex flex-col"><img src={ele.img} className="w-22 h-16" /> <p className="w-full">{ele.txt}</p></div>))}
+        {valores.map(ele=>(<div className="w-3/12 flex flex-col"><img src={ele.img} className="w-20 h-16" /> <p className="w-">{ele.txt}</p></div>))}
       </div>
       </div>
         <Subtitle>
