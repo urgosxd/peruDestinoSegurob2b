@@ -1,5 +1,6 @@
 'use client'
 
+import { UserCircleIcon } from '@heroicons/react/24/outline'
 import React, { useState } from "react"
 import {
   Navbar,
@@ -56,10 +57,13 @@ export function NavbarDefault() {
         <div className="flex items-center gap-x-1">
           <Link href={"/api/auth/signin"}>
 
-            <Button variant="text" size="sm" className="hidden lg:inline-block" >
-              <span>Login</span>
+            <Button variant="text" size="lg" className="hidden lg:inline-block text-[#D20000] " >
+              <UserCircleIcon className="w-5 inline-block"/> Entrar
             </Button>
           </Link>
+            <Button variant="text" size="lg" className="hidden lg:inline-block bg bg-[#D20000] text-white p-2 px-2" >
+            Contactar
+            </Button>
         </div>
         <IconButton
           variant="text"
