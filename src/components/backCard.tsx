@@ -21,7 +21,7 @@ export default function BackCard({ imgSrc, txt }: Props) {
   return (
     <Card
       shadow={false}
-      className="relative grid h-[20rem] w-full max-w-[20rem] items-end justify-center overflow-hidden text-center"
+      className="relative grid h-[20rem] w-full max-w-[20rem] items-end justify-center  overflow-hidden text-center"
     >
       <CardHeader
         floated={false}
@@ -39,7 +39,7 @@ export default function BackCard({ imgSrc, txt }: Props) {
           as="p"
           color="white"
           className="mb-3 font-medium leading-[1.5] w-fit border-solid  
-        border-b-4 border-white  text-left text-3xl "
+        border-b-4 border-white  text-left lg:text-3xl text-xl"
         >
           {txt}
         </Typography>

@@ -12,14 +12,14 @@ export default function LiNav({txt,setIdxNav,idxNavState,id}:Props){
     return (<Typography
         as="li"
         color="blue-gray"
-        className="flex justify-center pt-0 font-bold w-32"
+        className="flex lg:justify-center justify-start pt-0 font-bold w-32"
       >
     <Link
     href={id==1 ? "/":"/"+txt +"/"}
       className="flex flex-col gap-x-2"
         onClick={()=>setIdxNav(id)}
     >
-     <p  className="mt-7 p-2 text-center uppercase">
+     <p  className="mt-7 p-2 lg:text-center uppercase text-md lg:text-lg">
       {txt}
         </p>
         

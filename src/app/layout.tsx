@@ -23,7 +23,7 @@ export default function RootLayout({
       <head />
       
       <Theme>
-      <body className={font.className+ " flex flex-col items-center"}>
+      <body className={font.className+ ""}>
           <NavbarDefault></NavbarDefault>
             <main>
               {children}

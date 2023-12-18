@@ -10,18 +10,18 @@ import {
 export default function AgenciaForm() {
   return (
 
-    <form className="mt-8 mb-2 w-3/4 max-w-screen-lg">
+    <form className="mt-9 mb-2 w-3/4 max-w-screen-lg">
       <div className="mb-1 flex flex-col gap-6">
         <Input
           size="lg"
           placeholder="Correo Electronico"
-          className=" !border-t-blue-gray-200 focus:!border-t-gray-900 !text-2xl "
+          className=" !border-t-blue-gray-200 focus:!border-t-gray-900 lg:!text-2xl "
           labelProps={{
             className: "before:content-none after:content-none",
           }}
         />
           
-           <Textarea size="lg" placeholder="Escriba su pregunta porfavor"  className="!text-2xl "/>
+           <Textarea size="lg" placeholder="Escriba su pregunta porfavor"  className="lg:!text-2xl "/>
         {/* <Input */}
         {/*   size="lg" */}
         {/*   placeholder="Escriba su pregunta por favor" */}
@@ -30,7 +30,7 @@ export default function AgenciaForm() {
         {/*     className: "before:content-none after:content-none", */}
         {/*   }} */}
         {/* /> */}
-        <Button className="mt-6 text-white bg-[#D20000] text-xl" fullWidth>
+        <Button className="mt-6 text-white bg-[#D20000] lg:text-xl text-lg !px-3 w-24 lg:w-36" >
           Enviar
         </Button>
       </div>

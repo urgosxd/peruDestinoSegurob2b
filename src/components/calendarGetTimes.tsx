@@ -116,11 +116,11 @@ export default function CustomEventCalendarByYear({data, year,currentMonth}:Prop
             {TABLE_HEAD.map((head,idx)=>(
             <th
                 key={head}
-                className="border-b border-blue-gray-100 bg-blue-gray-50 p-4 bg !bg-[#D20000] border border-slate-300"
+                className="border-b border-blue-gray-100 bg-blue-gray-50 lg:p-4 p-0 bg !bg-[#D20000] border border-slate-300"
               >
                 <Typography
-                  variant="small"
-                  className="font-normal leading-none opacity-70 text-white font-bold uppercase" 
+                  // variant="small"
+                  className="font-normal text-sm lg:text-lg leading-none opacity-70 text-white font-bold lg:uppercase" 
                 >
                  {logosHeader[idx]} {head}
                 </Typography>
@@ -132,23 +132,23 @@ export default function CustomEventCalendarByYear({data, year,currentMonth}:Prop
           {ele[1].map(({d,time,imgsrc,state,txt})=>(
           <tr>
               <td className="border border-gray-700">
-                  <Typography className="text-3xl text-gray-700 font-bold">
+                  <Typography className="lg:text-3xl text-sm text-gray-700 font-bold">
                   {d}
                 </Typography>
               </td>
               <td className="border border-gray-700">
                 <div className="flex flex-col items-center">
                   <Image alt={"aoe"} src={imgsrc} width={100} height={100}/>
-                    <p className="pt-3">{txt}</p>
+                    <p className="pt-3 text-sm">{txt}</p>
                 </div>
                 </td>
               <td className="border border-gray-700">
-                  <Typography className="text-xl text-gray-700 font-semibold">
+                  <Typography className="lg:text-xl text-sm text-gray-700 font-semibold">
                   {time.split("-")[0]} Dias
                 </Typography>
               </td>
               <td className="border border-gray-700">
-                  <Typography className="text-xl text-gray-900 font-bold capitalize">
+                  <Typography className="lg:text-xl text-sm text-gray-900 font-bold capitalize">
                   {state}
                 </Typography>
               </td>

@@ -41,23 +41,23 @@ export default async function Home({ }: Props) {
       {/* <SessionValidator>GAAAAAAAA</SessionValidator> */}
       {/* </SessionProvider> */}
       <Subtitle>Nuestros Paquetes</Subtitle>
-      <div className="grid grid-cols-3 gap-3 w-10/12">
+      <div className="grid lg:grid-cols-3 lg:gap-3 w-10/12 grid-cols-1 gap-2 pl-7 lg:pl-0">
         {paquetes.map(ele => (<ProfileCard imgSrc={ele.acf.imgsrc} txt1={ele.acf.txtunico} txt2={ele.acf.price} slug={ele.slug} time={ele.acf.time} incluido={ele.acf.incluido} excluido={ele.acf.excluido} />))}
       </div>
       <Subtitle >Destinos</Subtitle>
-      <div className="grid grid-cols-3 gap-3 destinoCss w-10/12">
+      <div className="grid lg:grid-cols-3 lg:gap-3 destinoCss w-10/12 pl-7 grid-cols-1 gap-y-2 lg:pl-0">
         {destinos.map(ele => (<BackCard imgSrc={ele.imgsrc} txt={ele.txt_unique} />))}
       </div>
 
-      <div className="flex flex-row w-full mt-10">
+      <div className="flex lg:flex-row flex-col w-full mt-10">
 
-        <div className="w-1/2 flex flex-col items-center">
+        <div className="lg:w-1/2 w-full flex flex-col items-center">
           <h3 className="my-9 font-normal text-3xl">Preguntas Frecuentes</h3>
           <Questions questionAnswer={pregFrecuents} />
 
         </div>
-        <div className="w-1/2">
-          <h3 className="mt-9 font-bold text-3xl text-gray-600">
+        <div className="lg:w-1/2 w-full p-10 lg:p-0">
+          <h3 className="lg:mt-9 mt-6 font-bold lg:text-3xl text-xl text-gray-600">
             ¿Eres una agencia?
           </h3>
 

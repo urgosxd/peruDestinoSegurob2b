@@ -15,13 +15,13 @@ export default async  function Contacto() {
   <div className="flex flex-col w-[98vw] items-center">
       
       <BackBanner imgSrc={contactoUnico.acf.imgback} txt="Contacto" />
-      <div className="flex flex-row w-full mt-12">
+      <div className="flex lg:flex-row flex-col w-full mt-12">
 
-      <div className="w-2/3  flex justify-center">
+      <div className="lg:w-2/3 w-full  flex justify-center">
 
       <ContactoForm/>
       </div>
-      <div className="w-1/3 flex justify-center">
+      <div className="lg:w-1/3 w-full flex lg:justify-center">
           <FakeFooter/>
       </div>
       </div>

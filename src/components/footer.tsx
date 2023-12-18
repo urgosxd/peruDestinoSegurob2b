@@ -6,7 +6,7 @@ import { SocialIcon } from 'react-social-icons'
 export function Footer() {
   return (
     <footer className="w-11/12 bg-white ml-10 mt-20">
-      <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-white text-center md:justify-between">
+      <div className="flex lg:flex-row flex-col  flex-wrap items-center justify-center lg:gap-y-6 gap-y-8 lg:gap-x-12 gap-x-3 bg-white text-center md:justify-between">
         <img src="/pdsLogo.png" alt="logo-ct" className="w-1/12" />
         <div>
           <Typography
@@ -32,7 +32,7 @@ export function Footer() {
             <SocialIcon bgColor="#D20000" url="https://www.whatsapp.com/"/>
           </div>
         </div>
-        <ul className="flex flex-wrap items-center gap-x-8 text-right leading-none">
+        <ul className="flex flex-wrap items-center gap-x-8 lg:text-right text-center leading-none">
           <li>
             <Typography
               color="blue-gray"

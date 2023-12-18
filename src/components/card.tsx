@@ -22,18 +22,18 @@ interface Props{
 }
 export default function ProfileCard({imgSrc,txt1,txt2,slug,time,incluido,excluido}:Props) {
   return (
-    <Card className="relative grid  w-full max-w-[28rem] p-0 border rounded-lg ">
+    <Card className="relative grid  w-full  lg:max-w-[28rem] max-w-[20rem] p-0 border rounded-lg ">
       <CardHeader floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full h-[80vh]" >
-        <Image src={imgSrc} fill  /* width={600} height={600} */ alt="profile-picture" className="h-[30vh] max-w-md"/>
+        className="m-0 w-full lg:h-[80vh] h-[50vh]" >
+        <Image src={imgSrc} fill  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[30vh] max-w-md"/>
       </CardHeader>
       <CardBody className="text-center">
-        <Typography  as="p"  className="mb-2 text-3xl font-normal text-gray-800">
+        <Typography  as="p"  className="mb-2 lg:text-3xl text-xl font-normal text-gray-800">
           {txt1}
         </Typography>
-        <Typography as="p" className="font-bold text-4xl text-black" textGradient>
+        <Typography as="p" className="font-bold lg:text-4xl text-2xl text-black" textGradient>
            Desde ${txt2}
         </Typography>
       </CardBody>

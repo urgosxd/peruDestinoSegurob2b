@@ -44,10 +44,12 @@ export function NavbarDefault() {
     })
   }
   return (
-    <Navbar className="w-full mx-auto  px-0  py-0 lg:px-0 lg:py-0">
+    <Navbar className="w-full mx-auto  px-3  py-3 lg:px-0 lg:py-0">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
 
-        <img src="/pdsLogo.png" alt="logo-ct" className="w-1/12" />
+        <Link href="/" className="w-2/12 lg:w-1/12" onClick={()=>setIdxNav(1)}>
+        <img src="/pdsLogo.png" alt="logo-ct"  />
+        </Link>
         <div className="hidden lg:block flex mb-3">
           <ul className="mt-2 mb-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-3"> 
             {navList} 
