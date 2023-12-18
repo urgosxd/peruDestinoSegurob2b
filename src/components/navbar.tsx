@@ -36,7 +36,7 @@ export function NavbarDefault() {
   const currentPage = usePathname();
   const [idxNav, setIdxNav] = useState<number>(navNames.indexOf(getPath(currentPage)) + 1)
   // console.log(currentPage);
-  const navList = navNames.map((ele, idx) => <LiNav txt={ele} setIdxNav={setIdxNav} idxNavState={idxNav} id={idx + 1} />)
+  const navList = navNames.map((ele, idx) => <LiNav key={idx} txt={ele} setIdxNav={setIdxNav} idxNavState={idxNav} id={idx + 1} />)
   // const mini = navNames.map(ele=>{[ele]:{}})
   const variants: Variants = {
     visible: (custom: number) => ({
