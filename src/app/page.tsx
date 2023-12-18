@@ -45,7 +45,7 @@ export default async function Home({ }: Props) {
         {paquetes.map(ele => (<ProfileCard key={ele.acf.txtunico} imgSrc={ele.acf.imgsrc} txt1={ele.acf.txtunico} txt2={ele.acf.price} slug={ele.slug} time={ele.acf.time} incluido={ele.acf.incluido} excluido={ele.acf.excluido} />))}
       </div>
       <Subtitle >Destinos</Subtitle>
-      <div className="grid lg:grid-cols-3 lg:gap-3 destinoCss w-10/12 pl-0 grid-cols-1 gap-y-2 lg:pl-0">
+      <div className="grid lg:grid-cols-3 lg:gap-3 justify-items-center destinoCss w-10/12 pl-0 grid-cols-1 gap-y-2 lg:pl-0">
         {destinos.map(ele => (<BackCard key={ele.txt_unique} imgSrc={ele.imgsrc} txt={ele.txt_unique} />))}
       </div>
 

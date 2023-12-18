@@ -26,8 +26,8 @@ export default function ProfileCard({imgSrc,txt1,txt2,slug,time,incluido,excluid
       <CardHeader floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[80vh] h-[70vh]" >
-        <Image src={imgSrc} fill  /* width={600} height={600} */ alt="profile-picture" className="h-[20vh] lg:h-[30vh] max-w-md"/>
+        className="m-0 w-full lg:h-[80vh] h-[60vh]" >
+        <Image src={imgSrc} fill  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[30vh] max-w-md"/>
       </CardHeader>
       <CardBody className="text-center !p-3">
         <Typography  as="p"  className="lg:mb-2 lg:text-3xl text-xl font-normal text-gray-800">
