@@ -19,16 +19,16 @@ export default function BackBanner({ imgSrc, txt }: Props) {
   return (
     <Card
       shadow={false}
-      className="relative grid h-[20rem] w-full items-center justify-center overflow-hidden text-center"
+      className="relative grid lg:h-[20rem] h-[15rem] w-full items-center justify-center overflow-hidden text-center"
     >
       <CardHeader
         floated={false}
         shadow={false}
         color="transparent"
-        className={`absolute inset-0 m-0 w-full rounded-none`}
+        className={`absolute inset-0  m-0 lg:w-full w-full rounded-none`}
       // style={{backgroundImage: `url(${imgSrc})`}}
         >
-          <Image src={imgSrc} fill={true} alt="aeo" className="rounded-none"  priority={true}/>
+          <Image src={imgSrc} fill={true} alt="aeo" className="rounded-none" sizes="(max-width: 768px) 150vw, 100vw"  priority={true}/>
 
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/50 via-black/20" />
       </CardHeader>
@@ -37,7 +37,7 @@ export default function BackBanner({ imgSrc, txt }: Props) {
           variant="h1"
           color="white"
           className="mb-3 font-bold` leading-[1.5] w-fit border-solid  
-        border-b-2 border-red-700  text-left text-3xl font-bold"
+        border-b-2 border-red-700  text-left lg:text-3xl text-xl font-bold"
         >
           {txt}
         </Typography>

@@ -108,8 +108,8 @@ export default function CustomEventCalendarByYear({data, year,currentMonth}:Prop
   
   const modules = Object.entries(datas).map(ele=>(
   <div className="flex flex-col items-center w-full">
-      <h2 className="capitalize text-3xl text-gray-700 font-bold">{ele[0].charAt(ele[0].length -1) == "1" ? ele[0].substring(0,ele[0].length -1) : ele[0]}</h2>
-  <Card className="h-full w-10/12  mt-5">
+      <h2 className="capitalize lg:text-3xl text-xl text-gray-700 font-bold">{ele[0].charAt(ele[0].length -1) == "1" ? ele[0].substring(0,ele[0].length -1) : ele[0]}</h2>
+  <Card className="h-full w-full  mt-5">
         <table className="w-full min-w-max table-auto text-center border-collapse border border-slate-400">
         <thead className="bg bg-[#D20000]">
           <tr className="bg bg-[#D20000]">
@@ -187,8 +187,8 @@ export default function CustomEventCalendarByYear({data, year,currentMonth}:Prop
   
 
 return (
-    <div className="w-full flex flex-col items-center">
-      <h2 className="text-[#D20000] text-8xl font-extrabold w-full text-center">
+    <div className="w-full flex flex-col  items-center">
+      <h2 className="text-[#D20000] lg:text-8xl text-6xl font-extrabold w-full text-center">
         {currentYear}
       </h2>
       <div className="flex flex-row w-10/12 justify-between px-0 mt-10">

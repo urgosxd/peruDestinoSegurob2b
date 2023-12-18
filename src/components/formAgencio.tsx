@@ -10,8 +10,8 @@ import {
 export default function AgenciaForm() {
   return (
 
-    <form className="mt-9 mb-2 w-3/4 max-w-screen-lg">
-      <div className="mb-1 flex flex-col gap-6">
+    <form className="lg:mt-9 mt-3 mb-2 w-3/4 max-w-screen-lg">
+      <div className="mb-1 flex flex-col lg:gap-6 gap-2">
         <Input
           size="lg"
           placeholder="Correo Electronico"

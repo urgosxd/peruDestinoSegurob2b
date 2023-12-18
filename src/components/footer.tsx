@@ -5,7 +5,7 @@ import { SocialIcon } from 'react-social-icons'
 
 export function Footer() {
   return (
-    <footer className="w-11/12 bg-white ml-10 mt-20">
+    <footer className="w-11/12 bg-white lg:ml-10 ml-2 lg:mt-20 mt-10">
       <div className="flex lg:flex-row flex-col  flex-wrap items-center justify-center lg:gap-y-6 gap-y-8 lg:gap-x-12 gap-x-3 bg-white text-center md:justify-between">
         <img src="/pdsLogo.png" alt="logo-ct" className="w-1/12" />
         <div>
