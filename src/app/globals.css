@@ -19,7 +19,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: #fff;
-  /* margin: 8px !important; */
+  margin: 8px !important;
 }
 
 /* .underline { */

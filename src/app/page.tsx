@@ -41,12 +41,12 @@ export default async function Home({ }: Props) {
       {/* <SessionValidator>GAAAAAAAA</SessionValidator> */}
       {/* </SessionProvider> */}
       <Subtitle>Nuestros Paquetes</Subtitle>
-      <div className="grid lg:grid-cols-3 lg:gap-3 w-10/12 grid-cols-1 gap-2 pl-7 lg:pl-0">
-        {paquetes.map(ele => (<ProfileCard imgSrc={ele.acf.imgsrc} txt1={ele.acf.txtunico} txt2={ele.acf.price} slug={ele.slug} time={ele.acf.time} incluido={ele.acf.incluido} excluido={ele.acf.excluido} />))}
+      <div className="grid lg:grid-cols-3 lg:gap-3 w-10/12 grid-cols-1 gap-2 pl-7 lg:pl-0 gap-y-10">
+        {paquetes.map(ele => (<ProfileCard key={ele.acf.txtunico} imgSrc={ele.acf.imgsrc} txt1={ele.acf.txtunico} txt2={ele.acf.price} slug={ele.slug} time={ele.acf.time} incluido={ele.acf.incluido} excluido={ele.acf.excluido} />))}
       </div>
       <Subtitle >Destinos</Subtitle>
-      <div className="grid lg:grid-cols-3 lg:gap-3 destinoCss w-10/12 pl-7 grid-cols-1 gap-y-2 lg:pl-0">
-        {destinos.map(ele => (<BackCard imgSrc={ele.imgsrc} txt={ele.txt_unique} />))}
+      <div className="grid lg:grid-cols-3 lg:gap-3 destinoCss w-10/12 pl-0 grid-cols-1 gap-y-2 lg:pl-0">
+        {destinos.map(ele => (<BackCard key={ele.txt_unique} imgSrc={ele.imgsrc} txt={ele.txt_unique} />))}
       </div>
 
       <div className="flex lg:flex-row flex-col w-full mt-10">
