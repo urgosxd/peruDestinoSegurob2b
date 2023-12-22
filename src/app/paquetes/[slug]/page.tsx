@@ -3,7 +3,6 @@ import BackBanner from "@/components/bacBanner"
 import BackBannerDiv from "@/components/backBannerDiv"
 import Cartita from "@/components/cartita"
 
-import { Typography,Button } from "@/components/clientCompoMaterial"
 import Questions from "@/components/questions"
 
 export const generateStaticParams = async ()=>{
@@ -31,17 +30,18 @@ export default async function Paquete(props:any){
       <div className="flex flex-row w-full">
       <div className="w-1/3 p-10 flex flex-col items-center">
 
-        <Typography as="p" className="text-2xl font-bold uppercase">
+        <p
+             className="text-2xl font-bold uppercase">
             Precio por Persona
-          </Typography>
-          <Typography as="p" className="text-[#D20000] text-6xl uppercase font-bold">
+          </p>
+          <p className="text-[#D20000] text-6xl uppercase font-bold">
             US${data.price}
-          </Typography>
+          </p>
             <div className="flex flex-col mt-4">
 
-          <Button className="bg-[#D20000] rounded-none mb-3 text-md font-bold">Modificar tu Paquete</Button>
-          <Button className="bg-[#D20000]  rounded-none mb-3  text-md font-bold">Comprar</Button>
-          <Button className="bg-[#D20000] rounded-none mb-3 text-md font-bold" >Contactanos</Button>
+          <button className="bg-[#D20000] rounded-none mb-3 text-md font-bold">Modificar tu Paquete</button>
+          <button className="bg-[#D20000]  rounded-none mb-3  text-md font-bold">Comprar</button>
+          <button className="bg-[#D20000] rounded-none mb-3 text-md font-bold" >Contactanos</button>
         
           </div>
           <div>
