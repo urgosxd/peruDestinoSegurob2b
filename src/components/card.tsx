@@ -20,15 +20,24 @@ interface Props{
   incluido:string
   excluido:string
 }
+import { motion, AnimatePresence, Variants } from "framer-motion";
+
 export default function ProfileCard({imgSrc,txt1,txt2,slug,time,incluido,excluido}:Props) {
+  const CardHeaderMotion = motion(CardHeader)
   return (
     <Card className="relative grid  w-full  lg:max-w-[28rem] max-w-[20rem] p-0 border rounded-lg ">
-      <CardHeader floated={false}
+      <Link  href={`/paquetes/${slug}`}>
+      <CardHeaderMotion 
+        whileHover={{ scale: 1.05,
+  transition: { ease: "easeOut", duration: 1 },}}
+        whileTap={{ scale: 0.9 }} 
+        floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[80vh] h-[60vh]" >
+        className="m-0 w-full lg:h-[80vh] h-[60vh] cursor-pointer" >
         <Image src={imgSrc} fill  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[30vh] max-w-md"/>
-      </CardHeader>
+      </CardHeaderMotion>
+      </Link>
       <CardBody className="text-center !p-3">
         <Typography  as="p"  className="lg:mb-2 lg:text-3xl text-xl font-normal text-gray-800">
           {txt1}

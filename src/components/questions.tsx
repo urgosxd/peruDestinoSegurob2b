@@ -26,8 +26,8 @@ function CollapseDefault({question,answer}:miniProps) {
       <Collapse open={open}>
         <Card className="rounded-none ">
           <CardBody>
-            <Typography>
-              {answer}
+            <Typography as="div">
+              <div dangerouslySetInnerHTML={{__html:answer}}/>
             </Typography>
           </CardBody>
         </Card>

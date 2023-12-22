@@ -21,7 +21,7 @@ export default function BackCard({ imgSrc, txt }: Props) {
   return (
     <Card
       shadow={false}
-      className="relative grid h-[20rem] w-full max-w-[20rem] items-end lg:justify-center justify-start  overflow-hidden text-center"
+      className="relative grid h-[20rem] w-full lg:max-w-[25rem] max-w-[25rem] items-end lg:justify-center justify-start  overflow-hidden text-center"
     >
       <CardHeader
         floated={false}

@@ -35,3 +35,21 @@ div.destinoCss div{
 .paladin {
   padding-right: 50%;
 }
+
+@media (min-width: 1024px){
+  .wasgi p{
+font-size: 1.5rem; /* 18px */
+line-height: 2rem; /* 28px */
+padding-right:1.25rem;
+  }
+
+}
+.wasgi p{
+text-align: justify;
+overflow-wrap: break-word;
+}
+
+.wasgi p a{
+  font-weight: bold;
+}
+
