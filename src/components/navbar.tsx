@@ -48,7 +48,7 @@ export function NavbarDefault() {
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
 
         <Link href="/" className="w-2/12 lg:w-1/12" onClick={()=>setIdxNav(1)}>
-        <img src="/pdsLogo.png" alt="logo-ct"  />
+        <img src="/pdsLogo.png" alt="logo-ct" className="w-full" />
         </Link>
         <div className="hidden lg:block flex mb-3">
           <ul className="mt-2 mb-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-3"> 

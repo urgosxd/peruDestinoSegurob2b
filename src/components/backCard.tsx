@@ -30,7 +30,7 @@ export default function BackCard({ imgSrc, txt }: Props) {
         className={`absolute inset-0 m-0 h-full w-full rounded-none`}
       // style={{backgroundImage: `url(${imgSrc})`}}
         >
-          <Image src={imgSrc} fill={true} alt="aeo" className="rounded-none"/>
+          <Image src={imgSrc} "(max-width: 768px) 50vw, 25vw"  fill={true} alt="aeo" className="rounded-none"/>
 
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50" />
       </CardHeader>
