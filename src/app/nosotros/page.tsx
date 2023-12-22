@@ -1,7 +1,6 @@
 import BackBanner from "@/components/bacBanner"
 import { getNosotrosPage } from "../lib/wp"
 import Image from 'next/image'
-import { Typography } from "@/components/clientCompoMaterial"
 import Subtitle from "@/components/subtitle"
 
 export default async function Nosotros() {
@@ -25,13 +24,12 @@ let uniNosotros = nosotros.map(ele => ele.acf).reverse()[0]
       <div className="flex lg:flex-row flex-col mt-5 lg:mt-10 w-full px-10" >
         <div className="lg:w-1/2 w-full lg:px-10 px-0">
 
-          <Typography
-            as="h2"
+          <h2
             className="w-fit border-solid lg:text-4xl text-2xl my-2
         border-b-2 border-[#D20000] p-2 text-center font-black text-gray-700"
           >
             Nosotros
-          </Typography>
+          </h2>
           <div
             className="wasgi"
             dangerouslySetInnerHTML={{ __html: uniNosotros.parrafo }}
@@ -50,19 +48,17 @@ let uniNosotros = nosotros.map(ele => ele.acf).reverse()[0]
       <div className="flex lg:flex-row flex-col justify-center items-center lg:gap-x-16 gap-y-10 lg:mx-16 mx-0 lg:mt-28 mt-12 mb-10">
         {
           exp.map(ele => (<div className="w-1/3 flex  flex-col items-center">
-            <Typography
-              as="p"
+            <p
               className="lg:text-6xl text-5xl font-black text-[#D20000]"
             >
               {ele.rojo}
-            </Typography>
+            </p>
             <div className=" w-full">
-              <Typography
-                as="p"
+              <p
                 className="uppercase font-bold text-center w-full"
               >
                 {ele.txt}
-              </Typography>
+              </p>
 
             </div>
           </div>))
