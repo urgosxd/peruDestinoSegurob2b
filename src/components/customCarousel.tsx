@@ -8,10 +8,10 @@ interface Props{
 const CustomCarousel =({imgs}:Props) =>{
 
   return (
-    <div className="h-[40vh] lg:h-[90vh] lg:w-full w-full">
+    <div className="lg:w-full w-full">
  <Carousel autoplay loop transition={{ duration: 2 }} className="rounded-xl">
           {imgs.map((ele) => (
-            <Image src={ele.imgsrc} alt="ims" priority width={1800} height={900} className="lg:h-full h-full lg:w-full object-cover"></Image>
+            <Image src={ele.imgsrc} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority width={1500} height={900} className="lg:h-full h-full lg:w-full object-cover"></Image>
           ))}
         </Carousel>
 </div>
