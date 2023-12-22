@@ -34,8 +34,8 @@ export default function ProfileCard({imgSrc,txt1,txt2,slug,time,incluido,excluid
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[80vh] h-[40vh] cursor-pointer" >
-        <Image src={imgSrc} fill sizes="(max-width: 768px) 50vw, 100vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[30vh] max-w-md"/>
+        className="m-0 w-full lg:h-[80vh] h-[30vh] cursor-pointer" >
+        <Image src={imgSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[30vh]"/>
       </CardHeaderMotion>
       </Link>
       <CardBody className="text-center !p-3">
