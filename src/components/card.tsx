@@ -25,7 +25,7 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 export default function ProfileCard({imgSrc,txt1,txt2,slug,time,incluido,excluido}:Props) {
   const CardHeaderMotion = motion(CardHeader)
   return (
-    <Card className="relative grid  w-full  lg:max-w-[28rem] max-w-[20rem] p-0 border rounded-lg ">
+    <Card className="relative grid  w-full  lg:max-w-[28rem] max-w-[15rem] p-0 border rounded-lg ">
       <Link  href={`/paquetes/${slug}`}>
       <CardHeaderMotion 
         whileHover={{ scale: 1.05,
@@ -34,26 +34,24 @@ export default function ProfileCard({imgSrc,txt1,txt2,slug,time,incluido,excluid
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[80vh] h-[60vh] cursor-pointer" >
+        className="m-0 w-full lg:h-[80vh] h-[40vh] cursor-pointer" >
         <Image src={imgSrc} fill  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[30vh] max-w-md"/>
       </CardHeaderMotion>
       </Link>
       <CardBody className="text-center !p-3">
-        <Typography  as="p"  className="lg:mb-2 lg:text-3xl text-xl font-normal text-gray-800">
+        <Typography  as="p"  className="lg:mb-2 lg:text-3xl text-md font-normal text-gray-800">
           {txt1}
         </Typography>
-        <Typography as="p" className="font-bold lg:text-4xl text-2xl text-black" textGradient>
+        <Typography as="p" className="font-bold lg:text-4xl text-xl text-black" textGradient>
            Desde ${txt2}
         </Typography>
       </CardBody>
-      <CardFooter className="flex justify-center lg:gap-7 lg:pt-2 !p-0">
+      <CardFooter className="flex justify-center lg:gap-3 lg:pt-2 !p-0">
         <Link href={`/paquetes/${slug}`}>
 
         <Typography
-          color="white"
-          className="bg bg-[#D20000] border rounded-lg font-black text-md p-2 "
-          
-          
+            color="white"
+          className="bg bg-[#D20000] border rounded-lg lg:font-black font-bold p-2 "
         >
 
           BUY NOW
