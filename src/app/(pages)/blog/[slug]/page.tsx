@@ -3,15 +3,15 @@ import BackBanner from "@/components/bacBanner"
 import parse,{Element} from "html-react-parser"
 import Image from 'next/image'
 
-export const generateStaticParams = async ({params:{page}}:{params:{page:string}})=>{
-  // console.log(page)
-  // console.log(parseInt(page))
-  let posts:any[] =await  get9Posts(parseInt(page))
-  // console.log("GAAAAAAAAA")
-  // console.log(posts[0])
-  posts = posts.reverse()
-  return posts.map(ele=>({slug:ele.slug}))
-}
+// export const generateStaticParams = async ({params:{page}}:{params:{page:string}})=>{
+//   // console.log(page)
+//   // console.log(parseInt(page))
+//   let posts:any[] =await  get9Posts(parseInt(page))
+//   // console.log("GAAAAAAAAA")
+//   // console.log(posts[0])
+//   posts = posts.reverse()
+//   return posts.map(ele=>({slug:ele.slug}))
+// }
 
 export default async function Post(props:any){
   const post:any[] = await getPostBySlug(props.params.slug)
