@@ -34,8 +34,8 @@ export default function BackBannerDiv({ imgSrc, txt, time }: Props) {
       // style={{backgroundImage: `url(${imgSrc})`}}
       >
         <Image src={imgSrc} fill={true} priority alt="aeo" className="rounded-none" />
-
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/50 via-black/20" />
+        
       </CardHeader>
       <CardBody className="relative p-0 pr-0  pt-0">
         <div className="flex flex-col w-[98vw] px-16">
@@ -63,7 +63,7 @@ export default function BackBannerDiv({ imgSrc, txt, time }: Props) {
 
              <Typography as="p" className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4 font-semibold w-fit" > Descargar Pdf</Typography>
              <Typography as="p" className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4 font-semibold w-fit">Descargar Word</Typography>
-             <Typography as="p" className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4  font-semibold w-fit">Compartir</Typography>
+             <Typography as="p" className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4  font-semibold w-fit">Descargar Flyer</Typography>
             </div>
           </div>
 

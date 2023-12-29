@@ -1,0 +1,120 @@
+'use client'
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Tooltip,
+  Button,
+} from "@material-tailwind/react";
+import { ChevronRightIcon } from '@heroicons/react/24/outline'
+import { IconButton } from "@material-tailwind/react";
+import Image from 'next/image'
+import Link from "next/link";
+interface Props{
+  ftImageSrc:string
+  title:string
+  txtDescription:string
+  type:number
+}
+import { motion, AnimatePresence, Variants } from "framer-motion";
+
+export default function CardBlog({ftImageSrc,title,txtDescription,type}:Props) {
+  
+  const CardHeaderMotion = motion(CardHeader)
+  
+  switch (type) {
+    case 1:
+      
+      return (
+    <Card className={"relative grid  w-full  lg:max-w-[28rem] max-w-[15rem] p-0 border rounded-lg"}>
+      <Link  href={`/blog/`}>
+      <CardHeaderMotion 
+        whileHover={{ scale: 1.05,
+        transition: { ease: "easeOut", duration: 1 },}}
+        whileTap={{ scale: 0.9 }} 
+        floated={false}
+        shadow={false}
+        color="transparent"
+        className="m-0 w-full lg:h-[40vh] h-[30vh] cursor-pointer" >
+        <Image src={ftImageSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
+      </CardHeaderMotion>
+      </Link>
+
+      <CardBody className=" flex flex-col items-center justify-center">
+        <div  className="mb-4 text-gray-600 text-sm font-bold text-center">
+        {title}
+        </div>
+
+        <div  className="h-10 text-sm  w-full leading-none overflow-auto "
+          dangerouslySetInnerHTML={{__html:txtDescription}}
+        >
+          
+        </div>
+      </CardBody>
+    </Card>
+  );
+ 
+case 2:
+      return(
+      <Card className="w-full max-w-[36rem] flex-row">
+        <Link  href={`/blog/`}>
+      <CardHeaderMotion 
+        whileHover={{ scale: 1.05,
+  transition: { ease: "easeOut", duration: 1 },}}
+        whileTap={{ scale: 0.9 }} 
+        floated={false}
+        shadow={false}
+        color="transparent"
+        className="m-0 lg:w-[20vw] lg:h-[25vh] h-[20vh] cursor-pointer" >
+        <Image src={ftImageSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
+      </CardHeaderMotion>
+      </Link>
+      <CardBody>
+        <div  className="mb-4 text-gray-600 text-sm font-bold text-center">
+        {title}
+        </div>
+
+        <div  className="h-10 text-sm  w-full leading-none overflow-auto"
+          dangerouslySetInnerHTML={{__html:txtDescription}}
+        >
+          
+        </div>
+
+              </CardBody>
+    </Card>
+      )
+      break;
+    case 3:
+     return (
+      <Card className="w-full max-w-[44rem] flex-row">
+        <Link  href={`/blog/`}>
+      <CardHeaderMotion 
+        whileHover={{ scale: 1.05,
+  transition: { ease: "easeOut", duration: 1 },}}
+        whileTap={{ scale: 0.9 }} 
+        floated={false}
+        shadow={false}
+        color="transparent"
+        className="m-0 lg:w-[28vw] lg:h-[60vh] h-[30vh] cursor-pointer" >
+        <Image src={ftImageSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
+      </CardHeaderMotion>
+      </Link>
+      <CardBody>
+        <div  className="mb-4 text-gray-600 text-sm font-bold text-center">
+        {title}
+        </div>
+
+        <div  className="h-10 text-sm  w-full leading-none overflow-auto"
+          dangerouslySetInnerHTML={{__html:txtDescription}}
+        >
+        </div>
+              </CardBody>
+    </Card>
+      ) 
+      break;
+    default:
+      break;
+  }
+  return }

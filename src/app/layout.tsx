@@ -5,7 +5,7 @@ import NextAuthProvider from "@/app/context/NextAuthProvider"
 import { NavbarDefault } from '@/components/navbar';
 import Theme from '@/components/theme';
 import { Footer } from '@/components/footer';
-
+import Script from 'next/script'
 const font = Nunito({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -24,11 +24,7 @@ export default function RootLayout({
       
       <Theme>
       <body className={font.className+ ""}>
-          <NavbarDefault></NavbarDefault>
-            <main>
-              {children}
-            </main>
-            <Footer></Footer>
+        {children}
       </body>
       </Theme>
     </html>

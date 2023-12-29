@@ -23,7 +23,7 @@ function getPath(str: string) {
 }
 export function NavbarDefault() {
   const [openNav, setOpenNav] = React.useState(false);
-  const navNames = ["inicio", "nosotros", "blog", "contacto","calendario"]
+  const navNames = ["inicio","destinos", "nosotros", "blog", "contacto","calendario"]
   // const [tab,setTab] = React.useState(navNames[0]) 
 
   React.useEffect(() => {

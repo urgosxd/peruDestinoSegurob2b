@@ -1,6 +1,6 @@
 import FakeFooter from "@/components/SideFakeFooter";
 import ContactoForm from "@/components/formContacto";
-import { getContactoPage } from "../lib/wp";
+import { getContactoPage } from "@/app/lib/wp";
 import BackBanner from "@/components/bacBanner";
 
 

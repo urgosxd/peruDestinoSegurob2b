@@ -1,9 +1,9 @@
 import axios from "axios"
 const API_URL = process.env.WORDPRESS_API_URL!!
 
-async function fetchAPI(query = '',variable="xx") {
-  console.log(API_URL+"GAAAAAAAAAAAAAAa")
-  const headers:any = { 'Content-Type': 'application/json' }
+async function fetchAPI(query = '', variable:string[] =[ ]) {
+  console.log(API_URL + "GAAAAAAAAAAAAAAa")
+  const headers: any = { 'Content-Type': 'application/json' }
 
   // if (process.env.WORDPRESS_AUTH_REFRESH_TOKEN) {
   //   headers['authorization'] = `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`
@@ -11,14 +11,14 @@ async function fetchAPI(query = '',variable="xx") {
 
   // WPGraphQL Plugin must be enabled
 
-  if(variable !=  "xx"){
-  try{
-  const res = await axios.get(API_URL+query+'?acf_format=standard&slug='+variable)
-  const data = await res.data
+  if (variable.length > 0) {
+    try {
+      const res = await axios.get(API_URL + query + '?acf_format=standard&' + variable.join("&"))
+      const data = await res.data
       return data
     }
-    catch(error){
-      if(axios.isAxiosError(error)){
+    catch (error) {
+      if (axios.isAxiosError(error)) {
         console.log(error.message)
       }
 
@@ -26,15 +26,15 @@ async function fetchAPI(query = '',variable="xx") {
 
 
 
-  }else{
-    
-    try{
-    const res = await axios.get(API_URL+query+'?acf_format=standard')
-  const data = await res.data
+  } else {
+
+    try {
+      const res = await axios.get(API_URL + query + '?acf_format=standard')
+      const data = await res.data
       return data
     }
-    catch(error){
-      if(axios.isAxiosError(error)){
+    catch (error) {
+      if (axios.isAxiosError(error)) {
         console.log(error.message)
       }
 
@@ -70,33 +70,54 @@ export async function getAllDestinos() {
   const data = await fetchAPI('destino/')
   return data
 }
-export async function getAllImgCarousel(){
+export async function getAllImgCarousel() {
   const data = await fetchAPI('imgcarousel/')
   return data
 }
-export async function getAllPregFrecuentes(){
+export async function getAllPregFrecuentes() {
   const data = await fetchAPI('pregfrecuente/')
   return data
 }
 
-export async function getNosotrosPage(){
+export async function getNosotrosPage() {
   const data = await fetchAPI('nosotros_page/')
   return data
 }
 
-export async function getPaqueteBySlug(slug:string){
-  const data = await fetchAPI("paquete/",slug)
+export async function getPaqueteBySlug(slug: string) {
+  const data = await fetchAPI("paquete/", [`slug=${slug}`])
   return data
 }
-export async function getContactoPage(){
+export async function getContactoPage() {
   const data = await fetchAPI('contacto/')
   return data
 }
-export async function getBlogPage(){
+export async function getBlogPage() {
   const data = await fetchAPI('blog_page/')
   return data
 }
-export async function getCalendarioPage(){
+export async function getCalendarioPage() {
   const data = await fetchAPI('calendario_page/')
+  return data
+}
+
+export async function get9Posts(page:number) {
+  const data = await fetchAPI('posts/',[`per_page=9`,`page=${page}`])
+  return data
+}
+export async function getPostBySlug(slug: string) {
+  const data = await fetchAPI("posts/", [`slug=${slug}`])
+  return data
+}
+export async function getDestinoCusco() {
+  const data = await fetchAPI('destinos_cusco/')
+  return data
+}
+export async function getDestinoArequipa() {
+  const data = await fetchAPI('destinos_arequipa/')
+  return data
+}
+export async function getDestinoPuno() {
+  const data = await fetchAPI('destinos_puno/')
   return data
 }

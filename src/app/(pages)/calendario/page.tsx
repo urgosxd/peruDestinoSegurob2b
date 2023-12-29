@@ -1,6 +1,6 @@
 import FakeFooter from "@/components/SideFakeFooter";
 import ContactoForm from "@/components/formContacto";
-import { getAllPaquetes, getCalendarioPage, getContactoPage } from "../lib/wp";
+import { getAllPaquetes, getCalendarioPage, getContactoPage } from "@/app/lib/wp";
 import BackBanner from "@/components/bacBanner";
 import CustomEventCalendarByYear from "@/components/calendarGetTimes";
 

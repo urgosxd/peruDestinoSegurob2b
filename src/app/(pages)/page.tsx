@@ -3,11 +3,11 @@ import SessionValidator from "@/components/sessionValidator"
 import SessionProvider from "@/app/context/NextAuthProvider"
 import CustomCarousel from '@/components/customCarousel'
 import Subtitle from '@/components/subtitle'
-import ProfileCard from '@/components/card'
+import ProfileCard from '@/components/cardPaquetes'
 // import paquetes from "@/app/lib/paquetes"
 // import destinos from './lib/destinos'
 import BackCard from '@/components/backCard'
-import { getAllDestinos, getAllPaquetes, getAllImgCarousel, getAllPregFrecuentes } from './lib/wp'
+import { getAllDestinos, getAllPaquetes, getAllImgCarousel, getAllPregFrecuentes } from '@/app/lib/wp'
 import { GetStaticProps, NextPage } from 'next'
 import Questions from '@/components/questions'
 import AgenciaForm from '@/components/formAgencio'
