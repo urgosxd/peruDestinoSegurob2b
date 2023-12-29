@@ -26,13 +26,13 @@ export default function DefaultPagination({active}:Props) {
   const next = () => {
     if (active === 5) return;
     
-    router.push(`blog/${active+1}`);
+    router.push(`blog?page=${active+1}`);
   };
  
   const prev = () => {
     if (active === 1) return;
  
-    router.push(`blog/${active-1}`);
+    router.push(`blog?page=${active-1}`);
   };
 
   

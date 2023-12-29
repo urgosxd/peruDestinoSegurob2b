@@ -38,7 +38,7 @@ export default function CardBlog({ftImageSrc,title,txtDescription,type}:Props) {
         shadow={false}
         color="transparent"
         className="m-0 w-full lg:h-[40vh] h-[30vh] cursor-pointer" >
-        <Image src={ftImageSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
+        <Image src={ftImageSrc || ""} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
       </CardHeaderMotion>
       </Link>
 
@@ -68,7 +68,7 @@ case 2:
         shadow={false}
         color="transparent"
         className="m-0 lg:w-[20vw] lg:h-[25vh] h-[20vh] cursor-pointer" >
-        <Image src={ftImageSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
+        <Image src={ftImageSrc || ""} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
       </CardHeaderMotion>
       </Link>
       <CardBody>
@@ -98,7 +98,7 @@ case 2:
         shadow={false}
         color="transparent"
         className="m-0 lg:w-[28vw] lg:h-[60vh] h-[30vh] cursor-pointer" >
-        <Image src={ftImageSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
+        <Image src={ftImageSrc || ""} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
       </CardHeaderMotion>
       </Link>
       <CardBody>
