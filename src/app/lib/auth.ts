@@ -53,10 +53,10 @@ const authOptions: NextAuthOptions = {
 
       if (account?.provider == "google") {
         const { access_token, id_token } = account;
-        console.log(account)
+        // console.log(account)
         // console.log(email)
-        console.log(user)
-        console.log(process.env.DJANGOURL)
+        // console.log(user)
+        // console.log(process.env.DJANGOURL)
         try {
           const response = await axios.post<TokenResponse>(
             process.env.DJANGOURL + "/api/social/google/",
@@ -71,8 +71,8 @@ const authOptions: NextAuthOptions = {
 
           const tokken = response.data;
           user.accessToken = tokken.access;
-          // console.log(user);
-          // console.log("GAAA");
+          console.log(user);
+          console.log("GAAA");
           // NextResponse.redirect("/dashboard")
           return true;
         } catch (error: any) {
