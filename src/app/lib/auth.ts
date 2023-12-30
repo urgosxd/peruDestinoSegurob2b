@@ -73,7 +73,7 @@ const authOptions: NextAuthOptions = {
           user.accessToken = tokken.access;
           // console.log(user);
           // console.log("GAAA");
-          NextResponse.redirect("/dashboard")
+          // NextResponse.redirect("/dashboard")
           return true;
         } catch (error: any) {
           console.log("NOOO")
