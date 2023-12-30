@@ -8,20 +8,30 @@ interface Props {
   id:number
   idxNavState:number
 }
+
+const NamesNavbar2URL:{[key:string]:string} = {
+  "inicio":"/",
+  "destinos":"/destinos",
+  "nosotros": "/nosotros",
+  "blog": "/blog?page=1",
+  "contacto": "/contacto",
+  "Salidas Grupales": "/salidasGrupales"
+
+}
 export default function LiNav({txt,setIdxNav,idxNavState,id}:Props){
     return (<Typography
         as="li"
         color="blue-gray"
-        className="flex lg:justify-center justify-start pt-0 font-bold w-32"
+        className={`flex lg:justify-center justify-start pt-0 font-bold ${(txt == "Salidas Grupales") ? "w-50":"w-32"}`}
       >
     <Link
-    href={id==1 ? "/":"/"+txt +"/"}
+    href={NamesNavbar2URL[txt]}
       className="flex flex-col gap-x-2"
         onClick={()=>setIdxNav(id)}
     >
-     <p  className="mt-7 p-2 lg:text-center uppercase text-md lg:text-lg">
+     <div  className="mt-7 p-2 lg:text-center uppercase text-md lg:text-md">
       {txt}
-        </p>
+        </div>
         
       {/* {txt == idxNavState ? <motion.div  className="underline" layoutId="underline"/>:null} */}
     </Link>

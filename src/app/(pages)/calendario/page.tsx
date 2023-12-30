@@ -27,6 +27,7 @@ export default async  function Calendario() {
       <BackBanner imgSrc={contactoUnico.acf.imgback} txt="Nuestros proximos viajes" />
       <div className="mt-12 w-full flex flex-col items-center">
             <CustomEventCalendarByYear data={paquetesDate} year="2023" currentMonth={mes.getMonth()}/>
+        
       </div>
         
     </div>

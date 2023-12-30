@@ -109,6 +109,10 @@ export async function getPostBySlug(slug: string) {
   const data = await fetchAPI("posts/", [`slug=${slug}`])
   return data
 }
+export async function getDestinosPage() {
+  const data = await fetchAPI('destinos_page/')
+  return data
+}
 export async function getDestinoCusco() {
   const data = await fetchAPI('destinos_cusco/')
   return data
@@ -121,3 +125,11 @@ export async function getDestinoPuno() {
   const data = await fetchAPI('destinos_puno/')
   return data
 }
+export async function getAllSalidasGrupales() {
+  const data = await fetchAPI('salida_grupal/')
+  return data
+  }
+export async function getSalidasBySlug(slug:string) {
+  const data = await fetchAPI('salida_grupal/',[`slug=${slug}`])
+  return data
+  }

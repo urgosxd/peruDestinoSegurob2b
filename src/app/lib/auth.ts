@@ -2,6 +2,7 @@ import axios from "axios";
 import { NextAuthOptions,Awaitable } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials"
+import { NextResponse } from "next/server";
 
 type TokenResponse = {
   access?: string;
@@ -72,6 +73,7 @@ const authOptions: NextAuthOptions = {
           user.accessToken = tokken.access;
           // console.log(user);
           // console.log("GAAA");
+          NextResponse.redirect("/dashboard")
           return true;
         } catch (error: any) {
           console.log("NOOO")
