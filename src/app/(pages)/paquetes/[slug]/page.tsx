@@ -36,7 +36,7 @@ export default async function Paquete(props:any){
     ['/ASES.png',"HAZTE SOCIO COMERCIAL"," ","Ser socio"]
   ]
   return (
-  <div  className="w-[100vw] flex flex-col items-center">
+  <div  className="w-[98vw] flex flex-col items-center">
     <BackBannerDiv imgSrc={data.imgback} txt={data.txtunico} time={data.time}/>
       <div className="flex flex-row w-full mb-10">
       <div className="w-1/3 p-10 flex flex-col items-center mt-16">

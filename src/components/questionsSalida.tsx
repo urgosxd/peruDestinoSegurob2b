@@ -22,8 +22,8 @@ function CollapseDefault({ question, answer,paquete }: miniProps) {
   const toggleOpen = () => setOpen((cur) => !cur);
 
   return (
-    <div className="w-full items-left">
-      <Button aria-label="close-Open" className={`${paquete?"rounded-lg":"rounded-none"} ${paquete ? "font-bold":"font-normal"} py-4 ${paquete?"text-xl":"text-md"} text-left w-full ${paquete?"text-gray-600":"text-gray-900"} flex justify-between ${paquete ?"bg-gray-200":"bg-white"}`} onClick={toggleOpen}>{question}{open ? <ChevronDownIcon className="w-3 inline-block" /> : <ChevronUpIcon className="w-3 inline-block" />}</Button>
+    <div className="w-full items-center  !justify-start">
+      <Button aria-label="close-Open" className={`lowercase capitalize  ${paquete?"rounded-lg":"rounded-none"} ${paquete ? "font-bold":"font-normal"} py-4 ${paquete?"text-lg":"text-md"} text-left w-full ${paquete?"text-gray-600":"text-gray-900"} flex justify-start ${paquete ?"bg-gray-200":"bg-white"}`} onClick={toggleOpen}>{open ? <ChevronDownIcon className="w-3 mr-3" /> : <ChevronUpIcon className="w-3 mr-3" />}  {question}</Button>
       <Collapse open={open}>
         <Card className="rounded-none ">
           <CardBody>
@@ -42,7 +42,7 @@ interface Props {
   paquete?: boolean
 }
 
-export default function Questions({ questionAnswer, paquete=false }: Props) {
+export default function QuestionsSalida({ questionAnswer, paquete=false }: Props) {
 
   return (
     <div className={`flex flex-col items-center ${paquete ? "gap-y-5" : ""}`}>

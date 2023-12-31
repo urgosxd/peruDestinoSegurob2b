@@ -29,7 +29,7 @@ const meses:{[key:string]:string} = {
   "12":"diciembre"
 }
 function setEvents(data:any[],year:string){
- const customState:{[key:string]:{d:string,m:string,imgsrc:string,time:string,title:string}[]} = {
+ const customState:{[key:string]:{d:string,m:string,imgsrc:string,time:string,title:string,slug:string}[]} = {
   enero:[],
   febrero:[],
   marzo:[],
@@ -43,7 +43,7 @@ function setEvents(data:any[],year:string){
   noviembre:[],
   diciembre:[]
 }   
-  const customStateNext:{[key:string]:{d:string,m:string,imgsrc:string,time:string,title:string}[]} = {
+  const customStateNext:{[key:string]:{d:string,m:string,imgsrc:string,time:string,title:string,slug:string}[]} = {
   enero1:[],
   febrero1:[],
   marzo1:[],
@@ -76,10 +76,10 @@ function setEvents(data:any[],year:string){
   filtByYears.forEach(ele => {
     if (ele.date.a == year){
 
-    customState[meses[ele.date.m]].push({d:ele.date.d,m:ele.date.m,time:ele.acf.time,imgsrc:(ele.acf.imgsrc),title:ele.title.rendered})
+    customState[meses[ele.date.m]].push({d:ele.date.d,m:ele.date.m,time:ele.acf.time,imgsrc:(ele.acf.imgsrc),title:ele.title.rendered,slug:ele.slug})
     }
     else{
-    customStateNext[meses[ele.date.m]+"1"].push({d:ele.date.d,m:ele.date.m ,time:ele.acf.time,imgsrc:(ele.acf.imgsrc),txt:ele.title.rendered})
+    // customStateNext[meses[ele.date.m]+"1"].push({d:ele.date.d,m:ele.date.m ,time:ele.acf.time,imgsrc:(ele.acf.imgsrc),txt:ele.title.rendered})
     }
   });
 
@@ -123,7 +123,7 @@ export default function CustomEventSalidasByYear({data, year,currentMonth}:Props
         ele[1].length > 0  &&  <div className="capitalize font-bold text-black text-lg">        
       {ele[0]}  {year} / {ele[1].length} opciones disponibles
           <div className="flex flex-row gap-x-5 mt-5">
-            {ele[1].map(ele=>(<CardSalidas ftImageSrc={ele.imgsrc} title={ele.title} time={ele.time} fecha={`${ele.d} ${meses[ele.d]} `} />))}
+            {ele[1].map(ele=>(<CardSalidas ftImageSrc={ele.imgsrc} title={ele.title} time={ele.time} fecha={`${ele.d} ${meses[ele.d]} `} slug={ele.slug} />))}
           </div>
          </div>
     )}

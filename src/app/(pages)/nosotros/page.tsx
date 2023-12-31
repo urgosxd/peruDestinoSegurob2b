@@ -15,6 +15,7 @@ let uniNosotros = nosotros.map(ele => ele.acf).reverse()[0]
     { img: "./LEALTAD.png", txt: "Lealtad" }, { img: "./iconitoVal.png", txt: "Honestidad" },
     { img: "./PUNTUALIDAD.png", txt: "Puntualidad" },
     { img: "./iconitoVal.png", txt: "Disciplina" },
+    {img:"./candado.png",txt:"Confidencialidad"}
     // {img: "./"}
   ]
   const Datalegal = [
@@ -81,7 +82,7 @@ let uniNosotros = nosotros.map(ele => ele.acf).reverse()[0]
       </Subtitle>
       <div className="mb-10">
         <div className="flex lg:flex-row lg:gap-x-16 flex-col gap-x-0 gap-y-10 lg:gap-y-0">
-          {valores.map(ele => (<div className="lg:w-3/12 w-full flex flex-col items-center"><img src={ele.img} className="w-20 h-16" /> <p className="w-full text-center">{ele.txt}</p></div>))}
+          {valores.map(ele => (<div className="lg:w-2/12 w-full flex flex-col items-center"><img src={ele.img} className="w-20 h-16" /> <p className="w-full text-center">{ele.txt}</p></div>))}
         </div>
       </div>
       <Subtitle>

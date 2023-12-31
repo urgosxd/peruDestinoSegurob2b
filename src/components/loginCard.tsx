@@ -15,7 +15,7 @@ import { SocialIcon } from "react-social-icons";
 
 export  async function LoginCard({providers}:{providers:Record<LiteralUnion<BuiltInProviderType, string>, ClientSafeProvider> | null}) {
   return (
-    <Card className="w-96 bg-transparent rounded-3xl pt-10">
+    <Card className="w-[30vw] bg-transparent rounded-3xl pt-10 p-5">
         <div className="rounded-3xl to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/80 via-black/50 z-0" />
       <CardBody className="flex flex-col gap-0 z-10">
            <div className="text-white text-5xl font-extrabold text-center">¡Bienvenido!</div>
@@ -23,7 +23,7 @@ export  async function LoginCard({providers}:{providers:Record<LiteralUnion<Buil
             <div className="flex flex-row gap-x-10 justify-center mt-5">
             <SocialIcon  network="facebook" as="div" style={{height:35,width:35}} className="cursor-pointer"/>
             {Object.values(providers!!).map(ele=>{
-          return ele.name == "Google" && <img src="/google.svg" className="w-7 cursor-pointer" onClick={()=>signIn(ele.id)}/>
+          return ele.name == "Google" && <img src="/google.svg" className="w-7 cursor-pointer" onClick={()=>signIn(ele.id,{callbackUrl:"/dashboard"})}/>
         })}
             </div>
 

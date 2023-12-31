@@ -17,7 +17,8 @@
     "next-auth": "^4.24.5",
     "react": "^18",
     "react-dom": "^18",
-    "react-social-icons": "^6.7.0"
+    "react-social-icons": "^6.7.0",
+    "react-spinners": "^0.13.8"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -17,10 +17,11 @@ interface Props{
   title:string
   txtDescription:string
   type:number
+  slug:string
 }
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
-export default function CardBlog({ftImageSrc,title,txtDescription,type}:Props) {
+export default function CardBlog({ftImageSrc,title,txtDescription,type,slug}:Props) {
   
   const CardHeaderMotion = motion(CardHeader)
   
@@ -29,7 +30,7 @@ export default function CardBlog({ftImageSrc,title,txtDescription,type}:Props) {
       
       return (
     <Card className={"relative grid  w-full  lg:max-w-[28rem] max-w-[15rem] p-0 border rounded-lg"}>
-      <Link  href={`/blog/`}>
+      <Link  href={`/blog/${slug}`}>
       <CardHeaderMotion 
         whileHover={{ scale: 1.05,
         transition: { ease: "easeOut", duration: 1 },}}

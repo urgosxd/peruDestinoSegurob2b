@@ -17,17 +17,18 @@ interface Props{
   title:string
   fecha:string
   time:string
+  slug:string
 }
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
-export default function CardSalidas({ftImageSrc,title,fecha,time}:Props) {
+export default function CardSalidas({ftImageSrc,title,fecha,time,slug}:Props) {
   
   const CardHeaderMotion = motion(CardHeader)
   
       
       return (
     <Card className={"relative grid  w-full  lg:max-w-[20rem] max-w-[15rem] p-0 border rounded-lg"}>
-      <Link  href={`/blog/`}>
+      <Link  href={`/salidasGrupales/${slug}`}>
       <CardHeaderMotion 
         whileHover={{ scale: 1.05,
         transition: { ease: "easeOut", duration: 1 },}}
@@ -41,10 +42,10 @@ export default function CardSalidas({ftImageSrc,title,fecha,time}:Props) {
       </Link>
 
       <CardBody className="p-1 flex flex-col items-start justify-center gap-y-0">
-        <div  className="mb-4 text-gray-600 text-sm font-bold text-center">
-        {title} {time}
+        <div  className="mb-0 text-gray-700 text-sm font-bold text-center uppercase">
+        {title} {time.split("-")[0]} dias {time.split("-")[1]} noches
         </div>
-          <div>{fecha}</div>
+          <div className="text-sm text-gray-500">{fecha}</div>
         <div className="w-full flex flex-row justify-end"> 
 
         <button className="bg bg-[#D20000] px-2 py-1 text-white rounded-lg text-lg">Ver Detalles</button>

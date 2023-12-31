@@ -18,9 +18,9 @@ const TopGrid = ({data}:PropsChild) => {
     console.log(data)
   return (
     <div className="containerTop px-5">
-      <div className="one p-10"><CardBlog title={data[0].title.rendered} ftImageSrc={data[0].featured_media_src_url} txtDescription={data[0].excerpt.rendered} type={1} /></div>
-      <div className="two p-10"><CardBlog  title={data[1].title.rendered} ftImageSrc={data[1].featured_media_src_url} txtDescription={data[1].excerpt.rendered} type={1}/></div>
-      <div className="three flex p-10"> <CardBlog title={data[2].title.rendered}  ftImageSrc={data[2].featured_media_src_url} txtDescription={data[2].excerpt.rendered} type={1}/></div>
+      <div className="one p-10"><CardBlog title={data[0].title.rendered} ftImageSrc={data[0].featured_media_src_url} txtDescription={data[0].excerpt.rendered} type={1} slug={data[0].slug}/></div>
+      <div className="two p-10"><CardBlog  title={data[1].title.rendered} ftImageSrc={data[1].featured_media_src_url} txtDescription={data[1].excerpt.rendered} type={1} slug={data[1].slug}/></div>
+      <div className="three flex p-10"> <CardBlog title={data[2].title.rendered}  ftImageSrc={data[2].featured_media_src_url} txtDescription={data[2].excerpt.rendered} type={1} slug={data[2].slug}/></div>
     </div>
   ) 
 }
@@ -29,9 +29,9 @@ const TopGrid = ({data}:PropsChild) => {
 const MidGrid = ({data}:PropsChild) => {
   return (
     <div className="containerMid px-5">
-      <div className="gaaaaMid px-10"> <CardBlog  title={data[0].title.rendered} ftImageSrc={data[0].featured_media_src_url} txtDescription={data[0].excerpt.rendered} type={3}/></div>
-      <div className="minigaMid p-5"> <CardBlog  title={data[1].title.rendered} ftImageSrc={data[1].featured_media_src_url} txtDescription={data[1].excerpt.rendered} type={2}/></div>
-      <div className="midgaMid p-5"> <CardBlog  title={data[2].title.rendered} ftImageSrc={data[2].featured_media_src_url} txtDescription={data[2].excerpt.rendered} type={2}/></div>
+      <div className="gaaaaMid px-10"> <CardBlog  title={data[0].title.rendered} ftImageSrc={data[0].featured_media_src_url} txtDescription={data[0].excerpt.rendered} type={3} slug={data[0].slug}/></div>
+      <div className="minigaMid p-5"> <CardBlog  title={data[1].title.rendered} ftImageSrc={data[1].featured_media_src_url} txtDescription={data[1].excerpt.rendered} type={2} slug={data[1].slug}/></div>
+      <div className="midgaMid p-5"> <CardBlog  title={data[2].title.rendered} ftImageSrc={data[2].featured_media_src_url} txtDescription={data[2].excerpt.rendered} type={2} slug={data[2].slug}/></div>
     </div>
   )
 }
@@ -39,9 +39,9 @@ const MidGrid = ({data}:PropsChild) => {
 const BotGrid = ({data}:PropsChild) => {
   return (
     <div className="containerBot px-5">
-      <div className="minigaBot p-5 px-10">   <CardBlog  title={data[0].title.rendered} ftImageSrc={data[0].featured_media_src_url} txtDescription={data[0].excerpt.rendered} type={2}/></div>
-      <div className="midgaBot p-5 px-10">   <CardBlog  title={data[1].title.rendered} ftImageSrc={data[1].featured_media_src_url} txtDescription={data[1].excerpt.rendered} type={2}/></div>
-      <div className="gaaaaBot px-10">  <CardBlog  title={data[2].title.rendered} ftImageSrc={data[2].featured_media_src_url} txtDescription={data[2].excerpt.rendered} type={3}/></div>
+      <div className="minigaBot p-5 px-10">   <CardBlog  title={data[0].title.rendered} ftImageSrc={data[0].featured_media_src_url} txtDescription={data[0].excerpt.rendered} type={2} slug={data[0].slug}/></div>
+      <div className="midgaBot p-5 px-10">   <CardBlog  title={data[1].title.rendered} ftImageSrc={data[1].featured_media_src_url} txtDescription={data[1].excerpt.rendered} type={2} slug={data[1].slug}/></div>
+      <div className="gaaaaBot px-10">  <CardBlog  title={data[2].title.rendered} ftImageSrc={data[2].featured_media_src_url} txtDescription={data[2].excerpt.rendered} type={3} slug={data[2].slug}/></div>
     </div>
   )
 }
