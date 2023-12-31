@@ -21,7 +21,7 @@ export {default} from "next-auth/middleware"
 
 
 export const config = {
-  matcher : ["/oaeu"],
-  // matcher : ["/dashboard"]
+  // matcher : ["/oaeu"],
+  matcher : ["/dashboard/:path*"]
 }
 
