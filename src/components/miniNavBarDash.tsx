@@ -8,6 +8,7 @@ import {
 } from "@material-tailwind/react";
 import {Bars3Icon} from '@heroicons/react/24/outline'
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 interface Props {
   action:()=>void
 }
@@ -43,6 +44,7 @@ export function MiniNavbar({action}:Props) {
 
         <div className="hidden lg:block">{navList}</div>
         <div className="flex items-center gap-x-1">
+          <button className="lg:inline-block bg bg-[#D20000] text-white p-2 px-2" onClick={()=>signOut({callbackUrl:"/"})}> Salir </button>
        </div>
       </div>
           </Navbar>
