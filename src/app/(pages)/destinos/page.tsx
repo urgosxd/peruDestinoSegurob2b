@@ -19,7 +19,7 @@ export default async function Destinos() {
   return (
     <div className="w-[98vw] flex flex-col items-center">
 
-      <BackBanner imgSrc={unicoDestinos.imgback} txt="Acerca de Nosotros" />
+      <BackBanner imgSrc={unicoDestinos.imgback} txt="Nuestros Destinos" />
       <Subtitle>
         Cusco
       </Subtitle>

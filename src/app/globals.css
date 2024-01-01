@@ -37,15 +37,7 @@ div.destinoCss div{
   padding-right: 50%;
 }
 
-@media (min-width: 1024px){
-  .wasgi p{
-font-size: 1.25rem; /* 18px */
-line-height: 2rem; /* 28px */
-padding-right:1.25rem;
-  }
 
-
-}
 
 .subtitle:after {
     content: ""; /* This is necessary for the pseudo element to work. */ 
@@ -66,23 +58,54 @@ overflow-wrap: break-word;
 .wasgi p a{
   font-weight: bold;
 }
-.containerTop {  display: grid;
+
+.containerTop {
+    display:grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+.containerMid {
+    display:grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+.containerBot {
+    display:grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+
+
+
+
+
+.dataLegal {
+border-top-width: 0 !important;
+}
+
+.font-expand{
+    font-stretch: expanded;
+}
+@media (min-width: 1024px){
+  .wasgi p{
+font-size: 1.25rem; /* 18px */
+line-height: 2rem; /* 28px */
+padding-right:1.25rem;
+  }
+ .containerTop {  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
     "one two three";
-}
-
-.one { grid-area: one; }
+} 
+ .one { grid-area: one; }
 
 .two { grid-area: two; }
 
 .three { grid-area: three; }
 
-
-.containerMid {  display: grid;
+ .containerMid {  display: grid;
   grid-template-columns: 1fr 1fr 1.75fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
@@ -97,7 +120,6 @@ overflow-wrap: break-word;
 .minigaMid { grid-area: minigaMid; }
 
 .midgaMid { grid-area: midgaMid; }
-
 
 .containerBot {  display: grid;
   grid-template-columns: 1.75fr 1fr 1fr;
@@ -115,10 +137,8 @@ overflow-wrap: break-word;
 
 .midgaBot { grid-area: midgaBot; }
 
-.dataLegal {
-border-top-width: 0 !important;
-}
 
-.font-expand{
-    font-stretch: expanded;
+
+  
+
 }

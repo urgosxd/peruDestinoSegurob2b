@@ -26,13 +26,13 @@ export default function DefaultPagination({active}:Props) {
   const next = () => {
     if (active === 5) return;
     
-    router.push(`blog?page=${active+1}`);
+    router.push(`blog?page=${active+1}`,{scroll:false});
   };
  
   const prev = () => {
     if (active === 1) return;
  
-    router.push(`blog?page=${active-1}`);
+    router.push(`blog?page=${active-1}`,{scroll:false});
   };
 
   
@@ -44,7 +44,8 @@ export default function DefaultPagination({active}:Props) {
         onClick={prev}
         disabled={active === 1}
       >
-        <ArrowLeftIcon strokeWidth={2} className="h-4 w-4" /> Previous
+        <ArrowLeftIcon strokeWidth={2} color="#D20000" className="h-4 w-4" /> 
+        Anterior
       </Button>
             <div className="flex items-center gap-2">
         {/* <IconButton {...getItemProps(1)}>1</IconButton> */}
@@ -59,8 +60,8 @@ export default function DefaultPagination({active}:Props) {
         onClick={next}
         disabled={active === 5}
       >
-        Next
-        <ArrowRightIcon strokeWidth={2} className="h-4 w-4" />
+        Siguiente
+        <ArrowRightIcon strokeWidth={2} color="#D20000" className="h-4 w-4" />
       </Button>
     </div>
   );

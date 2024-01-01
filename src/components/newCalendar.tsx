@@ -122,7 +122,7 @@ export default function CustomEventSalidasByYear({data, year,currentMonth}:Props
       {Object.entries(datas).map(ele=>
         ele[1].length > 0  &&  <div className="capitalize font-bold text-black text-lg">        
       {ele[0]}  {year} / {ele[1].length} opciones disponibles
-          <div className="flex flex-row gap-x-5 mt-5">
+          <div className="flex flex-col lg:flex-row lg:gap-x-5 mt-5">
             {ele[1].map(ele=>(<CardSalidas ftImageSrc={ele.imgsrc} title={ele.title} time={ele.time} fecha={`${ele.d} ${meses[ele.d]} `} slug={ele.slug} />))}
           </div>
          </div>

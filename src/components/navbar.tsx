@@ -44,7 +44,7 @@ export function NavbarDefault() {
     })
   }
   return (
-    <Navbar className="w-full mx-auto  px-3  py-3 lg:px-0 lg:py-0">
+    <Navbar className="w-full mx-auto  py-3 lg:px-0 lg:py-0  " shadow={false}>
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
 
         <Link href="/" className="w-2/12 lg:w-1/12" onClick={()=>setIdxNav(1)}>

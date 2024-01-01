@@ -30,8 +30,8 @@ export default async function BlogPage({searchParams}:Props){
   return (
   <div className="flex flex-col w-[98vw] items-center">
       <BackBanner imgSrc={blogUnico.acf.imgback} txt="Blog" />
-        <CompleteGrid data={posts}/>
       <DefaultPagination active={page}/>
+        <CompleteGrid data={posts}/>
       </div>
   )
 }

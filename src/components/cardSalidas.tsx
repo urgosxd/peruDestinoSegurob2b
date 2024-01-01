@@ -27,7 +27,7 @@ export default function CardSalidas({ftImageSrc,title,fecha,time,slug}:Props) {
   
       
       return (
-    <Card className={"relative grid  w-full  lg:max-w-[20rem] max-w-[15rem] p-0 border rounded-lg"}>
+    <Card className={"relative grid  w-full  lg:max-w-[25rem] max-w-[20rem] p-0 border rounded-lg"}>
       <Link  href={`/salidasGrupales/${slug}`}>
       <CardHeaderMotion 
         whileHover={{ scale: 1.05,
@@ -41,7 +41,7 @@ export default function CardSalidas({ftImageSrc,title,fecha,time,slug}:Props) {
       </CardHeaderMotion>
       </Link>
 
-      <CardBody className="p-1 flex flex-col items-start justify-center gap-y-0">
+      <CardBody className="p-2 flex flex-col items-start justify-center gap-y-0">
         <div  className="mb-0 text-gray-700 text-sm font-bold text-center uppercase">
         {title} {time.split("-")[0]} dias {time.split("-")[1]} noches
         </div>

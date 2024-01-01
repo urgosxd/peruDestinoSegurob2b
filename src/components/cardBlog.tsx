@@ -48,7 +48,7 @@ export default function CardBlog({ftImageSrc,title,txtDescription,type,slug}:Pro
         {title}
         </div>
 
-        <div  className="h-10 text-sm  w-full leading-none overflow-auto "
+        <div  className="h-10 text-sm  w-full leading-none text-wrap line-clamp-3"
           dangerouslySetInnerHTML={{__html:txtDescription}}
         >
           
@@ -59,7 +59,7 @@ export default function CardBlog({ftImageSrc,title,txtDescription,type,slug}:Pro
  
 case 2:
       return(
-      <Card className="w-full max-w-[36rem] flex-row">
+      <Card className="w-full  max-w-[15rem] lg:max-w-[36rem] lg:flex-row ">
         <Link  href={`/blog/`}>
       <CardHeaderMotion 
         whileHover={{ scale: 1.05,
@@ -68,7 +68,7 @@ case 2:
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 lg:w-[20vw] lg:h-[25vh] h-[20vh] cursor-pointer" >
+        className="m-0 w-full lg:w-[20vw] lg:h-[25vh] h-[20vh] cursor-pointer" >
         <Image src={ftImageSrc || ""} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
       </CardHeaderMotion>
       </Link>
@@ -77,7 +77,7 @@ case 2:
         {title}
         </div>
 
-        <div  className="h-10 text-sm  w-full leading-none overflow-auto"
+        <div  className="h-10 text-sm  w-full leading-none text-wrap line-clamp-5" 
           dangerouslySetInnerHTML={{__html:txtDescription}}
         >
           
@@ -89,7 +89,7 @@ case 2:
       break;
     case 3:
      return (
-      <Card className="w-full max-w-[44rem] flex-row">
+      <Card className="w-full max-w-[15rem] lg:max-w-[44rem] lg:flex-row">
         <Link  href={`/blog/`}>
       <CardHeaderMotion 
         whileHover={{ scale: 1.05,
@@ -98,7 +98,7 @@ case 2:
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 lg:w-[28vw] lg:h-[60vh] h-[30vh] cursor-pointer" >
+        className="m-0 w-full lg:w-[28vw] lg:h-[60vh] h-[20vh] cursor-pointer" >
         <Image src={ftImageSrc || ""} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
       </CardHeaderMotion>
       </Link>
@@ -107,7 +107,7 @@ case 2:
         {title}
         </div>
 
-        <div  className="h-10 text-sm  w-full leading-none overflow-auto"
+        <div  className="h-full text-sm  w-full leading-none"
           dangerouslySetInnerHTML={{__html:txtDescription}}
         >
         </div>
