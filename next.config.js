@@ -18,7 +18,7 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/:slug(^[A-Za-z0-9#,.\-_]{15,}$)/',
+        source: '/:slug(^[A-Za-z0-9#,.\\-_]{15,}$)/',
         destination: '/blog/:slug',
         permanent: true
       },
@@ -28,13 +28,6 @@ const nextConfig = {
         destination: '/nosotros',
         permanent: true
       },
-
-      {
-        source: '/contacto/',
-        destination: '/contacto',
-        permanent: true
-      },
-
       {
         source: '/guia-viajera/',
         destination: '/blog?page=1',
