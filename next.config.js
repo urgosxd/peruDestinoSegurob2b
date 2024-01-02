@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-typescript:{
-    ignoreBuildErrors:true,
+  typescript: {
+    ignoreBuildErrors: true,
   },
-reactStrictMode: false,
-images: {
+  reactStrictMode: false,
+  images: {
     remotePatterns: [
       {
         protocol: 'https',
@@ -14,24 +14,32 @@ images: {
       },
     ],
   },
-  async redirects(){
+  async redirects() {
     return [
-      {source:'https://perudestinoseguro.com/:slug/',
-      destination:'/blog/:slug',
-      permanent:true},
+      {
+        source: '/:slug/',
+        destination: '/blog/:slug',
+        permanent: true
+      },
 
-      {source:'https://perudestinoseguro.com/nosotros2/',
-      destination:'/nosotros',
-      permanent:true},
-      
-      {source:'https://perudestinoseguro.com/contacto/',
-      destination:'/contacto',
-      permanent:true},
-      
-      {source:'https://perudestinoseguro.com/guia-viajera/',
-      destination:'/blog?page=1',
-      permanent:true},
-      
+      {
+        source: '/nosotros2/',
+        destination: '/nosotros',
+        permanent: true
+      },
+
+      {
+        source: '/contacto/',
+        destination: '/contacto',
+        permanent: true
+      },
+
+      {
+        source: '/guia-viajera/',
+        destination: '/blog?page=1',
+        permanent: true
+      },
+
       // {source:'https://perudestinoseguro.com/tours-peru/',
       // destination:'/',
       // permanent:true},
