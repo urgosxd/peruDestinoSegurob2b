@@ -18,7 +18,7 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/:slug(^[A-Za-z0-9#,.\\-_]{15,}$)/',
+        source: '/:slug([A-Za-z0-9#,.\\-_]{15,})/',
         destination: '/blog/:slug',
         permanent: true
       },
