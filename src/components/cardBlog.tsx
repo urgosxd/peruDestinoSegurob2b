@@ -23,7 +23,7 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 
 export default function CardBlog({ftImageSrc,title,txtDescription,type,slug}:Props) {
   
-  const CardHeaderMotion = motion(CardHeader)
+  const ImageMotion = motion(Image)
   
   switch (type) {
     case 1:
@@ -31,16 +31,20 @@ export default function CardBlog({ftImageSrc,title,txtDescription,type,slug}:Pro
       return (
     <Card className={"relative grid  w-full  lg:max-w-[28rem] max-w-[15rem] p-0 border rounded-lg"}>
       <Link  href={`/blog/${slug}`}>
-      <CardHeaderMotion 
-        whileHover={{ scale: 1.05,
-        transition: { ease: "easeOut", duration: 1 },}}
-        whileTap={{ scale: 0.9 }} 
+      <CardHeader
+        
         floated={false}
         shadow={false}
         color="transparent"
         className="m-0 w-full lg:h-[40vh] h-[30vh] cursor-pointer" >
-        <Image src={ftImageSrc || ""} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
-      </CardHeaderMotion>
+        <ImageMotion 
+        whileHover={{ scale: 1.05,
+        transition: { ease: "easeOut", duration: 1 },}}
+        whileTap={{ scale: 0.9 }}
+        src={ftImageSrc || ""} 
+        fill 
+        sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
+      </CardHeader>
       </Link>
 
       <CardBody className=" flex flex-col items-center justify-center">
@@ -61,7 +65,7 @@ case 2:
       return(
       <Card className="w-full  max-w-[15rem] lg:max-w-[36rem] lg:flex-row ">
         <Link  href={`/blog/`}>
-      <CardHeaderMotion 
+      <CardHeader 
         whileHover={{ scale: 1.05,
   transition: { ease: "easeOut", duration: 1 },}}
         whileTap={{ scale: 0.9 }} 
@@ -69,8 +73,12 @@ case 2:
         shadow={false}
         color="transparent"
         className="m-0 w-full lg:w-[20vw] lg:h-[25vh] h-[20vh] cursor-pointer" >
-        <Image src={ftImageSrc || ""} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
-      </CardHeaderMotion>
+        <ImageMotion 
+whileHover={{ scale: 1.05,
+        transition: { ease: "easeOut", duration: 1 },}}
+        whileTap={{ scale: 0.9 }}
+                src={ftImageSrc || ""} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
+      </CardHeader>
       </Link>
       <CardBody>
         <div  className="mb-4 text-gray-600 text-sm font-bold text-center">
@@ -91,16 +99,18 @@ case 2:
      return (
       <Card className="w-full max-w-[15rem] lg:max-w-[44rem] lg:flex-row">
         <Link  href={`/blog/`}>
-      <CardHeaderMotion 
-        whileHover={{ scale: 1.05,
-  transition: { ease: "easeOut", duration: 1 },}}
-        whileTap={{ scale: 0.9 }} 
+      <CardHeader 
+         
         floated={false}
         shadow={false}
         color="transparent"
         className="m-0 w-full lg:w-[28vw] lg:h-[60vh] h-[20vh] cursor-pointer" >
-        <Image src={ftImageSrc || ""} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
-      </CardHeaderMotion>
+        <ImageMotion 
+whileHover={{ scale: 1.05,
+  transition: { ease: "easeOut", duration: 1 },}}
+        whileTap={{ scale: 0.9 }}
+                src={ftImageSrc || ""} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
+      </CardHeader>
       </Link>
       <CardBody>
         <div  className="mb-4 text-gray-600 text-sm font-bold text-center">
