@@ -14,6 +14,29 @@ images: {
       },
     ],
   },
+  async redirects(){
+    return [
+      {source:'https://perudestinoseguro.com/:slug/',
+      destination:'/blog/:slug',
+      permanent:true},
+
+      {source:'https://perudestinoseguro.com/nosotros2/',
+      destination:'/nosotros',
+      permanent:true},
+      
+      {source:'https://perudestinoseguro.com/contacto/',
+      destination:'/contacto',
+      permanent:true},
+      
+      {source:'https://perudestinoseguro.com/guia-viajera/',
+      destination:'/blog?page=1',
+      permanent:true},
+      
+      // {source:'https://perudestinoseguro.com/tours-peru/',
+      // destination:'/',
+      // permanent:true},
+    ]
+  }
 }
 
 module.exports = nextConfig
