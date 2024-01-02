@@ -28,11 +28,9 @@ export default async function Home({ }: Props) {
 
   let pregFrecuents: any[] = await getAllPregFrecuentes()
   pregFrecuents = pregFrecuents.map(ele => ele.acf).reverse()
-  const testImgs = ['https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D']
   // console.log(paquetes)
   // console.log(imgCarousels);
   // console.log(pregFrecuents);
-  console.log(imgCarousels)
 
   return (
     <div className="flex flex-col items-center">
