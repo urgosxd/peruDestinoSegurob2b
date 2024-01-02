@@ -9,13 +9,13 @@ export default async function Nosotros() {
 let uniNosotros = nosotros.map(ele => ele.acf).reverse()[0]
   const exp = [{ rojo: "+5K", txt: "Agencias de viaje Atendidas", }, { rojo: "+30", txt: "destinos", }, { rojo: "+15", txt: "15 AÑOS DE EXPERIENCIA" }]
 
-  const logos = ["./respaldo2.png", "./respaldo.png", "./ytu.png", "./safe.png", "./TripAdvisor.png"]
+  const logos = ["/respaldo2.png", "/respaldo.png", "/ytu.png", "/safe.png", "/TripAdvisor.png"]
   const valores = [
-    { img: "./RESPONSABILIDAD.png", txt: "Responsabilidad" },
-    { img: "./LEALTAD.png", txt: "Lealtad" }, { img: "./iconitoVal.png", txt: "Honestidad" },
-    { img: "./PUNTUALIDAD.png", txt: "Puntualidad" },
-    { img: "./iconitoVal.png", txt: "Disciplina" },
-    {img:"./candado.png",txt:"Confidencialidad"}
+    { img: "/RESPONSABILIDAD.png", txt: "Responsabilidad" },
+    { img: "/LEALTAD.png", txt: "Lealtad" }, { img: "/iconitoVal.png", txt: "Honestidad" },
+    { img: "/PUNTUALIDAD.png", txt: "Puntualidad" },
+    { img: "/iconitoVal.png", txt: "Disciplina" },
+    {img:"/candado.png",txt:"Confidencialidad"}
     // {img: "./"}
   ]
   const Datalegal = [
