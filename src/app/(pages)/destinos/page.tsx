@@ -44,3 +44,8 @@ export default async function Destinos() {
     </div>
   )
 }
+
+export const metadata = {
+  title: "Destinos Peru Destino Seguro",
+  description: "**",
+}

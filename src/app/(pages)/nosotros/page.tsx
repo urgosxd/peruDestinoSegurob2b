@@ -95,3 +95,8 @@ let uniNosotros = nosotros.map(ele => ele.acf).reverse()[0]
     </div>
   )
 }
+
+export const metadata = {
+  title: "Nosotros Peru Destino Seguro",
+  description: "**",
+}

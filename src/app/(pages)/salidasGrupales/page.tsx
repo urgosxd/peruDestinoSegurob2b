@@ -29,3 +29,8 @@ export default async  function SalidasGrupales() {
     </div>
   )
   }
+
+export const metadata = {
+  title: "Salidas Peru Destino Seguro",
+  description: "**",
+}

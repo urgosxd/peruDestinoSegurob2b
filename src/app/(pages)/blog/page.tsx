@@ -35,3 +35,7 @@ export default async function BlogPage({searchParams}:Props){
       </div>
   )
 }
+export const metadata = {
+  title: "Blog Peru Destino Seguro",
+  description: "**",
+}

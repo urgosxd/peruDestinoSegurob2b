@@ -81,3 +81,8 @@ export default async  function Contacto() {
     </div>
   )
   }
+
+export const metadata = {
+  title: "Contacto Peru Destino Seguro",
+  description: "**",
+}
