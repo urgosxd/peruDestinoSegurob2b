@@ -67,3 +67,7 @@ export default async function Home({ }: Props) {
   )
 }
 
+export const metadata = {
+  title: "perudestinoseguro",
+  description: "**",
+}
