@@ -1,7 +1,13 @@
 'use client'
 import { PhoneIcon, MapPinIcon,EnvelopeIcon } from '@heroicons/react/24/outline'
 import { Typography } from '@material-tailwind/react'
-export default function FakeFooter(){
+
+interface Props {
+  phones:string[]
+  email:string
+  address:string
+}
+export default function FakeFooter({phones,email,address}:Props){
 return (
     <div className="flex flex-col w-full  lg:items-start items-center">
       <div className="flex flex-row w-1/2 lg:w-full mt-8">
@@ -14,12 +20,9 @@ return (
           >
               Telefono
           </p>
-          <p  className="text-lg w-full">
-+51 (084) 750156
-          </p>
-          <p   className="text-lg w-full">
-+51 (916) 041494
-          </p>
+            {phones.map(ele=>(<p  className="text-lg w-full">
+            {ele.trim()}
+          </p>))}
       </div>
         </div>
 
@@ -33,8 +36,7 @@ return (
             Correo
           </p>
           <p   className="text-lg">
-
-                ventas@pdsviajes.com
+              {email}
           </p>
         </div>
       </div>
@@ -49,8 +51,7 @@ return (
             Direccion
           </p>
           <p   className="text-lg">
-
-                Av. Tacna Nro. 168 - Cusco
+            {address}
           </p>
         </div>
       </div>

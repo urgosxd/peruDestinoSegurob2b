@@ -37,7 +37,7 @@ export default async function Paquete(props:any){
   ]
   return (
   <div  className="w-[98vw] flex flex-col items-center">
-    <BackBannerDiv imgSrc={data.imgback} txt={data.txtunico} time={data.time}/>
+    <BackBannerDiv imgSrc={data.imgFondo} txt={data.txtunico} time={data.tiempo}/>
       <div className="flex flex-row w-full mb-10">
       <div className="w-1/3 p-10 flex flex-col items-center mt-16">
 
@@ -46,7 +46,7 @@ export default async function Paquete(props:any){
             Precio por Persona
           </p>
           <p className="text-[#D20000] text-6xl uppercase font-bold">
-            US${data.price}
+            US${data.precio}
           </p>
             <div className="flex flex-col mt-4">
 

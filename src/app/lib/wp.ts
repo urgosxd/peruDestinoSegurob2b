@@ -89,7 +89,7 @@ export async function getPaqueteBySlug(slug: string) {
   return data
 }
 export async function getContactoPage() {
-  const data = await fetchAPI('contacto/')
+  const data = await fetchAPI('contacto_page/')
   return data
 }
 export async function getBlogPage() {

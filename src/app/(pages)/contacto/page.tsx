@@ -75,8 +75,7 @@ export default async  function Contacto() {
       <ContactoForm action={addClient}/>
       </div>
       <div className="lg:w-1/3 w-full flex lg:justify-center">
-          
-      <FakeFooter/>
+      <FakeFooter phones={contactoUnico.acf.telefono.split(",")} address={contactoUnico.acf.direccion} email={contactoUnico.acf.correo}/>
       </div>
       </div>
     </div>

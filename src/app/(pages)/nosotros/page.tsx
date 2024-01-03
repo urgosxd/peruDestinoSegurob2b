@@ -7,7 +7,7 @@ export default async function Nosotros() {
   let nosotros: any[] = await getNosotrosPage()
   console.log(nosotros);
 let uniNosotros = nosotros.map(ele => ele.acf).reverse()[0]
-  const exp = [{ rojo: "+5K", txt: "Agencias de viaje Atendidas", }, { rojo: "+30", txt: "destinos", }, { rojo: "+15", txt: "15 AÑOS DE EXPERIENCIA" }]
+  const exp = [{ rojo: uniNosotros.agenciaviajesatendidas, txt: "Agencias de viaje Atendidas", }, { rojo: uniNosotros.destinos, txt: "destinos", }, { rojo: uniNosotros.aniosxp, txt: "15 AÑOS DE EXPERIENCIA" }]
 
   const logos = ["/respaldo2.png", "/respaldo.png", "/ytu.png", "/safe.png", "/TripAdvisor.png"]
   const valores = [
@@ -20,7 +20,7 @@ let uniNosotros = nosotros.map(ele => ele.acf).reverse()[0]
   ]
   const Datalegal = [
     ["RAZÓN SOCIAL","Perú Destino Seguro E.I.R.L."],
-    ["NÚMERO DE RUC","20601468582"],
+    ["NÚMERO DE RUC",uniNosotros.ruc],
     ["NOMBRE COMERCIAL","PDS VIAJES"],
     ["CERTIFICADO DE AUTORIZACIÓN","Perú Destino Seguro E.I.R.L"],
   ]
@@ -46,6 +46,7 @@ let uniNosotros = nosotros.map(ele => ele.acf).reverse()[0]
           </div>
         </div>
         <div className="lg:w-2/5 w-full h-full mx-10">
+
 
           <div className="lg:h-[65vh] h-[40vh] relative mt-10 lg:mt-0">
           <Image alt={"ga"} fill={true} src={uniNosotros.imgfundadores} className="border rounded-3xl" />
