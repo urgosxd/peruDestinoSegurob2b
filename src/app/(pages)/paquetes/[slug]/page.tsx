@@ -24,11 +24,10 @@ export default async function Paquete(props:any){
   let exclu:string = data.excluido
 
   const allExclu = exclu.split(",")
-  const dias = data.dias.split(",")
-  const ddias = dias.map((ele:string,idx:number)=>({question:`dia ${idx+1}:`,answer:ele}))
-  
+  const dias = data.dias
+  const ddias = dias.map((ele:any,idx:number)=>({question:`dia ${idx+1}:`,answer:ele.dia}))
   const carrousel:string = data.carrouselcomas
-  const allCarrousel = carrousel.split(",")
+  const allCarrousel = carrousel
 
   const logoCallCenter = [
     ['/VIDEOLLAM.png',"VIDEOLLAMADA","Contacta con un asesor","Agendar"],
