@@ -32,6 +32,7 @@ export default async  function Formulario() {
       {/* </div> */}
       {/* </div> */}
         FORMULARIOOO
+      
     </div>
   )
   }
