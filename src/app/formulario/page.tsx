@@ -87,6 +87,68 @@ export default async  function Formulario() {
             }
         });
     </script>
+    <style>
+    .logo {
+    
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.logo img {
+    width: 150px; /* Ajusta el tamaño según necesites */
+    height: auto;
+}
+
+
+
+h1 {
+    text-align: center;
+    color: #7b3e19; /* Marrón oscuro inspirado en madera */
+}
+
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #7b3e19; /* Marrón oscuro */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: red; /* Marrón oscuro */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #5e2b11; /* Marrón más oscuro al pasar el ratón */
+}
+</style>
 `
   return(
   <div className="flex flex-col w-[98vw] items-center">
