@@ -89,10 +89,6 @@ export default async  function Formulario() {
     </script>
     <style>
     .logo {
-    
-    top: 0;
-    left: 0;
-    right: 0;
     text-align: center;
 }
 
@@ -119,7 +115,6 @@ form {
 
 label {
     display: block;
-    margin-bottom: 5px;
     color: #7b3e19; /* Marrón oscuro */
 }
 
@@ -151,7 +146,7 @@ button[type="submit"]:hover {
 </style>
 `
   return(
-  <div className="flex flex-col w-[98vw] items-center bg-[#f2e7d2]">
+  <div className="flex flex-col w-[98vw] items-center bg-[#f2e7d2] m-0 p-0">
       {/* <BackBanner imgSrc={contactoUnico.acf.imgback} txt="Contacto" /> */}
       {/* <div className="flex lg:flex-row flex-col w-full mt-12"> */}
 
