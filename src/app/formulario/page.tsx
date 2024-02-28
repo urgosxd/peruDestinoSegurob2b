@@ -23,7 +23,7 @@ export default async  function Formulario() {
    
     <div class="container">
         <div class="logo">
-            <img src="logopdsr.png" alt="Logo">
+            <img src="https://www.perudestinoseguro.com/pdsLogo.png" alt="Logo">
         </div>
         <div class="form-container">
             <h1>Formulario de Contacto</h1>
@@ -151,7 +151,7 @@ button[type="submit"]:hover {
 </style>
 `
   return(
-  <div className="flex flex-col w-[98vw] items-center">
+  <div className="flex flex-col w-[98vw] items-center bg-[#f2e7d2]">
       {/* <BackBanner imgSrc={contactoUnico.acf.imgback} txt="Contacto" /> */}
       {/* <div className="flex lg:flex-row flex-col w-full mt-12"> */}
 
