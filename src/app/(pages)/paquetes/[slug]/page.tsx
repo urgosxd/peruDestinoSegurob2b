@@ -1,4 +1,5 @@
-import { getAllPaquetes, getPaqueteBySlug } from "@/app/lib/wp"
+// import { getAllPaquetes, getPaqueteBySlug } from "@/app/lib/wp"
+import { getPaqueteBySlug, getPaquetes } from "@/app/lib/wp"
 import BackBanner from "@/components/bacBanner"
 import BackBannerDiv from "@/components/backBannerDiv"
 import Cartita from "@/components/cartita"
@@ -9,9 +10,9 @@ import Subtitle from "@/components/subtitle"
 import Image from 'next/image'
 
 export const generateStaticParams = async ()=>{
-  let posts:any[] =await  getAllPaquetes()
-  posts = posts.reverse()
-  return posts.map(ele=>({slug:ele.slug}))
+  let posts = await  getPaquetes([])
+  // posts = posts.reverse()
+  return posts.items.map(ele=>({slug:(ele.title as string).toLowerCase().split(' ').join('-') }))
 
 }
 export default async function Paquete(props:any){

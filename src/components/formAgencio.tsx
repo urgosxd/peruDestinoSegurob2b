@@ -10,7 +10,7 @@ import {
 export default function AgenciaForm() {
   return (
 
-    <form className="lg:mt-9 mt-3 mb-2 w-3/4 max-w-screen-lg">
+    <form className="lg:mt-9 mt-3 mb-2 w-full max-w-screen-lg pr-10">
       <div className="mb-1 flex flex-col lg:gap-6 gap-2">
         <Input
           size="lg"
@@ -30,7 +30,7 @@ export default function AgenciaForm() {
         {/*     className: "before:content-none after:content-none", */}
         {/*   }} */}
         {/* /> */}
-        <Button className="mt-6 text-white bg-[#D20000] lg:text-xl text-lg !px-3 w-24 lg:w-36" >
+        <Button className="mt-6 text-white bg-[#D20000] lg:text-xl text-lg !px-3 w-24 lg:w-full" >
           Enviar
         </Button>
       </div>

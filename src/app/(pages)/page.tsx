@@ -7,10 +7,12 @@ import ProfileCard from '@/components/cardPaquetes'
 // import paquetes from "@/app/lib/paquetes"
 // import destinos from './lib/destinos'
 import BackCard from '@/components/backCard'
-import {getDestinos, getInicioPage} from '@/app/lib/wp'
+import {getDestinos, getInicioPage, getPaquetes} from '@/app/lib/wp'
 import { GetStaticProps, NextPage } from 'next'
 import Questions from '@/components/questions'
 import AgenciaForm from '@/components/formAgencio'
+import { RevealBento } from '@/components/gridDestino'
+import { Console } from 'console'
 
 interface Props {
 }
@@ -35,40 +37,62 @@ export default async function Home({ }: Props) {
   const dataGeneral = await getInicioPage()
 
   const destinos = await getDestinos(['name','background'])
-  console.log(dataGeneral)
+
+  const paquetes = await getPaquetes(['featuredImage'])
+
   console.log(destinos)
+  console.log(dataGeneral)
   
+  const gallery = dataGeneral.galleryInicio.map(ele=>ele.image.meta.download_url)
+
   return (
     <div className="flex flex-col items-center">
-      {/* <CustomCarousel imgs={imgCarousels}></CustomCarousel> */}
+      <CustomCarousel imgs={gallery}></CustomCarousel>
       {/* <SessionProvider> */}
       {/* <SessionValidator>GAAAAAAAA</SessionValidator> */}
       {/* </SessionProvider> */}
-      <Subtitle>Nuestros Paquetes</Subtitle>
-      <div className="grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1 gap-2 pl-7 lg:pl-0 gap-y-10">
-        {/* {paquetes.map(ele => (<ProfileCard key={ele.acf.txtunico} imgSrc={ele.acf.imgsrc} txt1={ele.acf.txtunico} txt2={ele.acf.precio} slug={ele.slug} time={ele.acf.tiempo} incluido={ele.acf.incluido} excluido={ele.acf.excluido} />))} */}
+      <h2 className="subtitle w-fit lg:text-5xl text-3xl
+        my-[50px] p-3 text-center font-black text-gray-800 mb-5 lg:mb-10"> 
+        {dataGeneral.paqueteTitulo}
+    </h2>
+      <div className="mt-[65px] grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1 gap-2 pl-7 lg:pl-0 gap-y-10">
+        {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} txt1={ele.featuredImage.meta.title} txt2={"aoe"} slug={ele.slug} />))}
       </div>
-      <Subtitle >Destinos</Subtitle>
-      <div className="grid lg:grid-cols-3 lg:gap-3 justify-items-center destinoCss w-10/12 pl-0 grid-cols-1 gap-y-2 lg:pl-0">
-        {/* {destinos.map(ele => (<BackCard key={ele.txt_unique} imgSrc={ele.imgsrc} txt={ele.txt_unique} />))} */}
-      </div>
+      {/* <Subtitle >Destinos</Subtitle> */}
+        <h2 className="subtitle w-fit lg:text-5xl text-3xl
+        my-[50px] p-3 text-center font-black text-gray-800 mb-5 lg:mb-10"> 
+        {dataGeneral.destinoTitulo}
+    </h2>
 
-      <div className="flex lg:flex-row flex-col w-full mt-10">
+    <RevealBento img={{imgSrc:destinos.items[0].background.meta.download_url,label:destinos.items[0].name}} imgs={destinos.items.slice(1,destinos.items.length).map(ele=>({imgSrc:ele.background.meta.download_url,label:ele.name}))} />
+
+      {/* <div className="grid lg:grid-cols-3 lg:gap-3 justify-items-center destinoCss w-10/12 pl-0 grid-cols-1 gap-y-2 lg:pl-0"> */}
+        {/* {destinos.map(ele => (<BackCard key={ele.txt_unique} imgSrc={ele.imgsrc} txt={ele.txt_unique} />))} */}
+
+      {/* </div> */}
+        
+      <div className="w-full">
+        <div className="flex lg:flex-row flex-col w-[90%] mx-auto mt-10">
 
         <div className="lg:w-1/2 w-full flex flex-col items-center">
-          <h3 className="my-9 font-normal text-3xl">Preguntas Frecuentes</h3>
-          {/* <Questions questionAnswer={pregFrecuents} /> */}
-
+          
+          <h3 className="my-9 text-[24px] text-[#000000] font-semibold text-center uppercase">Preguntas Frecuentes</h3>
+          
+          <Questions questionAnswer={dataGeneral.faqInicio.map(ele=>({question:ele.question ,answer: ele.answer}))} />
         </div>
-        <div className="lg:w-1/2 w-full p-10 lg:p-0">
-          <h3 className="lg:mt-9 mt-6 font-bold lg:text-3xl text-xl text-gray-600">
-            ¿Eres una agencia?
+        <div className="lg:w-1/2 w-full p-10 lg:p-0 ">
+          <h3 className="lg:mt-9 mt-6 font-bold lg:text-[24px] text-gray-600">
+            {dataGeneral.formularioTitulo}
           </h3>
-
-          <p className="text-left pr-10 my-3 font-light text-xl text-gray-500">Escriba su correo y Pregunta a continuacion. Nuestro equipo respondera a sus preguntas lo antes posible</p>
+          <p className="text-left pr-10 my-3 font-light text-[18px] text-gray-500">
+            {dataGeneral.formularioSubtitulo}
+          </p>
+              {/* Escriba su correo y Pregunta a continuacion. Nuestro equipo respondera a sus preguntas lo antes posible</p> */}
           <AgenciaForm />
-        </div>
+            </div>
       </div>
+      </div>
+      
     </div>
   )
 }

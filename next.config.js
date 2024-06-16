@@ -4,11 +4,18 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   reactStrictMode: false,
+
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'practica.pdsviajes.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
         port: '',
         pathname: '/**',
       },

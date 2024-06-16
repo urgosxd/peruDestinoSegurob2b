@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
-import { Nunito } from 'next/font/google'
+import { Nunito,Poppins } from 'next/font/google'
 import './globals.css'
 import NextAuthProvider from "@/app/context/NextAuthProvider"
 import { NavbarDefault } from '@/components/navbar';
 import Theme from '@/components/theme';
 import { Footer } from '@/components/footer';
 import Script from 'next/script'
-const font = Nunito({ subsets: ['latin'] })
+const font = Poppins({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext']})
 
 export const metadata: Metadata = {
   description: 'Peru Destino Seguro B2B',

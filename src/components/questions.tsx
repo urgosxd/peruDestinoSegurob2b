@@ -9,6 +9,7 @@ import {
 } from "@material-tailwind/react";
 
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/solid'
+import Image from 'next/image'
 
 interface miniProps {
   question: string
@@ -21,11 +22,12 @@ function CollapseDefault({ question, answer,paquete }: miniProps) {
 
   const toggleOpen = () => setOpen((cur) => !cur);
 
+  console.log(question)
   return (
-    <div className="w-full items-left">
-      <Button aria-label="close-Open" className={`${paquete?"rounded-lg":"rounded-none"} ${paquete ? "font-bold":"font-normal"} py-4 ${paquete?"text-xl":"text-md"} text-left w-full ${paquete?"text-gray-600":"text-gray-900"} flex justify-between ${paquete ?"bg-gray-200":"bg-white"}`} onClick={toggleOpen}>{question}{open ? <ChevronDownIcon className="w-3 inline-block" /> : <ChevronUpIcon className="w-3 inline-block" />}</Button>
+    <div className="w-[90%] mx-auto">
+      <div aria-label="close-Open" className={` ${paquete?"rounded-lg":"rounded-none"} ${paquete ? "font-bold":"font-semibold"} py-4 ${paquete?"text-xl":"text-md"} w-full ${paquete?"text-gray-600":"text-[#000000]"} flex justify-between text-left ${paquete ?"bg-gray-200":"bg-white"}`} onClick={toggleOpen}> <div className="flex flex-row gap-x-3"> <Image src="/nubesita.svg" alt="aa" width="25" height="25"/>{question} </div>{open ? <ChevronDownIcon className="w-3 inline-block" /> : <ChevronUpIcon className="w-3 inline-block" />}</div>
       <Collapse open={open}>
-        <Card className="rounded-none ">
+        <Card className="rounded-none">
           <CardBody>
             <Typography as="div">
               <div dangerouslySetInnerHTML={{ __html: answer }} />
@@ -45,7 +47,7 @@ interface Props {
 export default function Questions({ questionAnswer, paquete=false }: Props) {
 
   return (
-    <div className={`flex flex-col items-center ${paquete ? "gap-y-5" : ""}`}>
+    <div className={`flex flex-col w-[90%] ${paquete ? "gap-y-5" : ""}`}>
       {questionAnswer.map(ele => (<CollapseDefault question={ele.question} answer={ele.answer} paquete={paquete} />))}
     </div>
   )
