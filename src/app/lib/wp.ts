@@ -82,6 +82,12 @@ export async function getPaqueteBySlug(id:number){
   const data = await fetchAPI(`pages/paquete/${id}`,[])
   return data
 }
+
+export async function getDataNumeros(variables:string[]){
+  const data = await fetchAPI('snippets/dataNumeros',variables)
+  return data
+}
+
 // export async function getAllPaquetes() {
 //   const data = await fetchAPI('paquete/')
 //   return data

@@ -15,17 +15,18 @@ interface miniProps {
   question: string
   answer: string
   paquete: boolean
+  idxx: number
 }
 
-function CollapseDefault({ question, answer,paquete }: miniProps) {
+function CollapseDefault({ question, answer,paquete,idxx }: miniProps) {
   const [open, setOpen] = React.useState(false);
 
   const toggleOpen = () => setOpen((cur) => !cur);
 
   console.log(question)
   return (
-    <div className="w-[90%] mx-auto">
-      <div aria-label="close-Open" className={` ${paquete?"rounded-lg":"rounded-none"} ${paquete ? "font-bold":"font-semibold"} py-4 ${paquete?"text-xl":"text-md"} w-full ${paquete?"text-gray-600":"text-[#000000]"} flex justify-between text-left ${paquete ?"bg-gray-200":"bg-white"}`} onClick={toggleOpen}> <div className="flex flex-row gap-x-3"> <Image src="/nubesita.svg" alt="aa" width="25" height="25"/>{question} </div>{open ? <ChevronDownIcon className="w-3 inline-block" /> : <ChevronUpIcon className="w-3 inline-block" />}</div>
+    <div key={idxx} className="w-[90%] mx-auto">
+      <div aria-label="close-Open"  className={` px-8 border-solid border border-gray-300 ${paquete?"rounded-2xl":"rounded-none"} ${paquete ? "font-bold":"font-semibold"} py-4 ${paquete?"text-xl":"text-md"} w-full ${paquete?"text-gray-600":"text-[#000000]"} flex justify-between text-left ${paquete ?"bg-gray-200 capitalize":"bg-white"}`} onClick={toggleOpen}> <div className="flex flex-row gap-x-3">{!paquete && <Image src="/nubesita.svg" alt="aa" width="25" height="25"/> }{!paquete && (idxx + " .")} {question} </div>{open ? <ChevronDownIcon className="w-3 inline-block" /> : <ChevronUpIcon className="w-3 inline-block" />}</div>
       <Collapse open={open}>
         <Card className="rounded-none">
           <CardBody>
@@ -48,7 +49,7 @@ export default function Questions({ questionAnswer, paquete=false }: Props) {
 
   return (
     <div className={`flex flex-col w-[90%] ${paquete ? "gap-y-5" : ""}`}>
-      {questionAnswer.map(ele => (<CollapseDefault question={ele.question} answer={ele.answer} paquete={paquete} />))}
+      {questionAnswer.map((ele,idx) => (<CollapseDefault question={ele.question} answer={ele.answer} paquete={paquete} idxx={idx+1}/>))}
     </div>
   )
 }

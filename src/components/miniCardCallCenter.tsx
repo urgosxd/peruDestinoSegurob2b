@@ -27,7 +27,7 @@ export default function MiniCard({imgSrc,txt1,txt2,But}:Props) {
         <img
           src={imgSrc}
           alt="card-image"
-          className="w-1/2 h-[15vh]"
+          className=""
         />
  
         <Typography  className="mt-6 h-5 text-xl font-bold text-center text-wrap  tracking-normal w-full leading-none">
