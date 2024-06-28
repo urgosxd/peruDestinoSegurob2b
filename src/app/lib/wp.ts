@@ -105,10 +105,10 @@ export async function getDataNumeros(variables:string[]){
 //   return data
 // }
 
-// export async function getNosotrosPage() {
-//   const data = await fetchAPI('nosotros_page/')
-//   return data
-// }
+export async function getNosotrosPage() {
+  const data = await fetchAPI('pages/nosotros/7')
+  return data
+}
 
 // export async function getPaqueteBySlug(slug: string) {
 //   const data = await fetchAPI("paquete/", [`slug=${slug}`])

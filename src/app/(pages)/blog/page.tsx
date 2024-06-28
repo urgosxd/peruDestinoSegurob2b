@@ -18,22 +18,22 @@ export default async function BlogPage({searchParams}:Props){
   // const blogUnico = data[0]
 
 
-  // // posts = posts.reverse()
-  // 
-  // // const gridsDinamic = []
-  // 
-  // // const CompoDinamic = dynamic(()=>import('../../components/grids').then(ele=>ele.CompleteGridClientCompo))
-  // // for (let inde = 2; inde < 8; inde++) {
-  // //   gridsDinamic.push(<CompoDinamic idx={inde}/>);
-  // // }
-  // // const grids = [ <CompleteGrid data={posts}/>].concat(gridsDinamic)
-  // return (
-  //   <div className="flex flex-col w-[98vw] items-center">
-  //     <BackBanner imgSrc={blogUnico.acf.imgback} txt="Blog" />
-  //     <DefaultPagination active={page}/>
-  //     <CompleteGrid data={posts}/>
-  //   </div>
-  // )
+  // posts = posts.reverse()
+
+  // const gridsDinamic = []
+
+  // const CompoDinamic = dynamic(()=>import('../../components/grids').then(ele=>ele.CompleteGridClientCompo))
+  // for (let inde = 2; inde < 8; inde++) {
+  //   gridsDinamic.push(<CompoDinamic idx={inde}/>);
+  // }
+  // const grids = [ <CompleteGrid data={posts}/>].concat(gridsDinamic)
+  return (
+    <div className="flex flex-col w-[98vw] items-center">
+      {/* <BackBanner imgSrc={blogUnico.acf.imgback} txt="Blog" /> */}
+      {/* <DefaultPagination active={page}/> */}
+      {/* <CompleteGrid data={posts}/> */}
+    </div>
+  )
 }
 export const metadata = {
   title: "Blog Peru Destino Seguro",
