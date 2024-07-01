@@ -36,7 +36,7 @@ export default function ProfileCard({imgSrc,title,price,slug,time}:Props) {
   const dias = rawTime[0]
   const noches = rawTime[1]
   return (
-    <Card className="relative grid  w-full  lg:max-w-[28rem] max-w-[15rem] p-0 border rounded-lg ">
+    <Card className="relative grid  lg:w-[425px] p-0 border rounded-lg ">
       <Link  href={`/paquetes/${slug}`}>
       <CardHeaderMotion 
         whileHover={{ scale: 1.05,
@@ -45,8 +45,8 @@ export default function ProfileCard({imgSrc,title,price,slug,time}:Props) {
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[80vh] h-[30vh] cursor-pointer" >
-        <Image src={imgSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[30vh]"/>
+        className="m-0 w-full lg:h-[585px] h-[30vh] cursor-pointer" >
+        <Image src={imgSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className=""/>
       </CardHeaderMotion>
       </Link>
       <CardBody className="text-center !p-3">

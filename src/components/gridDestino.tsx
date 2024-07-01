@@ -12,7 +12,7 @@ type FinalFrame ={
 
 export const RevealBento = ({img,imgs}:{img:FinalFrame,imgs:FinalFrame[]}) => {
   return (
-    <div className="min-h-screen w-full bg-zinc-900 px-4 py-12 text-zinc-50">
+    <div className=" w-full bg-zinc-900 px-4 text-zinc-50">
       <motion.div
         initial="initial"
         animate="animate"
@@ -65,7 +65,7 @@ const Block = ({ className, ...rest }: BlockProps) => {
 
 const HeaderBlock = ({img}:{img:FinalFrame}) => (
   <Block className="col-span-12 row-span-2 md:col-span-4">
-        <div className="grid relative h-full rounded-l-lg z-10">
+        <div className="grid relative lg:h-[705px] rounded-l-lg z-10">
         <Image src={img.imgSrc} fill sizes="(max-width: 768px) 25vw, 50vw" objectFit="cover" priority alt="profile-picture" className=" object-cover rounded-l-2xl"/>
          <div className="absolute bottom-5 left-5 text-white border-solid  
         border-b-4 border-white text-3xl">{img.label}</div>
@@ -85,7 +85,7 @@ const SocialsBlock = ({imgs}:{imgs:FinalFrame[]}) => (
       }}
       className="col-span-6 md:col-span-4"
     >
-        <div className="grid relative h-[320px]">
+        <div className="grid relative h-[345px]">
         <Image src={ele.imgSrc} fill sizes="(max-width: 768px) 25vw, 50vw" objectFit="cover" priority alt="profile-picture" className={`object-cover ${objBorders[idx]}`}/>
           <div className={`absolute bottom-5 left-5 text-white border-solid  
         border-b-4 border-white text-3xl `}>{ele.label}</div>

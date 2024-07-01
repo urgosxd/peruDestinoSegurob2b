@@ -56,7 +56,7 @@ export default async function Home({ }: Props) {
         my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {dataGeneral.paqueteTitulo}
     </h2>
-      <div className="mt-[65px] grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1 gap-2 pl-7 lg:pl-0 gap-y-10">
+      <div className=" grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1 gap-2 pl-7 lg:pl-0 gap-y-10">
         {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={ele.id} time={ele.duracion} />))}
       </div>
       {/* <Subtitle >Destinos</Subtitle> */}

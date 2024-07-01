@@ -74,12 +74,12 @@ export async function getDestinos(variables:string[]){
 }
 
 export async function getPaquetes(variables:string[]){
-  const data = await fetchAPI('pages/paquete/',variables)
+  const data = await fetchAPI('sniPages/paquete/',variables)
   return data
 }
 
 export async function getPaqueteBySlug(id:number){
-  const data = await fetchAPI(`pages/paquete/${id}`,[])
+  const data = await fetchAPI(`sniPages/paquete/${id}`,[])
   return data
 }
 
