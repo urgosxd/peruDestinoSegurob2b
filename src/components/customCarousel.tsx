@@ -71,12 +71,6 @@ const [trail, setTrail] = useState([]);
   //   setTimeout(cycleAnimation, 2000); // start "animationThree" after 2 seconds
   // }, []);
 
-useEffect(() => {
-    const interval = setInterval(() => {
-      setTrail(trail => [...trail, { x: keyframes.x[0], y: keyframes.y[0] }]);
-    }, duration * 1000 / keyframes.x.length);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="lg:w-full w-full">
@@ -94,26 +88,9 @@ useEffect(() => {
           const noches = rawDuracion[1]
 
           return (
-            <div className="relative">
-              {trail.map((point, index) => (
-        <div
-          key={index}
-          style={{
-            position: "absolute",
-            top: `calc(50% + ${point.y}px)`,
-            left: `calc(50% + ${point.x}px)`,
-            width: "5px",
-            height: "5px",
-            backgroundColor: "red",
-            borderRadius: "50%",
-            transform: "translate(-50%, -50%)"
-          }}
-        />
-      ))}
-              <Image src={ele.img} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority width={1500} height={900} className="lg:h-full h-full lg:w-full object-cover"></Image>
-              <div className="absolute flex flex-col top-[156px] left-[98px] h-full w-[320px]">
-                <motion.div
-                  className="text-2xl text-gray-600 w-fit h-fit"
+            <div className="relative w-full h-[640px]">
+              <motion.div
+                  className="text-2xl text-gray-600 w-fit h-fit mx-auto z-30"
                   animate={{
                     x: keyframes.x,
                     y: keyframes.y,
@@ -140,8 +117,11 @@ useEffect(() => {
 
                 >
 
-                  <FaPaperPlane size={30} rotate={45} />
+                  <FaPaperPlane size={30} rotate={90} />
                 </motion.div>
+
+              <Image src={ele.img} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover"></Image>
+              <div className="absolute flex flex-col top-[156px] left-[98px] h-full w-[320px]">
                 <Image src="/peruCarousel.png" alt="peru" width={140} height={60} />
                 <div className={`${myFont.className} text-white lg:text-[40px] leading-[47.5px]`} >{ele.titulo}</div>
                 <div className="text-white bg-[#00AFD5] text-[23px] font-extrabold w-fit px-3 rounded-xl font-monse"> {dias} Días / {noches} Noches </div>

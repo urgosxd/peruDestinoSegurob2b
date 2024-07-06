@@ -62,7 +62,7 @@ export default async function Home({ }: Props) {
       {/* <Subtitle >Destinos</Subtitle> */}
         <h2 className="subtitle w-fit lg:text-[34px] text-3xl
         my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
-        {dataGeneral.destinoTitulo}s
+        {dataGeneral.destinoTitulo}
     </h2>
 
     <RevealBento img={{imgSrc:destinos.items[0].background.meta.download_url,label:destinos.items[0].name}} imgs={destinos.items.slice(1,destinos.items.length).map(ele=>({imgSrc:ele.background.meta.download_url,label:ele.name}))} />
