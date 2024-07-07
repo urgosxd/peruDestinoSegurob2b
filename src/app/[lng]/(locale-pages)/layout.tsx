@@ -2,7 +2,8 @@ import { Footer } from "@/components/footer"
 import { NavbarDefault } from "@/components/navbar"
 import Script from 'next/script'
 
-export default function Layout({children}:{children:React.ReactNode}){
+export default function Layout({children,params}:{children:React.ReactNode,params:any}){
+  console.log(params)
   return (
   <div>
     <NavbarDefault/>
