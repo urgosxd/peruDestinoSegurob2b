@@ -2,7 +2,7 @@ import axios from "axios"
 // const API_URL = process.env.WORDPRESS_API_URL!!
 const API_URL = "https://b2bcms.onrender.com/api/v2/"
 
-async function fetchAPI(query = '', variable:string[] =[ ]) {
+async function fetchAPI(query = '', variable:any = null) {
   // console.log(API_URL + "GAAAAAAAAAAAAAAa")
   const headers: any = { 'Content-Type': 'application/json' }
 
@@ -12,9 +12,13 @@ async function fetchAPI(query = '', variable:string[] =[ ]) {
 
   // WPGraphQL Plugin must be enabled
 
-  if (variable.length > 0) {
+    if (variable) {
+    const queryString = Object.keys(variable)
+  .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(variable[key])}`)
+  .join('&');
+
     try {
-      const res = await axios.get(API_URL + query + '?fields=' + variable.join(","))
+      const res = await axios.get(API_URL + query + '?'+ queryString)
       const data = await res.data
       return data
     }
@@ -73,8 +77,8 @@ export async function getDestinos(variables:string[]){
   return data
 }
 
-export async function getPaquetes(variables:string[]){
-  const data = await fetchAPI('sniPages/paquete/',variables)
+export async function getPaquete(variables:any){
+  const data = await fetchAPI('pages/paquete/',variables)
   return data
 }
 
@@ -88,10 +92,10 @@ export async function getDataNumeros(variables:string[]){
   return data
 }
 
-// export async function getAllPaquetes() {
-//   const data = await fetchAPI('paquete/')
-//   return data
-// }
+export async function getAllPaquetes() {
+  const data = await fetchAPI('pages/paquete/')
+  return data
+}
 // export async function getAllDestinos() {
 //   const data = await fetchAPI('destino/')
 //   return data
@@ -106,7 +110,7 @@ export async function getDataNumeros(variables:string[]){
 // }
 
 export async function getNosotrosPage() {
-  const data = await fetchAPI('pages/nosotros/7')
+  const data = await fetchAPI('pages/nosotros/')
   return data
 }
 

@@ -11,7 +11,7 @@ type Props = {
   }
 }
 
-export default async function Nosotros({params}:Props) {
+export default async function About({params}:Props) {
   let nosotros = await getNosotrosPage()
   // const ga = JSON.parse(nosotros)
   // console.log(nosotros.items);
