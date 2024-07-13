@@ -9,7 +9,7 @@ import { useCycle, motion } from "framer-motion";
 import { FaPaperPlane } from "react-icons/fa";
 
 interface Props {
-  data: { img: string, titulo: string, duracion: string }[]
+  data: {type:string,value:any,id:string}[]
 }
 
 const myFont = localFont({ src: '../../public/CoreBoriW01-Regular.ttf' })
@@ -76,9 +76,10 @@ const [trail, setTrail] = useState([]);
     <div className="lg:w-full w-full">
       <Carousel autoplay loop transition={{ duration: 2 }} className="rounded-xl">
         {data.map((ele) => {
-          let rawDuracion = []
-          try {
-            rawDuracion = ele.duracion.split('-')
+            
+         let rawDuracion = []
+         try {
+            rawDuracion = ele.value.duracion.split('-')
           } catch (error) {
 
             rawDuracion = [undefined, undefined]
@@ -86,9 +87,10 @@ const [trail, setTrail] = useState([]);
           }
           const dias = rawDuracion[0]
           const noches = rawDuracion[1]
-
-          return (
-            <div className="relative w-full h-[640px]">
+          switch (ele.type) {
+            case "Tipo1":
+              
+            return (<div className="relative w-full h-[640px]">
               <motion.div
                   className="text-2xl text-gray-600 w-fit h-fit mx-auto z-30"
                   animate={{
@@ -120,18 +122,29 @@ const [trail, setTrail] = useState([]);
                   <FaPaperPlane size={30} rotate={90} />
                 </motion.div>
 
-              <Image src={ele.img} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover"></Image>
+              <Image src={ele.value.img} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover"></Image>
               <div className="absolute flex flex-col top-[156px] left-[98px] h-full w-[320px]">
                 <Image src="/peruCarousel.png" alt="peru" width={140} height={60} />
-                <div className={`${myFont.className} text-white lg:text-[40px] leading-[47.5px]`} >{ele.titulo}</div>
+                <div className={`${myFont.className} text-white lg:text-[40px] leading-[47.5px]`} >{ele.value.titulo}</div>
                 <div className="text-white bg-[#00AFD5] text-[23px] font-extrabold w-fit px-3 rounded-xl font-monse"> {dias} Días / {noches} Noches </div>
                 <Image src="/incluido.png" alt="incluido" width={332} height={100} />
               </div>
             </div>
           )
+
+          case "Tipo2":
+            return(
+            <div>
+                aoeao</div>
+            )
+            default:
+              break
+              
+          }
         })}
       </Carousel>
     </div>
+    
   )
 }
 

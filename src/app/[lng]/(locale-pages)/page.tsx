@@ -7,7 +7,7 @@ import ProfileCard from '@/components/cardPaquetes'
 // import paquetes from "@/app/lib/paquetes"
 // import destinos from './lib/destinos'
 import BackCard from '@/components/backCard'
-import {getDestinos, getInicioPage} from '@/app/lib/wp'
+import {getDestinos, getInicioPage,getPaquete} from '@/app/lib/wp'
 import { GetStaticProps, NextPage } from 'next'
 import Questions from '@/components/questions'
 import AgenciaForm from '@/components/formAgencio'
@@ -48,15 +48,15 @@ export default async function Home({params }: Props) {
 
   // const paquetes = await getPaquetes(['featuredImage','precio','duracion'])
 
+  const paquetes = await getPaquete({fields:"featuredImage,precio,duracion",locale:params.lng})
   // console.log(dataGeneral)
   
   // const gallery = 
   // const gallery = dataGeneral.galleryInicio.map(ele=>({img:ele.image.meta.download_url,titulo:ele.carouselTitulo,duracion:ele.carouselDuracion}))
 
-  console.log(t('faqInicio'))
   return (
     <div className="flex flex-col items-center">
-      {/* <CustomCarousel data={gallery} ></CustomCarousel> */}
+      <CustomCarousel data={t('galleryIni',{returnObjects:true})} ></CustomCarousel>
       {/* <SessionProvider> */}
       {/* <SessionValidator>GAAAAAAAA</SessionValidator> */}
       {/* </SessionProvider> */}
@@ -65,10 +65,8 @@ export default async function Home({params }: Props) {
         {t('paqueteTitulo')}
     </h2>
       <div className=" grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1 gap-2 pl-7 lg:pl-0 gap-y-10">
-        {t('paqueteTitulo')}
-        {/* {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={ele.id} time={ele.duracion} />))} */}
+        {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={ele.id} time={ele.duracion} />))}
       </div>
-      {/* <Subtitle >Destinos</Subtitle> */}
         <h2 className="subtitle w-fit lg:text-[34px] text-3xl
         my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {t('destinoTitulo')}
