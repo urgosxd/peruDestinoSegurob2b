@@ -80,7 +80,7 @@ const [trail, setTrail] = useState([]);
             
          let rawDuracion = []
          try {
-            rawDuracion = ele.value.duracion.split('-')
+            rawDuracion = ele.value.carouselDuracion.split('-')
           } catch (error) {
 
             rawDuracion = [undefined, undefined]
@@ -126,7 +126,7 @@ const [trail, setTrail] = useState([]);
               <Image src={ele.value.photo.url.url} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover"></Image>
               <div className="absolute flex flex-col top-[156px] left-[98px] h-full w-[320px]">
                 <Image src="/peruCarousel.png" alt="peru" width={140} height={60} />
-                <div className={`${myFont.className} text-white lg:text-[40px] leading-[47.5px]`} >{ele.value.titulo}</div>
+                <div className={`${myFont.className} text-white lg:text-[40px] leading-[47.5px]`} >{ele.value.carouselTitulo}</div>
                 <div className="text-white bg-[#00AFD5] text-[23px] font-extrabold w-fit px-3 rounded-xl font-monse"> {dias} Días / {noches} Noches </div>
                 <Image src="/incluido.png" alt="incluido" width={332} height={100} />
               </div>

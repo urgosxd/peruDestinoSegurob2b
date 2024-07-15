@@ -8,6 +8,7 @@ interface Props {
   id:number
   idxNavState:number
   lng:string
+  func:any
 }
 
 const NamesNavbar2URL:{[key:string]:string} = {
@@ -20,34 +21,35 @@ const NamesNavbar2URL:{[key:string]:string} = {
 
 }
 
-function getLinkbyName(lng:string,name:string){
-  let finalName = ""
-  switch (name) {
-    case "inicio":
-      finalName = "/"
-      break;
+// function getLinkbyName(lng:string,name:string){
+//   let finalName = ""
+//   switch (name) {
+//     case "inicio":
+//       finalName = "/"
+//       break;
+//     case "
 
-    case "blog":
-      finalName = "/blog?page=1"
-      break;
-    default:
-      finalName = `/${name}`
-      break;
-  }
-
-
-  return `/${lng}/${finalName}`
+//     case "blog":
+//       finalName = "/blog?page=1"
+//       break;
+//     default:
+//       finalName = `/${name}`
+//       break;
+//   }
 
 
-}
-export default function LiNav({txt,setIdxNav,idxNavState,id,lng}:Props){
+//   return `/${lng}/${finalName}`
+
+
+// }
+export default function LiNav({txt,setIdxNav,idxNavState,id,lng,func}:Props){
     return (<Typography
         as="li"
         color="blue-gray"
         className={`flex lg:justify-center justify-start pt-0 font-bold ${(txt == "Salidas Grupales") ? "w-50":"w-32"}`}
       >
     <Link
-    href={getLinkbyName(lng,txt)}
+    href={func(lng,txt)}
     // href={NamesNavbar2URL[txt]}
       className="flex flex-col gap-x-2"
         onClick={()=>setIdxNav(id)}

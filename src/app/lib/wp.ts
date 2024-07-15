@@ -82,6 +82,11 @@ export async function getPaquete(variables:any){
   return data
 }
 
+export async function getTour(variable:any){
+  const data = await fetchAPI('pages/tour/',variable)
+  return data
+}
+
 export async function getPaqueteBySlug(id:number){
   const data = await fetchAPI(`sniPages/paquete/${id}`,[])
   return data
