@@ -6,7 +6,7 @@ export default function Layout({children,params}:{children:React.ReactNode,param
   console.log(params)
   return (
   <div>
-    <NavbarDefault/>
+    <NavbarDefault lng={params.lng}/>
             <main>
 <Script dangerouslySetInnerHTML={{__html: `(function(w,d,u){
                 var s=d.createElement('script');s.async=true;s.src=u+'?'+(Date.now()/60000|0);
@@ -14,6 +14,10 @@ export default function Layout({children,params}:{children:React.ReactNode,param
         })(window,document,'https://cdn.bitrix24.es/b15344011/crm/site_button/loader_7_qznmsh.js');`}}/>
 
               {children}
+<Script dangerouslySetInnerHTML={{__html: `function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"2ee835c433b36ed62861f1b5ba0aa7c8"})});`}}/>
+
+
+
             </main>
             <Footer/>
     </div>

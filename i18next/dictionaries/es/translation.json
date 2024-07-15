@@ -1,4 +1,6 @@
 {
-  "home":"Inicio",
-  "about":"Nosotros"
+  "home":"inicio",
+  "about":"nosotros",
+  "destiny":"destinos",
+  "blog": "blog"
 }

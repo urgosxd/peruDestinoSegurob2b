@@ -5,7 +5,7 @@ import { initReactI18next, useTranslation as useTransAlias } from 'react-i18next
 import resourcesToBackend from 'i18next-resources-to-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-import { type LocaleType, getOptions, availableLocales } from './settings';
+import { type LocaleType, getOptionsCli, availableLocales } from './settings';
 
 const runsOnServerSide = typeof window === 'undefined';
 
@@ -20,7 +20,7 @@ i18next
     )
   )
   .init({
-    ...getOptions(),
+    ...getOptionsCli(),
     lng: undefined, // detect the language on the client
     detection: {
       order: ['path', 'htmlTag'],

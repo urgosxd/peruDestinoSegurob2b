@@ -14,6 +14,7 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 import LiNav from "./liNav";
 import { usePathname } from 'next/navigation';
 import Link from "next/link";
+import {useTranslation} from "../../i18next/client"
 
 function getPath(str: string) {
   if (str == "/") {
@@ -21,9 +22,17 @@ function getPath(str: string) {
   }
   return str.substring(1)
 }
-export function NavbarDefault() {
+type Props = {
+  lng: string
+}
+export function NavbarDefault({lng}:Props) {
+  console.log(lng)
+
+  const { t } = useTranslation(lng,'translation')
+  console.log(t)
   const [openNav, setOpenNav] = React.useState(false);
-  const navNames = ["inicio","destinos", "nosotros", "blog", "contacto","Salidas Grupales"]
+  const navNames = [t('home'),t('destiny'), t('about'), "blog", "contacto","Salidas Grupales"]
+  console.log(navNames)
   // const [tab,setTab] = React.useState(navNames[0]) 
 
   React.useEffect(() => {
@@ -36,7 +45,7 @@ export function NavbarDefault() {
   const currentPage = usePathname();
   const [idxNav, setIdxNav] = useState<number>(navNames.indexOf(getPath(currentPage)) + 1)
   // console.log(currentPage);
-  const navList = navNames.map((ele, idx) => <LiNav key={idx} txt={ele} setIdxNav={setIdxNav} idxNavState={idxNav} id={idx + 1} />)
+  const navList = navNames.map((ele, idx) => <LiNav key={idx} txt={ele} setIdxNav={setIdxNav} idxNavState={idxNav} id={idx + 1} lng={lng} />)
   // const mini = navNames.map(ele=>{[ele]:{}})
   const variants: Variants = {
     visible: (custom: number) => ({
