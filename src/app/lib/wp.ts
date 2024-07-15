@@ -72,7 +72,7 @@ export async function getInicioPage() {
   return data
 }
 
-export async function getDestinos(variables:string[]){
+export async function getDestinos(variables:any){
   const data = await fetchAPI('snippets/destino/',variables)
   return data
 }

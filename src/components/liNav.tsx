@@ -7,6 +7,7 @@ interface Props {
   setIdxNav:React.Dispatch<React.SetStateAction<number>>
   id:number
   idxNavState:number
+  lng:string
 }
 
 const NamesNavbar2URL:{[key:string]:string} = {
@@ -18,14 +19,36 @@ const NamesNavbar2URL:{[key:string]:string} = {
   "Salidas Grupales": "/salidasGrupales"
 
 }
-export default function LiNav({txt,setIdxNav,idxNavState,id}:Props){
+
+function getLinkbyName(lng:string,name:string){
+  let finalName = ""
+  switch (name) {
+    case "inicio":
+      finalName = "/"
+      break;
+
+    case "blog":
+      finalName = "/blog?page=1"
+      break;
+    default:
+      finalName = `/${name}`
+      break;
+  }
+
+
+  return `/${lng}/${finalName}`
+
+
+}
+export default function LiNav({txt,setIdxNav,idxNavState,id,lng}:Props){
     return (<Typography
         as="li"
         color="blue-gray"
         className={`flex lg:justify-center justify-start pt-0 font-bold ${(txt == "Salidas Grupales") ? "w-50":"w-32"}`}
       >
     <Link
-    href={NamesNavbar2URL[txt]}
+    href={getLinkbyName(lng,txt)}
+    // href={NamesNavbar2URL[txt]}
       className="flex flex-col gap-x-2"
         onClick={()=>setIdxNav(id)}
     >

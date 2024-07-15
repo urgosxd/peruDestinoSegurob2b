@@ -33,6 +33,7 @@ const PlaneVariants = {
 };
 
 const CustomCarousel = ({ data }: Props) => {
+  console.log(data)
   const [animation, cycleAnimation] = useCycle(
     "animationOne",
     "animationTwo",
@@ -73,8 +74,8 @@ const [trail, setTrail] = useState([]);
 
 
   return (
-    <div className="lg:w-full w-full">
-      <Carousel autoplay loop transition={{ duration: 2 }} className="rounded-xl">
+    <div className="lg:w-full w-full h-[640px]">
+      <Carousel autoplay loop transition={{ duration: 2 }} className="overflow-y-hidden">
         {data.map((ele) => {
             
          let rawDuracion = []
@@ -90,7 +91,7 @@ const [trail, setTrail] = useState([]);
           switch (ele.type) {
             case "Tipo1":
               
-            return (<div className="relative w-full h-[640px]">
+            return (<div className="relative w-full h-full">
               <motion.div
                   className="text-2xl text-gray-600 w-fit h-fit mx-auto z-30"
                   animate={{
@@ -122,7 +123,7 @@ const [trail, setTrail] = useState([]);
                   <FaPaperPlane size={30} rotate={90} />
                 </motion.div>
 
-              <Image src={ele.value.img} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover"></Image>
+              <Image src={ele.value.photo.url.url} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover"></Image>
               <div className="absolute flex flex-col top-[156px] left-[98px] h-full w-[320px]">
                 <Image src="/peruCarousel.png" alt="peru" width={140} height={60} />
                 <div className={`${myFont.className} text-white lg:text-[40px] leading-[47.5px]`} >{ele.value.titulo}</div>
@@ -134,8 +135,9 @@ const [trail, setTrail] = useState([]);
 
           case "Tipo2":
             return(
-            <div>
-                aoeao</div>
+            <div className="relative w-full h-full">
+              <Image src={ele.value.photo.url.url} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover"></Image>
+                </div>
             )
             default:
               break

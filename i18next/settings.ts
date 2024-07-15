@@ -27,3 +27,15 @@ export function getOptions(lng = defaultLanguage, ns = defaultNS) {
     ns,
   };
 }
+export function getOptionsCli(lng = defaultLanguage, ns = defaultNS) {
+  return {
+// debug: true,
+    supportedLngs: availableLocales,
+    // preload: availableLocales,
+    defaultLanguage,
+    lng,
+    fallbackNS: defaultNS,
+    defaultNS,
+    ns,
+  };
+}
