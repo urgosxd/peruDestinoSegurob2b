@@ -67,8 +67,12 @@ async function fetchAPI(query = '', variable:any = null) {
 //   return data.post
 // }
 
-export async function getInicioPage() {
-  const data = await fetchAPI('pages/inicio/4')
+export async function getInicioPage(variables:any) {
+  const data = await fetchAPI('pages/inicio/',variables)
+  return data
+}
+export async function getNosotrosPage(variables:any) {
+  const data = await fetchAPI('pages/nosotros/',variables)
   return data
 }
 
@@ -81,6 +85,8 @@ export async function getPaquete(variables:any){
   const data = await fetchAPI('pages/paquete/',variables)
   return data
 }
+
+
 
 export async function getTour(variable:any){
   const data = await fetchAPI('pages/tour/',variable)
@@ -113,11 +119,6 @@ export async function getAllPaquetes() {
 //   const data = await fetchAPI('pregfrecuente/')
 //   return data
 // }
-
-export async function getNosotrosPage() {
-  const data = await fetchAPI('pages/nosotros/')
-  return data
-}
 
 // export async function getPaqueteBySlug(slug: string) {
 //   const data = await fetchAPI("paquete/", [`slug=${slug}`])

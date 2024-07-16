@@ -3,6 +3,7 @@ import { getNosotrosPage } from "@/app/lib/wp"
 import Image from 'next/image'
 import Subtitle from "@/components/subtitle"
 import { createTranslation } from '../../../../../i18next';
+import { LocaleType } from "../../../../../i18next/settings";
 
 
 type Props = {
@@ -11,8 +12,28 @@ type Props = {
   }
 }
 
+async function getPageData(slug:string,lng:LocaleType){
+
+const instance =  await getNosotrosPage({locale:lng,fields:'*'})
+
+  const idInstance = instance.items[0].id
+
+  const related = await getNosotrosPage({translation_of:idInstance})
+
+  const relatedLanguages = related.items.map(ele=> ({language: ele.meta.locale,slug:ele.meta.slug}))
+
+  console.log(instance)
+  console.log(relatedLanguages)
+
+  return {
+    NosotrosPage: instance.items[0],
+    related: instance.items.map(ele=> ({language: ele.meta.locale,slug:ele.meta.slug})).concat(relatedLanguages)
+  }
+
+}
+
 export default async function Nosotros({params}:Props) {
-  let nosotros = await getNosotrosPage()
+  // let nosotros = await getNosotrosPage()
   // const ga = JSON.parse(nosotros)
   // console.log(nosotros.items);
   // console.log(params.lng)
@@ -40,9 +61,11 @@ export default async function Nosotros({params}:Props) {
   // ]
 
 
+  const {NosotrosPage , related} = await getPageData("nosotros",params.lng)
+
   return (
     <div className="w-[98vw] flex flex-col items-center">
-
+      {/* <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug="paquete"/> */}
       <BackBanner imgSrc={t('background.meta.download_url')} txt={t('title')} />
       <div className="flex lg:flex-row flex-col mt-5 lg:mt-10 w-full px-10" >
         <div className="lg:w-3/5 w-full lg:px-10 px-0">

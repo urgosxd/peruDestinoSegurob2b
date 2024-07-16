@@ -11,11 +11,12 @@ type DynamicLink = {
 export type HeaderProps = {
   currentLocale: string;
   dynamicLinks?: Array<DynamicLink>;
+  slug: string;
 };
 
-export default function SwitcherGlobal( {currentLocale,dynamicLinks}:HeaderProps){
+export default function SwitcherGlobal( {currentLocale,dynamicLinks,slug}:HeaderProps){
   
   return (
-  <LanguageSelector currentLocale={currentLocale} dynamicLinks={dynamicLinks}></LanguageSelector>
+  <LanguageSelector currentLocale={currentLocale} dynamicLinks={dynamicLinks} slug={slug}></LanguageSelector>
   )
 }

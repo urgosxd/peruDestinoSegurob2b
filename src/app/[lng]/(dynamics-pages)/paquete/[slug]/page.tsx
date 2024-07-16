@@ -38,7 +38,7 @@ export default async function Page({params}:PageProps){
 
   return (
   <main>
-      <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related}/>
+      <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug="paquete"/>
     </main>
   )
 

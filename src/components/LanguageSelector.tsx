@@ -6,7 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import { HeaderProps } from './SwitcherGlobal';
 
-export const LanguageSelector = ({ currentLocale, dynamicLinks }: HeaderProps) => {
+export const LanguageSelector = ({ currentLocale, dynamicLinks ,slug}: HeaderProps) => {
   
   const pathname = usePathname();
   const router = useRouter();
@@ -30,7 +30,7 @@ export const LanguageSelector = ({ currentLocale, dynamicLinks }: HeaderProps) =
     // This function is used to navigate the user to the related slug of a blog post when language is changed.
     const dynamicSlug = dynamicLinks?.find(({ language }) => language === locale)?.slug;
     if (!dynamicSlug) return router.push(`/${locale}`);
-    return router.push(`/${locale}/paquete/${dynamicSlug}`);
+    return router.push(`/${locale}/${slug == "" ?"":slug+"/"} ${dynamicSlug}`);
   };
 
   return (

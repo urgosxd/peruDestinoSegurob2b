@@ -117,6 +117,7 @@ export function NavbarDefault({ lng }: Props) {
           <Button variant="text" size="lg" className="hidden lg:inline-block bg bg-[#D20000] text-white p-2 px-2" >
             Contactar
           </Button>
+          
         </div>
         <IconButton
           variant="text"
