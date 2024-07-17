@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Subtitle from "@/components/subtitle"
 import { createTranslation } from '../../../../../i18next';
 import { LocaleType } from "../../../../../i18next/settings";
+import SwitcherGlobal from "@/components/SwitcherGlobal";
 
 
 type Props = {
@@ -64,8 +65,9 @@ export default async function Nosotros({params}:Props) {
   const {NosotrosPage , related} = await getPageData("nosotros",params.lng)
 
   return (
+    
     <div className="w-[98vw] flex flex-col items-center">
-      {/* <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug="paquete"/> */}
+      <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug={undefined}/>
       <BackBanner imgSrc={t('background.meta.download_url')} txt={t('title')} />
       <div className="flex lg:flex-row flex-col mt-5 lg:mt-10 w-full px-10" >
         <div className="lg:w-3/5 w-full lg:px-10 px-0">
@@ -85,7 +87,6 @@ export default async function Nosotros({params}:Props) {
         </div>
         <div className="lg:w-2/5 w-full h-full mx-10">
 
-
           <div className="lg:h-[60vh] h-[40vh] relative mt-10 lg:mt-0">
           <Image alt={"ga"} fill={true} src={t('imageParrafo.meta.download_url')} className="border rounded-3xl" />
           </div>
@@ -97,6 +98,7 @@ export default async function Nosotros({params}:Props) {
       </div>
 
       <div className="flex lg:flex-row flex-col justify-center items-center lg:gap-x-16 gap-y-10 lg:mx-16 mx-0 lg:mt-28 mt-12 mb-10">
+
         {/* { */}
         {/*   nosotros.estadisticasNosotros.map(ele => (<div className="w-1/3 flex  flex-col items-center"> */}
         {/*     <p */}
@@ -110,7 +112,6 @@ export default async function Nosotros({params}:Props) {
         {/*       > */}
         {/*         {ele.grayLet} */}
         {/*       </p> */}
-
         {/*     </div> */}
         {/*   </div>)) */}
         {/* } */}

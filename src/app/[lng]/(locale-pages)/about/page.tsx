@@ -3,6 +3,8 @@ import { getNosotrosPage } from "@/app/lib/wp"
 import Image from 'next/image'
 import Subtitle from "@/components/subtitle"
 import { createTranslation } from '../../../../../i18next';
+import SwitcherGlobal from "@/components/SwitcherGlobal";
+import { LocaleType } from "../../../../../i18next/settings";
 
 
 type Props = {
@@ -10,17 +12,34 @@ type Props = {
     lng:string
   }
 }
+async function getPageData(slug:string,lng:LocaleType){
+
+const instance =  await getNosotrosPage({locale:lng,fields:'*'})
+
+  const idInstance = instance.items[0].id
+
+  const related = await getNosotrosPage({translation_of:idInstance})
+
+  const relatedLanguages = related.items.map(ele=> ({language: ele.meta.locale,slug:ele.meta.slug}))
+
+  console.log(instance.items[0].background)
+  console.log(relatedLanguages)
+
+  return {
+    NosotrosPage: instance.items[0],
+    related: instance.items.map(ele=> ({language: ele.meta.locale,slug:ele.meta.slug})).concat(relatedLanguages)
+  }
+
+}
 
 export default async function About({params}:Props) {
-  let nosotros = await getNosotrosPage()
   // const ga = JSON.parse(nosotros)
   // console.log(nosotros.items);
   // console.log(params.lng)
+  
   const {t} = await createTranslation(params.lng,'nosotros')
-  console.log(t)
-  console.log(t('title'))
-  console.log(t('background.meta.download_url'))
 
+  console.log(t('background.meta.download_url'))
   // let uniNosotros = nosotros.map(ele => ele.acf).reverse()[0]
   // const exp = [{ rojo: uniNosotros.agenciaviajesatendidas, txt: "Agencias de viaje Atendidas", }, { rojo: uniNosotros.destinos, txt: "destinos", }, { rojo: uniNosotros.aniosxp, txt: "15 AÑOS DE EXPERIENCIA" }]
 
@@ -32,6 +51,7 @@ export default async function About({params}:Props) {
   //   { img: "/iconitoVal.png", txt: "Disciplina" },
   //   {img:"/candado.png",txt:"Confidencialidad"}
   // ]
+  //
   // const Datalegal = [
   //   ["RAZÓN SOCIAL",nosotros.razonSocial],
   //   ["NÚMERO DE RUC",nosotros.numeroRuc],
@@ -39,10 +59,11 @@ export default async function About({params}:Props) {
   //   ["CERTIFICADO DE AUTORIZACIÓN",nosotros.certificadoAutorizacion],
   // ]
 
+  const {NosotrosPage , related} = await getPageData("about",params.lng)
 
   return (
     <div className="w-[98vw] flex flex-col items-center">
-
+      <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug={undefined}/>
       <BackBanner imgSrc={t('background.meta.download_url')} txt={t('title')} />
       <div className="flex lg:flex-row flex-col mt-5 lg:mt-10 w-full px-10" >
         <div className="lg:w-3/5 w-full lg:px-10 px-0">
@@ -62,7 +83,6 @@ export default async function About({params}:Props) {
         </div>
         <div className="lg:w-2/5 w-full h-full mx-10">
 
-
           <div className="lg:h-[60vh] h-[40vh] relative mt-10 lg:mt-0">
           <Image alt={"ga"} fill={true} src={t('imageParrafo.meta.download_url')} className="border rounded-3xl" />
           </div>
@@ -74,6 +94,7 @@ export default async function About({params}:Props) {
       </div>
 
       <div className="flex lg:flex-row flex-col justify-center items-center lg:gap-x-16 gap-y-10 lg:mx-16 mx-0 lg:mt-28 mt-12 mb-10">
+
         {/* { */}
         {/*   nosotros.estadisticasNosotros.map(ele => (<div className="w-1/3 flex  flex-col items-center"> */}
         {/*     <p */}
@@ -87,7 +108,6 @@ export default async function About({params}:Props) {
         {/*       > */}
         {/*         {ele.grayLet} */}
         {/*       </p> */}
-
         {/*     </div> */}
         {/*   </div>)) */}
         {/* } */}

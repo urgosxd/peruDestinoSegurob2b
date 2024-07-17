@@ -30,7 +30,7 @@ export const LanguageSelector = ({ currentLocale, dynamicLinks ,slug}: HeaderPro
     // This function is used to navigate the user to the related slug of a blog post when language is changed.
     const dynamicSlug = dynamicLinks?.find(({ language }) => language === locale)?.slug;
     if (!dynamicSlug) return router.push(`/${locale}`);
-    return router.push(`/${locale}/${slug == "" ?"":slug+"/"} ${dynamicSlug}`);
+    return router.push(`/${locale}/${slug == undefined ? dynamicSlug: (slug+"/"+dynamicSlug)}`);
   };
 
   return (

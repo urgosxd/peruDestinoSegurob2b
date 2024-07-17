@@ -13,11 +13,32 @@ import Questions from '@/components/questions'
 import AgenciaForm from '@/components/formAgencio'
 import { RevealBento } from '@/components/gridDestino'
 import { createTranslation } from '../../../../i18next'
+import SwitcherGlobal from '@/components/SwitcherGlobal'
+import { LocaleType } from '../../../../i18next/settings'
 
 type Props = {
   params:{
     lng:string
   }
+}
+async function getPageData(slug:string,lng:LocaleType){
+
+const instance =  await getInicioPage({locale:lng,fields:'*'})
+
+  const idInstance = instance.items[0].id
+
+  const related = await getInicioPage({translation_of:idInstance})
+
+  const relatedLanguages = related.items.map(ele=> ({language: ele.meta.locale,slug:ele.meta.slug}))
+
+  console.log(instance.items[0].background)
+  console.log(relatedLanguages)
+
+  return {
+    InicioPage: instance.items[0],
+    related: instance.items.map(ele=> ({language: ele.meta.locale,slug:ele.meta.slug})).concat(relatedLanguages)
+  }
+
 }
 
 export default async function Home({params }: Props) {
@@ -54,8 +75,13 @@ export default async function Home({params }: Props) {
   // const gallery = 
   // const gallery = dataGeneral.galleryInicio.map(ele=>({img:ele.image.meta.download_url,titulo:ele.carouselTitulo,duracion:ele.carouselDuracion}))
 
+
+  const {InicioPage , related} = await getPageData("inicio",params.lng)
+
   return (
     <div className="flex flex-col items-center">
+      
+      <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug={undefined}/>
       <CustomCarousel data={t('galleryIni',{returnObjects:true})} ></CustomCarousel>
       {/* <SessionProvider> */}
       {/* <SessionValidator>GAAAAAAAA</SessionValidator> */}

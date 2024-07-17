@@ -7,6 +7,8 @@ import localFont from 'next/font/local'
 import React, { Component, useEffect } from "react";
 import { useCycle, motion } from "framer-motion";
 import { FaPaperPlane } from "react-icons/fa";
+import RatioComponent from "./ratioComponen";
+import { Console } from "console";
 
 interface Props {
   data: {type:string,value:any,id:string}[]
@@ -51,7 +53,7 @@ const [trail, setTrail] = useState([]);
     const keyframes = { x: [], y: [], rotate: [] };
     for (let t = 0; t <= 2 * Math.PI; t += 0.1) {
       keyframes.x.push(100 * Math.sin(2 * t)); // Example: double frequency for x
-      keyframes.y.push(100 * Math.cos(t)); // Single frequency for y
+      keyframes.y.push(100 * Math.cos(t) + 50); // Single frequency for y
     }
     for (let i = 0; i < keyframes.x.length - 1; i++) {
       const dx = keyframes.x[i + 1] - keyframes.x[i];
@@ -72,10 +74,11 @@ const [trail, setTrail] = useState([]);
   //   setTimeout(cycleAnimation, 2000); // start "animationThree" after 2 seconds
   // }, []);
 
+  
 
   return (
     <div className="lg:w-full w-full h-[640px]">
-      <Carousel autoplay loop transition={{ duration: 2 }} className="overflow-y-hidden">
+      <Carousel autoplay autoplayDelay={8000}  transition={{ duration: 2 }} className="overflow-y-hidden">
         {data.map((ele) => {
             
          let rawDuracion = []
@@ -90,10 +93,11 @@ const [trail, setTrail] = useState([]);
           const noches = rawDuracion[1]
           switch (ele.type) {
             case "Tipo1":
-              
+              console.log(ele.value.miniPhotos)
             return (<div className="relative w-full h-full">
-              <motion.div
-                  className="text-2xl text-gray-600 w-fit h-fit mx-auto z-30"
+                 <Image src={ele.value.photo.url.url} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover "></Image>
+                 <motion.div
+                  className="text-2xl text-gray-600 w-fit h-fit mx-auto "
                   animate={{
                     x: keyframes.x,
                     y: keyframes.y,
@@ -123,13 +127,14 @@ const [trail, setTrail] = useState([]);
                   <FaPaperPlane size={30} rotate={90} />
                 </motion.div>
 
-              <Image src={ele.value.photo.url.url} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover"></Image>
+
               <div className="absolute flex flex-col top-[156px] left-[98px] h-full w-[320px]">
                 <Image src="/peruCarousel.png" alt="peru" width={140} height={60} />
                 <div className={`${myFont.className} text-white lg:text-[40px] leading-[47.5px]`} >{ele.value.carouselTitulo}</div>
                 <div className="text-white bg-[#00AFD5] text-[23px] font-extrabold w-fit px-3 rounded-xl font-monse"> {dias} Días / {noches} Noches </div>
                 <Image src="/incluido.png" alt="incluido" width={332} height={100} />
               </div>
+                <RatioComponent  data={ele.value.miniPhotos.map(ele=>({miniTitle:"AA",miniContent:"aa",img:ele.url.full_url}))}/>
             </div>
           )
 

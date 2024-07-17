@@ -28,14 +28,15 @@ function getPath(str: string) {
 }
 type Props = {
   lng: string
+  destinos: string[]
 }
-export function NavbarDefault({ lng }: Props) {
+export function NavbarDefault({ lng, destinos }: Props) {
   console.log(lng)
 
   const { t } = useTranslation(lng, 'translation')
   console.log(t)
   const [openNav, setOpenNav] = React.useState(false);
-  const navNames = [t('home'), t('destiny'), t('about'), "blog", "contacto", "Salidas Grupales"]
+  const navNames = [t('home'), t('destinations'), t('about'), "blog", "contacto", "Salidas Grupales"]
   console.log(navNames)
   // const [tab,setTab] = React.useState(navNames[0]) 
 
@@ -46,7 +47,7 @@ export function NavbarDefault({ lng }: Props) {
       case t('home'):
         finalName = "/"
         break;
-      case t('destiny'):
+      case t('destinations'):
         finalName = ""
         break;
 
@@ -77,15 +78,25 @@ export function NavbarDefault({ lng }: Props) {
   const currentPage = usePathname();
   const [idxNav, setIdxNav] = useState<number>(navNames.indexOf(getPath(currentPage)) + 1)
   // console.log(currentPage);
-  const navList = navNames.map((ele, idx) => ele == t('destiny') ? (<Menu>
+  const navList = navNames.map((ele, idx) => ele == t('destinations') ? (<Menu>
     <MenuHandler>
-      <Button>{t('destiny')}</Button>
+      <Typography
+        as="li"
+        color="blue-gray"
+        className={`flex lg:justify-center justify-start pt-0 font-bold w-32 cursor-pointer`}
+      >
+
+        <div className="mt-7 p-2 lg:text-center uppercase text-md lg:text-md">
+          {t('destinations')}
+        </div>
+
+        {/* {txt == idxNavState ? <motion.div  className="underline" layoutId="underline"/>:null} */}
+      </Typography>
     </MenuHandler>
     <MenuList>
-
-      <MenuItem>Menu Item 1</MenuItem>
-      <MenuItem>Menu Item 2</MenuItem>
-      <MenuItem>Menu Item 3</MenuItem>
+      {destinos.map(ele => (<MenuItem><Link className="w-full block" href={`/${lng}/${t('destinations')}/?city=${ele.toLowerCase()}`}>
+        {ele}
+      </Link> </MenuItem>))}
     </MenuList>
   </Menu>) : <LiNav key={idx} txt={ele} setIdxNav={setIdxNav} idxNavState={idxNav} id={idx + 1} lng={lng} func={getLinkbyName} />)
   // const mini = navNames.map(ele=>{[ele]:{}})
@@ -117,7 +128,7 @@ export function NavbarDefault({ lng }: Props) {
           <Button variant="text" size="lg" className="hidden lg:inline-block bg bg-[#D20000] text-white p-2 px-2" >
             Contactar
           </Button>
-          
+
         </div>
         <IconButton
           variant="text"
