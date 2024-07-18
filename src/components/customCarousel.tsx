@@ -60,7 +60,7 @@ const [trail, setTrail] = useState([]);
 
   return (
     <div className="lg:w-full w-full h-[640px]">
-      <Carousel autoplay autoplayDelay={8000}  transition={{ duration: 2 }} className="overflow-y-hidden">
+      <Carousel  autoplayDelay={8000}  transition={{ duration: 2 }} className="overflow-y-hidden">
         {data.map((ele) => {
             
          let rawDuracion = []
@@ -77,7 +77,7 @@ const [trail, setTrail] = useState([]);
             case "Tipo1":
               // console.log(ele.value.miniPhotos)
             return (<div className="relative w-full h-full">
-                 <Image src={ele.value.photo.url.url} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover "></Image>
+                 <Image src={ele.value.photo.url.full_url} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover "></Image>
                  <motion.div
                   className="text-2xl text-gray-600 w-fit h-fit mx-auto "
                   animate={{
@@ -110,13 +110,18 @@ const [trail, setTrail] = useState([]);
                 </motion.div>
 
 
-              <div className="absolute flex flex-col top-[156px] left-[98px] h-full w-[320px]">
+              <div className="absolute flex flex-row  h-full w-full">
+                  <div className="w-1/3">
                 <Image src="/peruCarousel.png" alt="peru" width={140} height={60} />
                 <div className={`${myFont.className} text-white lg:text-[40px] leading-[47.5px]`} >{ele.value.carouselTitulo}</div>
                 <div className="text-white bg-[#00AFD5] text-[23px] font-extrabold w-fit px-3 rounded-xl font-monse"> {dias} Días / {noches} Noches </div>
                 <Image src="/incluido.png" alt="incluido" width={332} height={100} />
-              </div>
+
+                  </div>
+                  <div className="w-2/3">
                 <RatioComponent  data={ele.value.miniPhotos.map(ele=>({miniTitle:"AA",miniContent:"aa",img:ele.url.full_url}))}/>
+                  </div>
+                              </div>
             </div>
           )
 
