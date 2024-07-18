@@ -16,24 +16,6 @@ interface Props {
 
 const myFont = localFont({ src: '../../public/CoreBoriW01-Regular.ttf' })
 
-const PlaneVariants = {
-  animationOne: {
-    x: 370,
-    y: 250,
-    transition: { duration: 1.0 },
-  },
-  animationTwo: {
-    x: 140,
-    y: 150,
-    transition: { duration: 1.0 },
-  },
-  animationThree: {
-    x: 170,
-    y: 200,
-    transition: { duration: 1.0 },
-  },
-};
-
 const CustomCarousel = ({ data }: Props) => {
   console.log(data)
   const [animation, cycleAnimation] = useCycle(
@@ -93,7 +75,7 @@ const [trail, setTrail] = useState([]);
           const noches = rawDuracion[1]
           switch (ele.type) {
             case "Tipo1":
-              console.log(ele.value.miniPhotos)
+              // console.log(ele.value.miniPhotos)
             return (<div className="relative w-full h-full">
                  <Image src={ele.value.photo.url.url} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover "></Image>
                  <motion.div
