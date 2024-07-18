@@ -39,9 +39,9 @@ const ImageGrid = ({data}:Props) => {
   };
 
   return (
-    <div className="w-full h-full flex flex-row justify-center">
+    <div className="w-full h-full flex flex-row justify-center pare">
       {data.map((i,idx) => (
-        <motion.div
+          <motion.div
           key={idx}
           onClick={handleToggle}
           style={{backgroundColor: "black",margin:"auto 0",marginLeft: idx > 0 ? -30 : 0,position:"relative",clipPath: 'polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)'}}
@@ -51,7 +51,17 @@ const ImageGrid = ({data}:Props) => {
 
           <Image src={i.img} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="object-cover h-[350px] w-[100px] "></Image>
         </motion.div>
-      ))}
+              ))}
+      
+        <svg className="flt_svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="flt_tag">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />    
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="flt_tag" />
+                <feComposite in="SourceGraphic" in2="flt_tag" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
     </div>
   );
 };
