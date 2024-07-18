@@ -78,6 +78,7 @@ export default async function Home({params }: Props) {
 
   const {InicioPage , related} = await getPageData("inicio",params.lng)
 
+
   return (
     <div className="flex flex-col items-center">
       
