@@ -11,7 +11,7 @@ export default function RatioComponent({ data }: Props) {
 
     
   return (
-    <div className="w-full h-[500px]"><ImageGrid data={data}/> </div>
+    <div className="w-full h-full"><ImageGrid data={data}/> </div>
 
   )
 
@@ -39,22 +39,21 @@ const ImageGrid = ({data}:Props) => {
   };
 
   return (
-    <div className="w-full h-full">
-    <div className="w-full h-full flex flex-row">
+    <div className="w-full h-full flex flex-row justify-center">
       {data.map((i,idx) => (
         <motion.div
           key={idx}
-          style={{backgroundColor: "red"}}
+          onClick={handleToggle}
+          style={{backgroundColor: "black",margin:"auto 0",marginLeft: idx > 0 ? -25 : 0,position:"relative"}}
           animate={{ width: expanded ? '100%' : '25%', height: expanded ? '100%' : '350px',clipPath: expanded
               ? 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
               : 'polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)' }}
           transition={{ duration: 0.5 }}
         >
-          {/* <Image src={i.img} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover "></Image> */}
+
+          <Image src={i.img} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="object-cover h-[350px] w-[100px] "></Image>
         </motion.div>
       ))}
-    </div>
-      <button onClick={handleToggle} className="text-2xl text-green-600">Toggle</button>
     </div>
   );
 };

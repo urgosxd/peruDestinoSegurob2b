@@ -31,11 +31,15 @@ const [trail, setTrail] = useState([]);
 
   const duration = 6; // in seconds
 
-  const generateKeyframes = () => {
+
     const keyframes = { x: [], y: [], rotate: [] };
+    const keyframes2 = { x: [], y: [], rotate: [] };
+  const generateKeyframes = () => {
     for (let t = 0; t <= 2 * Math.PI; t += 0.1) {
-      keyframes.x.push(100 * Math.sin(2 * t)); // Example: double frequency for x
+      keyframes.x.push(100 * Math.sin(2 * t) - 30); // Example: double frequency for x
+      keyframes2.x.push(100 * Math.cos(t) + 500); // Example: double frequency for x
       keyframes.y.push(100 * Math.cos(t) + 50); // Single frequency for y
+      keyframes2.y.push(100 * Math.sin(2*t) + 500)
     }
     for (let i = 0; i < keyframes.x.length - 1; i++) {
       const dx = keyframes.x[i + 1] - keyframes.x[i];
@@ -49,7 +53,7 @@ const [trail, setTrail] = useState([]);
     return keyframes;
   };
 
-  const keyframes = generateKeyframes();
+  generateKeyframes();
 
   // useEffect(() => {
   //   setTimeout(cycleAnimation, 1000); // start "animationTwo" after 1 second
@@ -106,19 +110,51 @@ const [trail, setTrail] = useState([]);
 
                 >
 
-                  <FaPaperPlane size={30} rotate={90} />
+                  <FaPaperPlane size={30} rotate={90} color="white"/>
                 </motion.div>
 
+                  <motion.div
+                  className="text-2xl text-gray-600 w-fit h-fit mx-auto "
+                  animate={{
+                    x: keyframes2.x,
+                    y: keyframes2.y,
+                    rotate: keyframes.rotate
+                  }}
+                  transition={{
+                    x: {
+                      duration: duration,
+                      repeat: Infinity,
+                      ease: "linear",
+                    },
+                    y: {
+                      duration: duration,
+                      repeat: Infinity,
+                      ease: "linear",
+                    },
+                    rotate: {
+                        duration: duration,
+                      repeat: Infinity,
+                      ease: "linear",
 
-              <div className="absolute flex flex-row  h-full w-full">
-                  <div className="w-1/3">
+                    }
+                  }}
+
+                >
+
+                  <FaPaperPlane size={30}  color="white"/>
+                </motion.div>
+
+              <div className="absolute flex flex-row top-0  h-full w-full">
+                  <div className="w-1/3 h-full flex flex-col justify-center content-center flex-wrap items-center">
+                    <div>
                 <Image src="/peruCarousel.png" alt="peru" width={140} height={60} />
                 <div className={`${myFont.className} text-white lg:text-[40px] leading-[47.5px]`} >{ele.value.carouselTitulo}</div>
                 <div className="text-white bg-[#00AFD5] text-[23px] font-extrabold w-fit px-3 rounded-xl font-monse"> {dias} Días / {noches} Noches </div>
                 <Image src="/incluido.png" alt="incluido" width={332} height={100} />
-
+                    </div>
+                
                   </div>
-                  <div className="w-2/3">
+                  <div className="w-2/3 h-full flex flex-col justify-center">
                 <RatioComponent  data={ele.value.miniPhotos.map(ele=>({miniTitle:"AA",miniContent:"aa",img:ele.url.full_url}))}/>
                   </div>
                               </div>
