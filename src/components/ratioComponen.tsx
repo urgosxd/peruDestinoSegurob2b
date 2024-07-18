@@ -44,10 +44,8 @@ const ImageGrid = ({data}:Props) => {
         <motion.div
           key={idx}
           onClick={handleToggle}
-          style={{backgroundColor: "black",margin:"auto 0",marginLeft: idx > 0 ? -25 : 0,position:"relative"}}
-          animate={{ width: expanded ? '100%' : '25%', height: expanded ? '100%' : '350px',clipPath: expanded
-              ? 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)'
-              : 'polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)' }}
+          style={{backgroundColor: "black",margin:"auto 0",marginLeft: idx > 0 ? -30 : 0,position:"relative",clipPath: 'polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)'}}
+          animate={{ width: expanded ? '100%' : '25%', height: expanded ? '100%' : '350px',marginLeft:expanded ? idx > 0 ? -70 : 0: idx > 0 ? -30 : 0 }}
           transition={{ duration: 0.5 }}
         >
 
