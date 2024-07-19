@@ -56,7 +56,6 @@ export default async function Nosotros({params}:Props) {
     ["CERTIFICADO DE AUTORIZACIÓN",t('certificadoAutorizacion')],
   ]
 
-
   const {NosotrosPage , related} = await getPageData("nosotros",params.lng)
 
   return (
@@ -110,7 +109,6 @@ export default async function Nosotros({params}:Props) {
             </div>
           </div>))
         }
-
       </div>
       <Subtitle>
         Valores
