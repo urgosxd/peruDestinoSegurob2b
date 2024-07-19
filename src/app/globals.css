@@ -40,6 +40,10 @@ div.destinoCss div{
 .pare {
 filter: url('#flt_tag');
 }
+
+.pare > div {
+filter: url('#flt_tag');
+}
 .flt_svg {
     visibility: hidden; 
     position: absolute;

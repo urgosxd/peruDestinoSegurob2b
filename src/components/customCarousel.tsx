@@ -146,7 +146,7 @@ const [trail, setTrail] = useState([]);
 
               <div className="absolute flex flex-row top-0  h-full w-full">
                   <div className="w-1/3 h-full flex flex-col justify-center content-center flex-wrap items-center">
-                    <div>
+                    <div className="mx-10">
                 <Image src="/peruCarousel.png" alt="peru" width={140} height={60} />
                 <div className={`${myFont.className} text-white lg:text-[40px] leading-[47.5px]`} >{ele.value.carouselTitulo}</div>
                 <div className="text-white bg-[#00AFD5] text-[23px] font-extrabold w-fit px-3 rounded-xl font-monse"> {dias} Días / {noches} Noches </div>

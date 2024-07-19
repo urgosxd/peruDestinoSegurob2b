@@ -31,8 +31,6 @@ const instance =  await getInicioPage({locale:lng,fields:'*'})
 
   const relatedLanguages = related.items.map(ele=> ({language: ele.meta.locale,slug:ele.meta.slug}))
 
-  console.log(instance.items[0].background)
-  console.log(relatedLanguages)
 
   return {
     InicioPage: instance.items[0],

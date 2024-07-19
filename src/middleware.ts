@@ -32,8 +32,6 @@ function getLocale(request: NextRequest): string {
     return request.cookies.get(cookieName)!.value;
   // Get accept language from HTTP headers
   const acceptLang = request.headers.get("Accept-Language");
-  console.log("MIDDELWAOETAOHRCEHr")
-  console.log(acceptLang)
   if (!acceptLang) return defaultLocale;
   // Get match locale
   const headers = { "accept-language": acceptLang };
@@ -50,7 +48,6 @@ export function middleware(request: NextRequest) {
   );
   if (pathnameHasLocale) return;
 
-  console.log("XRAAAA")
   // Redirect if there is no locale
   const locale = getLocale(request);
   request.nextUrl.pathname = `/${locale}${pathname}`;

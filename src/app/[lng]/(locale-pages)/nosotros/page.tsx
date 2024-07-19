@@ -23,8 +23,6 @@ const instance =  await getNosotrosPage({locale:lng,fields:'*'})
 
   const relatedLanguages = related.items.map(ele=> ({language: ele.meta.locale,slug:ele.meta.slug}))
 
-  console.log(instance)
-  console.log(relatedLanguages)
 
   return {
     NosotrosPage: instance.items[0],
@@ -39,9 +37,6 @@ export default async function Nosotros({params}:Props) {
   // console.log(nosotros.items);
   // console.log(params.lng)
   const {t} = await createTranslation(params.lng,'nosotros')
-  console.log(t)
-  console.log(t('title'))
-  console.log(t('background.meta.download_url'))
 
   // let uniNosotros = nosotros.map(ele => ele.acf).reverse()[0]
   // const exp = [{ rojo: uniNosotros.agenciaviajesatendidas, txt: "Agencias de viaje Atendidas", }, { rojo: uniNosotros.destinos, txt: "destinos", }, { rojo: uniNosotros.aniosxp, txt: "15 AÑOS DE EXPERIENCIA" }]
@@ -54,13 +49,12 @@ export default async function Nosotros({params}:Props) {
   //   { img: "/iconitoVal.png", txt: "Disciplina" },
   //   {img:"/candado.png",txt:"Confidencialidad"}
   // ]
-  // const Datalegal = [
-  //   ["RAZÓN SOCIAL",nosotros.razonSocial],
-  //   ["NÚMERO DE RUC",nosotros.numeroRuc],
-  //   ["NOMBRE COMERCIAL",nosotros.nombreComercial],
-  //   ["CERTIFICADO DE AUTORIZACIÓN",nosotros.certificadoAutorizacion],
-  // ]
-
+  const Datalegal = [
+    ["RAZÓN SOCIAL",t('razonSocial')],
+    ["NÚMERO DE RUC",t('numeroRuc')],
+    ["NOMBRE COMERCIAL",t('nombreComercial')],
+    ["CERTIFICADO DE AUTORIZACIÓN",t('certificadoAutorizacion')],
+  ]
 
   const {NosotrosPage , related} = await getPageData("nosotros",params.lng)
 
@@ -94,28 +88,27 @@ export default async function Nosotros({params}:Props) {
 
       </div>
         <div className="mt-28 grid lg:grid-cols-2 gri-cols-1 divide-y-2 divide-neutral-800 mt-10 border py-5 rounded-3xl">
-          {/* {Datalegal.map((ele,idx)=>(<div className={`pr-24 pl-24 py-3 ${idx==1 ? "dataLegal":" "}`}><div className="font-semibold lg:text-[18px] text-[#5B5B5F] ">{ele[0]}</div><div className="text-[#B8B8B8] lg:text-[18px] font-normal">{ele[1]}</div></div>))} */}
+          {Datalegal.map((ele,idx)=>(<div className={`pr-24 pl-24 py-3 ${idx==1 ? "dataLegal":" "}`}><div className="font-semibold lg:text-[18px] text-[#5B5B5F] ">{ele[0]}</div><div className="text-[#B8B8B8] lg:text-[18px] font-normal">{ele[1]}</div></div>))}
       </div>
 
       <div className="flex lg:flex-row flex-col justify-center items-center lg:gap-x-16 gap-y-10 lg:mx-16 mx-0 lg:mt-28 mt-12 mb-10">
 
-        {/* { */}
-        {/*   nosotros.estadisticasNosotros.map(ele => (<div className="w-1/3 flex  flex-col items-center"> */}
-        {/*     <p */}
-        {/*       className="lg:text-[64px] text-5xl font-bold text-[#D20000]" */}
-        {/*     > */}
-        {/*       {ele.redLet} */}
-        {/*     </p> */}
-        {/*     <div className=" w-full"> */}
-        {/*       <p */}
-        {/*         className="uppercase font-semibold text-[32px] text-[#5B5B5F] text-center leading-[25px] w-full" */}
-        {/*       > */}
-        {/*         {ele.grayLet} */}
-        {/*       </p> */}
-        {/*     </div> */}
-        {/*   </div>)) */}
-        {/* } */}
-
+        {
+          t('estadisticasNosotros',{returnObjects:true}).map(ele => (<div className="w-1/3 flex  flex-col items-center">
+            <p
+              className="lg:text-[64px] text-5xl font-bold text-[#D20000]"
+            >
+              {ele.redLet}
+            </p>
+            <div className=" w-full">
+              <p
+                className="uppercase font-semibold text-[32px] text-[#5B5B5F] text-center leading-[25px] w-full"
+              >
+                {ele.grayLet}
+              </p>
+            </div>
+          </div>))
+        }
       </div>
       <Subtitle>
         Valores

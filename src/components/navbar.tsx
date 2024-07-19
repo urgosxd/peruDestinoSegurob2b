@@ -19,26 +19,44 @@ import LiNav from "./liNav";
 import { usePathname } from 'next/navigation';
 import Link from "next/link";
 import { useTranslation } from "../../i18next/client"
+import { LocaleType } from '../../i18next/settings';
 
-function getPath(str: string) {
-  if (str == "/") {
-    return "inicio"
-  }
-  return str.substring(1)
-}
+
 type Props = {
   lng: string
   destinos: string[]
 }
 export function NavbarDefault({ lng, destinos }: Props) {
-  console.log(lng)
 
   const { t } = useTranslation(lng, 'translation')
-  console.log(t)
   const [openNav, setOpenNav] = React.useState(false);
   const navNames = [t('home'), t('destinations'), t('about'), "blog", "contacto", "Salidas Grupales"]
-  console.log(navNames)
   // const [tab,setTab] = React.useState(navNames[0]) 
+
+
+  function getPath(str: string) {
+
+    const first = str.slice(1)
+
+    const sec = first.split("/")
+
+
+  console.log("PATHH")
+  console.log(str)
+  console.log(sec)
+
+    if (sec[1] !== ""){
+      console.log('entroo')
+              return t(sec[1])
+    }else{
+    
+      return t('home')
+    
+    }
+
+    
+  
+}
 
 
   function getLinkbyName(lng: string, name: string) {
@@ -67,19 +85,18 @@ export function NavbarDefault({ lng, destinos }: Props) {
 
 
 
-  React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false),
-    );
-  }, []);
+  // React.useEffect(() => {
+  //   window.addEventListener(
+  //     "resize",
+  //     () => window.innerWidth >= 960 && setOpenNav(false),
+  //   );
+  // }, []);
 
 
   const currentPage = usePathname();
   const [idxNav, setIdxNav] = useState<number>(navNames.indexOf(getPath(currentPage)) + 1)
-  // console.log(currentPage);
-  const navList = navNames.map((ele, idx) => ele == t('destinations') ? (<Menu>
-    <MenuHandler>
+  const navList = navNames.map((ele, idx) => ele == t('destinations') ? (<Menu allowHover>
+    <MenuHandler key={idx}>
       <Typography
         as="li"
         color="blue-gray"
@@ -94,7 +111,7 @@ export function NavbarDefault({ lng, destinos }: Props) {
       </Typography>
     </MenuHandler>
     <MenuList>
-      {destinos.map(ele => (<MenuItem><Link className="w-full block" href={`/${lng}/${t('destinations')}/?city=${ele.toLowerCase()}`}>
+      {destinos.map(ele => (<MenuItem><Link onClick={()=> setIdxNav(2)} className="w-full block" href={`/${lng}/${t('destinations')}/?city=${ele.toLowerCase()}`}>
         {ele}
       </Link> </MenuItem>))}
     </MenuList>
