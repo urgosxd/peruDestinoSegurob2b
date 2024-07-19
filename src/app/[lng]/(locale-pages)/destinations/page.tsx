@@ -1,0 +1,48 @@
+import { getDestinos, getTour } from "@/app/lib/wp";
+import CardDestinos from "@/components/cardDestinos";
+import { useParams } from "next/navigation";
+
+type Props = {
+  params:{
+    lng:string
+  },
+  searchParams:any
+
+}
+
+// function capitalize(s:string){
+//     return s.toLowerCase().replace( /\b./g, function(a){ return a.toUpperCase(); } );
+// };
+
+const miniTranslate:{[keys:string]:string} = {"es":"Destinos","en":"Destinations"}
+export default async function Destino({params,searchParams}:Props) {
+
+
+  const {city}  = searchParams
+
+
+  const destinos = await getDestinos({fields:"*"})
+
+
+  const destinosObject = destinos.items.map((ele)=>({id:ele.id,ciudad: ele.name.toLowerCase()}))
+
+
+  // console.log(destinosObject.filter(ele=> ele.ciudad == capitalize(city)))
+  const dataTours = await getTour({fields:"*",tourDestino:destinosObject.filter(ele=> ele.ciudad == city)[0].id,locale:params.lng})
+
+  return(
+    <div className="w-[98vw] flex flex-col items-center">
+      
+      {/* <BackBanner imgSrc={unicoDestinos.imgback} txt="Nuestros Destinos" /> */}
+       <h2 className="subtitle w-fit lg:text-[34px] text-3xl
+        my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
+        {miniTranslate[params.lng]}
+    </h2>
+      <div className="grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1 gap-2 pl-7 lg:pl-0 gap-y-10">
+       {dataTours.items.length > 0 && dataTours.items.map(ele=><CardDestinos imgSrc={ele.featuredImage.meta.download_url} txt1={ele.title} txt2={ele.precio} slug={""}/>)}
+      </div>
+
+      {city}
+    </div>
+  )
+}

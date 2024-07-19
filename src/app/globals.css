@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: #fff;
+  /* margin: 8px !important; */
+}
+
+
+/* .underline { */
+/*   position:inherit; */
+/*   width: 100px; */
+/*   height: 10px; */
+/*   background: black; */
+/* } */
+
+div.destinoCss div{
+  border-radius: 0%;
+}
+.paladin {
+  padding-right: 50%;
+}
+
+.pare {
+filter: url('#flt_tag');
+}
+
+.pare > div {
+filter: url('#flt_tag');
+}
+.flt_svg {
+    visibility: hidden; 
+    position: absolute;
+    width: 0px;
+    height: 0px;
+}
+
+
+
+
+.subtitle:after {
+    content: ""; /* This is necessary for the pseudo element to work. */ 
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 50%; /* Change this to whatever width you want. */
+    padding-top: 1rem; /* This creates some space between the element and the border. */
+    border-bottom: 1px solid #D20000; /* This creates the border. Replace black with whatever color you want. */
+}
+
+.wasgi p{
+color: #5B5B5F;
+text-align: justify;
+overflow-wrap: break-word;
+font-weight:300;
+font-size: 20px;
+}
+
+
+.wasgi p a{
+  font-weight: bold;
+}
+
+.containerTop {
+    display:grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+.containerMid {
+    display:grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+.containerBot {
+    display:grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+
+
+
+
+
+.dataLegal {
+border-top-width: 0 !important;
+}
+
+.font-expand{
+    font-stretch: expanded;
+}
+@media (min-width: 1024px){
+  .wasgi p{
+font-size: 1.25rem; /* 18px */
+line-height: 2rem; /* 28px */
+padding-right:1.25rem;
+  }
+ .containerTop {  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "one two three";
+} 
+ .one { grid-area: one; }
+
+.two { grid-area: two; }
+
+.three { grid-area: three; }
+
+ .containerMid {  display: grid;
+  grid-template-columns: 1fr 1fr 1.75fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "gaaaaMid gaaaaMid minigaMid"
+    "gaaaaMid gaaaaMid midgaMid";
+}
+
+.gaaaaMid { grid-area: gaaaaMid; }
+
+.minigaMid { grid-area: minigaMid; }
+
+.midgaMid { grid-area: midgaMid; }
+
+.containerBot {  display: grid;
+  grid-template-columns: 1.75fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "minigaBot gaaaaBot gaaaaBot"
+    "midgaBot gaaaaBot gaaaaBot";
+}
+
+.gaaaaBot { grid-area: gaaaaBot; }
+
+.minigaBot { grid-area: minigaBot; }
+
+.midgaBot { grid-area: midgaBot; }
+
+
+
+  
+
+}
