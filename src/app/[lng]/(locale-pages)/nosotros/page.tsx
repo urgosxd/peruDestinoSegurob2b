@@ -56,6 +56,7 @@ export default async function Nosotros({ params }: Props) {
     ["CERTIFICADO DE AUTORIZACIÓN", t('certificadoAutorizacion')],
   ]
 
+  console.log(Datalegal)
   const { NosotrosPage, related } = await getPageData("nosotros", params.lng)
 
   return (
