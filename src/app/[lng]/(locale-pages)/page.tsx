@@ -61,6 +61,7 @@ export default async function Home({params }: Props) {
   const {t} = await createTranslation(params.lng,'inicio')
 
 
+
   // const dataGeneral = await getInicioPage()
 
   const destinos = await getDestinos({fields:"*"})
