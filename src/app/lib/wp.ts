@@ -1,4 +1,6 @@
-import axios from "axios"
+'use server'
+
+// import axios from "axios"
 // const API_URL = process.env.WORDPRESS_API_URL!!
 const API_URL = "https://b2bcms.onrender.com/api/v2/"
 
@@ -18,14 +20,15 @@ async function fetchAPI(query = '', variable:any = null) {
   .join('&');
 
     try {
-      const res = await axios.get(API_URL + query + '?'+ queryString)
-      const data = await res.data
+      // const res = await axios.get(API_URL + query + '?'+ queryString,{
+      const res = await fetch(API_URL + query + '?'+ queryString,{
+        cache: 'no-store'
+      })
+      const data = await res.json()
       return data
     }
     catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.log(error.message)
-      }
+      console.log("ERRORRR en FETCH")
 
     }
 
@@ -34,15 +37,14 @@ async function fetchAPI(query = '', variable:any = null) {
   } else {
 
     try {
-      const res = await axios.get(API_URL + query )
-      const data = await res.data
+      const res = await fetch(API_URL + query, {
+        cache: 'no-store'
+      })
+      const data = await res.json()
       return data
     }
     catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.log(error.message)
-      }
-
+      console.log("ERRORRR en FETCH")
     }
 
 
@@ -75,7 +77,10 @@ export async function getNosotrosPage(variables:any) {
   const data = await fetchAPI('pages/nosotros/',variables)
   return data
 }
-
+export async function getContactarPage(variables:any) {
+  const data = await fetchAPI('pages/contactar/',variables)
+  return data
+}
 export async function getDestinos(variables:any){
   const data = await fetchAPI('snippets/destino/',variables)
   return data

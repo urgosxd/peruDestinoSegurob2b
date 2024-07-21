@@ -66,7 +66,7 @@ export default async function About({ params }: Props) {
   return (
     <div className="w-[98vw] flex flex-col items-center">
       <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug={undefined} />
-      <BackBanner imgSrc={t('background.meta.download_url')} txt={t('title')} />
+      <BackBanner imgSrc={t('background.meta.download_url')} txt={t('titulo')} />
       <div className="flex lg:flex-row flex-col mt-5 lg:mt-10 w-full px-10" >
         <div className="lg:w-3/5 w-full lg:px-10 px-0">
 

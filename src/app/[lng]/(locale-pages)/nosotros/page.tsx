@@ -63,7 +63,7 @@ export default async function Nosotros({ params }: Props) {
 
     <div className="w-[98vw] flex flex-col items-center">
       <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug={undefined} />
-      <BackBanner imgSrc={t('background.meta.download_url')} txt={t('title')} />
+      <BackBanner imgSrc={t('background.meta.download_url')} txt={t('titulo')} />
       <div className="flex lg:flex-row flex-col mt-5 lg:mt-10 w-full px-10" >
         <div className="lg:w-3/5 w-full lg:px-10 px-0">
 
@@ -112,20 +112,26 @@ export default async function Nosotros({ params }: Props) {
 
 
       </div>
-      <Subtitle>
-        Valores
-      </Subtitle>
-      <div className="mb-10">
+      <h2 className="subtitle w-fit lg:text-[34px] text-3xl
+        my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
+        {t('valoresSubtitle')}
+    </h2>
+            <div className="mb-10">
         <div className="flex lg:flex-row lg:gap-x-16 flex-col gap-x-0 gap-y-10 lg:gap-y-0">
           {/* {valores.map(ele => (<div className="lg:w-2/12 w-full flex flex-col items-center"><img src={ele.img} className="w-20 h-16" /> <p className="w-full text-center">{ele.txt}</p></div>))} */}
         </div>
       </div>
-      <Subtitle>
-        Certificaciones
-      </Subtitle>
+      <h2 className="subtitle w-fit lg:text-[34px] text-3xl
+        my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
+        {t('partnersSubtitle')}
+    </h2>
       <div className="flex lg:flex-row flex-col lg:gap-x-16 lg:gap-y-0 gap-y-8 items-center">
         {/* {logos.map(ele => (<img src={ele} className="lg:w-3/12 w-1/2 lg:h-16 h-10" />))} */}
       </div>
+            <h2 className="subtitle w-fit lg:text-[34px] text-3xl
+        my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
+        {t('certificadosSubtitle')}
+    </h2>
     </div>
   )
 }
