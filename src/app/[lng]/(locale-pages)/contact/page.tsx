@@ -65,6 +65,7 @@ export default async function Contactar({ params }: Props) {
         {t('formTitle')}
       </h2>
 
+    
       <MapProvider>
       <MapLocation address={t('ubicacion')}/>
       </MapProvider>

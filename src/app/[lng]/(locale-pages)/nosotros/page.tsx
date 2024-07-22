@@ -5,6 +5,7 @@ import Subtitle from "@/components/subtitle"
 import { createTranslation } from '../../../../../i18next';
 import { LocaleType } from "../../../../../i18next/settings";
 import SwitcherGlobal from "@/components/SwitcherGlobal";
+import { TweakCarousel } from "@/components/tweakcarousel";
 
 
 type Props = {
@@ -118,14 +119,15 @@ export default async function Nosotros({ params }: Props) {
     </h2>
             <div className="mb-10">
         <div className="flex lg:flex-row lg:gap-x-16 flex-col gap-x-0 gap-y-10 lg:gap-y-0">
-          {/* {valores.map(ele => (<div className="lg:w-2/12 w-full flex flex-col items-center"><img src={ele.img} className="w-20 h-16" /> <p className="w-full text-center">{ele.txt}</p></div>))} */}
+          {t('valoresNosotros',{returnObjects:true}).map(ele => (<div className="lg:w-2/12 w-full flex flex-col items-center"><img src={ele.img.meta.download_url} className="w-20 h-16" /> <p className="w-full text-center">{ele.label}</p></div>))}
         </div>
       </div>
       <h2 className="subtitle w-fit lg:text-[34px] text-3xl
         my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {t('partnersSubtitle')}
     </h2>
-      <div className="flex lg:flex-row flex-col lg:gap-x-16 lg:gap-y-0 gap-y-8 items-center">
+      <div className="flex lg:flex-row flex-col lg:gap-x-16 lg:gap-y-0 gap-y-8 items-center w-[90%] justify-center">
+        <TweakCarousel imgs={t('partnersNosotros',{returnObjects:true}).map((ele)=>(ele.image.meta.download_url))}/>
         {/* {logos.map(ele => (<img src={ele} className="lg:w-3/12 w-1/2 lg:h-16 h-10" />))} */}
       </div>
             <h2 className="subtitle w-fit lg:text-[34px] text-3xl

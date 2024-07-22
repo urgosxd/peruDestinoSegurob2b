@@ -2,5 +2,10 @@
   "home":"inicio",
   "about":"nosotros",
   "destinations":"destinos",
-  "blog": "blog"
+  "blog": "blog",
+  "contact": "contactar",
+  "tours":{
+    "from": "desde",
+    "booking": "reservar"
+  }
 }

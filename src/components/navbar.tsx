@@ -30,7 +30,7 @@ export function NavbarDefault({ lng, destinos }: Props) {
 
   const { t } = useTranslation(lng, 'translation')
   const [openNav, setOpenNav] = React.useState(false);
-  const navNames = [t('home'), t('destinations'), t('about'), "blog", "contacto", "Salidas Grupales"]
+  const navNames = [t('home'), t('destinations'), t('about'), "blog","Salidas Grupales"]
   // const [tab,setTab] = React.useState(navNames[0]) 
 
 
@@ -111,7 +111,7 @@ export function NavbarDefault({ lng, destinos }: Props) {
       </Typography>
     </MenuHandler>
     <MenuList>
-      {destinos.map(ele => (<MenuItem><Link onClick={()=> setIdxNav(2)} className="w-full block" href={`/${lng}/${t('destinations')}/?city=${ele.toLowerCase()}`}>
+      {destinos.map(ele => (<MenuItem><Link onClick={()=> setIdxNav(2)} className="w-full block text-center" href={`/${lng}/${t('destinations')}/?city=${ele.toLowerCase()}`}>
         {ele}
       </Link> </MenuItem>))}
     </MenuList>
@@ -142,10 +142,13 @@ export function NavbarDefault({ lng, destinos }: Props) {
               <UserCircleIcon className="w-5 inline-block" /> Entrar
             </Button>
           </Link>
-          <Button variant="text" size="lg" className="hidden lg:inline-block bg bg-[#D20000] text-white p-2 px-2" >
-            Contactar
+          <Link href={`/${lng}/${t('contact')}`}>
+           <Button variant="text" size="lg" className="hidden lg:inline-block bg bg-[#D20000] text-white p-2 px-2" >
+            {t('contact')}
           </Button>
 
+          </Link>
+         
         </div>
         <IconButton
           variant="text"

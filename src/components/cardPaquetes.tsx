@@ -45,7 +45,7 @@ export default function ProfileCard({imgSrc,title,price,slug,time}:Props) {
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[585px] h-[30vh] cursor-pointer" >
+        className="m-0 w-full lg:h-[485px] h-[30vh] cursor-pointer" >
         <Image src={imgSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className=""/>
       </CardHeaderMotion>
       </Link>

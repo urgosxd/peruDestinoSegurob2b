@@ -57,7 +57,9 @@ export default async function Contactar({ params }: Props) {
 
     <div className="w-[98vw] flex flex-col items-center">
       <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug={undefined} />
+
       <BackBanner imgSrc={t('background.meta.download_url')} txt={t('titulo')} />
+
       <h2
         className="w-fit border-solid lg:text-[34px] text-2xl my-2
         border-b-2 border-[#D20000] p-2 text-center font-semibold text-gray-700"
