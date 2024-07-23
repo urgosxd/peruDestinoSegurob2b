@@ -1,4 +1,4 @@
-'use server'
+// 'use server'
 
 // import axios from "axios"
 // const API_URL = process.env.WORDPRESS_API_URL!!
@@ -22,7 +22,7 @@ async function fetchAPI(query = '', variable:any = null) {
     try {
       // const res = await axios.get(API_URL + query + '?'+ queryString,{
       const res = await fetch(API_URL + query + '?'+ queryString,{
-        cache: 'no-store'
+        // cache: 'no-store'
       })
       const data = await res.json()
       return data
