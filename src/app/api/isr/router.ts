@@ -16,6 +16,8 @@ export async function POST(request: NextRequest) {
 
 
 
+  console.log(document)
+
   switch (document.sender) {
     case "Paquete":
       revalidatePath("/"+lngObject[document.lng as string]+"/")
