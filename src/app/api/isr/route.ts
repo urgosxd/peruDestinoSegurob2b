@@ -25,8 +25,8 @@ export async function POST(request: NextRequest) {
       revalidatePath("/(dynamics-pages)/packages/[slug]","page")
       break;
     case "Tour":
-      revalidatePath("/"+lngObject[document.lng as string]+"/"+tourObject[document.lng]+"/?city="+document.destino)
-      console.log("/"+lngObject[document.lng as string]+"/"+tourObject[document.lng]+"/?city="+document.destino)
+      revalidatePath("/"+lngObject[document.lng as string]+"/"+tourObject[document.lng]+"/")
+      console.log("/"+lngObject[document.lng as string]+"/"+tourObject[document.lng]+"/")
       revalidatePath("/(dynamics-pages)/tour/[slug]","page")
       break;
 
