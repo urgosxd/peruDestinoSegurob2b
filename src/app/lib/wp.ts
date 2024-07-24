@@ -22,7 +22,7 @@ async function fetchAPI(query = '', variable:any = null) {
     try {
       // const res = await axios.get(API_URL + query + '?'+ queryString,{
       const res = await fetch(API_URL + query + '?'+ queryString,{
-        next: {revalidate: 10}
+        // next: {revalidate: 10}
         // cache: 'no-store'
       })
       const data = await res.json()

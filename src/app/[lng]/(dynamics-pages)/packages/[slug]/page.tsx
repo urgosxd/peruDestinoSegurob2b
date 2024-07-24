@@ -6,8 +6,13 @@ import SwitcherGlobal from "@/components/SwitcherGlobal"
 
 async function getPageData(slug:string,lng:LocaleType){
 
+  console.log("slug")
    
+  console.log(slug)
   const instance =  await getPaquete({slug:slug,locale:lng,fields:'*'})
+
+  console.log(instance)
+
 
   const idInstance = instance.items[0].id
 
@@ -38,18 +43,25 @@ export default async function Page({params}:PageProps){
 
   return (
   <main>
-      <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug="paquete"/>
+      <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug="packages"/>
     </main>
   )
 
 }
 
+
 export async function generateStaticParams(){
+  const removeAccents = (str) => {
+  return str
+    .normalize("NFD") // Descompone los caracteres con acentos
+    .replace(/([aeiouAEIOU])[\u0300-\u036f]/g, "$1") // Elimina los acentos solo de las vocales
+    .normalize("NFC"); // Recomponer los caracteres
+};
   const rawData = await getAllPaquetes()
   const allSlugs = rawData.items
   const params = allSlugs.map(({meta})=>({
     lng:meta.locale,
-    slug:meta.slug
+    slug:removeAccents(meta.slug)
   }))
   return params
 }
