@@ -17,11 +17,11 @@ export async function POST(request: NextRequest) {
 
 
   switch (document.sender) {
-    case "paquete":
+    case "Paquete":
       revalidatePath("/"+lngObject[document.lng as string]+"/")
       revalidatePath("/(dynamics-pages)/packages/[slug]","page")
       break;
-    case "tour":
+    case "Tour":
       revalidatePath("/"+lngObject[document.lng as string]+"/"+tourObject[document.lng]+"/?city="+document.category)
       revalidatePath("/(dynamics-pages)/tour/[slug]","page")
       break;
