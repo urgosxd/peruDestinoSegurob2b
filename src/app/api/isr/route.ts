@@ -18,6 +18,7 @@ export async function POST(request: NextRequest) {
 
   console.log(document)
 
+  console.log("GAA")
   switch (document.sender) {
     case "Paquete":
       revalidatePath("/"+lngObject[document.lng as string]+"/")
