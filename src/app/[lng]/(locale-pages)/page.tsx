@@ -77,6 +77,12 @@ export default async function Home({params }: Props) {
 
   const {InicioPage , related} = await getPageData("inicio",params.lng)
 
+const removeAccents = (str) => {
+  return str
+    .normalize("NFD") // Descompone los caracteres con acentos
+    .replace(/([aeiouAEIOU])[\u0300-\u036f]/g, "$1") // Elimina los acentos solo de las vocales
+    .normalize("NFC"); // Recomponer los caracteres
+};
 
   return (
     <div className="flex flex-col items-center">
@@ -91,7 +97,7 @@ export default async function Home({params }: Props) {
         {t('paqueteTitulo')}
     </h2>
       <div className=" grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1 gap-2 pl-7 lg:pl-0 gap-y-10">
-        {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={ele.id} time={ele.duracion} />))}
+        {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={ removeAccents(ele.meta.slug)} time={ele.duracion} lng={params.lng} />))}
       </div>
         <h2 className="subtitle w-fit lg:text-[34px] text-3xl
         my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 

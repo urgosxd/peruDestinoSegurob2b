@@ -12,8 +12,11 @@ interface Props {
   imgSrc: string
   title: string
   duracion: string
+  link1:string
+  link2:string
+  link3:string
 }
-export default function BackBannerDiv({ imgSrc, title, duracion }: Props) {
+export default function BackBannerDiv({ imgSrc, title, duracion,link1,link2,link3 }: Props) {
   console.log(imgSrc);
     
   let [dias,noches] = duracion.split("-")
@@ -29,12 +32,18 @@ export default function BackBannerDiv({ imgSrc, title, duracion }: Props) {
       <div className="absolute h-full w-full flex items-end">
         
         <div className="lg:h-[215px] w-full">
-          <div className="flex mx-[60px] w-full h-full">
+          <div className="flex px-[60px] w-full h-full">
             <div className="lg:w-1/3 flex flex-col justify-center gap-y-5">
-              <h1 className="mb-1 font-monse leading-[44px] w-fit text-left text-[36px] font-bold">{title}</h1>
-              <p className="mb-3 font-semibold leading-[24px] w-fit text-left lg:text-[20px] bg bg-[#D20000] rounded-lg px-5 py-1"> {dias} - {noches} </p>
+              <h1 className="mb-1 font-monse leading-[44px] w-fit text-left text-[36px] font-bold text-white">{title}</h1>
+              <p className="mb-3 font-semibold leading-[24px] w-fit text-left lg:text-[20px] bg bg-[#D20000] rounded-lg px-5 py-1 text-white"> {dias} - {noches} </p>
           </div>
-          <div className="lg:w-2/3"></div>
+          <div className="lg:w-2/3 flex flex-row justify-end items-center gap-x-3">
+
+             <a href={link1} className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4 font-semibold w-fit" > Descargar Pdf</a>
+             <a href={link2} className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4 font-semibold w-fit">Descargar Word</a>
+             <a  href={link3}className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4  font-semibold w-fit">Descargar Flyer</a>
+
+            </div>
         </div>
       </div>
     </div>

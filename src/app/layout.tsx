@@ -23,19 +23,28 @@ export const metadata: Metadata = {
   }
 }
 
+// export default function RootLayout({
+//   children,
+// }: {
+//   children: React.ReactNode
+// }) {
+//   return (
+//     <html lang="es">
+//       <head/>
+//       <Theme>
+//       <body className={ `${font.variable} ${font2.variable} font-sans`}>
+//       {children}
+//       </body>
+//       </Theme>
+//     </html>
+//   )
+// }
+//
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang="es">
-      <head/>
-      <Theme>
-      <body className={`${font.variable} ${font2.variable} font-sans`}>
-      {children}
-      </body>
-      </Theme>
-    </html>
-  )
+  return children
 }

@@ -10,12 +10,9 @@ import Questions from "@/components/questions";
 
 async function getPageData(slug:string,lng:LocaleType){
 
-  console.log("slug")
    
-  console.log(slug)
   const instance =  await getPaquete({slug:slug,locale:lng,fields:'*'})
 
-  console.log(instance)
 
 
   const idInstance = instance.items[0].id
@@ -24,8 +21,6 @@ async function getPageData(slug:string,lng:LocaleType){
 
   const relatedLanguages = related.items.map(ele=> ({language: ele.meta.locale,slug:ele.meta.slug}))
 
-  console.log(instance)
-  console.log(relatedLanguages)
 
   return {
     paquete: instance.items[0],
@@ -46,14 +41,14 @@ export default async function Page({params}:PageProps){
   // const {t} = await createTranslation(params.lng,'inicio')
   const {paquete , related} = await getPageData(params.slug,params.lng)
 
-  console.log(paquete)
+  // console.log(paquete)
 
 
   const ddias = paquete.dias.map((ele:any,idx:number)=>({question:`dia ${idx+1}:`,answer:ele.item}))
   return (
     <div  className="w-[98vw] flex flex-col items-center">
       <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug="packages"/>
-    <BackBannerDiv imgSrc={paquete.background.meta.download_url} title={paquete.title} duracion={paquete.duracion}/>
+      <BackBannerDiv imgSrc={paquete.background.meta.download_url} title={paquete.title} duracion={paquete.duracion} link1={paquete.linkWord} link2={paquete.linkPdf} link3={paquete.linkFlyer}/>
       <div className="flex flex-row w-full mb-10">
       <div className="w-1/3 flex flex-col justify-between items-center  mt-16 max-h-96">
         <p
@@ -81,6 +76,9 @@ export default async function Page({params}:PageProps){
           {/*     <Image src={ele.image.meta.download_url} fill alt="ga" className="border rounded-2xl" /> */}
           {/*   </div>))} */}
           {/* </div> */}
+          <div className="h-36">
+
+          </div>
             <div>
             <Questions  questionAnswer={ddias} paquete/>
           </div>

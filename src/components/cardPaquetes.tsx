@@ -17,13 +17,14 @@ interface Props{
   price:string
   slug:string
   time:string
+  lng:string
 }
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
 import {CalendarIcon} from '@heroicons/react/24/outline'
 import {StarIcon,MapPinIcon} from '@heroicons/react/24/solid'
 
-export default function ProfileCard({imgSrc,title,price,slug,time}:Props) {
+export default function ProfileCard({imgSrc,title,price,slug,time,lng}:Props) {
   const CardHeaderMotion = motion(CardHeader)
   let rawTime = []
   try {
@@ -37,7 +38,7 @@ export default function ProfileCard({imgSrc,title,price,slug,time}:Props) {
   const noches = rawTime[1]
   return (
     <Card className="relative grid  lg:w-[425px] p-0 border rounded-lg ">
-      <Link  href={`/paquetes/${slug}`}>
+      <Link  href={`/${lng}/packages/${slug}`}>
       <CardHeaderMotion 
         whileHover={{ scale: 1.05,
   transition: { ease: "easeOut", duration: 1 },}}
@@ -66,7 +67,7 @@ export default function ProfileCard({imgSrc,title,price,slug,time}:Props) {
 
       </CardBody>
       <CardFooter className="flex justify-center lg:gap-3 lg:pt-2 !p-0">
-        <Link href={`/paquetes/${slug}`}>
+        <Link href={`/${lng}/packages/${slug}`}>
 
         <Typography
             color="white"
