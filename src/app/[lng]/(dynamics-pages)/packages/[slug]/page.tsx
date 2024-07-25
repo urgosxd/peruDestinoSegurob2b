@@ -6,6 +6,7 @@ import BackBannerDiv from "@/components/backBannerDiv";
 import { createTranslation } from "../../../../../../i18next";
 import Cartita from "@/components/cartita";
 import Questions from "@/components/questions";
+import { MultiCarousel } from "@/components/multiCarousel";
 
 
 async function getPageData(slug:string,lng:LocaleType){
@@ -41,10 +42,10 @@ export default async function Page({params}:PageProps){
   // const {t} = await createTranslation(params.lng,'inicio')
   const {paquete , related} = await getPageData(params.slug,params.lng)
 
-  // console.log(paquete)
+  console.log(paquete)
 
 
-  const ddias = paquete.dias.map((ele:any,idx:number)=>({question:`dia ${idx+1}:`,answer:ele.item}))
+  const ddias = paquete.dias.map((ele:any,idx:number)=>({question:`dia ${idx+1}: ${ele.titulo}`,answer:ele.item}))
   return (
     <div  className="w-[98vw] flex flex-col items-center">
       <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug="packages"/>
@@ -76,8 +77,8 @@ export default async function Page({params}:PageProps){
           {/*     <Image src={ele.image.meta.download_url} fill alt="ga" className="border rounded-2xl" /> */}
           {/*   </div>))} */}
           {/* </div> */}
-          <div className="h-36">
-
+          <div className="w-full flex justify-center container mx-auto py-3 px-10">
+              {/* <MultiCarousel data={paquete.galleryPaquete.map(ele=>({imageUrl:ele.image.meta.download_url,title:ele.image.title}))}/> */}
           </div>
             <div>
             <Questions  questionAnswer={ddias} paquete/>
