@@ -32,7 +32,7 @@ export default async function Layout({ children, params: { lng } }: LocaleRouteL
   const destinosObject = destinos.items.map((ele)=>(ele.name))
 
   return (
-    <html lang={lng} dir={dir(lng)} suppressHydrationWarning className='scroll-smooth'>
+    <html lang={lng} suppressHydrationWarning className='scroll-smooth'>
       <body
          
         className={`${font.variable} ${font2.variable} font-sans`}

@@ -76,6 +76,7 @@ export default async function Home({params }: Props) {
   // const gallery = dataGeneral.galleryInicio.map(ele=>({img:ele.image.meta.download_url,titulo:ele.carouselTitulo,duracion:ele.carouselDuracion}))
 
 
+
   const {InicioPage , related} = await getPageData("inicio",params.lng)
 
 const removeAccents = (str) => {
@@ -84,6 +85,9 @@ const removeAccents = (str) => {
     .replace(/([aeiouAEIOU])[\u0300-\u036f]/g, "$1") // Elimina los acentos solo de las vocales
     .normalize("NFC"); // Recomponer los caracteres
 };
+
+
+  const urlsDestinos = destinos.items.map(ele=>( ele.name.toLowerCase()))
 
   return (
     <div className="flex flex-col items-center">
@@ -105,7 +109,7 @@ const removeAccents = (str) => {
         {t('destinoTitulo')}
     </h2>
 
-    <RevealBento img={{imgSrc:destinos.items[0].background.meta.download_url,label:destinos.items[0].name}} imgs={destinos.items.slice(1,destinos.items.length).map(ele=>({imgSrc:ele.background.meta.download_url,label:ele.name}))} />
+    <RevealBento img={{imgSrc:destinos.items[0].background.meta.download_url,label:destinos.items[0].name}} imgs={destinos.items.slice(1,destinos.items.length).map(ele=>({imgSrc:ele.background.meta.download_url,label:ele.name}))} lng={params.lng} urls={urlsDestinos} />
 
       {/* <div className="grid lg:grid-cols-3 lg:gap-3 justify-items-center destinoCss w-10/12 pl-0 grid-cols-1 gap-y-2 lg:pl-0"> */}
         {/* {destinos.map(ele => (<BackCard key={ele.txt_unique} imgSrc={ele.imgsrc} txt={ele.txt_unique} />))} */}

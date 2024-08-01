@@ -46,6 +46,7 @@ export default async function Page({params}:PageProps){
 
 
   const ddias = paquete.dias.map((ele:any,idx:number)=>({question:`dia ${idx+1}: ${ele.titulo}`,answer:ele.item}))
+  // console.log(ddias)
   return (
     <div  className="w-[98vw] flex flex-col items-center">
       <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug="packages"/>
@@ -77,8 +78,8 @@ export default async function Page({params}:PageProps){
           {/*     <Image src={ele.image.meta.download_url} fill alt="ga" className="border rounded-2xl" /> */}
           {/*   </div>))} */}
           {/* </div> */}
-          <div className="w-full flex justify-center container mx-auto py-3 px-10">
-              {/* <MultiCarousel data={paquete.galleryPaquete.map(ele=>({imageUrl:ele.image.meta.download_url,title:ele.image.title}))}/> */}
+          <div className=" flex justify-center container mx-auto py-3 px-10 w-full">
+              <MultiCarousel data={paquete.galleryPaquete.map(ele=>({imageUrl:ele.image.meta.download_url,title:ele.image.title}))}/>
           </div>
             <div>
             <Questions  questionAnswer={ddias} paquete/>

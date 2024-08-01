@@ -23,7 +23,7 @@ import { LocaleType } from '../../i18next/settings';
 
 
 type Props = {
-  lng: string
+  lng: LocaleType
   destinos: string[]
 }
 export function NavbarDefault({ lng, destinos }: Props) {

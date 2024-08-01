@@ -1,5 +1,5 @@
 'use client'
-import { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
 import Image from 'next/image'
@@ -30,7 +30,30 @@ const responsive = {
   }
 };
 
-export function MultiCarousel (){
+// const CustomDot = ({ data, ...rest }) => {
+//   const {
+//     onMove,
+//     index,
+//     active,
+//     carouselState: { currentSlide, deviceType }
+//   } = rest;
+
+//   const carouselItems = data.map((ele)=>(<div className="h-[300px] w-[250px] rounded-lg"> 
+//   <Image src={ele.imageUrl} sizes="(max-width: 768px) 50vw, 100vw" alt={ele.title} objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover rounded-lg"></Image>
+//       </div>))
+//   // onMove means if dragging or swiping in progress.
+//   // active is provided by this lib for checking if the item is active or not.
+//   return (
+//     <button
+//       className={active ? "active" : "inactive"}
+//       onClick={() => onClick()}
+//     >
+//       {React.Children.toArray(carouselItems)[index]}
+//     </button>
+//   );
+// };
+
+export const MultiCarousel = ({data}:Props) =>{
   
   return (
 <Carousel
@@ -40,21 +63,23 @@ export function MultiCarousel (){
   responsive={responsive}
   ssr={true} // means to render carousel on server-side.
   infinite={true}
-  // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-  autoPlaySpeed={1000}
+  autoPlay={true}
+  autoPlaySpeed={4000}
   keyBoardControl={true}
-  customTransition="all .5"
+  // customTransition="all ease 1"
   transitionDuration={500}
-  containerClass="carousel-container"
+  containerClass="carousel-container w-3/4"
   removeArrowOnDeviceType={["tablet", "mobile"]}
-  // deviceType={this.props.deviceType}
+  deviceType={"desktop"}
   dotListClass="custom-dot-list-style"
-  itemClass="carousel-item-padding-40-px"
+  itemClass="ml-3"
 >
-  <div>Item 1</div>
-  <div>Item 2</div>
-  <div>Item 3</div>
-  <div>Item 4</div>
+
+  {data.map((ele)=>(<div className="h-[300px] w-[250px] rounded-lg"> 
+  <Image src={ele.imageUrl} sizes="(max-width: 768px) 50vw, 100vw" alt={ele.title} objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover rounded-lg"></Image>
+      </div>))}
+                 
+
 </Carousel>
   )
 }
