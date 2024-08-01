@@ -1,6 +1,7 @@
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import React, { useState } from 'react';
 import Image from 'next/image'
+import { useMobile } from "@/hooks/useMobile";
 type Props = {
 
   data: { miniTitle: string, miniContent: string, img: string }[]
@@ -38,37 +39,46 @@ const ImageGrid = ({data}:Props) => {
     clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)', // forma recta
   };
 
+  const MotionImage = motion(Image)
+  const mobile = useMobile()
+  function getWidth(idx:number){
+    if (idx!==1){
+
+    return mobile ? '23%':'20%'
+    }else{
+    return mobile ? '27%': '25%'
+    }
+
+  }
+  function getHeight(idx:number){
+    if (idx!==1){
+    return mobile ? '150px':'300px'
+    }else{
+    return mobile ? '180px': '400px'
+    }
+  }
   return (
-    <div className="w-full h-full flex flex-row justify-center pare">
+    <div className="w-full h-full flex flex-row justify-center pare gap-x-10 lg:gap-x-14">
       {data.map((i,idx) => (
           <motion.div
           key={idx}
           onClick={handleToggle}
-          className="cursor-pointer"
-          style={{backgroundColor: "white",margin:"auto 0",marginLeft: idx > 0 ? -30 : 0,position:"relative",clipPath: 'polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)',zIndex:20}}
-          animate={{ width: expanded ? '100%' : '25%', height: expanded ? '100%' : '350px',marginLeft:expanded ? idx > 0 ? -70 : 0: idx > 0 ? -30 : 0 }}
+          className="cursor-pointer my-auto bg-white relative z-20 containerImgRounded"
+          // style={{backgroundColor: "white",margin:"auto 0",position:"relative",zIndex:20,transform: 'skewX(-20deg)',borderRadius: '0 50px 0 50px'}}
+          animate={{ width: expanded ? '100%' : getWidth(idx), height: expanded ? '100%' : getHeight(idx),marginLeft:expanded ? idx > 0 ? -70 : 0: idx > 0 ? -30 : 0 }}
           transition={{ duration: 0.5 }}
         >
         <motion.div
-          style={{backgroundColor: "black",position:'relative',clipPath: 'polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)',width:'92%',height:'95%',margin: "10px auto"}}
+          style={{backgroundColor: "black",position:'relative',overflow:'hidden',borderRadius:mobile ?'0 20px 0 20px' :  '0 50px 0 50px',width:mobile ?'97.5%':'95%',height:mobile ?'98%' : '97%',margin: mobile ?"2px auto": "5px auto"}}
           // animate={{ width: expanded ? '100%' : '25%', height: expanded ? '100%' : '350px',marginLeft:expanded ? idx > 0 ? -70 : 0: idx > 0 ? -30 : 0 }}
           transition={{ duration: 0.5 }}
         >
-        
-          <Image src={i.img} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="object-cover h-[350px] w-[100px]"></Image>
+          <MotionImage src={i.img} sizes="(max-width: 768px) 50vw, 100vw" alt="ims"  priority fill className="imgRounded"/>
+            {/* <img src={i.img} className="imgRounded"/> */}
         </motion.div>
         </motion.div>
               ))}
       
-        <svg className="flt_svg" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-            <filter id="flt_tag">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />    
-                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="flt_tag" />
-                <feComposite in="SourceGraphic" in2="flt_tag" operator="atop"/>
-            </filter>
-        </defs>
-    </svg>
     </div>
   );
 };

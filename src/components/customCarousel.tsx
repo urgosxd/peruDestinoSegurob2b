@@ -149,8 +149,10 @@ const CustomCarousel = ({ data }: Props) => {
                   <div className="w-full h-1/2 lg:h-full  lg:w-1/3 h-full flex flex-col justify-center content-center flex-wrap items-center">
                     <div className="mx-10">
                       <Image src="/peruCarousel.png" alt="peru" width={140} height={60} className="w-[45px] lg:w-[140px]" />
+                      <div className="flex flex-row lg:flex-col">
                       <div className={`${myFont.className} text-white text-[36px] lg:text-[40px] leading-[30px] lg:leading-[47.5px]`} >{ele.value.carouselTitulo}</div>
-                      <div className="text-white bg-[#00AFD5] text-[23px] font-extrabold w-fit px-3 rounded-xl font-monse"> {dias} Días / {noches} Noches </div>
+                      <div className="text-white bg-[#00AFD5] text-[12px] lg:text-[23px] font-bold lg:font-extrabold w-fit px-3 rounded-xl font-monse h-10"> {dias} Días / {noches} Noches </div>
+                      </div>
                       <Image src="/incluido.png" alt="incluido" width={332} height={100} />
                     </div>
 
