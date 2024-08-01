@@ -7,8 +7,11 @@ import localFont from 'next/font/local'
 import React, { Component, useEffect } from "react";
 import { useCycle, motion } from "framer-motion";
 import { FaPaperPlane } from "react-icons/fa";
-import RatioComponent from "./ratioComponen";
+
+// import RatioComponent from "./ratioComponen";
+const RatioComponent = dynamic(()=>import('./ratioComponen'),{ssr:false})
 import { Console } from "console";
+import dynamic from "next/dynamic";
 
 interface Props {
   data: { type: string, value: any, id: string }[]
