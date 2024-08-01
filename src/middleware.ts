@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import Negotiator from "negotiator";
 import { match } from "@formatjs/intl-localematcher";
 
+
 // export default async function middleware(req: NextRequest) {
 //   const path = req.nextUrl.pathname;
 //   const session = !!req.cookies.get("next-auth.session-token")
