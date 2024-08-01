@@ -2,8 +2,7 @@
 
 // import axios from "axios"
 // const API_URL = process.env.WORDPRESS_API_URL!!
-// const API_URL = "https://b2bcms.onrender.com/api/v2/"
-const API_URL = "http://127.0.0.1:8000/api/v2/"
+const API_URL = "https://www.vps.perudestinoseguro.com/api/v2/"
 
 async function fetchAPI(query = '', variable:any = null) {
   // console.log(API_URL + "GAAAAAAAAAAAAAAa")
