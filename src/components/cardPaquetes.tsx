@@ -37,7 +37,7 @@ export default function ProfileCard({imgSrc,title,price,slug,time,lng}:Props) {
   const dias = rawTime[0]
   const noches = rawTime[1]
   return (
-    <Card className="relative grid  lg:w-[425px] p-0 border rounded-lg ">
+    <Card className="relative grid w-full  lg:w-[425px] p-0 border rounded-lg ">
       <Link  href={`/${lng}/packages/${slug}`}>
       <CardHeaderMotion 
         whileHover={{ scale: 1.05,
@@ -46,7 +46,7 @@ export default function ProfileCard({imgSrc,title,price,slug,time,lng}:Props) {
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[485px] h-[30vh] cursor-pointer" >
+        className="m-0 w-full lg:h-[485px] h-[410px] cursor-pointer" >
         <Image src={imgSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className=""/>
       </CardHeaderMotion>
       </Link>
@@ -55,14 +55,15 @@ export default function ProfileCard({imgSrc,title,price,slug,time,lng}:Props) {
          <div className=""><MapPinIcon className="w-5 pb-1 inline-block" color="#838383"/> Peru </div>
           <div>{Array(3).fill(0).map((ele)=><StarIcon className="w-5 pb-1 inline-block" color="#D20000"/>)}</div>
         </Typography>
-        <Typography  as="p"  className="lg:mb-2 lg:text-[20px] text-md font-bold text-[#424242]">
+        
+        <Typography  as="p"  className="mb-2 lg:mb-2 lg:text-[20px] text-[18px] font-bold text-[#808080] lg:text-[#424242]">
           {title}
         </Typography>
-        <Typography as="div" className="flex flex-row justify-between font-bold lg:text-4xl text-xl text-black" textGradient>
-         <div className="flex flex-col"> <Typography className="lg:text-[12px] text-[#838383] text-left lg:h-[14px] font-normal">Desde </Typography>
-              <Typography className="lg:text-[15px] text-[#00AFD5] lg:h-[18px] font-semibold">USD ${price}</Typography>
+        <Typography as="div" className="flex flex-col lg:flex-row justify-between font-bold lg:text-4xl text-xl text-black" textGradient>
+         <div className="mb-2 lg:mb-2 flex flex-row lg:flex-col justify-center"> <Typography className="lg:text-[12px] text-[#838383] text-left lg:h-[14px] font-normal">Desde </Typography>
+              <Typography className="lg:text-[15px] lg:text-[#00AFD5] lg:h-[18px] font-semibold">USD ${price}</Typography>
           </div>
-         <Typography className="text-[#838383] lg:text-[12px] font-normal"> <CalendarIcon className="w-5 pb-1 inline-block" color="#D20000"/> {dias} Días / {noches} Noches</Typography> 
+            <Typography className="text-start lg:text-center text-[#838383] text-[10px] lg:text-[12px] text-semibold lg:font-normal"> <CalendarIcon className="w-5 pb-1 inline-block" color="#D20000"/> {dias} Días / {noches} Noches</Typography> 
         </Typography>
 
       </CardBody>

@@ -66,7 +66,7 @@ const CustomCarousel = ({ data }: Props) => {
 
 
   return (
-    <div className="lg:w-full w-full h-[640px]">
+    <div className="lg:w-full w-full h-[50vh] lg:h-screen">
       <Carousel autoplayDelay={8000} transition={{ duration: 2 }} className="overflow-y-hidden">
         {data.map((ele) => {
 
@@ -83,7 +83,7 @@ const CustomCarousel = ({ data }: Props) => {
           switch (ele.type) {
             case "Tipo1":
               // console.log(ele.value.miniPhotos)
-              return (<div className="relative w-full h-3/4 lg:h-full">
+              return (<div className="relative w-full h-full lg:h-full">
                 <Image src={ele.value.photo.url.full_url} quality={100} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover "></Image>
                 <motion.div
                   className="text-2xl text-gray-600 w-fit h-fit mx-auto "
@@ -150,11 +150,11 @@ const CustomCarousel = ({ data }: Props) => {
                 <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
                 <div className="absolute flex flex-col-reverse lg:flex-row top-0  h-full w-full ">
                   <div className="w-full h-1/2 lg:h-full  lg:w-1/3 h-full flex flex-col justify-center content-center flex-wrap items-center">
-                    <div className="mx-10">
-                      <Image src="/peruCarousel.png" alt="peru" width={140} height={60} className="w-[45px] lg:w-[140px]" />
-                      <div className="flex flex-row lg:flex-col">
-                      <div className={`${myFont.className} text-white text-[36px] lg:text-[40px] leading-[30px] lg:leading-[47.5px]`} >{ele.value.carouselTitulo}</div>
-                      <div className="text-white bg-[#00AFD5] text-[12px] lg:text-[23px] font-bold lg:font-extrabold w-fit px-3 rounded-xl font-monse h-10"> {dias} Días / {noches} Noches </div>
+                    <div className="mx-[7%] lg:mx-[10%]">
+                      <Image src="/peruCarousel.png" alt="peru" width={140} height={60} className="w-[65px] lg:w-[140px]" />
+                      <div className="flex flex-row lg:flex-col items-end lg:items-start">
+                      <div className={`${myFont.className} text-white text-[36px] lg:text-[40px] w-[65%] leading-[42px] lg:leading-[47.5px] font-normal`} >{ele.value.carouselTitulo}</div>
+                      <div className="text-white bg-[#00AFD5] uppercase text-[11px] lg:text-[23px] font-bold lg:font-extrabold w-fit px-2 lg:px-3 rounded-xl font-monse h-fit"> {dias} Días / {noches} Noches </div>
                       </div>
                       <Image src="/incluido.png" alt="incluido" width={332} height={100} />
                     </div>

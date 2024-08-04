@@ -6,6 +6,8 @@ import { twMerge } from "tailwind-merge";
 import { useTranslation } from "../../i18next/client"
 import { LocaleType } from "../../i18next/settings";
 import Link from "next/link";
+import { useMobile } from "@/hooks/useMobile";
+import { SwipeCarousel } from "./swiperCarousel";
 
 type FinalFrame = {
   imgSrc: string
@@ -20,9 +22,18 @@ export const RevealBento = ({ img, imgs,urls,lng }: { img: FinalFrame, imgs: Fin
     const baseURL = `/${lng}/${t('destinations')}/?city=${dest}`
     return baseURL
   }
+
+  const isMobile = useMobile()
+  
+  const getImages = (obs)=> obs.map(ele=>ele.imgSrc)
+  const getLabels = (obs)=> obs.map(ele=>ele.label)
+  
+  const globalItems = [img].concat(imgs)
+
+  
   return (
     <div className=" w-full bg-zinc-900 px-4 text-zinc-50">
-      <motion.div
+      {isMobile ? <SwipeCarousel imgs={getImages(globalItems)} labelImgs={getLabels(globalItems)} label /> : <motion.div
         initial="initial"
         animate="animate"
         transition={{
@@ -32,8 +43,9 @@ export const RevealBento = ({ img, imgs,urls,lng }: { img: FinalFrame, imgs: Fin
       >
         <HeaderBlock img={img} url={putNameDestiny(urls[0])} />
         <SocialsBlock imgs={imgs} urls={urls.slice(1,urls.length).map(ele=> putNameDestiny(ele))} />
-      </motion.div>
-    </div>
+        </motion.div>
+}
+          </div>
   );
 };
 
