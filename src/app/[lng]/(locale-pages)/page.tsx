@@ -21,6 +21,7 @@ type Props = {
     lng:string
   }
 }
+export const fetchCache = 'force-no-store';
 async function getPageData(slug:string,lng:LocaleType){
 
 const instance =  await getInicioPage({locale:lng,fields:'*'})

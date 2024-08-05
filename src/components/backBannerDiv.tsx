@@ -39,9 +39,9 @@ export default function BackBannerDiv({ imgSrc, title, duracion,link1,link2,link
           </div>
           <div className="lg:w-2/3 flex flex-row justify-end items-center gap-x-3">
 
-             <a href={link1} className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4 font-semibold w-fit" > Descargar Pdf</a>
-             <a href={link2} className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4 font-semibold w-fit">Descargar Word</a>
-             <a  href={link3}className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4  font-semibold w-fit">Descargar Flyer</a>
+             <a href={link1} target="_blank" className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4 font-semibold w-fit" > Descargar Pdf</a>
+             <a href={link2} target="_blank" className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4 font-semibold w-fit">Descargar Word</a>
+             <a  href={link3} target="_blank" className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4  font-semibold w-fit">Descargar Flyer</a>
 
             </div>
         </div>
