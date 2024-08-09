@@ -50,7 +50,7 @@ export const MultiCarousel = ({direction,data}:Props) =>{
 >
 
   {data.map((ele,idx)=>(<div className="slider h-[420px] lg:h-[280px] rounded-xl" key={idx}> 
-  <Image src={ele.imageUrl} sizes="(max-width: 768px) 50vw, 100vw" alt={ele.title} width={isMobile?390:280} height={isMobile?420:280}  priority  className="lg:h-full h-full rounded-xl"></Image>
+  <Image src={ele.imageUrl} sizes="(max-width: 768px) 50vw, 100vw" alt={ele.title} width={isMobile?390:280} height={isMobile?420:280} objectFit='cover'  priority  className="lg:h-full h-full rounded-xl object-cover"></Image>
         {/* <img src={ele.imageUrl}/> */}
       </div>))}
                  
