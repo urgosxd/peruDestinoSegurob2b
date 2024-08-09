@@ -104,13 +104,17 @@ export async function getPaqueteBySlug(id:number){
   return data
 }
 
-export async function getDataNumeros(variables:string[]){
+export async function getDataNumeros(variables:any){
   const data = await fetchAPI('snippets/dataNumeros',variables)
   return data
 }
 
 export async function getAllPaquetes() {
   const data = await fetchAPI('pages/paquete/')
+  return data
+}
+export async function getAllTours() {
+  const data = await fetchAPI('pages/tour/')
   return data
 }
 // export async function getAllDestinos() {

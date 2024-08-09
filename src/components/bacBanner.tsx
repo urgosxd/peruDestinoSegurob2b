@@ -1,4 +1,5 @@
 'use client'
+import { useMobile } from "@/hooks/useMobile";
 import {
   Card,
   CardHeader,
@@ -15,11 +16,11 @@ interface Props {
 export default function BackBanner({ imgSrc, txt }: Props) {
   console.log(imgSrc);
   
-  
+  // const isMobile = useMobile()
   return (
     <Card
       shadow={false}
-      className="relative grid lg:h-[20rem] h-[15rem] w-full items-center justify-center overflow-hidden text-center"
+      className="relative grid lg:h-[20rem] h-[40vh] w-full items-center justify-center overflow-hidden text-center"
     >
       <CardHeader
         floated={false}

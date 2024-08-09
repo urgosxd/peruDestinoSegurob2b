@@ -12,6 +12,7 @@ import { SwipeCarousel } from "./swiperCarousel";
 type FinalFrame = {
   imgSrc: string
   label: string
+  imgMobileSrc:string
 }
 
 
@@ -25,15 +26,14 @@ export const RevealBento = ({ img, imgs,urls,lng }: { img: FinalFrame, imgs: Fin
 
   const isMobile = useMobile()
   
-  const getImages = (obs)=> obs.map(ele=>ele.imgSrc)
-  const getLabels = (obs)=> obs.map(ele=>ele.label)
+  const getImages = (obs)=> obs.map(ele=>({src:ele.imgMobileSrc}))
+  const getLabelsImgs = (obs)=> obs.map(ele=>({src:ele.imgMobileSrc,label:ele.label}))
   
   const globalItems = [img].concat(imgs)
 
   
-  return (
-    <div className=" w-full bg-zinc-900 px-4 text-zinc-50">
-      {isMobile ? <SwipeCarousel imgs={getImages(globalItems)} labelImgs={getLabels(globalItems)} label /> : <motion.div
+  return isMobile ?<div className=""> <SwipeCarousel imgs={getImages(globalItems)} labelImgs={getLabelsImgs(globalItems)} label /> </div> : <div className=" w-full bg-zinc-900 px-4 text-zinc-50">
+      <motion.div
         initial="initial"
         animate="animate"
         transition={{
@@ -44,9 +44,8 @@ export const RevealBento = ({ img, imgs,urls,lng }: { img: FinalFrame, imgs: Fin
         <HeaderBlock img={img} url={putNameDestiny(urls[0])} />
         <SocialsBlock imgs={imgs} urls={urls.slice(1,urls.length).map(ele=> putNameDestiny(ele))} />
         </motion.div>
-}
           </div>
-  );
+
 };
 
 

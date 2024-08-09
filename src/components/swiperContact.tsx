@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
+import { Card, CardBody, CardFooter, Typography } from "@material-tailwind/react";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 // const imgs = [
 //   "/imgs/nature/1.jpg",
@@ -12,7 +14,7 @@ import { motion, useMotionValue } from "framer-motion";
 // ];
 
 const ONE_SECOND = 1000;
-const AUTO_DELAY = ONE_SECOND * 3;
+const AUTO_DELAY = ONE_SECOND * 6;
 const DRAG_BUFFER = 30;
 
 const SPRING_OPTIONS = {
@@ -22,15 +24,22 @@ const SPRING_OPTIONS = {
   damping: 50,
 };
 
-type Props = {
-  imgs: string[]
-  labelImgs: any[],
-  label: boolean
+
+
+type miniCardType = {
+  image: any
+  name: any
+  desc: string
+  numero: string
+  link: string
 }
 
-export const SwipeCarousel = ({ imgs, labelImgs, label }: Props) => {
+interface Props {
+  data: miniCardType[]
+}
+export const SwipeContact = ({data}:Props) => {
 
-  const imgsLen = imgs.length > 0 ? imgs : labelImgs
+  const imgsLen = data
   const [imgIndex, setImgIndex] = useState(0);
 
   const dragX = useMotionValue(0);
@@ -63,7 +72,7 @@ export const SwipeCarousel = ({ imgs, labelImgs, label }: Props) => {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-2xl lg:py-4 w-screen">
+    <div className="relative overflow-hidden rounded-2xl lg:py-4 w-screen min-h-[302px]">
       <motion.div
         drag="x"
         dragConstraints={{
@@ -80,22 +89,26 @@ export const SwipeCarousel = ({ imgs, labelImgs, label }: Props) => {
         onDragEnd={onDragEnd}
         className="flex cursor-grab items-center active:cursor-grabbing"
       >
-        <Images imgIndex={imgIndex} imgs={imgs} labelsImgs={labelImgs} label={label} />
+        <Images data={data} imgIndex={imgIndex}/>
       </motion.div>
 
-      <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} imgs={imgs} labelImgs={labelImgs} label={label} />
+      {/* <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} imgs={imgs} labelImgs={labelImgs} label={label} /> */}
       <GradientEdges />
     </div>
   );
 };
 
-const Images = ({ imgIndex, imgs, labelsImgs, label }: { imgIndex: number, imgs: string[], labelsImgs: any[], label: boolean }) => {
+interface ImagesProps {
+  data: miniCardType[]
+  imgIndex:number
+}
+const Images = ({ data,imgIndex }: ImagesProps) => {
+  const MotionCard = motion(Card)
   return (
     <>
-      {label ? labelsImgs.map((ele, idx) => {
-        return (
-          <motion.div
-            key={idx}
+      {data.map((ele,idx) => <MotionCard 
+
+          key={idx}
             style={{
               // backgroundImage: `url(${ele.src})`,
               // backgroundSize: "cover",
@@ -105,34 +118,28 @@ const Images = ({ imgIndex, imgs, labelsImgs, label }: { imgIndex: number, imgs:
               scale: imgIndex === idx ? 0.95 : 0.85,
             }}
             transition={SPRING_OPTIONS}
-            className="relative  w-screen shrink-0 rounded-[35px] bg-neutral-800 object-cover px-7"
-          >
-            <img  src={ele.src} className="w-full h-full object-cover rounded-[35px]" loading="lazy" decoding="async"/>
-            <p className="absolute bottom-7 left-10 text-white text-3xl font-bold underline leading-[40px]">{ele.label}</p>
-          </motion.div>
-        );
-      }) :
-        imgs.map((imgSrc, idx) => {
-          return (
-            <motion.div
-              key={idx}
-              style={{
-                // backgroundImage: `url(${imgSrc})`,
-                // backgroundSize: "cover",
-                // backgroundPosition: "center",
-              }}
-              animate={{
-                scale: imgIndex === idx ? 0.95 : 0.85,
-              }}
-              transition={SPRING_OPTIONS}
-              className="relative w-screen shrink-0 rounded-xl bg-neutral-800 object-cover"
-            >
-            <img  src={imgSrc} className="w-full h-full object-cover rounded-xl" loading="lazy" decoding="async"/>
-            </motion.div>
-          );
-        })}
+          className=" relative w-screen shrink-0 rounded-[35px] bg-neutral-800 object-cover px-7 mt-6  items-center ">
+        <CardBody className=" flex flex-col items-center justify-center">
+          <img
+            src={ele.image.meta.download_url}
+            alt="card-image"
+            className=""
+          />
+
+          <Typography className="mt-6 h-5 text-xl font-bold text-center text-wrap  tracking-normal w-full leading-none">
+            {ele.name}
+          </Typography>
+          <Typography className="text-center w-full h-5 text-sm leading-tight mt-4 mb-4 text-gray-500">
+            {ele.desc}
+          </Typography>
+        </CardBody>
+        <CardFooter className="pt-0">
+          <a href={ele.link} className="bg bg-[#D20000] py-1 rounded-lg text-white w-36 px-2">{ele.numero}         <ChevronRightIcon className="inline-block w-3  stroke-[4px]" /></a>
+        </CardFooter>
+      </MotionCard>)}
     </>
-  );
+
+  )
 };
 
 const Dots = ({ imgIndex, setImgIndex, imgs, labelImgs, label }: { imgIndex: number, setImgIndex: React.Dispatch<React.SetStateAction<number>>, imgs: string[], labelImgs: any[], label: boolean }) => {

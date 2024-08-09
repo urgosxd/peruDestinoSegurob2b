@@ -28,6 +28,7 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
   const ImageMotion = motion(Image)
   return (
     <Card className="relative grid  w-full  lg:max-w-[28rem] max-w-[15rem] p-0 border rounded-lg ">
+      <Link href={`/${lng}/tour/${slug}`}>
       <CardHeader
         floated={false}
         shadow={false}
@@ -42,8 +43,8 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
 
           src={imgSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[30vh]" />
       </CardHeader>
+      </Link>
       <CardBody className="text-center !p-3">
- 
         <Typography  as="div"  className="flex flex-row justify-between lg:mb-2 lg:text-[15px] font-normal text-gray-800">
          <div className=""><MapPinIcon className="w-5 pb-1 inline-block" color="#838383"/> Peru </div>
           <div>{Array(3).fill(0).map((ele)=><StarIcon className="w-5 pb-1 inline-block" color="#D20000"/>)}</div>
@@ -56,9 +57,6 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
               <Typography className="lg:text-[15px] text-[#00AFD5] lg:h-[18px] font-semibold">USD ${txt2}</Typography>
           </div>
         </Typography>
-
-             
-
         {/* <Typography as="p" className="lg:mb-2 lg:text-2xl text-md font-normal text-gray-800"> */}
         {/*   {txt1} */}
         {/* </Typography> */}
@@ -67,7 +65,7 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
         {/* </Typography> */}
       </CardBody>
       <CardFooter className="flex justify-center lg:gap-3 lg:pt-2 !p-0">
-        <Link href={`/paquetes/${slug}`}>
+        <Link href={`${lng}/tour/${slug}`}>
 
           <Typography
             color="white"
@@ -76,9 +74,6 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
           {t('tours.booking')}
           </Typography>
         </Link>
-        {/* <Button color="#D20000" className="border rounded-lg font-bold text-xs p-2">  */}
-
-        {/* </Button> */}
       </CardFooter>
     </Card>
   );

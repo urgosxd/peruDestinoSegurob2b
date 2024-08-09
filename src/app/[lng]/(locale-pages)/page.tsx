@@ -103,31 +103,26 @@ const removeAccents = (str) => {
         {t('paqueteTitulo')}
     </h2>
       <div className=" grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1 gap-2 pl-7 lg:pl-0 gap-y-10">
-        {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={ removeAccents(ele.meta.slug)} time={ele.duracion} lng={params.lng} />))}
+        {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={(ele.meta.slug)} time={ele.duracion} lng={params.lng} />))}
       </div>
-        <h2 className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl
-        my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
+        <h2 className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {t('destinoTitulo')}
     </h2>
 
-    <RevealBento img={{imgSrc:destinos.items[0].background.meta.download_url,label:destinos.items[0].name}} imgs={destinos.items.slice(1,destinos.items.length).map(ele=>({imgSrc:ele.background.meta.download_url,label:ele.name}))} lng={params.lng} urls={urlsDestinos} />
+    <RevealBento img={{imgSrc:destinos.items[0].background.meta.download_url,imgMobileSrc:destinos.items[0].backgroundMobile.meta.download_url,label:destinos.items[0].name}} imgs={destinos.items.slice(1,destinos.items.length).map(ele=>({imgSrc:ele.background.meta.download_url,imgMobileSrc:ele.backgroundMobile.meta.download_url,label:ele.name}))} lng={params.lng} urls={urlsDestinos} />
 
-      {/* <div className="grid lg:grid-cols-3 lg:gap-3 justify-items-center destinoCss w-10/12 pl-0 grid-cols-1 gap-y-2 lg:pl-0"> */}
-        {/* {destinos.map(ele => (<BackCard key={ele.txt_unique} imgSrc={ele.imgsrc} txt={ele.txt_unique} />))} */}
-      {/* </div> */}
-        
       <div className="w-full">
-        <div className="flex lg:flex-row flex-col w-[90%] mx-auto mt-10">
+        <div className="flex lg:flex-row flex-col w-full lg:w-[90%] mx-auto mt-10">
 
         <div className="lg:w-1/2 w-full flex flex-col items-center">
           
-          <h3 className="my-9 text-[24px] text-[#000000] font-semibold text-center uppercase">Preguntas Frecuentes</h3>
+          <h3 className="my-3 mb-9 lg:my-9 text-[24px] text-[#000000] font-semibold text-center lg:no-underline underline underline-offset-8 decoration-red-900 uppercase ">Preguntas Frecuentes</h3>
           <Questions questionAnswer={(t('faqInicio',{returnObjects:true})).map(ele=>({question:ele.question ,answer: ele.answer}))} />
         </div>
         <div className="lg:w-1/2 w-full p-10 lg:p-0 ">
-          <h3 className="lg:mt-9 mt-6 font-bold lg:text-[24px] text-[#5C5C5C]">
+          <h2 className="lg:mt-9 mt-6 font-bold lg:text-[24px] text-[#5C5C5C]">
             {t('formularioTitulo')}
-          </h3>
+          </h2>
           <p className="text-left pr-10 my-3 font-normal text-[18px] text-[#989898]">
             {t('formularioSubtitulo')}
           </p>
