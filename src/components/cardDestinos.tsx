@@ -65,7 +65,7 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
         {/* </Typography> */}
       </CardBody>
       <CardFooter className="flex justify-center lg:gap-3 lg:pt-2 !p-0">
-        <Link href={`${lng}/tour/${slug}`}>
+        <Link href={`/${lng}/tour/${slug}`}>
 
           <Typography
             color="white"
