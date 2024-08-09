@@ -1,6 +1,5 @@
 import { getAllTours, getDataNumeros, getTour } from "@/app/lib/wp";
 import { LocaleType } from "../../../../../../i18next/settings";
-
 import SwitcherGlobal from "@/components/SwitcherGlobal"
 import BackBannerDiv from "@/components/backBannerDiv";
 import { createTranslation } from "../../../../../../i18next";
