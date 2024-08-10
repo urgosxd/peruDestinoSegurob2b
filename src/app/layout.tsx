@@ -7,6 +7,7 @@ import Theme from '@/components/theme';
 import { Footer } from '@/components/footer';
 import Script from 'next/script'
 
+import { ThemeProvider } from "@/components/clientExportTheme";
 const font = Poppins({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],variable: '--font-Poppins',})
 const font2 = Montserrat({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],variable: '--font-Monserrat',})
 
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
 //       <head/>
 //       <Theme>
 //       <body className={ `${font.variable} ${font2.variable} font-sans`}>
-//       {children}
+//       {childrenavn}
 //       </body>
 //       </Theme>
 //     </html>
@@ -46,5 +47,19 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  const theme = {
+    navbar:{
+      styles:{
+        base:{
+          mobileNav:{
+            overflow: 'overflow-auto',
+            height: 'h-[400px]'
+          }
+        }
+      }
+    }
+  }
+  return (
+  <ThemeProvider value={theme}>{children}</ThemeProvider>
+  )
 }

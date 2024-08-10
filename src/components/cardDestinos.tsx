@@ -27,13 +27,13 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
   const { t } = useTranslation(lng, 'translation')
   const ImageMotion = motion(Image)
   return (
-    <Card className="relative grid  w-full  lg:max-w-[28rem] max-w-[15rem] p-0 border rounded-lg ">
+    <Card className="relative grid  w-full lg:w-[425px] w-full p-0 border rounded-lg ">
       <Link href={`/${lng}/tour/${slug}`}>
       <CardHeader
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[420px] h-[30vh] cursor-pointer" >
+        className="m-0 w-full lg:h-[420px] h-[40vh] cursor-pointer" >
         <ImageMotion
           whileHover={{
             scale: 1.05,

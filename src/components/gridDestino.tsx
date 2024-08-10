@@ -91,7 +91,7 @@ const HeaderBlock = ({ img,url }: { img: FinalFrame,url:string }) => (
     }}
 
     className="col-span-12 row-span-2 md:col-span-4">
-    <Link href={url} className="grid relative lg:h-[705px] rounded-l-lg z-10">
+    <Link href={url}  className="grid relative lg:h-[705px] rounded-l-lg z-10">
       <Image src={img.imgSrc} fill sizes="(max-width: 768px) 25vw, 50vw" objectFit="cover" priority alt="profile-picture" className=" object-cover rounded-l-2xl" />
       <div className="absolute bottom-5 left-5 text-white border-solid  
         border-b-4 border-white text-3xl">{img.label}</div>
@@ -111,7 +111,7 @@ const SocialsBlock = ({ imgs,urls }: { imgs: FinalFrame[],urls:string[] }) => (
         }}
         className="col-span-6 md:col-span-4"
       >
-        <Link href={urls[idx]} className="grid relative h-[345px]">
+        <Link href={urls[idx]}  className="grid relative h-[345px]">
           <Image src={ele.imgSrc} fill sizes="(max-width: 768px) 25vw, 50vw" objectFit="cover" priority alt="profile-picture" className={`object-cover ${objBorders[idx]}`} />
           <div className={`absolute bottom-5 left-5 text-white border-solid  
         border-b-4 border-white text-3xl `}>{ele.label}</div>

@@ -12,6 +12,9 @@ import {
   MenuItem,
 
   IconButton,
+  Collapse,
+  Card,
+  CardBody,
 } from "@material-tailwind/react";
 // import {signIn } from "next-auth/react"
 import { motion, AnimatePresence, Variants } from "framer-motion";
@@ -30,7 +33,7 @@ export function NavbarDefault({ lng, destinos }: Props) {
 
   const { t } = useTranslation(lng, 'translation')
   const [openNav, setOpenNav] = React.useState(false);
-  const navNames = [t('home'), t('destinations'), t('about'), "blog","Salidas Grupales"]
+  const navNames = [t('home'), t('destinations'), t('about'), "blog", "Salidas Grupales"]
   // const [tab,setTab] = React.useState(navNames[0]) 
 
 
@@ -41,22 +44,22 @@ export function NavbarDefault({ lng, destinos }: Props) {
     const sec = first.split("/")
 
 
-  console.log("PATHH")
-  console.log(str)
-  console.log(sec)
+    console.log("PATHH")
+    console.log(str)
+    console.log(sec)
 
-    if (sec[1] !== ""){
+    if (sec[1] !== "") {
       console.log('entroo')
-              return t(sec[1])
-    }else{
-    
+      return t(sec[1])
+    } else {
+
       return t('home')
-    
+
     }
 
-    
-  
-}
+
+
+  }
 
 
   function getLinkbyName(lng: string, name: string) {
@@ -93,29 +96,60 @@ export function NavbarDefault({ lng, destinos }: Props) {
   // }, []);
 
 
+  const [miniOpen, setMiniOpen] = useState(false)
+  const toggleMiniOpen = () => {
+    if(miniOpen == true){
+      setOpenNav(false)
+    }
+    setMiniOpen((prev) => !prev)
+    
+  }
   const currentPage = usePathname();
   const [idxNav, setIdxNav] = useState<number>(navNames.indexOf(getPath(currentPage)) + 1)
-  const navList = navNames.map((ele, idx) => ele == t('destinations') ? (<Menu allowHover>
-    <MenuHandler key={idx}>
-      <Typography
-        as="li"
-        color="blue-gray"
-        className={`flex lg:justify-center justify-start pt-0 font-bold w-32 cursor-pointer`}
-      >
+  const navList = navNames.map((ele, idx) => ele == t('destinations') ? (
+    !openNav ? <Menu allowHover={openNav ? false : true} placement={openNav ? "right-end" : "bottom"}>
+      <MenuHandler key={idx}>
+        <Typography
+          as="li"
+          color="blue-gray"
+          className={`flex lg:justify-center justify-start pt-0 font-bold w-32 cursor-pointer`}
+        >
 
-        <div className="mt-7 p-2 lg:text-center uppercase text-md lg:text-md">
+          <div className="mt-7 p-2 lg:text-center uppercase text-md lg:text-md">
+            {t('destinations')}
+          </div>
+
+          {/* {txt == idxNavState ? <motion.div  className="underline" layoutId="underline"/>:null} */}
+        </Typography>
+      </MenuHandler>
+      <MenuList>
+        {destinos.map(ele => (<MenuItem><Link onClick={() => setIdxNav(2)} className="w-full block text-center" href={`/${lng}/${t('destinations')}/?city=${ele.toLowerCase()}`}>
+          {ele}
+        </Link>
+        </MenuItem>))}
+      </MenuList>
+    </Menu>
+      : <div className="">
+        <div aria-label="close-Open" className=" font-bold mt-7 p-2 lg:text-center uppercase text-md lg:text-md text-gray-800" onClick={toggleMiniOpen} >
           {t('destinations')}
         </div>
+        <Collapse open={miniOpen}>
+          <Card className="rounded-none">
+            
+            <CardBody>
+              {destinos.map(ele=>(
+              <Typography as="div" className="">
+                  <Link onClick={()=>{setIdxNav(2);setOpenNav(false)}} href={`/${lng}/${t('destinations')}/?city=${ele.toLowerCase()}`}>{ele} </Link>
+              </Typography>
 
-        {/* {txt == idxNavState ? <motion.div  className="underline" layoutId="underline"/>:null} */}
-      </Typography>
-    </MenuHandler>
-    <MenuList>
-      {destinos.map(ele => (<MenuItem><Link onClick={()=> setIdxNav(2)} className="w-full block text-center" href={`/${lng}/${t('destinations')}/?city=${ele.toLowerCase()}`}>
-        {ele}
-      </Link> </MenuItem>))}
-    </MenuList>
-  </Menu>) : <LiNav key={idx} txt={ele} setIdxNav={setIdxNav} idxNavState={idxNav} id={idx + 1} lng={lng} func={getLinkbyName} />)
+              ))
+              }
+            </CardBody>
+          </Card>
+        </Collapse>
+      </div>
+
+  ) : <LiNav key={idx} txt={ele} setIdxNav={setIdxNav} idxNavState={idxNav} id={idx + 1} lng={lng} func={getLinkbyName} setOpenNav={setOpenNav} />)
   // const mini = navNames.map(ele=>{[ele]:{}})
   const variants: Variants = {
     visible: (custom: number) => ({
@@ -123,7 +157,7 @@ export function NavbarDefault({ lng, destinos }: Props) {
     })
   }
   return (
-    <Navbar className="w-full mx-auto  py-3 lg:px-0 lg:py-0  " shadow={false}>
+   <Navbar className="w-full mx-auto  py-3 lg:px-0 lg:py-0" shadow={false}>
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
 
         <Link href="/" className="w-2/12 lg:w-1/12" onClick={() => setIdxNav(1)}>
@@ -143,12 +177,12 @@ export function NavbarDefault({ lng, destinos }: Props) {
             </Button>
           </Link>
           <Link href={`/${lng}/${t('contact')}`}>
-           <Button variant="text" size="lg" className="hidden lg:inline-block bg bg-[#D20000] text-white p-2 px-2" >
-            {t('contact')}
-          </Button>
+            <Button variant="text" size="lg" className="hidden lg:inline-block bg bg-[#D20000] text-white p-2 px-2" >
+              {t('contact')}
+            </Button>
 
           </Link>
-         
+
         </div>
         <IconButton
           variant="text"
@@ -188,7 +222,7 @@ export function NavbarDefault({ lng, destinos }: Props) {
           )}
         </IconButton>
       </div>
-      <MobileNav open={openNav}>
+      <MobileNav open={openNav} >
         <ul className="container mx-auto ">
           {navList}
           <li className="flex items-center gap-x-1">

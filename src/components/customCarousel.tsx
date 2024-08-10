@@ -9,9 +9,10 @@ import { useCycle, motion } from "framer-motion";
 import { FaPaperPlane } from "react-icons/fa";
 
 // import RatioComponent from "./ratioComponen";
-const RatioComponent = dynamic(()=>import('./ratioComponen'),{ssr:false})
+// const RatioComponent = dynamic(()=>import('./ratioComponen'),{ssr:false})
 import { Console } from "console";
 import dynamic from "next/dynamic";
+import RatioComponent from "./ratioComponen";
 
 interface Props {
   data: { type: string, value: any, id: string }[]
@@ -38,13 +39,13 @@ const CustomCarousel = ({ data }: Props) => {
   const keyframes = { x: [], y: [], rotate: [] };
   const keyframes2 = { x: [], y: [], rotate: [] };
   const generateKeyframes = () => {
-    for (let t = 0; t <= 2 * Math.PI; t += 0.1) {
+    for (let t = -0.25; t <= 2 * Math.PI; t += 0.1) {
       keyframes.x.push(100 * Math.sin(2 * t) - 30); // Example: double frequency for x
       keyframes2.x.push(100 * Math.cos(t) + 500); // Example: double frequency for x
       keyframes.y.push(100 * Math.cos(t) + 50); // Single frequency for y
       keyframes2.y.push(100 * Math.sin(2 * t) + 500)
     }
-    for (let i = 0; i < keyframes.x.length - 1; i++) {
+    for (let i = 0; i < keyframes.x.length ; i++) {
       const dx = keyframes.x[i + 1] - keyframes.x[i];
       const dy = keyframes.y[i + 1] - keyframes.y[i];
       const angle = Math.atan2(dy, dx);

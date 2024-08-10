@@ -6,6 +6,7 @@ import { createTranslation } from '../../../../../i18next';
 import { LocaleType } from "../../../../../i18next/settings";
 import SwitcherGlobal from "@/components/SwitcherGlobal";
 import { TweakCarousel } from "@/components/tweakcarousel";
+import { ValoresWrapper } from "@/components/valoresWrapper";
 
 
 type Props = {
@@ -63,10 +64,10 @@ export default async function Nosotros({ params }: Props) {
   return (
 
     <div className="w-[98vw] flex flex-col items-center">
-      <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug={undefined} />
+      {/* <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug={undefined} /> */}
       <BackBanner imgSrc={t('background.meta.download_url')} txt={t('titulo')} />
       <div className="flex flex-col lg:flex-row flex-col mt-5 lg:mt-10 w-full px-10 items-center lg:items-start"  >
-        <div className="w-full lg:w-3/5 w-full lg:px-10 px-0 flex flex-col items-center lg:items-start">
+        <div className="w-full lg:w-3/5 lg:px-10 px-0 flex flex-col items-center lg:items-start">
 
           <h2
             className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl mb-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"
@@ -89,7 +90,7 @@ export default async function Nosotros({ params }: Props) {
 
       </div>
       <div className=" mt-14 lg:mt-28 grid lg:grid-cols-2 gri-cols-1 divide-y-2 divide-neutral-800 border py-5 rounded-3xl">
-        {Datalegal.map((ele, idx) => (<div className={`pr-24 pl-24 py-3 ${idx == 1 ? "dataLegal" : " "}`}><div className="font-semibold lg:text-[18px] text-[#5B5B5F] ">{ele[0]}</div><div className="text-[#B8B8B8] lg:text-[18px] font-normal">{ele[1]}</div></div>))}
+        {Datalegal.map((ele, idx) => (<div className={`pr-24 pl-24 py-3 ${idx == 1 ? "dataLegal" : " "}`}><div className="font-semibold lg:text-[18px] text-[#5B5B5F] text-center lg:text-start ">{ele[0]}</div><div className="text-[#B8B8B8] lg:text-[18px] font-normal text-center lg:text-start">{ele[1]}</div></div>))}
       </div>
 
       <div className="flex lg:flex-row flex-col justify-center items-center w-full lg:w-fit lg:gap-x-16 gap-y-10 lg:mx-16 mx-0 lg:mt-28 mt-12 mb-10">
@@ -118,11 +119,11 @@ export default async function Nosotros({ params }: Props) {
     </h2>
             <div className="mb-10">
         <div className="flex lg:flex-row lg:gap-x-16 flex-col gap-x-0 gap-y-10 lg:gap-y-0">
-          {t('valoresNosotros',{returnObjects:true}).map(ele => (<div className="lg:w-2/12 w-full flex flex-col items-center"><img src={ele.img.meta.download_url} className="w-20 h-16" /> <p className="w-full text-center">{ele.label}</p></div>))}
+          {/* {t('valoresNosotros',{returnObjects:true}).map(ele => (<div className="lg:w-2/12 w-full flex flex-col items-center"><img src={ele.img.meta.download_url} className="w-20 h-16" /> <p className="w-full text-center">{ele.label}</p></div>))} */}
+          {<ValoresWrapper data={t('valoresNosotros',{returnObjects:true})} lng={params.lng}/>}
         </div>
       </div>
-      <h2 className="subtitle w-fit lg:text-[34px] text-3xl
-        my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
+      <h2 className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {t('partnersSubtitle')}
     </h2>
       <div className="flex lg:flex-row flex-col lg:gap-x-16 lg:gap-y-0 gap-y-8 items-center w-[90%] justify-center">

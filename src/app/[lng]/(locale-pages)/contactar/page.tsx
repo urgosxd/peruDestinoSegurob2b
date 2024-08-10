@@ -56,7 +56,7 @@ export default async function Contactar({ params }: Props) {
   return (
 
     <div className="w-[98vw] flex flex-col items-center">
-      <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug={undefined} />
+      {/* <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug={undefined} /> */}
 
       <BackBanner imgSrc={t('background.meta.download_url')} txt={t('titulo')} />
 

@@ -44,7 +44,7 @@ export default function ProfileCard({ imgSrc, title, price, slug, time, lng }: P
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[420px] h-[30vh] cursor-pointer" 
+        className="m-0 w-full lg:h-[420px] h-[40vh] cursor-pointer" 
         >
           <ImageMotion
             whileHover={{
