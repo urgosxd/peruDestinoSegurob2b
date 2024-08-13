@@ -7,6 +7,8 @@ import { LocaleType } from "../../../../../i18next/settings";
 import SwitcherGlobal from "@/components/SwitcherGlobal";
 import MapLocation from "@/components/Map";
 import { MapProvider } from "@/app/context/map-provider";
+import { MultiImageBySize } from "@/components/multiImageBySize";
+import { FormularioContactar } from "@/components/formularioContactar";
 
 
 type Props = {
@@ -33,6 +35,9 @@ async function getPageData(slug: string, lng: LocaleType) {
 
 }
 
+
+export const fetchCache = 'force-no-store';
+
 export default async function Contactar({ params }: Props) {
   // let nosotros = await getNosotrosPage()
   // const ga = JSON.parse(nosotros)
@@ -56,17 +61,17 @@ export default async function Contactar({ params }: Props) {
   return (
 
     <div className="w-[98vw] flex flex-col items-center">
-      {/* <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug={undefined} /> */}
-
-      <BackBanner imgSrc={t('background.meta.download_url')} txt={t('titulo')} />
-
+      <MultiImageBySize imgDesktop={t('background.meta.download_url') } imgMobile={t('backgroundMobile.meta.download_url') } title={t('titulo')} subTitle={t('subTitulo')} />
       <h2
         className="w-fit border-solid lg:text-[34px] text-2xl my-2
         border-b-2 border-[#D20000] p-2 text-center font-semibold text-gray-700"
       >
         {t('formTitle')}
       </h2>
+      <div className="w-full flex justify-center">
+      <FormularioContactar/>
 
+      </div>
       <MapProvider>
       <MapLocation address={t('ubicacion')}/>
       </MapProvider>

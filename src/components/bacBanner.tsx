@@ -12,15 +12,16 @@ import Image from 'next/image'
 interface Props {
   imgSrc: string
   txt: string
+  miniText?: string
 }
-export default function BackBanner({ imgSrc, txt }: Props) {
+export default function BackBanner({ imgSrc, txt,miniText=undefined }: Props) {
   console.log(imgSrc);
   
   // const isMobile = useMobile()
   return (
     <Card
       shadow={false}
-      className="relative grid lg:h-[20rem] h-[40vh] w-full items-center justify-center overflow-hidden text-center"
+      className="relative grid lg:h-[20rem] h-[50vh] w-full items-center justify-center overflow-hidden text-center"
     >
       <CardHeader
         floated={false}
@@ -43,6 +44,7 @@ export default function BackBanner({ imgSrc, txt }: Props) {
           {txt}
         </Typography>
 
+            {miniText && <Typography className="text-white font-semibold text-[30px]">{miniText}</Typography>}
       </CardBody>
     </Card>
   );

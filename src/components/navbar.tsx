@@ -122,7 +122,7 @@ export function NavbarDefault({ lng, destinos }: Props) {
           {/* {txt == idxNavState ? <motion.div  className="underline" layoutId="underline"/>:null} */}
         </Typography>
       </MenuHandler>
-      <MenuList>
+      <MenuList >
         {destinos.map(ele => (<MenuItem><Link onClick={() => setIdxNav(2)} className="w-full block text-center" href={`/${lng}/${t('destinations')}/?city=${ele.toLowerCase()}`}>
           {ele}
         </Link>

@@ -57,8 +57,16 @@ export default function RootLayout({
           }
         }
       }
+    },
+    cardBody:{
+      styles:{
+        base:{ 
+          p: 'p-3 py-1'
+        }
+
+      }
     }
-  }
+      }
   return (
   <ThemeProvider value={theme}>{children}</ThemeProvider>
   )
