@@ -30,6 +30,8 @@ type Props = {
   }
 }
 
+export const fetchCache = 'force-no-store';
+
 export default async  function SalidasGrupales({params}:Props) {
   const data = await getSalidasPage({'fields':'*'})
   const realData = data.items[0]

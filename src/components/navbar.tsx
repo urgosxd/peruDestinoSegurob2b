@@ -1,5 +1,6 @@
 'use client'
 import { UserCircleIcon } from '@heroicons/react/24/outline'
+import { UserCircleIcon as UserCircleIconSolid } from '@heroicons/react/24/solid'
 import React, { useState } from "react"
 import {
   Navbar,
@@ -63,7 +64,7 @@ export function NavbarDefault({ lng, destinos }: Props) {
 
 
   function getLinkbyName(lng: string, name: string) {
-    
+
     let finalName = ""
     switch (name) {
       case t('home'):
@@ -78,8 +79,8 @@ export function NavbarDefault({ lng, destinos }: Props) {
         break;
       case t('groupOutings'):
         console.log(t('groupOutings'))
-        console.log(name.replace(/ /g,""))
-        finalName = name.replace(/ /g,"").toLowerCase()
+        console.log(name.replace(/ /g, ""))
+        finalName = name.replace(/ /g, "").toLowerCase()
         break
       default:
         finalName = name
@@ -103,11 +104,11 @@ export function NavbarDefault({ lng, destinos }: Props) {
 
   const [miniOpen, setMiniOpen] = useState(false)
   const toggleMiniOpen = () => {
-    if(miniOpen == true){
+    if (miniOpen == true) {
       setOpenNav(false)
     }
     setMiniOpen((prev) => !prev)
-    
+
   }
   const currentPage = usePathname();
   const [idxNav, setIdxNav] = useState<number>(navNames.indexOf(getPath(currentPage)) + 1)
@@ -140,12 +141,12 @@ export function NavbarDefault({ lng, destinos }: Props) {
         </div>
         <Collapse open={miniOpen}>
           <Card className="rounded-none">
-            
+
             <CardBody>
-              {destinos.map(ele=>(
-              <Typography as="div" className="">
-                  <Link onClick={()=>{setIdxNav(2);setOpenNav(false)}} href={`/${lng}/${t('destinations')}/?city=${ele.toLowerCase()}`}>{ele} </Link>
-              </Typography>
+              {destinos.map(ele => (
+                <Typography as="div" className="">
+                  <Link onClick={() => { setIdxNav(2); setOpenNav(false) }} href={`/${lng}/${t('destinations')}/?city=${ele.toLowerCase()}`}>{ele} </Link>
+                </Typography>
 
               ))
               }
@@ -162,7 +163,7 @@ export function NavbarDefault({ lng, destinos }: Props) {
     })
   }
   return (
-   <Navbar className="w-full mx-auto  py-3 lg:px-0 lg:py-0" shadow={false}>
+    <Navbar className="w-full mx-auto  py-3 lg:px-0 lg:py-0" shadow={false}>
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
 
         <Link href="/" className="w-2/12 lg:w-1/12" onClick={() => setIdxNav(1)}>
@@ -185,7 +186,6 @@ export function NavbarDefault({ lng, destinos }: Props) {
             <Button variant="text" size="lg" className="hidden lg:inline-block bg bg-[#D20000] text-white p-2 px-2" >
               {t('contact')}
             </Button>
-
           </Link>
 
         </div>
@@ -228,14 +228,25 @@ export function NavbarDefault({ lng, destinos }: Props) {
         </IconButton>
       </div>
       <MobileNav open={openNav} >
-        <ul className="container mx-auto ">
-          {navList}
-          <li className="flex items-center gap-x-1">
 
-            <Button fullWidth variant="text" size="sm" className="">
-              <span>Log In</span>
-            </Button>
+        <ul className="container mx-auto ">
+          <li className="flex items-center gap-x-1">
+            <div className="flex flex-row justify-center items-center gap-x-1  w-screen mt-3">
+              <Link href={"/api/auth/signin"} >
+
+                <Button variant="text" size="lg" className="inline-block text-[#D20000] text-lg " >
+                  <UserCircleIconSolid className="w-6 inline-block" /> Entrar
+                </Button>
+              </Link>
+              <Link href={`/${lng}/${t('contact')}`}>
+                <Button onClick={()=>setOpenNav(false)} variant="text" size="lg" className="inline-block rounded-[33px] bg bg-[#D20000] text-white p-2 px-2" >
+                  {t('contact')}
+                </Button>
+
+              </Link>
+            </div>
           </li>
+          {navList}
         </ul>
       </MobileNav>
     </Navbar>

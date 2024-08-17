@@ -6,6 +6,7 @@ import { CalendarDaysIcon,CheckIcon,ClockIcon } from '@heroicons/react/24/outlin
 import { StarIcon,ArrowLeftIcon,ArrowRightIcon } from '@heroicons/react/24/solid'
 import { Card, Typography } from "@material-tailwind/react";
 import CardSalidas from './cardSalidas'
+import { useMobile } from '@/hooks/useMobile'
 interface Props{
   data:any[]
   year:string
@@ -78,7 +79,7 @@ function setEvents(data:any[],year:string){
   filtByYears.forEach(ele => {
     if (ele.date.a == year){
 
-    customState[meses[ele.date.m]].push({d:ele.date.d,m:ele.date.m,time:ele.linkedPage.duration,imgsrc:(""),title:ele.linkedPage.title,slug:ele.linkedPage.slug})
+    customState[meses[ele.date.m]].push({d:ele.date.d,m:ele.date.m,time:ele.linkedPage.duration,imgsrc:ele.linkedPage.img,title:ele.linkedPage.title,slug:ele.linkedPage.slug})
 
     }
     else{
@@ -120,12 +121,13 @@ export default function CustomEventSalidasByYear({data, year,currentMonth,lng}:P
   const datasBrute = setEvents(data,year)  
   const datas = {...datasBrute[0]}
   
+  const isMobile = useMobile()
   return (
-  <div className="w-full px-10">
+  <div className="w-full px-10 flex">
       {Object.entries(datas).map(ele=>
         ele[1].length > 0  &&  <div className="capitalize font-bold text-black text-lg">        
-      {ele[0]}  {year} / {ele[1].length} opciones disponibles
-          <div className="flex flex-col lg:flex-row lg:gap-x-5 mt-5">
+      <h2 className="subtitle w-fit text-[20px] lg:text-[30px] text-3xl mb-2 p-3 lg:text-center font-medium text-gray-800 lg:mb-10">  {ele[0]}  {year} {isMobile ? "" : "/"} {isMobile ? <br/> : ""} {ele[1].length} opciones disponibles </h2>
+          <div className="mx-auto grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1  lg:gap-x-24 lg:pl-0 gap-y-10 mt-5">
             {ele[1].map(ele=>(<CardSalidas ftImageSrc={ele.imgsrc} title={ele.title} time={ele.time} fecha={`${ele.d} ${meses[ele.m]} `} slug={ele.slug} lng={lng} />))}
           </div>
          </div>
