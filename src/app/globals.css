@@ -63,12 +63,14 @@ div.destinoCss div{
     border-bottom: 2px solid #D20000; /* This creates the border. Replace black with whatever color you want. */
 }
 
+.wasgi {
+font-size: 18px;
+}
 .wasgi p{
 color: #5B5B5F;
 text-align: justify;
 overflow-wrap: break-word;
 font-weight:300;
-font-size: 20px;
 }
 
 

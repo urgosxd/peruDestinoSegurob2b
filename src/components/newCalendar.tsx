@@ -10,6 +10,7 @@ interface Props{
   data:any[]
   year:string
   currentMonth:number
+  lng: string
 }
 
 
@@ -28,6 +29,7 @@ const meses:{[key:string]:string} = {
   "11":"noviembre",
   "12":"diciembre"
 }
+
 function setEvents(data:any[],year:string){
  const customState:{[key:string]:{d:string,m:string,imgsrc:string,time:string,title:string,slug:string}[]} = {
   enero:[],
@@ -60,13 +62,13 @@ function setEvents(data:any[],year:string){
   const AcceptYears = [year,`${parseInt(year)+1}`]
   const NewData = data.map(ele=>{
     // date to Fecha field name ACF issue
-    const gaa = ele.acf.fecha.split("/")
+    const gaa = ele.date.split("-")
     return {
       ...ele,
         date:{
-        d:gaa[0],
+        d:gaa[2],
         m:gaa[1],
-        a:gaa[2]
+        a:gaa[0]
       }
       ,}
   })
@@ -76,7 +78,8 @@ function setEvents(data:any[],year:string){
   filtByYears.forEach(ele => {
     if (ele.date.a == year){
 
-    customState[meses[ele.date.m]].push({d:ele.date.d,m:ele.date.m,time:ele.acf.time,imgsrc:(ele.acf.imgsrc),title:ele.title.rendered,slug:ele.slug})
+    customState[meses[ele.date.m]].push({d:ele.date.d,m:ele.date.m,time:ele.linkedPage.duration,imgsrc:(""),title:ele.linkedPage.title,slug:ele.linkedPage.slug})
+
     }
     else{
     // customStateNext[meses[ele.date.m]+"1"].push({d:ele.date.d,m:ele.date.m ,time:ele.acf.time,imgsrc:(ele.acf.imgsrc),txt:ele.title.rendered})
@@ -112,7 +115,7 @@ function setEvents(data:any[],year:string){
 // }
 
 
-export default function CustomEventSalidasByYear({data, year,currentMonth}:Props){
+export default function CustomEventSalidasByYear({data, year,currentMonth,lng}:Props){
 
   const datasBrute = setEvents(data,year)  
   const datas = {...datasBrute[0]}
@@ -123,7 +126,7 @@ export default function CustomEventSalidasByYear({data, year,currentMonth}:Props
         ele[1].length > 0  &&  <div className="capitalize font-bold text-black text-lg">        
       {ele[0]}  {year} / {ele[1].length} opciones disponibles
           <div className="flex flex-col lg:flex-row lg:gap-x-5 mt-5">
-            {ele[1].map(ele=>(<CardSalidas ftImageSrc={ele.imgsrc} title={ele.title} time={ele.time} fecha={`${ele.d} ${meses[ele.d]} `} slug={ele.slug} />))}
+            {ele[1].map(ele=>(<CardSalidas ftImageSrc={ele.imgsrc} title={ele.title} time={ele.time} fecha={`${ele.d} ${meses[ele.m]} `} slug={ele.slug} lng={lng} />))}
           </div>
          </div>
     )}

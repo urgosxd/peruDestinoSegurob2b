@@ -4,6 +4,7 @@
   "destinations":"destinos",
   "blog": "blog",
   "contact": "contactar",
+  "groupOutings": "Salidas Grupales",
   "tours":{
     "from": "desde",
     "booking": "reservar"

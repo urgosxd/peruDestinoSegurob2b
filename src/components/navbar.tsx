@@ -33,7 +33,7 @@ export function NavbarDefault({ lng, destinos }: Props) {
 
   const { t } = useTranslation(lng, 'translation')
   const [openNav, setOpenNav] = React.useState(false);
-  const navNames = [t('home'), t('destinations'), t('about'), "blog", "Salidas Grupales"]
+  const navNames = [t('home'), t('destinations'), t('about'), "blog", t('groupOutings')]
   // const [tab,setTab] = React.useState(navNames[0]) 
 
 
@@ -63,10 +63,11 @@ export function NavbarDefault({ lng, destinos }: Props) {
 
 
   function getLinkbyName(lng: string, name: string) {
+    
     let finalName = ""
     switch (name) {
       case t('home'):
-        finalName = "/"
+        finalName = ""
         break;
       case t('destinations'):
         finalName = ""
@@ -75,11 +76,15 @@ export function NavbarDefault({ lng, destinos }: Props) {
       case t('blog'):
         finalName = "/blog?page=1"
         break;
+      case t('groupOutings'):
+        console.log(t('groupOutings'))
+        console.log(name.replace(/ /g,""))
+        finalName = name.replace(/ /g,"").toLowerCase()
+        break
       default:
-        finalName = `/${name}`
+        finalName = name
         break;
     }
-
 
     return `/${lng}/${finalName}`
 

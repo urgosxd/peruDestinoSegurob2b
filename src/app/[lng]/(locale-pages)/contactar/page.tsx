@@ -63,12 +63,12 @@ export default async function Contactar({ params }: Props) {
     <div className="w-[98vw] flex flex-col items-center">
       <MultiImageBySize imgDesktop={t('background.meta.download_url') } imgMobile={t('backgroundMobile.meta.download_url') } title={t('titulo')} subTitle={t('subTitulo')} />
       <h2
-        className="w-fit border-solid lg:text-[34px] text-2xl my-2
+        className="mt-[65px] w-fit border-solid lg:text-[34px] text-2xl my-2
         border-b-2 border-[#D20000] p-2 text-center font-semibold text-gray-700"
       >
         {t('formTitle')}
       </h2>
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center my-10">
       <FormularioContactar/>
 
       </div>

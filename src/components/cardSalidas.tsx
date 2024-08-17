@@ -18,17 +18,18 @@ interface Props{
   fecha:string
   time:string
   slug:string
+  lng: string
 }
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
-export default function CardSalidas({ftImageSrc,title,fecha,time,slug}:Props) {
+export default function CardSalidas({ftImageSrc,title,fecha,time,slug,lng}:Props) {
   
   const CardHeaderMotion = motion(CardHeader)
   
       
       return (
     <Card className={"relative grid  w-full  lg:max-w-[25rem] max-w-[20rem] p-0 border rounded-lg"}>
-      <Link  href={`/salidasGrupales/${slug}`}>
+      <Link  href={`/${lng}/packages/${slug}`}>
       <CardHeaderMotion 
         whileHover={{ scale: 1.05,
         transition: { ease: "easeOut", duration: 1 },}}

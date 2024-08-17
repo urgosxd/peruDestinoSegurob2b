@@ -39,7 +39,7 @@ export default function BackBanner({ imgSrc, txt,miniText=undefined }: Props) {
           variant="h1"
           color="white"
           className="mb-3 font-bold` leading-[1.5] w-fit border-solid  
-        border-b-2 border-red-700  text-left lg:text-[40px] text-xl font-semibold"
+        border-b-2 border-red-700  text-left lg:text-[40px] text-[36px] font-semibold"
         >
           {txt}
         </Typography>

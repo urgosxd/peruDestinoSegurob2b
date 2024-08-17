@@ -82,6 +82,10 @@ export async function getContactarPage(variables:any) {
   const data = await fetchAPI('pages/contactar/',variables)
   return data
 }
+export async function getSalidasPage(variables:any) {
+  const data = await fetchAPI('pages/salidasPage/',variables)
+  return data
+}
 export async function getDestinos(variables:any){
   const data = await fetchAPI('snippets/destino/',variables)
   return data
@@ -96,6 +100,10 @@ export async function getPaquete(variables:any){
 
 export async function getTour(variable:any){
   const data = await fetchAPI('pages/tour/',variable)
+  return data
+}
+export async function getSalidasGrupales(variable:any){
+  const data = await fetchAPI('pages/salidasGrupales/',variable)
   return data
 }
 
@@ -117,6 +125,12 @@ export async function getAllTours() {
   const data = await fetchAPI('pages/tour/')
   return data
 }
+
+// export async function getAllSalidasGrupales() {
+//   const data = await fetchAPI('pages/')
+//   return data
+//   }
+
 // export async function getAllDestinos() {
 //   const data = await fetchAPI('destino/')
 //   return data

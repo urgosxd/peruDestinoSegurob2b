@@ -115,8 +115,8 @@ const Images = ({ data,imgIndex }: ImagesProps) => {
               scale: imgIndex === idx ? 0.95 : 0.85,
             }}
             transition={SPRING_OPTIONS}
-            className=" relative w-screen shrink-0 rounded-[35px] bg-neutral-800 object-cover px-7 mt-6 flex flex-col  items-center gap-y-3">
-              <img src={ele.img.meta.download_url} className="w-36 h-29" /> <p className="w-full text-center text-lg">{ele.label}</p>
+            className=" relative w-screen shrink-0 rounded-[35px] bg-neutral-800  px-7 mt-6 flex flex-col  items-center gap-y-3">
+              <img src={ele.img.meta.download_url} className="w-20 h-18 object-cover"  /> <p className="w-full text-center text-lg ">{ele.label}</p>
               </motion.div>)}
     </>
 

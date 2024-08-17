@@ -1,7 +1,7 @@
 
 .containerTweak {
-  height: 70px;
-	width: 400px;
+  height: 50px;
+	width: 200px;
   max-width: 450px;
 	/* outline: 1px solid black; */
 	/* padding: 1rem; */
@@ -50,7 +50,7 @@
 
 [data-direction=horizontal] {
 	aspect-ratio: 16 / 9;
-	min-height: 200px;
+	min-height: 150px;
 	min-width: 450px;
 }
 

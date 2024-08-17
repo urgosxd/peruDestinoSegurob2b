@@ -15,6 +15,8 @@ type Props = {
   }
 }
 
+export const fetchCache = 'force-no-store';
+
 async function getPageData(slug: string, lng: LocaleType) {
 
   const instance = await getNosotrosPage({ locale: lng, fields: '*' })
@@ -70,7 +72,7 @@ export default async function Nosotros({ params }: Props) {
         <div className="w-full lg:w-3/5 lg:px-10 px-0 flex flex-col items-center lg:items-start">
 
           <h2
-            className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl mb-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"
+            className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl mb-2 p-3 text-center font-semibold text-gray-800 lg:mb-10"
           >
             {t('subTitulo')}
           </h2>
@@ -117,21 +119,20 @@ export default async function Nosotros({ params }: Props) {
       <h2 className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {t('valoresSubtitle')}
     </h2>
-            <div className="mb-10">
+            <div className="lg:mb-10">
         <div className="flex lg:flex-row lg:gap-x-16 flex-col gap-x-0 gap-y-10 lg:gap-y-0">
           {/* {t('valoresNosotros',{returnObjects:true}).map(ele => (<div className="lg:w-2/12 w-full flex flex-col items-center"><img src={ele.img.meta.download_url} className="w-20 h-16" /> <p className="w-full text-center">{ele.label}</p></div>))} */}
           {<ValoresWrapper data={t('valoresNosotros',{returnObjects:true})} lng={params.lng}/>}
         </div>
       </div>
-      <h2 className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
+      <h2 className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl lg:my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {t('partnersSubtitle')}
     </h2>
       <div className="flex lg:flex-row flex-col lg:gap-x-16 lg:gap-y-0 gap-y-8 items-center w-[90%] justify-center">
         <TweakCarousel imgs={t('partnersNosotros',{returnObjects:true}).map((ele)=>(ele.image.meta.download_url))}/>
         {/* {logos.map(ele => (<img src={ele} className="lg:w-3/12 w-1/2 lg:h-16 h-10" />))} */}
       </div>
-            <h2 className="subtitle w-fit lg:text-[34px] text-3xl
-        my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
+            <h2 className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl lg:my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {t('certificadosSubtitle')}
     </h2>
     </div>

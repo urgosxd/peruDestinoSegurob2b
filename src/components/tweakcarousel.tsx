@@ -50,7 +50,7 @@ export const TweakCarousel = ({ imgs}: Props) => {
         {imgs.map((item, index) => {
           return (
             <li key={`index-${renderStamp}--${index}`} style={{ '--index': index }}>
-              <img src={item} className="object-cover h-36"/>
+              <img src={item} className="object-cover h-20 lg:h-32"/>
               {/* {index} */}
             </li>
           )
