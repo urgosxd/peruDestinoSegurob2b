@@ -163,19 +163,21 @@ export function NavbarDefault({ lng, destinos }: Props) {
     })
   }
   return (
-    <Navbar className="w-full mx-auto  py-3 lg:px-0 lg:py-0" shadow={false}>
-      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+    <Navbar className="w-full   py-3 lg:px-0 lg:py-0" shadow={false}>
+      <div className="container mx-auto flex items-center justify-center lg:justify-between text-blue-gray-900">
 
-        <Link href="/" className="w-2/12 lg:w-1/12" onClick={() => setIdxNav(1)}>
-          <img src="/pdsLogo.png" alt="logo-ct" className="w-full" />
+        <div className=" flex w-2/3 lg:w-3/12 flex-row justify-end lg:justify-center">
+        <Link href="/" className="" onClick={() => setIdxNav(1)}>
+          <img src="/pdsLogo.png" alt="logo-ct" className="w-[100px]" />
         </Link>
+        </div>
         <div className="hidden lg:block flex mb-3">
           <ul className="mt-2 mb-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-3">
             {navList}
           </ul>
           <motion.div custom={idxNav - 1} animate="visible" variants={variants} className="absolute w-28 h-1 bg bg-red-800 mx-2 mb-3" />
         </div>
-        <div className="flex items-center gap-x-1">
+        <div className="flex items-center gap-x-1 w-1/12">
           <Link href={"/api/auth/signin"}>
 
             <Button variant="text" size="lg" className="hidden lg:inline-block text-[#D20000] " >
@@ -189,9 +191,10 @@ export function NavbarDefault({ lng, destinos }: Props) {
           </Link>
 
         </div>
+        <div className="flex flex-row justify-end w-1/3 lg:w-0">
         <IconButton
           variant="text"
-          className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
+          className=" h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
           ripple={false}
           onClick={() => setOpenNav(!openNav)}
         >
@@ -226,6 +229,7 @@ export function NavbarDefault({ lng, destinos }: Props) {
             </svg>
           )}
         </IconButton>
+        </div>
       </div>
       <MobileNav open={openNav} >
 
