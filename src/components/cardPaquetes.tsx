@@ -53,7 +53,7 @@ export default function ProfileCard({ imgSrc, title, price, slug, time, lng }: P
             }}
             whileTap={{ scale: 0.9 }}
 
-            src={imgSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className=" h-[10vh] lg:h-[30vh]" />
+            src={imgSrc} fill sizes="(max-width: 768px) 100vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className=" h-[10vh] lg:h-[30vh]" />
         </CardHeader>
       </Link>
 

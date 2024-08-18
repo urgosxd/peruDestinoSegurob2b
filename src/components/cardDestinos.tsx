@@ -41,7 +41,7 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
           }}
           whileTap={{ scale: 0.9 }}
 
-          src={imgSrc} fill sizes="(max-width: 768px) 25vw, 50vw" priority objectFit="cover" /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[30vh] object-cover" />
+          src={imgSrc} fill sizes="(max-width: 768px) 100vw, 50vw" priority objectFit="cover" /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[30vh] object-cover" />
       </CardHeader>
       </Link>
       <CardBody className="text-center !p-3">
