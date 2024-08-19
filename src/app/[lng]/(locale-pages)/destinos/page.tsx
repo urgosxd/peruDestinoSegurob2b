@@ -1,4 +1,5 @@
 import { getDestinos, getTour } from "@/app/lib/wp";
+import BackBanner from "@/components/bacBanner";
 import CardDestinos from "@/components/cardDestinos";
 import { useParams } from "next/navigation";
 
@@ -23,21 +24,28 @@ export default async function Destino({params,searchParams}:Props) {
   const {city}  = searchParams
 
 
+  const order = ["cusco","lima","arequipa","puno","ica"]
   const destinos = await getDestinos({fields:"*"})
 
+  const destinosF = destinos.items.sort((a, b) => {
+  return order.indexOf(a.name.toLowerCase()) - order.indexOf(b.name.toLowerCase());
+  });
 
-  const destinoBackground = destinos.items.filter((ele)=> ele.name.toLowerCase() == city)[0]
+  const destinoBackground = destinosF.filter((ele)=> ele.name.toLowerCase() == city)[0]
   console.log(destinoBackground)
-  const destinosObject = destinos.items.map((ele)=>({id:ele.id,ciudad: ele.name.toLowerCase()}))
+  const destinosObject = destinosF.map((ele)=>({id:ele.id,ciudad: ele.name.toLowerCase()}))
 
 
   // console.log(destinosObject.filter(ele=> ele.ciudad == capitalize(city)))
   const dataTours = await getTour({fields:"*",tourDestino:destinosObject.filter(ele=> ele.ciudad == city)[0].id,locale:params.lng})
 
+  function capitalize(string:string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
   return(
     <div className="w-[98vw] flex flex-col items-center">
       
-      {/* <BackBanner imgSrc={unicoDestinos.imgback} txt="Nuestros Destinos" /> */}
+      <BackBanner imgSrc={destinoBackground.backgroundDestinoPage.meta.download_url} txt={capitalize(city)}  />
        <h2 className="subtitle w-fit lg:text-[34px] text-3xl
         my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {miniTranslate[params.lng]}

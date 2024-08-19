@@ -86,9 +86,17 @@ const removeAccents = (str) => {
     .replace(/([aeiouAEIOU])[\u0300-\u036f]/g, "$1") // Elimina los acentos solo de las vocales
     .normalize("NFC"); // Recomponer los caracteres
 };
+  const order = ["cusco","lima","arequipa","puno","ica"]
+
+  const destinosF = destinos.items.sort((a, b) => {
+  return order.indexOf(a.name.toLowerCase()) - order.indexOf(b.name.toLowerCase());
+  });
 
 
-  const urlsDestinos = destinos.items.map(ele=>( ele.name.toLowerCase()))
+  const urlsDestinos = destinosF.map(ele=>( ele.name.toLowerCase()))
+
+
+
 
   return (
     <div className="flex flex-col items-center">
@@ -109,7 +117,7 @@ const removeAccents = (str) => {
         {t('destinoTitulo')}
     </h2>
 
-    <RevealBento img={{imgSrc:destinos.items[0].background.meta.download_url,imgMobileSrc:destinos.items[0].backgroundMobile.meta.download_url,label:destinos.items[0].name}} imgs={destinos.items.slice(1,destinos.items.length).map(ele=>({imgSrc:ele.background.meta.download_url,imgMobileSrc:ele.backgroundMobile.meta.download_url,label:ele.name}))} lng={params.lng} urls={urlsDestinos} />
+    <RevealBento img={{imgSrc:destinosF.items[0].background.meta.download_url,imgMobileSrc:destinosF.items[0].backgroundMobile.meta.download_url,label:destinosF.items[0].name}} imgs={destinosF.items.slice(1,destinosF.items.length).map(ele=>({imgSrc:ele.background.meta.download_url,imgMobileSrc:ele.backgroundMobile.meta.download_url,label:ele.name}))} lng={params.lng} urls={urlsDestinos} />
 
       <div className="w-full">
         <div className="flex lg:flex-row flex-col w-full lg:w-[90%] mx-auto mt-10">
