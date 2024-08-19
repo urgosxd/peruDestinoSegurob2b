@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
       break;
     case "Tour":
       revalidatePath("/"+lngObject[document.lng as string]+"/"+tourObject[document.lng]+"/")
-      revalidatePath("/(dynamics-pages)/tour/[slug]","page")
+      revalidatePath("/[lng]/(dynamics-pages)/tour/[slug]","page")
       break;
     case "SalidasGrupales":
       revalidatePath("/"+lngObject[document.lng as string]+"/"+salidasObject[document.lng]+"/")

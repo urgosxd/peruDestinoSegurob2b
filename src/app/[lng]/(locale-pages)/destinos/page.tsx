@@ -14,7 +14,9 @@ type Props = {
 //     return s.toLowerCase().replace( /\b./g, function(a){ return a.toUpperCase(); } );
 // };
 
+export const fetchCache = 'force-no-store';
 const miniTranslate:{[keys:string]:string} = {"es":"Destinos","en":"Destinys"}
+
 export default async function Destino({params,searchParams}:Props) {
 
 
@@ -24,6 +26,8 @@ export default async function Destino({params,searchParams}:Props) {
   const destinos = await getDestinos({fields:"*"})
 
 
+  const destinoBackground = destinos.items.filter((ele)=> ele.name.toLowerCase() == city)[0]
+  console.log(destinoBackground)
   const destinosObject = destinos.items.map((ele)=>({id:ele.id,ciudad: ele.name.toLowerCase()}))
 
 
