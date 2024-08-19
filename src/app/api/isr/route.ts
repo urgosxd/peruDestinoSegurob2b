@@ -6,6 +6,7 @@ import { revalidatePath } from "next/cache";
 const lngObject:{[keys:string]:string} = {"English": "en","Spanish": "es"}
 
 const tourObject:{[keys:string]:string} = {"English": "destinations","Spanish": "destinos"}
+const salidasObject:{[keys:string]:string} = {"English": "destinations","Spanish": "salidasgrupales"}
 export async function POST(request: NextRequest) {
   // const secret = request.headers.get("secret");
   const document = await request.json();
@@ -23,10 +24,11 @@ export async function POST(request: NextRequest) {
       break;
     case "Tour":
       revalidatePath("/"+lngObject[document.lng as string]+"/"+tourObject[document.lng]+"/")
-      console.log("/"+lngObject[document.lng as string]+"/"+tourObject[document.lng]+"/")
       revalidatePath("/(dynamics-pages)/tour/[slug]","page")
       break;
-
+    case "SalidasGrupales":
+      revalidatePath("/"+lngObject[document.lng as string]+"/"+salidasObject[document.lng]+"/")
+      break
     default:
       break;
   }
