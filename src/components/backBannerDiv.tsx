@@ -16,13 +16,23 @@ interface Props {
   link1: string
   link2: string
   link3: string
+  tourDisplay?: boolean
 }
-export default function BackBannerDiv({ imgSrc, title, duracion, link1, link2, link3 }: Props) {
+export default function BackBannerDiv({ imgSrc, title, duracion, link1, link2, link3, tourDisplay = false }: Props) {
   console.log(imgSrc);
 
-  let [dias, noches] = duracion.split("-") 
-  dias = dias + " Dias"
-  noches = noches + " Noches"
+  let rawDuracion = []
+  try {
+    rawDuracion = duracion.split('-')
+  } catch (error) {
+
+    rawDuracion = [undefined, undefined]
+
+  }
+  const dias = rawDuracion[0]
+  const aux = rawDuracion[0] == undefined ? '0' : rawDuracion[0]
+  console.log(dias)
+  const noches = rawDuracion[1]
 
   const isMobile = useMobile()
   return (
@@ -36,13 +46,13 @@ export default function BackBannerDiv({ imgSrc, title, duracion, link1, link2, l
           <div className="flex px-10 lg:px-[60px] w-full h-full">
             <div className="lg:w-1/3 flex flex-col justify-center gap-y-5">
               <h1 className="mb-1 font-monse leading-[48px] lg:leading-[44px] w-fit text-left text-[40px] lg:text-[36px] font-bold text-white">{title}</h1>
-              <p className="mb-3 font-semibold leading-[24px] w-fit text-left text-[16px] lg:text-[20px] bg bg-[#D20000] rounded-lg px-5 py-1 text-white"> {dias} - {noches} </p>
+              <p className={`mb-3 font-semibold leading-[24px] w-fit text-left text-[16px] lg:text-[20px] bg bg-[#D20000] rounded-lg px-5 py-1 text-white `}> { (dias != undefined && parseInt(aux) > 1) ? `${dias} Dias - ${noches} Noches` : "Full Day"}   </p>
             </div>
             {!isMobile && <div className="lg:w-2/3 flex flex-row justify-end items-center gap-x-3">
 
               <a href={link1} target="_blank" className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4 font-semibold w-fit" > Descargar Pdf</a>
               <a href={link2} target="_blank" className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4 font-semibold w-fit">Descargar Word</a>
-              <a href={link3} target="_blank" className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4  font-semibold w-fit">Descargar Flyer</a>
+              {!tourDisplay && <a href={link3} target="_blank" className="tracking-wide text-lg text-[#D20000] bg bg-white h-8 rounded-full px-4  font-semibold w-fit">Descargar Flyer</a>}
 
             </div>
             }

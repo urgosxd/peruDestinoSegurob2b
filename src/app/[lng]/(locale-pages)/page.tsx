@@ -92,7 +92,6 @@ const removeAccents = (str) => {
   return order.indexOf(a.name.toLowerCase()) - order.indexOf(b.name.toLowerCase());
   });
 
-
   const urlsDestinos = destinosF.map(ele=>( ele.name.toLowerCase()))
 
 
@@ -101,7 +100,7 @@ const removeAccents = (str) => {
   return (
     <div className="flex flex-col items-center">
       
-      <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug={undefined}/>
+      {/* <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug={undefined}/> */}
       <CustomCarousel data={t('galleryIni',{returnObjects:true})} ></CustomCarousel>
       {/* <SessionProvider> */}
       {/* <SessionValidator>GAAAAAAAA</SessionValidator> */}
@@ -117,7 +116,7 @@ const removeAccents = (str) => {
         {t('destinoTitulo')}
     </h2>
 
-    <RevealBento img={{imgSrc:destinosF.items[0].background.meta.download_url,imgMobileSrc:destinosF.items[0].backgroundMobile.meta.download_url,label:destinosF.items[0].name}} imgs={destinosF.items.slice(1,destinosF.items.length).map(ele=>({imgSrc:ele.background.meta.download_url,imgMobileSrc:ele.backgroundMobile.meta.download_url,label:ele.name}))} lng={params.lng} urls={urlsDestinos} />
+    <RevealBento img={{imgSrc:destinosF[0].background.meta.download_url,imgMobileSrc:destinosF[0].backgroundMobile.meta.download_url,label:destinosF[0].name}} imgs={destinosF.slice(1,destinosF.length).map(ele=>({imgSrc:ele.background.meta.download_url,imgMobileSrc:ele.backgroundMobile.meta.download_url,label:ele.name}))} lng={params.lng} urls={urlsDestinos} />
 
       <div className="w-full">
         <div className="flex lg:flex-row flex-col w-full lg:w-[90%] mx-auto mt-10">

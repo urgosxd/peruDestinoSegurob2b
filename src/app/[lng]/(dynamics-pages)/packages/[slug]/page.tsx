@@ -51,7 +51,7 @@ export default async function Page({ params }: PageProps) {
   // console.log(ddias)
   return (
     <div className="w-[98vw] flex flex-col items-center">
-      <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug="packages" />
+      {/* <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug="packages" /> */}
       <BackBannerDiv imgSrc={paquete.background.meta.download_url} title={paquete.title} duracion={paquete.duracion} link1={paquete.linkWord} link2={paquete.linkPdf} link3={paquete.linkFlyer} />
       <div className="flex flex-col lg:flex-row w-full mb-10 items-center lg:items-start">
         <LinksComponents link1={paquete.linkWord} link2={paquete.linkPdf} link3={paquete.linkFlyer} />

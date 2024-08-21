@@ -5,7 +5,7 @@ import { LocaleType, availableLocales } from '../../../i18next/settings';
 import { Footer } from '@/components/footer';
 import { NavbarDefault } from '@/components/navbar';
 import Script from 'next/script';
-import { getDestinos } from '../lib/wp';
+import { getDataGeneral, getDestinos } from '../lib/wp';
 // import { getDefaultMetaData } from '@/lib/helpers';
 // import AuthProvider from '@/app/[lng]/components/providers/auth/AuthProvider';
 // import Footer from '@/app/[lng]/components/layout/footer/Footer';
@@ -31,6 +31,8 @@ export default async function Layout({ children, params: { lng } }: LocaleRouteL
 
   const destinosObject = destinos.items.map((ele)=>(ele.name))
 
+  const dataGeneralInfo = await getDataGeneral({"fields":"*"})
+
   return (
     <html lang={lng} suppressHydrationWarning className="!scroll-smooth">
       <body
@@ -50,7 +52,7 @@ export default async function Layout({ children, params: { lng } }: LocaleRouteL
         </main>
 
 
-        <Footer />
+        <Footer data={dataGeneralInfo.items[0]} />
       </body>
     </html>
   );

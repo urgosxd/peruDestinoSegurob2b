@@ -1,9 +1,15 @@
 'use client'
 import { Typography } from "@material-tailwind/react";
-import { PhoneIcon, MapPinIcon,EnvelopeIcon } from '@heroicons/react/24/outline'
+import { PhoneIcon, MapPinIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
 import { SocialIcon } from 'react-social-icons'
 
-export function Footer() {
+interface Props {
+  data: any
+}
+
+export function Footer({ data }: Props) {
+
+  console.log(data)
   return (
     <footer className="w-11/12 bg-white lg:ml-10 ml-2 lg:mt-20 mt-10">
       <div className="flex lg:flex-row flex-col  flex-wrap items-center justify-center lg:gap-y-6 gap-y-8 lg:gap-x-12 gap-x-3 bg-white text-center md:justify-between">
@@ -24,12 +30,12 @@ export function Footer() {
 
             Peru Destino Seguro S.R.L
           </Typography>
-            <div className="flex flex-row gap-x-3">
-            <SocialIcon bgColor="#D20000" url="https://www.youtube.com/"/>
-            <SocialIcon bgColor="#D20000" url="https://www.facebook.com/"/>
-            <SocialIcon bgColor="#D20000" url="https://www.instagram.com/"/>
-            <SocialIcon bgColor="#D20000" url="https://www.tiktok.com/"/>
-            <SocialIcon bgColor="#D20000" url="https://www.whatsapp.com/"/>
+          <div className="flex flex-row gap-x-3">
+            <SocialIcon bgColor="#D20000" url={data.youtube} />
+            <SocialIcon bgColor="#D20000" url={data.facebook} />
+            <SocialIcon bgColor="#D20000" url={data.instagram} />
+            <SocialIcon bgColor="#D20000" url={data.tiktok} />
+            <SocialIcon bgColor="#D20000" network="whatsapp" url={data.whatsapp} />
           </div>
         </div>
         <ul className="flex flex-wrap items-center gap-x-8 lg:text-right text-center leading-none">
@@ -45,7 +51,7 @@ export function Footer() {
               color="blue-gray"
               className="font-normal leading-normal"
             >
-              Peru Destino Seguro S.R.L
+              {data.razonSocial}
             </Typography>
             <Typography
               color="blue-gray"
@@ -54,35 +60,28 @@ export function Footer() {
               Direccion:
             </Typography>
 
-              <Typography
-                color="blue-gray"
-                className="font-normal leading-normal"
-              >
-                <MapPinIcon className="w-3 pb-2 inline-block " color="#D20000"/>    Av. Tacna Nro. 168 - Cusco
-              </Typography>
+            <Typography
+              color="blue-gray"
+              className="font-normal leading-normal"
+            >
+              <MapPinIcon className="w-3 pb-2 inline-block " color="#D20000" />   Av. Tacna Nro. 168 - Cusco
+            </Typography>
 
 
             <Typography
               color="blue-gray"
               className="font-bold leading-normal"
             >
-             Telefono
+              Telefono
             </Typography>
-
-            <Typography
+            {data.telefonos.map((ele) => <Typography
               color="blue-gray"
               className="font-normal leading-normal"
             >
 
-             <PhoneIcon className="w-3 pb-2 inline-block" color="#D20000"/>  +51 (084) 750156
+              <PhoneIcon className="w-3 pb-2 inline-block" color="#D20000" />  {ele.numero}
             </Typography>
-
-            <Typography
-              color="blue-gray"
-              className="font-normal leading normal"
-            >
-              <PhoneIcon className="w-3 pb-2 inline-block" color="#D20000"/>  +51 (916) 041494
-            </Typography>
+            )}
 
             <Typography
               color="blue-gray"
@@ -95,7 +94,7 @@ export function Footer() {
               color="blue-gray"
               className="font-normal leading-normal"
             >
-            <EnvelopeIcon className="w-3 pb-1 inline-block" color="#D20000"/>     ventas@pdsviajes.com
+              <EnvelopeIcon className="w-3 pb-1 inline-block" color="#D20000" />     {data.email}
             </Typography>
           </li>
         </ul>
@@ -104,9 +103,9 @@ export function Footer() {
 
       <div className="w-full flex flex-row flex-wrap justify-between gap-y-6 gap-x-12 bg-white text-center md:justify-between">
         <Typography color="blue-gray" className="text-center font-normal">
-          Derechos reservados Peru Destino Seguro 2023
+          Derechos reservados Peru Destino Seguro 2024
         </Typography>
-            <img src="/tarjetas.png" alt="logo-ct" className="w-2/12" />
+        <img src="/tarjetas.png" alt="logo-ct" className="w-2/12" />
       </div>
     </footer>
   );

@@ -123,7 +123,7 @@ export default function CustomEventSalidasByYear({data, year,currentMonth,lng}:P
   
   const isMobile = useMobile()
   return (
-  <div className="w-full px-10 flex">
+  <div className="w-full px-10 flex flex-col">
       {Object.entries(datas).map(ele=>
         ele[1].length > 0  &&  <div className="capitalize font-bold text-black text-lg">        
       <h2 className="subtitle w-fit text-[20px] lg:text-[30px] text-3xl mb-2 p-3 lg:text-center font-medium text-gray-800 lg:mb-10">  {ele[0]}  {year} {isMobile ? "" : "/"} {isMobile ? <br/> : ""} {ele[1].length} opciones disponibles </h2>

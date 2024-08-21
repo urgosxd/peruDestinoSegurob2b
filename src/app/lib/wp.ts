@@ -117,6 +117,11 @@ export async function getDataNumeros(variables:any){
   return data
 }
 
+export async function getDataGeneral(variables:any){
+  const data = await fetchAPI('snippets/dataGeneral',variables)
+  return data
+}
+
 export async function getAllPaquetes() {
   const data = await fetchAPI('pages/paquete/')
   return data
