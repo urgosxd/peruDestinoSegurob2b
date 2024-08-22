@@ -113,7 +113,7 @@ export async function generateStaticParams() {
   const allSlugs = rawData.items
   const params = allSlugs.map(({ meta }) => ({
     lng: meta.locale,
-    slug: removeAccents(meta.slug)
+    slug: (meta.slug)
   }))
   return params
 }
