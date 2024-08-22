@@ -10,11 +10,6 @@ import { getDataGeneral, getDestinos } from '../lib/wp';
 // import AuthProvider from '@/app/[lng]/components/providers/auth/AuthProvider';
 // import Footer from '@/app/[lng]/components/layout/footer/Footer';
 
-const manrope = Manrope({
-  subsets: ['latin'],
-  display: 'swap',
-});
-
 export type SharedPageProps = {
   params: { lng: LocaleType };
 };
@@ -24,6 +19,7 @@ type LocaleRouteLayout = SharedPageProps & {
 
 const font = Poppins({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],variable: '--font-Poppins',})
 const font2 = Montserrat({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],variable: '--font-Monserrat',})
+
 
 
 export default async function Layout({ children, params: { lng } }: LocaleRouteLayout) {

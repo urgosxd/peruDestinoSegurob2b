@@ -8,8 +8,6 @@ import { Footer } from '@/components/footer';
 import Script from 'next/script'
 
 import { ThemeProvider } from "@/components/clientExportTheme";
-const font = Poppins({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],variable: '--font-Poppins',})
-const font2 = Montserrat({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],variable: '--font-Monserrat',})
 
 
 export const metadata: Metadata = {

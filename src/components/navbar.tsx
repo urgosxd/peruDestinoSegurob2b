@@ -34,7 +34,6 @@ export function NavbarDefault({ lng, destinos }: Props) {
 
   const { t } = useTranslation(lng, 'translation')
   const [openNav, setOpenNav] = React.useState(false);
-  const navNames = [t('home'), t('destinations'), t('about'), "blog", t('groupOutings')]
   // const [tab,setTab] = React.useState(navNames[0]) 
 
 
@@ -110,8 +109,13 @@ export function NavbarDefault({ lng, destinos }: Props) {
     setMiniOpen((prev) => !prev)
 
   }
+
+  const navNames = [t('home'), t('destinations'), t('about'), "blog", t('groupOutings')]
+  const lowerNavName = navNames.map(ele=> ele.toLowerCase().replace(/ /g, ""))
+  console.log(lowerNavName)
+
   const currentPage = usePathname();
-  const [idxNav, setIdxNav] = useState<number>(navNames.indexOf(getPath(currentPage)) + 1)
+  const [idxNav, setIdxNav] = useState<number>(()=>lowerNavName.indexOf(getPath(currentPage)) + 1)
   const navList = navNames.map((ele, idx) => ele == t('destinations') ? (
     !openNav ? <Menu allowHover={openNav ? false : true} placement={openNav ? "right-end" : "bottom"}>
       <MenuHandler key={idx}>
