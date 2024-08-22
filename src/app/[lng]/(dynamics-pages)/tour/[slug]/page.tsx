@@ -28,8 +28,8 @@ async function getPageData(slug: string, lng: LocaleType) {
     tour: instance.items[0],
     related: instance.items.map(ele => ({ language: ele.meta.locale, slug: ele.meta.slug })).concat(relatedLanguages)
   }
-
 }
+
 type PageProps = {
   params: {
     lng: string
@@ -51,7 +51,7 @@ export default async function Page({ params }: PageProps) {
   return (
     <div className="w-[98vw] flex flex-col items-center">
       {/* <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug="packages" /> */}
-      <BackBannerDiv imgSrc={tour.background.meta.download_url} title={tour.title} duracion={'0-0'} link1={tour.linkWord} link2={tour.linkPdf} link3={tour.linkFlyer} tourDisplay={true} />
+      <BackBannerDiv imgSrc={tour.background.meta.download_url} title={tour.title} duracion={tour.duracion} link1={tour.linkWord} link2={tour.linkPdf} link3={tour.linkFlyer} tourDisplay={true} />
       <div className="flex flex-col lg:flex-row w-full mb-10 items-center lg:items-start">
         <LinksComponents link1={tour.linkWord} link2={tour.linkPdf} link3={tour.linkFlyer} />
         <div className="w-full lg:w-0">
