@@ -163,8 +163,9 @@ export function NavbarDefault({ lng, destinos }: Props) {
   // const mini = navNames.map(ele=>{[ele]:{}})
   const variants: Variants = {
     visible: (custom: number) => ({
-      translateX: custom * 140
-    })
+      translateX: custom * 140,
+      opacity: custom >= 0 ? 1 : 0
+    }),
   }
   return (
     <Navbar className="w-full   py-3 lg:px-0 lg:py-0" shadow={false}>
