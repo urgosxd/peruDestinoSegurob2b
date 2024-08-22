@@ -54,11 +54,23 @@ const ImageGrid = ({data}:Props) => {
     if (idx!==1){
     return mobile ? '150px':'300px'
     }else{
-    return mobile ? '180px': '400px'
+    return mobile ? '190px': '430px'
     }
   }
   return (
     <div className="w-full h-full flex flex-row justify-center pare gap-x-10 lg:gap-x-14">
+      <AnimatePresence>
+        {!expanded && 
+      <MotionImage initial={{opacity:0}} animate={{opacity: 1}} exit={{opacity:0}} transition={{ duration: 0.75 }}  src="/NUBE.png" alt="ga" width={200} height={100} className="absolute top-[60%] left-[50%] z-50"/>
+        }
+      </AnimatePresence>
+      <AnimatePresence>
+        {!expanded && 
+      <MotionImage initial={{opacity:0}} animate={{opacity: 1}} exit={{opacity:0}} transition={{ duration: 0.75 }}  src="/NUBE.png" alt="ga" width={350} height={200} className="absolute top-[15%] right-[10%] z-50"/>
+        }
+      </AnimatePresence>
+
+      {/* <MotionImage animate={{opacity: expanded ? 0: 100}} exit={{opacity:0}} transition={{ duration: 0.5 }}  src="/NUBE.png" alt="ga" width={200} height={100} className="absolute top-[60%] left-[50%] z-50"/> */}
       {data.map((i,idx) => (
           <motion.div
           key={idx}
@@ -73,7 +85,7 @@ const ImageGrid = ({data}:Props) => {
           // animate={{ width: expanded ? '100%' : '25%', height: expanded ? '100%' : '350px',marginLeft:expanded ? idx > 0 ? -70 : 0: idx > 0 ? -30 : 0 }}
           transition={{ duration: 0.5 }}
         >
-          <MotionImage src={i.img} sizes="(max-width: 768px) 50vw, 100vw" alt="ims"  priority fill className="imgRounded"/>
+          <MotionImage src={i.img} sizes="(max-width: 768px) 100vw, 50vw" alt="ims"  quality={100} fill className="imgRounded"/>
             {/* <img src={i.img} className="imgRounded"/> */}
         </motion.div>
         </motion.div>
