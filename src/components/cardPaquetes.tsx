@@ -38,13 +38,13 @@ export default function ProfileCard({ imgSrc, title, price, slug, time, lng }: P
 
   const ImageMotion = motion(Image)
   return (
-    <Card className="relative grid w-full  lg:w-[425px] p-0 border  ">
+    <Card className="relative grid w-full  lg:w-[425px] p-0  ">
       <Link href={`/${lng}/packages/${slug}`}>
         <CardHeader
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[420px] h-[40vh] cursor-pointer" 
+        className="m-0 w-full lg:h-[420px] h-[40vh] cursor-pointer rounded-none" 
         >
           <ImageMotion
             whileHover={{
