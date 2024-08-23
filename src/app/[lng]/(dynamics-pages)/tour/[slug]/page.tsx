@@ -10,6 +10,8 @@ import MiniCard from "@/components/miniCardCallCenter";
 import { LinksComponents } from "@/components/linksComponents";
 
 
+export const fetchCache = 'force-no-store';
+
 async function getPageData(slug: string, lng: LocaleType) {
 
 
@@ -36,6 +38,7 @@ type PageProps = {
     slug: string
   };
 };
+
 
 export default async function Page({ params }: PageProps) {
 

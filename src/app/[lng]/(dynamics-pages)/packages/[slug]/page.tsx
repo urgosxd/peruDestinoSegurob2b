@@ -11,6 +11,8 @@ import MiniCard from "@/components/miniCardCallCenter";
 import { LinksComponents } from "@/components/linksComponents";
 
 
+export const fetchCache = 'force-no-store';
+
 async function getPageData(slug: string, lng: LocaleType) {
 
 
