@@ -82,7 +82,7 @@ export default async function Page({ params }: PageProps) {
                 Itinerario
           </h2>
         <div className="w-full lg:w-2/3">
-          <div className=" flex justify-center container mx-auto py-3 px-10 w-full">
+          <div className=" flex justify-center container mx-auto py-3 px-10 max-w-[950px]">
             <MultiCarousel direction={false} data={tour.galleryTour.map(ele => ({ imageUrl: ele.image.meta.download_url, title: ele.image.title }))} />
           </div>
           

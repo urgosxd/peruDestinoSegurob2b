@@ -61,12 +61,12 @@ const ImageGrid = ({data}:Props) => {
     <div className="w-full h-full flex flex-row justify-center pare gap-x-10 lg:gap-x-14">
       <AnimatePresence>
         {!expanded && 
-      <MotionImage initial={{opacity:0}} animate={{opacity: 1}} exit={{opacity:0}} transition={{ duration: 0.75 }}  src="/NUBE.png" alt="ga" width={200} height={100} className="absolute top-[60%] left-[50%] z-50"/>
+      <MotionImage initial={{opacity:0}} animate={{opacity: 1}} exit={{opacity:0}} transition={{ duration: 0.75 }}  src="/NUBE.png" alt="ga" width={mobile ? 75 : 200} height={mobile ? 35 : 100} className="absolute top-[30%] lg:top-[60%] left-[22%] lg:left-[50%] z-50"/>
         }
       </AnimatePresence>
       <AnimatePresence>
         {!expanded && 
-      <MotionImage initial={{opacity:0}} animate={{opacity: 1}} exit={{opacity:0}} transition={{ duration: 0.75 }}  src="/NUBE.png" alt="ga" width={350} height={200} className="absolute top-[15%] right-[10%] z-50"/>
+      <MotionImage initial={{opacity:0}} animate={{opacity: 1}} exit={{opacity:0}} transition={{ duration: 0.75 }}  src="/NUBE.png" alt="ga" width={mobile ? 150 : 350} height={mobile ? 75 : 200} className="absolute top-[15%] right-[10%] z-50"/>
         }
       </AnimatePresence>
 
