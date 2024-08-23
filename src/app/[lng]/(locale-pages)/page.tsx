@@ -133,8 +133,7 @@ const removeAccents = (str) => {
           <p className="text-left pr-10 my-3 font-normal text-[18px] text-[#989898]">
             {t('formularioSubtitulo')}
           </p>
-              {/* Escriba su correo y Pregunta a continuacion. Nuestro equipo respondera a sus preguntas lo antes posible</p> */}
-          <AgenciaForm />
+          <AgenciaForm lng={params.lng} />
             </div>
       </div>
       </div>
