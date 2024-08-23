@@ -90,6 +90,9 @@ export default async function Page({ params }: PageProps) {
           </div>
           
           <div>
+            <h2 className="hidden lg:block subtitle w-fit text-[20px] lg:text-[34px] text-3xl p-3 text-center font-semibold text-gray-800   ml-16">
+                Itinerario
+          </h2>
             <div dangerouslySetInnerHTML={{ __html: tour.itinerario }} className="tourQWERTY" />
           </div>
         </div>
