@@ -90,7 +90,7 @@ export default async function Page({ params }: PageProps) {
         </div>
       </div>
       <h2 className="subtitle w-2/3 lg:w-fit lg:text-[34px] text-[20px] lg:text-3xl       my-[20px] lg:my-[50px] p-3 text-center font-semibold text-gray-800  lg:mb-10">
-        Otros Canales de Venta Asitida
+        Otros Canales de Venta Asistida
       </h2>
       <MiniCard data={dataInformacion.items} />
     </div>

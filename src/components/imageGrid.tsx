@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 // import './Counter.css';
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion"

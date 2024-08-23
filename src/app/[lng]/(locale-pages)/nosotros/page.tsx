@@ -7,6 +7,7 @@ import { LocaleType } from "../../../../../i18next/settings";
 import SwitcherGlobal from "@/components/SwitcherGlobal";
 import { TweakCarousel } from "@/components/tweakcarousel";
 import { ValoresWrapper } from "@/components/valoresWrapper";
+import ImageGrid from "@/components/imageGrid";
 
 
 type Props = {
@@ -135,6 +136,9 @@ export default async function Nosotros({ params }: Props) {
             <h2 className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl lg:my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {t('certificadosSubtitle')}
     </h2>
+      <div>
+        <ImageGrid srcImages={t('certificadosNosotros',{returnObjects:true}).map(ele=> (ele.image.meta.download_url))} label={false}/>
+      </div>
     </div>
   )
 }
