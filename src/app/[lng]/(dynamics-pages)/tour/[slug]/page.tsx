@@ -81,7 +81,7 @@ export default async function Page({ params }: PageProps) {
 
           </div>
         </div>
-        <h2 className="lg:hidden block subtitle w-fit text-[20px] lg:text-[34px] text-3xl p-3 text-center font-semibold text-gray-800  lg:mb-10">
+        <h2 className="lg:hidden block subtitle w-fit text-[20px] lg:text-[34px]  p-3 text-center font-semibold text-gray-800  lg:mb-10">
                 Itinerario
           </h2>
         <div className="w-full lg:w-2/3">
@@ -90,7 +90,7 @@ export default async function Page({ params }: PageProps) {
           </div>
           
           <div>
-            <h2 className="hidden lg:block subtitle w-fit text-[20px] lg:text-[34px] text-3xl p-3 text-center font-semibold text-gray-800   ml-16">
+            <h2 className="hidden lg:block subtitle w-fit text-[16px] lg:text-[28px]  p-3 text-center font-semibold text-gray-800   ml-16">
                 Itinerario
           </h2>
             <div dangerouslySetInnerHTML={{ __html: tour.itinerario }} className="tourQWERTY" />
