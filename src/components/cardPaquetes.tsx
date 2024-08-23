@@ -44,7 +44,7 @@ export default function ProfileCard({ imgSrc, title, price, slug, time, lng }: P
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[420px] h-[585px] cursor-pointer rounded-none" 
+        className="m-0 w-full lg:min-h-[585px]  min-h-[40vh] cursor-pointer rounded-none" 
         >
           <ImageMotion
             whileHover={{
@@ -53,7 +53,7 @@ export default function ProfileCard({ imgSrc, title, price, slug, time, lng }: P
             }}
             whileTap={{ scale: 0.9 }}
 
-            src={imgSrc} fill sizes="(max-width: 768px) 100vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className=" h-[10vh] lg:h-[30vh]" />
+            src={imgSrc} fill sizes="(max-width: 768px) 100vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="" />
         </CardHeader>
       </Link>
 
