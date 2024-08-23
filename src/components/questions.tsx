@@ -36,7 +36,7 @@ function CollapseDefault({ question, answer, paquete,mobile ,idxx }: miniProps) 
         <Card className="rounded-none">
           <CardBody>
             <Typography as="div">
-              <div dangerouslySetInnerHTML={{ __html: answer }} className="answerQWERTY"/>
+              <div dangerouslySetInnerHTML={{ __html: answer }} className="tourQWERTY"/>
             </Typography>
           </CardBody>
         </Card>
