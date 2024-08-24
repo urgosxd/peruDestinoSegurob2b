@@ -52,7 +52,7 @@ export const GalleryCarrousel = ({
               }}
               variants={{
                 hover: {
-                  scale: 1.10,
+                  scale: 1.05,
                   // opacity:2,
                 },
               }} loading="lazy" decoding="async" src={ele.src} alt="gaa" className="object-cover rounded-2xl" /><p className="absolute bottom-5 left-2 text-white text-3xl font-bold">{ele.label}</p></motion.div>))}
@@ -65,7 +65,7 @@ export const GalleryCarrousel = ({
               }}
               variants={{
                 hover: {
-                  scale: 1.10,
+                  scale: 1.05,
                 },
               }}  src={ele} alt="gaa" className="object-cover rounded-2xl" /></motion.div>))}
           </div>
