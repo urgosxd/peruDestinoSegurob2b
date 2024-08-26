@@ -19,9 +19,9 @@ type LocaleRouteLayout = SharedPageProps & {
 };
 
 
-const myFont = localFont({ src: [{path:'../../../public/CoreBoriW01-Regular.ttf'}] ,display: 'swap',variable: '--font-Custom'})
-const font = Poppins({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],variable: '--font-Poppins',})
-const font2 = Montserrat({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],variable: '--font-Monserrat',})
+const myFont = localFont({ src: [{path:'../../../public/CoreBoriW01-Regular.ttf'}] ,display: 'swap',variable: '--font-Custom',preload:false})
+const font = Poppins({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],variable: '--font-Poppins',preload: true})
+const font2 = Montserrat({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],variable: '--font-Monserrat',preload:true})
 
 
 
