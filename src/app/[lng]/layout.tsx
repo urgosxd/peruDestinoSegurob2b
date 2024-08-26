@@ -14,6 +14,7 @@ import localFont from 'next/font/local'
 export type SharedPageProps = {
   params: { lng: LocaleType };
 };
+
 type LocaleRouteLayout = SharedPageProps & {
   children: React.ReactNode;
 };
@@ -51,7 +52,7 @@ export default async function Layout({ children, params: { lng } }: LocaleRouteL
         </main>
 
 
-        <Footer data={dataGeneralInfo.items[0]} />
+        {/* <Footer data={dataGeneralInfo.items[0]} /> */}
       </body>
     </html>
   );
