@@ -64,7 +64,7 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
         {/*   Desde ${txt2} */}
         {/* </Typography> */}
       </CardBody>
-      <CardFooter className="flex justify-center lg:gap-3 lg:pt-2 !p-0">
+      <CardFooter className="flex justify-center lg:gap-3 lg:pt-2 !p-0 !pb-[25px]">
         <Link href={`/${lng}/tour/${slug}`}>
 
           <Typography
