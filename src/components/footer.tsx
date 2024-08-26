@@ -30,11 +30,11 @@ export function Footer({ data }: Props) {
             Peru Destino Seguro S.R.L
           </Typography>
           <div className="flex flex-row gap-x-3">
-            <SocialIcon bgColor="#D20000" url={data.youtube} />
-            <SocialIcon bgColor="#D20000" url={data.facebook} />
-            <SocialIcon bgColor="#D20000" url={data.instagram} />
-            <SocialIcon bgColor="#D20000" url={data.tiktok} />
-            <SocialIcon bgColor="#D20000" network="whatsapp" url={data.whatsapp} />
+            {/* <SocialIcon bgColor="#D20000" url={data.youtube} /> */}
+            {/* <SocialIcon bgColor="#D20000" url={data.facebook} /> */}
+            {/* <SocialIcon bgColor="#D20000" url={data.instagram} /> */}
+            {/* <SocialIcon bgColor="#D20000" url={data.tiktok} /> */}
+            {/* <SocialIcon bgColor="#D20000" network="whatsapp" url={data.whatsapp} /> */}
           </div>
         </div>
         <ul className="flex flex-wrap items-center gap-x-8 lg:text-right text-center leading-none">
