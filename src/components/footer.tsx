@@ -12,7 +12,7 @@ export function Footer({ data }: Props) {
   return (
     <footer className="w-11/12 bg-white lg:ml-10 ml-2 lg:mt-20 mt-10">
       <div className="flex lg:flex-row flex-col  flex-wrap items-center justify-center lg:gap-y-6 gap-y-8 lg:gap-x-12 gap-x-3 bg-white text-center md:justify-between">
-        <img src="/pdsLogo.png" alt="logo-ct" className="w-1/12" />
+        {/* <img src="/pdsLogo.png" alt="logo-ct" className="w-1/12" /> */}
         <div>
           <Typography
             color="blue-gray"
@@ -104,7 +104,7 @@ export function Footer({ data }: Props) {
         <Typography color="blue-gray" className="text-center font-normal">
           Derechos reservados Peru Destino Seguro 2024
         </Typography>
-        <img src="/tarjetas.png" alt="logo-ct" className="w-2/12" />
+        {/* <img src="/tarjetas.png" alt="logo-ct" className="w-2/12" /> */}
       </div>
     </footer>
   );
