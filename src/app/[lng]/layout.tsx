@@ -6,6 +6,7 @@ import { Footer } from '@/components/footer';
 import { NavbarDefault } from '@/components/navbar';
 import Script from 'next/script';
 import { getDataGeneral, getDestinos } from '../lib/wp';
+import localFont from 'next/font/local'
 // import { getDefaultMetaData } from '@/lib/helpers';
 // import AuthProvider from '@/app/[lng]/components/providers/auth/AuthProvider';
 // import Footer from '@/app/[lng]/components/layout/footer/Footer';
@@ -17,6 +18,8 @@ type LocaleRouteLayout = SharedPageProps & {
   children: React.ReactNode;
 };
 
+
+const myFont = localFont({ src: '../../../public/CoreBoriW01-Regular.ttf' ,variable: '--font-Custom'})
 const font = Poppins({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],variable: '--font-Poppins',})
 const font2 = Montserrat({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],variable: '--font-Monserrat',})
 
@@ -33,7 +36,7 @@ export default async function Layout({ children, params: { lng } }: LocaleRouteL
     <html lang={lng} suppressHydrationWarning className="!scroll-smooth">
       <body
          
-        className={`${font.variable} ${font2.variable} font-sans`}
+        className={`${font.variable} ${font2.variable} ${myFont.variable} font-sans`}
       >
         <NavbarDefault lng={lng} destinos={destinosObject} />
         <main>

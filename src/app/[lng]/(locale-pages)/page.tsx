@@ -118,11 +118,9 @@ const removeAccents = (str) => {
 
     <RevealBento img={{imgSrc:destinosF[0].background.meta.download_url,imgMobileSrc:destinosF[0].backgroundMobile.meta.download_url,label:destinosF[0].name}} imgs={destinosF.slice(1,destinosF.length).map(ele=>({imgSrc:ele.background.meta.download_url,imgMobileSrc:ele.backgroundMobile.meta.download_url,label:ele.name}))} lng={params.lng} urls={urlsDestinos} />
 
-      <div className="w-full">
-        <div className="flex lg:flex-row flex-col w-full lg:w-[90%] mx-auto mt-10">
-
+    <div className="w-full">
+      <div className="flex lg:flex-row flex-col w-full lg:w-[90%] mx-auto mt-10">
         <div className="lg:w-1/2 w-full flex flex-col items-center">
-          
           <h3 className="my-3 mb-9 lg:my-9 text-[20px] lg:text-[24px] text-[#5B5B5F] lg:text-[#000000] font-semibold text-center lg:no-underline underline underline-offset-8 decoration-red-900 uppercase ">Preguntas Frecuentes</h3>
           <Questions questionAnswer={(t('faqInicio',{returnObjects:true})).map(ele=>({question:ele.question ,answer: ele.answer}))} />
         </div>

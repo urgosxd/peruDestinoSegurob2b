@@ -54,9 +54,9 @@ export default async function Page({ params }: PageProps) {
   return (
     <div className="w-[98vw] flex flex-col items-center">
       {/* <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug="packages" /> */}
-      <BackBannerDiv imgSrc={paquete.background.meta.download_url} title={paquete.title} duracion={paquete.duracion} link1={paquete.linkWord} link2={paquete.linkPdf} link3={paquete.linkFlyer} />
+      <BackBannerDiv imgSrc={paquete.background.meta.download_url} title={paquete.title} duracion={paquete.duracion} link1={paquete.linkPdf} link2={paquete.linkWord} link3={paquete.linkFlyer} />
       <div className="flex flex-col lg:flex-row w-full mb-10 items-center lg:items-start">
-        <LinksComponents link1={paquete.linkWord} link2={paquete.linkPdf} link3={paquete.linkFlyer} />
+        <LinksComponents link1={paquete.linkPdf} link2={paquete.linkWord} link3={paquete.linkFlyer} />
         <div className="w-full lg:w-0">
           <MultiCarousel direction={true} data={paquete.galleryPaquete.map(ele => ({ imageUrl: ele.image.meta.download_url, title: ele.image.title }))} />
         </div>

@@ -2,7 +2,6 @@
 import { memo, useState } from "react"
 import { Carousel, ListItemSuffix, Typography } from "@material-tailwind/react";
 import Image from 'next/image'
-import localFont from 'next/font/local'
 
 import React, { Component, useEffect } from "react";
 import { useCycle, motion } from "framer-motion";
@@ -18,7 +17,7 @@ interface Props {
   data: { type: string, value: any, id: string }[]
 }
 
-const myFont = localFont({ src: '../../public/CoreBoriW01-Regular.ttf' })
+// const myFont = localFont({ src: '../../public/CoreBoriW01-Regular.ttf' })
 
 const CustomCarousel = ({ data }: Props) => {
   console.log(data)
@@ -154,7 +153,7 @@ const CustomCarousel = ({ data }: Props) => {
                     <div className="mx-[7%] lg:mx-[10%]">
                       <Image src="/peruCarousel.png" alt="peru" width={140} height={60} className="w-[65px] lg:w-[140px]" />
                       <div className="flex flex-row lg:flex-col items-end lg:items-start">
-                      <div className={`${myFont.className} text-white text-[36px] lg:text-[40px] w-[65%] leading-[42px] lg:leading-[47.5px] font-normal`} >{ele.value.carouselTitulo}</div>
+                      <div className={`font-custom text-white text-[36px] lg:text-[40px] w-[65%] leading-[42px] lg:leading-[47.5px] font-normal`} >{ele.value.carouselTitulo}</div>
                       <div className="text-white bg-[#00AFD5] uppercase text-[11px] lg:text-[23px] font-bold lg:font-extrabold w-fit px-2 lg:px-3 rounded-xl font-monse h-fit"> {dias} Días / {noches} Noches </div>
                       </div>
                       <Image src="/incluido.png" alt="incluido" width={332} height={100} />

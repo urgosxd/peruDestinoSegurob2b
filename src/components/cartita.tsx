@@ -20,12 +20,11 @@ export default function Cartita({inclu,exclu}:{inclu:string[],exclu:string[]}){
         </Typography>
 ))
     }
-      
       <Typography as="h3" className="text-[#808080] font-semibold mb-3">
-        Excluido
+        No Incluye
       </Typography>
       {exclu.map(ele=>(
-<Typography as="p" className="lg:mb-2 font-ligth text-[14px] lg:text-sm">
+  <Typography as="p" className="lg:mb-2 font-ligth text-[14px] lg:text-sm">
        <XMarkIcon className="w-3 inline-block" color="#D20000"/> {ele}
         </Typography>
 

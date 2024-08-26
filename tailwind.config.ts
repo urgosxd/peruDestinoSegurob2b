@@ -11,7 +11,8 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-Poppins)', ...defaultTheme.fontFamily.sans],
-        monse: ['var(--font-Monserrat)']
+        monse: ['var(--font-Monserrat)'],
+        custom: ['var(--font-Custom)']
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
