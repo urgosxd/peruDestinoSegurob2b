@@ -67,8 +67,8 @@ const CustomCarousel = ({ data }: Props) => {
 
   return (
     <div className="lg:w-full w-full h-[50vh] lg:h-screen">
-      <Carousel autoplayDelay={8000} transition={{ duration: 2 }} className="overflow-y-hidden">
-        {data.map((ele) => {
+      <Carousel loop autoplayDelay={8000} transition={{ duration: 2 }} className="overflow-y-hidden">
+        {data.map((ele,idxx) => {
 
           let rawDuracion = []
           try {
@@ -84,7 +84,7 @@ const CustomCarousel = ({ data }: Props) => {
             case "Tipo1":
               // console.log(ele.value.miniPhotos)
               return (<div className="relative w-full h-full lg:h-full">
-                <Image src={ele.value.photo.url.full_url} quality={100} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority fill className="lg:h-full h-full lg:w-full object-cover "></Image>
+                <Image src={ele.value.photo.url.full_url} quality={100} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover" priority={idxx == 0 ? true :false} fill className="lg:h-full h-full lg:w-full object-cover "></Image>
                 <motion.div
                   className="text-2xl text-gray-600 w-fit h-fit mx-auto "
                   animate={{
