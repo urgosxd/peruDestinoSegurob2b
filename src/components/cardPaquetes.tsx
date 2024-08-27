@@ -67,8 +67,8 @@ export default function ProfileCard({ imgSrc, title, price, slug, time, lng }: P
           {title}
         </Typography>
         <Typography as="div" className="flex flex-col lg:flex-row justify-between font-bold lg:text-4xl text-xl text-black" textGradient>
-          <div className="mb-2 lg:mb-2 flex flex-row lg:flex-col justify-center"> <Typography className="lg:text-[12px] text-[#838383] text-left lg:h-[14px] font-normal">Desde </Typography>
-            <Typography className="lg:text-[15px] lg:text-[#00AFD5] lg:h-[18px] font-semibold">USD ${price}</Typography>
+          <div className="mb-2 lg:mb-2 flex flex-row lg:flex-col justify-center"> <Typography className="lg:text-[12px] text-[#838383] text-left lg:h-[17px] font-normal">Desde </Typography>
+            <Typography className="lg:text-[15px] lg:text-[#00AFD5] lg:h-[21px] font-semibold">USD ${price}</Typography>
           </div>
           <Typography className="text-start lg:text-center text-[#838383] text-[10px] lg:text-[12px] text-semibold lg:font-normal"> <CalendarIcon className="w-5 pb-1 inline-block" color="#D20000" /> {dias} Días / {noches} Noches</Typography>
         </Typography>
