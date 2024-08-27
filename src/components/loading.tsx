@@ -8,7 +8,7 @@ interface Props {
 export default function Loader({sty=""}:Props){
   const override: CSSProperties = {
   display: "block",
-  // margin: "0 auto",
+  margin: "0 auto",
   // borderColor: "red",
 };
   return (<div className={`mt-28 ${sty}`}>
