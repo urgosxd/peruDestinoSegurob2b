@@ -1,4 +1,5 @@
 import { dir } from 'i18next';
+import React, { Suspense } from 'react';
 import type { Metadata, ResolvingMetadata } from 'next';
 import { Manrope, Montserrat, Poppins } from 'next/font/google';
 import { LocaleType, availableLocales } from '../../../i18next/settings';
@@ -52,7 +53,9 @@ export default async function Layout({ children, params: { lng } }: LocaleRouteL
         </main>
 
 
-        <Footer data={dataGeneralInfo.items[0]} />
+        <Suspense fallback={<div>Loading footer...</div>}>
+          <Footer data={dataGeneralInfo.items[0]} />
+        </Suspense>
       </body>
     </html>
   );
