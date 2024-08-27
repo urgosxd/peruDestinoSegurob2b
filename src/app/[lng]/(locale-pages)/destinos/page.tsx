@@ -53,8 +53,6 @@ export default async function Destino({params,searchParams}:Props) {
       <div className="grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1 lg:gap-x-24 lg:pl-0 gap-y-10">
        {dataTours.items.length > 0 && dataTours.items.map(ele=><CardDestinos imgSrc={ele.featuredImage.meta.download_url} txt1={ele.title} txt2={ele.precio} slug={ele.meta.slug} lng={params.lng}/>)}
       </div>
-
-      {city}
     </div>
   )
 }
