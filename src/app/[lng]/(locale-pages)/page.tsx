@@ -99,7 +99,7 @@ const removeAccents = (str) => {
     <div className="flex flex-col items-center">
       
       {/* <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug={undefined}/> */}
-      <CustomCarousel data={t('galleryIni',{returnObjects:true})} ></CustomCarousel>
+      {/* <CustomCarousel data={t('galleryIni',{returnObjects:true})} ></CustomCarousel> */}
       {/* <SessionProvider> */}
       {/* <SessionValidator>GAAAAAAAA</SessionValidator> */}
       {/* </SessionProvider> */}
