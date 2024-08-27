@@ -97,7 +97,7 @@ const removeAccents = (str) => {
 
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       
       {/* <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug={undefined}/> */}
       <CustomCarousel data={t('galleryIni',{returnObjects:true})} ></CustomCarousel>

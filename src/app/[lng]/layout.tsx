@@ -54,7 +54,7 @@ export default async function Layout({ children, params: { lng } }: LocaleRouteL
 
 
         {/* <Suspense fallback={<div>Loading footer...</div>}> */}
-        {/*   <Footer data={dataGeneralInfo.items[0]} /> */}
+          <Footer data={dataGeneralInfo.items[0]} />
         {/* </Suspense> */}
       </body>
     </html>
