@@ -48,7 +48,9 @@ export default async function Layout({ children, params: { lng } }: LocaleRouteL
                 var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
         })(window,document,'https://cdn.bitrix24.es/b15344011/crm/site_button/loader_7_qznmsh.js');`}} />
 
+        <Suspense fallback={<div className="h-screen">Loading div...</div>}>
           {children}
+        </Suspense>
           <Script dangerouslySetInnerHTML={{ __html: `function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"2ee835c433b36ed62861f1b5ba0aa7c8"})});` }} />
         </main>
 
