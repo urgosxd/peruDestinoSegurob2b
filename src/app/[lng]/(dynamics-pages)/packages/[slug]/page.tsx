@@ -1,4 +1,4 @@
-import { getAllPaquetes, getDataNumeros, getPaquete } from "@/app/lib/wp";
+import { getAllPaquetes, getDataNumeros, getPaquete, getTour } from "@/app/lib/wp";
 import { LocaleType } from "../../../../../../i18next/settings";
 
 import SwitcherGlobal from "@/components/SwitcherGlobal"
@@ -51,6 +51,9 @@ export default async function Page({ params }: PageProps) {
   // console.log(paquete)
   const ddias = paquete.dias.map((ele: any, idx: number) => ({ question: `dia ${idx + 1}: ${ele.titulo}`, answer: ele.item }))
   // console.log(ddias)
+  //
+  const dataTours = await getTour({fields:"*",locale:params.lng,sss:"basic",sender:"1001"})
+  const dataPaquete = await getPaquete({fields:"*",locale:params.lng,sss:"basic",sender:`${paquete.id}`})
   return (
     <div className="w-[98vw] flex flex-col items-center">
       {/* <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug="packages" /> */}

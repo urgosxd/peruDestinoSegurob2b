@@ -18,13 +18,14 @@ interface Props {
   slug: string
   time: string
   lng: string
+  classNamePlus?: string
 }
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
 import { CalendarIcon } from '@heroicons/react/24/outline'
 import { StarIcon, MapPinIcon } from '@heroicons/react/24/solid'
 
-export default function ProfileCard({ imgSrc, title, price, slug, time, lng }: Props) {
+export default function ProfileCard({ imgSrc, title, price, slug, time, lng ,classNamePlus="lg:min-h-[585px] min-h-[40vh]"}: Props) {
   let rawTime = []
   try {
     rawTime = time.split('-')
@@ -44,7 +45,7 @@ export default function ProfileCard({ imgSrc, title, price, slug, time, lng }: P
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:min-h-[585px]  min-h-[40vh] cursor-pointer rounded-none" 
+        className={`m-0 w-full ${classNamePlus} cursor-pointer rounded-none`}
         >
           <ImageMotion
             whileHover={{

@@ -1,4 +1,4 @@
-import { getAllTours, getDataNumeros, getTour } from "@/app/lib/wp";
+import { getAllTours, getDataNumeros, getPaquete, getTour } from "@/app/lib/wp";
 import { LocaleType } from "../../../../../../i18next/settings";
 import SwitcherGlobal from "@/components/SwitcherGlobal"
 import BackBannerDiv from "@/components/backBannerDiv";
@@ -8,6 +8,7 @@ import Questions from "@/components/questions";
 import { MultiCarousel } from "@/components/multiCarousel";
 import MiniCard from "@/components/miniCardCallCenter";
 import { LinksComponents } from "@/components/linksComponents";
+import { MultiCarouselRecomends } from "@/components/multiCarouselRecomend";
 
 
 export const fetchCache = 'force-no-store';
@@ -46,8 +47,12 @@ export default async function Page({ params }: PageProps) {
   // const {t} = await createTranslation(params.lng,'inicio')
   const { tour, related } = await getPageData(params.slug, params.lng)
   const dataInformacion = await getDataNumeros({ fields: '*' })
-
-  console.log(dataInformacion)
+  const dataTours = await getTour({fields:"*",locale:params.lng,sss:"basic",sender:`${tour.id}`})
+  const dataPaquete = await getPaquete({fields:"*",locale:params.lng,sss:"basic",sender:"1001"})
+  console.log(dataTours)
+  console.log(dataPaquete)
+  // console.log(dataInormacion)
+  console.log(tour.id)
   // console.log(tour)
   // const ddias = tour.dias.map((ele: any, idx: number) => ({ question: `dia ${idx + 1}: ${ele.titulo}`, answer: ele.item }))
   // console.log(ddias)
@@ -97,6 +102,11 @@ export default async function Page({ params }: PageProps) {
           </div>
         </div>
       </div>
+      <h2 className="subtitle w-2/3 lg:w-fit lg:text-[34px] text-[20px] lg:text-3xl       my-[20px] lg:my-[50px] p-3 text-center font-semibold text-gray-800  lg:mb-10">
+        Tours y Paquetes Recomendados
+      </h2>
+      
+        <MultiCarouselRecomends data={dataPaquete.items.concat(dataTours.items)} lng={params.lng}/>
       <h2 className="subtitle w-2/3 lg:w-fit lg:text-[34px] text-[20px] lg:text-3xl       my-[20px] lg:my-[50px] p-3 text-center font-semibold text-gray-800  lg:mb-10">
         Otros Canales de Venta Asistida
       </h2>

@@ -33,7 +33,7 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[420px] h-[40vh] cursor-pointer" >
+        className="m-0 w-full lg:h-[420px] min-h-[40vh] cursor-pointer" >
         <ImageMotion
           whileHover={{
             scale: 1.05,
