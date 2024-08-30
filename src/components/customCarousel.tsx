@@ -67,7 +67,7 @@ const CustomCarousel = ({ data }: Props) => {
 
   return (
     <div className="lg:w-full w-full h-[50vh] lg:h-screen">
-      <Carousel loop autoplayDelay={8000} transition={{ duration: 2 }} className="overflow-y-hidden">
+      <Carousel autoplay loop autoplayDelay={8000} transition={{ duration: 2 }} className="overflow-y-hidden">
         {data.map((ele,idxx) => {
 
           let rawDuracion = []
