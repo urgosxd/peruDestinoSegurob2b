@@ -9,7 +9,7 @@ import {
 import { CheckIcon,XMarkIcon } from '@heroicons/react/24/outline'
 
 export default function Cartita({inclu,exclu}:{inclu:string[],exclu:string[]}){
-  return <Card className="mt-6 w-46 ">
+  return <Card className="mt-6 w-46 p-8">
       <CardBody>
       <Typography as="h3" className="text-[#808080] font-semibold mb-3">
         Incluido
