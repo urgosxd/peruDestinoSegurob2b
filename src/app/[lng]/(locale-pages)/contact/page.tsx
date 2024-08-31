@@ -8,13 +8,11 @@ import SwitcherGlobal from "@/components/SwitcherGlobal";
 import MapLocation from "@/components/Map";
 import { MapProvider } from "@/app/context/map-provider";
 
-
 type Props = {
   params: {
     lng: string
   }
 }
-
 async function getPageData(slug: string, lng: LocaleType) {
 
   const instance = await getContactarPage({ locale: lng, fields: '*' })
