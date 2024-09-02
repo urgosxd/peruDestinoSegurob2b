@@ -29,7 +29,7 @@ export function Footer({ data }: Props) {
 
             Peru Destino Seguro S.R.L
           </Typography>
-          <div className="flex flex-row gap-x-3">
+          <div className="flex flex-row gap-x-3 mt-4">
             <SocialIcon bgColor="#D20000" url={data.youtube} />
             <SocialIcon bgColor="#D20000" url={data.facebook} />
             <SocialIcon bgColor="#D20000" url={data.instagram} />

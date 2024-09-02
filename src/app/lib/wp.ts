@@ -102,8 +102,17 @@ export async function getTour(variable:any){
   const data = await fetchAPI('pages/tour/',variable)
   return data
 }
+
+export async function getBlog(variable:any){
+  const data = await fetchAPI('pages/blog/',variable)
+  return data
+}
 export async function getSalidasGrupales(variable:any){
   const data = await fetchAPI('pages/salidasGrupales/',variable)
+  return data
+}
+export async function getBlogPage(variable:any) {
+  const data = await fetchAPI('pages/blogPage/',variable)
   return data
 }
 

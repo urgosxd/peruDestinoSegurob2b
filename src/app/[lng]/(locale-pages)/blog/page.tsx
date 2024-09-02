@@ -1,5 +1,5 @@
 import DefaultPagination from "@/components/Pagination";
-// import { get9Posts, getBlogPage, getContactoPage } from "@/app/lib/wp";
+import { getBlog, getBlogPage } from "@/app/lib/wp";
 import BackBanner from "@/components/bacBanner";
 import {CompleteGrid} from "@/components/grids";
 import dynamic from "next/dynamic";
@@ -11,8 +11,16 @@ interface Props {
 
 export default async function BlogPage({searchParams}:Props){
 
-  // const page = typeof searchParams.page == 'string' ? Number(searchParams.page): 1
 
+  const dataBlogPage = await getBlogPage({'fields':"*"})
+  const page = typeof searchParams.page == 'string' ? Number(searchParams.page): 1
+
+  const mainArticle = dataBlogPage.items[0].articuloPrincipal.id
+  const subMainArticles = dataBlogPage.items[0].articulosRecomendados.map(ele=> ele.articuloPrincipal.id)
+
+  const mainPosts = await getBlog({'sss':"articulosrec",'sender':[mainArticle].concat(subMainArticles).join(',')})
+
+  const posts = await getBlog({'sss':"articulos",'sender':[mainArticle].concat(subMainArticles).join(',')})
   // let posts: any[] = await get9Posts(page)
   //   const data: any[] = await getBlogPage()
   // const blogUnico = data[0]
@@ -27,6 +35,8 @@ export default async function BlogPage({searchParams}:Props){
   //   gridsDinamic.push(<CompoDinamic idx={inde}/>);
   // }
   // const grids = [ <CompleteGrid data={posts}/>].concat(gridsDinamic)
+
+  console.log(posts)
   return (
     <div className="flex flex-col w-[98vw] items-center">
       {/* <BackBanner imgSrc={blogUnico.acf.imgback} txt="Blog" /> */}
