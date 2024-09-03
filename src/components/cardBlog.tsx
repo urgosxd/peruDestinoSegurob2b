@@ -36,7 +36,7 @@ export default function CardBlog({ftImageSrc,title,txtDescription,type,slug}:Pro
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[40vh] h-[30vh] cursor-pointer" >
+        className="m-0 w-full lg:h-[30vh] h-[20vh] cursor-pointer !rounded-md" >
         <ImageMotion 
         whileHover={{ scale: 1.05,
         transition: { ease: "easeOut", duration: 1 },}}
@@ -66,13 +66,10 @@ case 2:
       <Card className="w-full  max-w-[15rem] lg:max-w-[36rem] lg:flex-row ">
         <Link  href={`/blog/`}>
       <CardHeader 
-        whileHover={{ scale: 1.05,
-  transition: { ease: "easeOut", duration: 1 },}}
-        whileTap={{ scale: 0.9 }} 
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:w-[20vw] lg:h-[25vh] h-[20vh] cursor-pointer" >
+        className="m-0 w-full lg:w-[10vw] lg:h-[20vh] h-[20vh] cursor-pointer !rounded-md" >
         <ImageMotion 
 whileHover={{ scale: 1.05,
         transition: { ease: "easeOut", duration: 1 },}}
@@ -94,7 +91,6 @@ whileHover={{ scale: 1.05,
               </CardBody>
     </Card>
       )
-      break;
     case 3:
      return (
       <Card className="w-full max-w-[15rem] lg:max-w-[44rem] lg:flex-row">
@@ -124,7 +120,6 @@ whileHover={{ scale: 1.05,
               </CardBody>
     </Card>
       ) 
-      break;
     default:
       break;
   }
