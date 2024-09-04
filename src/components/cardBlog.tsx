@@ -48,14 +48,14 @@ export default function CardBlog({ftImageSrc,title,txtDescription,type,slug}:Pro
       </Link>
 
       <CardBody className=" flex flex-col items-center justify-center">
-        <div  className="mb-4 text-gray-600 text-sm font-bold text-center">
+        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-semibold text-left">
         {title}
         </div>
 
-        <div  className="h-10 text-sm  w-full leading-none text-wrap line-clamp-3"
-          dangerouslySetInnerHTML={{__html:txtDescription}}
-        >
+        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-light text-left "
           
+        >
+            {txtDescription}
         </div>
       </CardBody>
     </Card>
@@ -69,7 +69,7 @@ case 2:
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:w-[10vw] lg:h-[20vh] h-[20vh] cursor-pointer !rounded-md" >
+        className="m-0 w-full lg:w-[15vw] lg:h-[30vh] h-[20vh] cursor-pointer !rounded-md" >
         <ImageMotion 
 whileHover={{ scale: 1.05,
         transition: { ease: "easeOut", duration: 1 },}}
@@ -78,14 +78,13 @@ whileHover={{ scale: 1.05,
       </CardHeader>
       </Link>
       <CardBody>
-        <div  className="mb-4 text-gray-600 text-sm font-bold text-center">
+        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-semibold text-left">
         {title}
         </div>
 
-        <div  className="h-10 text-sm  w-full leading-none text-wrap line-clamp-5" 
-          dangerouslySetInnerHTML={{__html:txtDescription}}
+        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-light text-left " 
         >
-          
+          {txtDescription}
         </div>
 
               </CardBody>
@@ -94,28 +93,14 @@ whileHover={{ scale: 1.05,
     case 3:
      return (
       <Card className="w-full max-w-[15rem] lg:max-w-[44rem] lg:flex-row">
-        <Link  href={`/blog/`}>
-      <CardHeader 
-         
-        floated={false}
-        shadow={false}
-        color="transparent"
-        className="m-0 w-full lg:w-[28vw] lg:h-[60vh] h-[20vh] cursor-pointer" >
-        <ImageMotion 
-whileHover={{ scale: 1.05,
-  transition: { ease: "easeOut", duration: 1 },}}
-        whileTap={{ scale: 0.9 }}
-                src={ftImageSrc || ""} fill sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className="h-[10vh] lg:h-[20vh]"/>
-      </CardHeader>
-      </Link>
       <CardBody>
-        <div  className="mb-4 text-gray-600 text-sm font-bold text-center">
+        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-semibold text-left">
         {title}
         </div>
 
-        <div  className="h-full text-sm  w-full leading-none"
-          dangerouslySetInnerHTML={{__html:txtDescription}}
+        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-light text-left "
         >
+              {txtDescription}
         </div>
               </CardBody>
     </Card>

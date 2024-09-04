@@ -76,24 +76,22 @@ export default async function Page({ params }: PageProps) {
 
           </div>
           <div className="mb-[42px] lg:mb-0">
-
             <Cartita inclu={tour.incluidos.map(ele => ele.item)} exclu={tour.excluidos.map(ele => ele.item)} />
-
           </div>
         </div>
         <h2 className="lg:hidden block subtitle w-fit text-[20px] lg:text-[34px]  p-3 text-center font-semibold text-gray-800  lg:mb-10">
-                Itinerario
+          Itinerario
           </h2>
         <div className="w-full lg:w-2/3">
           <div className=" flex justify-center container mx-auto py-3 px-10 max-w-[950px]">
             <MultiCarousel direction={false} data={tour.galleryTour.map(ele => ({ imageUrl: ele.image.meta.download_url, title: ele.image.title }))} />
           </div>
-          
           <div>
             <h2 className="hidden lg:block subtitle w-fit text-[16px] lg:text-[28px]  p-3 text-center font-semibold text-gray-800   ml-16">
                 Itinerario
-          </h2>
-            <div dangerouslySetInnerHTML={{ __html: tour.itinerario }} className="tourQWERTY" />
+            </h2>
+
+          <div dangerouslySetInnerHTML={{ __html: tour.itinerario }} className="tourQWERTY" />
           </div>
         </div>
       </div>

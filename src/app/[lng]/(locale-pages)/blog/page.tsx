@@ -84,10 +84,17 @@ export default async function BlogPage({searchParams}:Props){
 
       <div className="grid lg:grid-cols-4 lg:gap-3 justify-items-center w-10/12 grid-cols-1 lg:gap-x-10 lg:pl-0 gap-y-10 mt-10">
         {components.components[0]}
+        {/* {posts.items.map(ele=><CardBlog ftImageSrc={ele.background.meta.download_url} title={ele.title} txtDescription={ele.description} type={1} slug="aoeaoe"/>)} */}
+      </div>
+       <div className="grid lg:grid-cols-2 lg:gap-3 justify-items-center w-10/12 grid-cols-1 lg:gap-x-10 lg:pl-0 gap-y-10 mt-10">
         {components.components[1]}
         {/* {posts.items.map(ele=><CardBlog ftImageSrc={ele.background.meta.download_url} title={ele.title} txtDescription={ele.description} type={1} slug="aoeaoe"/>)} */}
       </div>
-
+      <div className="grid lg:grid-cols-4 lg:gap-3 justify-items-center w-10/12 grid-cols-1 lg:gap-x-10 lg:pl-0 gap-y-10 mt-10">
+        {components.components[2]}
+        {/* {posts.items.map(ele=><CardBlog ftImageSrc={ele.background.meta.download_url} title={ele.title} txtDescription={ele.description} type={1} slug="aoeaoe"/>)} */}
+      </div>
+      
       {/* <BackBanner imgSrc={blogUnico.acf.imgback} txt="Blog" /> */}
       {/* <DefaultPagination active={page}/> */}
       {/* <CompleteGrid data={posts}/> */}
