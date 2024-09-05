@@ -9,6 +9,7 @@ import Questions from "@/components/questions";
 import { MultiCarousel } from "@/components/multiCarousel";
 import MiniCard from "@/components/miniCardCallCenter";
 import { LinksComponents } from "@/components/linksComponents";
+import { MultiCarouselRecomends } from "@/components/multiCarouselRecomend";
 
 
 export const fetchCache = 'force-no-store';
@@ -54,6 +55,8 @@ export default async function Page({ params }: PageProps) {
   //
   const dataTours = await getTour({fields:"*",locale:params.lng,sss:"basic",sender:"1001"})
   const dataPaquete = await getPaquete({fields:"*",locale:params.lng,sss:"basic",sender:`${paquete.id}`})
+
+
   return (
     <div className="w-[98vw] flex flex-col items-center">
       {/* <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug="packages" /> */}
@@ -92,6 +95,14 @@ export default async function Page({ params }: PageProps) {
           </div>
         </div>
       </div>
+      <h2 className="subtitle w-2/3 lg:w-fit lg:text-[34px] text-[20px] lg:text-3xl       my-[20px] lg:my-[50px] p-3 text-center font-semibold text-gray-800  lg:mb-10">
+        Tours y Paquetes Recomendados
+      </h2>
+
+      <div className="w-full flex flex-col justify-center">
+        <MultiCarouselRecomends data={dataPaquete.items.concat(dataTours.items)} lng={params.lng}/>
+      </div>
+
       <h2 className="subtitle w-2/3 lg:w-fit lg:text-[34px] text-[20px] lg:text-3xl       my-[20px] lg:my-[50px] p-3 text-center font-semibold text-gray-800  lg:mb-10">
         Otros Canales de Venta Asistida
       </h2>

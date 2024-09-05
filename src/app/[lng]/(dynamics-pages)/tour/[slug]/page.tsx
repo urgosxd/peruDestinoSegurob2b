@@ -98,7 +98,6 @@ export default async function Page({ params }: PageProps) {
       <h2 className="subtitle w-2/3 lg:w-fit lg:text-[34px] text-[20px] lg:text-3xl       my-[20px] lg:my-[50px] p-3 text-center font-semibold text-gray-800  lg:mb-10">
         Tours y Paquetes Recomendados
       </h2>
-      
       <div className="w-full flex flex-col justify-center">
         <MultiCarouselRecomends data={dataPaquete.items.concat(dataTours.items)} lng={params.lng}/>
       </div>

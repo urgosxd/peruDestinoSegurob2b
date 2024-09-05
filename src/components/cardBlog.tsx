@@ -29,6 +29,7 @@ export default function CardBlog({ftImageSrc,title,txtDescription,type,slug}:Pro
     case 1:
       
       return (
+        
     <Card className={"relative grid  w-full  lg:max-w-[28rem] max-w-[15rem] p-0 border rounded-lg"}>
       <Link  href={`/blog/${slug}`}>
       <CardHeader
@@ -105,6 +106,46 @@ whileHover={{ scale: 1.05,
               </CardBody>
     </Card>
       ) 
+    case 4:
+      return (
+    <Card className={"relative grid  w-full  lg:max-w-[35rem] max-w-[15rem] p-0 border rounded-lg"}>
+
+      <Link  href={`/blog/${slug}`}>
+
+      <CardHeader
+        
+        floated={false}
+        shadow={false}
+        color="transparent"
+        className="m-0 w-full lg:h-[40vh] h-[20vh] cursor-pointer !rounded-md" >
+        <ImageMotion 
+        whileHover={{ scale: 1.05,
+        transition: { ease: "easeOut", duration: 1 },}}
+        whileTap={{ scale: 0.9 }}
+        src={ftImageSrc || ""} 
+        fill 
+        sizes="(max-width: 768px) 25vw, 50vw" priority  /* width={600} height={600} */ alt="profile-picture" className=""/>
+
+      </CardHeader>
+      </Link>
+
+      <CardBody className=" flex flex-col items-center pt-7 gap-y-3 justify-center bg bg-gray-200">
+
+        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-semibold text-left">
+        {title}
+        </div>
+
+        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-light text-left "
+        >
+
+            {txtDescription}
+
+        </div>
+
+      </CardBody>
+
+    </Card>
+      )
     default:
       break;
   }
