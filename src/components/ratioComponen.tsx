@@ -81,11 +81,11 @@ const ImageGrid = ({data}:Props) => {
           transition={{ duration: 0.5 }}
         >
         <motion.div
-          style={{position:'relative',aspectRatio: 16/9,backgroundColor: "black",position:'relative',overflow:'hidden',borderRadius:mobile ?'0 20px 0 20px' :  '0 50px 0 50px',width:mobile ?'97.5%':'95%',height:mobile ?'98%' : '97%',margin: mobile ?"2px auto": "5px auto"}}
+          style={{aspectRatio: 16/9,backgroundColor: "black",position:'relative',overflow:'hidden',borderRadius:mobile ?'0 20px 0 20px' :  '0 50px 0 50px',width:mobile ?'97.5%':'95%',height:mobile ?'98%' : '97%',margin: mobile ?"2px auto": "5px auto"}}
           // animate={{ width: expanded ? '100%' : '25%', height: expanded ? '100%' : '350px',marginLeft:expanded ? idx > 0 ? -70 : 0: idx > 0 ? -30 : 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Image src={i.img} sizes="(max-width: 768px) 50vw, 50vw" alt={`ims${idx}`}  quality={100} fill className="imgRounded"/>
+          <Image src={i.img} sizes="(max-width: 768px) 50vw, 100vw" alt={`ims${idx}`}  quality={100} fill className="imgRounded"/>
             {/* <img src={i.img} className="imgRounded"/> */}
         </motion.div>
         </motion.div>
