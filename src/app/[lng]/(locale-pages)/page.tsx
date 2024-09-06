@@ -71,7 +71,6 @@ export default async function Home({params }: Props) {
 
   const paquetes = await getPaquete({fields:"featuredImage,precio,duracion",locale:params.lng,sss:"nocampaing",sender:"2"})
   // console.log(dataGeneral)
-  console.log(paquetes)
   // const gallery = 
   // const gallery = dataGeneral.galleryInicio.map(ele=>({img:ele.image.meta.download_url,titulo:ele.carouselTitulo,duracion:ele.carouselDuracion}))
 

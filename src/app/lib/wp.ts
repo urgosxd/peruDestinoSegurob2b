@@ -30,7 +30,6 @@ async function fetchAPI(query = '', variable:any = null) {
     catch (error) {
       console.log(API_URL + query + '?'+ queryString)
       console.log("ERRORRR en FETCH")
-
     }
 
 

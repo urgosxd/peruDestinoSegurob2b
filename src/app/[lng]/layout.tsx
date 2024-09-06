@@ -79,5 +79,5 @@ export const metadata: Metadata = {
 }
 export async function generateStaticParams() {
   // generates default paths for each locale domain/locale1, domain/locale2, etc.
-  return availableLocales.map((lng) => ({ lng }));
+  // return availableLocales.map((lng) => ({ lng }));
 }
