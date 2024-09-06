@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
-
+import Image from "next/image"
 // const imgs = [
 //   "/imgs/nature/1.jpg",
 //   "/imgs/nature/2.jpg",
@@ -107,7 +107,9 @@ const Images = ({ imgIndex, imgs, labelsImgs, label }: { imgIndex: number, imgs:
             transition={SPRING_OPTIONS}
             className="relative  w-screen shrink-0 rounded-[35px] bg-neutral-800 object-cover px-7"
           >
-            <img  src={ele.src} className="w-full h-full object-cover rounded-[35px]" loading="lazy" decoding="async"/>
+            
+                <Image src={ele.src} quality={100} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover"  fill className="lg:h-full h-full lg:w-full object-cover rounded-[35px] "></Image>
+            {/* <img  src={ele.src} className="w-full h-full object-cover rounded-[35px]" loading="lazy" decoding="async"/> */}
             <p className="absolute bottom-7 left-10 text-white text-3xl font-bold underline leading-[40px]">{ele.label}</p>
           </motion.div>
         );
@@ -127,7 +129,9 @@ const Images = ({ imgIndex, imgs, labelsImgs, label }: { imgIndex: number, imgs:
               transition={SPRING_OPTIONS}
               className="relative w-screen shrink-0 rounded-xl bg-neutral-800 object-cover"
             >
-            <img  src={imgSrc} className="w-full h-full object-cover rounded-xl" loading="lazy" decoding="async"/>
+              
+                <Image src={imgSrc} quality={100} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover"  fill className="lg:h-full h-full lg:w-full object-cover rounded-xl "></Image>
+            {/* <img  src={imgSrc} className="w-full h-full object-cover rounded-xl" loading="lazy" decoding="async"/> */}
             </motion.div>
           );
         })}
