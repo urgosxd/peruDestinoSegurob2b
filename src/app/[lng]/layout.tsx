@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     google: "lPNLi9cxaLWnYzIQxDt4M4W1RlPbTqZy7_46teJxqiA"
   }
 }
-export async function generateStaticParams() {
+// export async function generateStaticParams() {
   // generates default paths for each locale domain/locale1, domain/locale2, etc.
   // return availableLocales.map((lng) => ({ lng }));
-}
+// }
