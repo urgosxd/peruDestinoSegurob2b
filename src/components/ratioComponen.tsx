@@ -81,7 +81,7 @@ const ImageGrid = ({data}:Props) => {
           transition={{ duration: 0.5 }}
         >
         <motion.div
-          style={{aspectRatio: 16/9,backgroundColor: "black",position:'relative',overflow:'hidden',borderRadius:mobile ?'0 20px 0 20px' :  '0 50px 0 50px',width:mobile ?'97.5%':'95%',height:mobile ?'98%' : '97%',margin: mobile ?"2px auto": "5px auto"}}
+          style={{aspectRatio: 3/4,backgroundColor: "black",position:'relative',overflow:'hidden',borderRadius:mobile ?'0 20px 0 20px' :  '0 50px 0 50px',width:mobile ?'97.5%':'95%',height:mobile ?'98%' : '97%',margin: mobile ?"2px auto": "5px auto"}}
           // animate={{ width: expanded ? '100%' : '25%', height: expanded ? '100%' : '350px',marginLeft:expanded ? idx > 0 ? -70 : 0: idx > 0 ? -30 : 0 }}
           transition={{ duration: 0.5 }}
         >

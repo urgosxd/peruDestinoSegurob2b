@@ -107,7 +107,6 @@ const CustomCarousel = ({ data }: Props) => {
                       duration: duration,
                       repeat: Infinity,
                       ease: "linear",
-
                     }
                   }}
 
@@ -141,7 +140,6 @@ const CustomCarousel = ({ data }: Props) => {
 
                     }
                   }}
-
                 >
 
                   <FaPaperPlane size={30} color="white" />
