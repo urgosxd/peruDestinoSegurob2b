@@ -31,11 +31,13 @@ const font = Poppins({weight:["100","200","300","400","500","600","700","800","9
 const font2 = Montserrat({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],display:"swap",variable: '--font-Monserrat',preload:true})
 
 export default async function Layout({ children, params: { lng } }: LocaleRouteLayout) {
-  const destinos = await getDestinos({fields:"*"}) || {items:[]}
+
+
+
+  const [destinos,dataGeneralInfo] = await Promise.all([getDestinos({fields:"*"}),getDataGeneral({"fields":"*"})])
 
   const destinosObject = destinos.items.map((ele)=>(ele.name)) 
 
-  const dataGeneralInfo = await getDataGeneral({"fields":"*"}) || {items:[]}
 
   return (
     <html lang={lng} suppressHydrationWarning className="!scroll-smooth">
@@ -82,5 +84,6 @@ export const metadata: Metadata = {
 }
 export async function generateStaticParams() {
   // generates default paths for each locale domain/locale1, domain/locale2, etc.
+  console.log(availableLocales)
   return availableLocales.map((lng) => ({ lng }));
 }
