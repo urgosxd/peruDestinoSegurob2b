@@ -12,7 +12,7 @@ import localFont from 'next/font/local'
 // import AuthProvider from '@/app/[lng]/components/providers/auth/AuthProvider';
 // import Footer from '@/app/[lng]/components/layout/footer/Footer';
 
-// export const fetchCache = 'force-no-store'
+export const fetchCache = 'default-cache'
 // export const revalidate = 0 // seconds
 // export const dynamic = 'force-dynamic'
 
