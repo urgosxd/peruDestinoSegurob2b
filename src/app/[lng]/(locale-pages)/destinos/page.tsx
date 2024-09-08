@@ -15,7 +15,6 @@ type Props = {
 //     return s.toLowerCase().replace( /\b./g, function(a){ return a.toUpperCase(); } );
 // };
 
-export const fetchCache = 'force-no-store';
 const miniTranslate:{[keys:string]:string} = {"es":"Destinos","en":"Destinys"}
 
 export default async function Destino({params,searchParams}:Props) {

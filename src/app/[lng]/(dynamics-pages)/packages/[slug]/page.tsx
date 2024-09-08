@@ -12,7 +12,6 @@ import { LinksComponents } from "@/components/linksComponents";
 import { MultiCarouselRecomends } from "@/components/multiCarouselRecomend";
 
 
-export const fetchCache = 'force-no-store';
 
 async function getPageData(slug: string, lng: LocaleType) {
 

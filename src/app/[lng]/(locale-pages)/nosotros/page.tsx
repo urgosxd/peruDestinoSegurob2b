@@ -16,7 +16,6 @@ type Props = {
   }
 }
 
-export const fetchCache = 'force-no-store';
 
 async function getPageData(slug: string, lng: LocaleType) {
 

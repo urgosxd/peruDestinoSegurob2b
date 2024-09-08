@@ -22,7 +22,6 @@ type Props = {
     lng:string
   }
 }
-export const fetchCache = 'default-cache'
 async function getPageData(slug:string,lng:LocaleType){
 
 const instance =  await getInicioPage({locale:lng,fields:'*'})

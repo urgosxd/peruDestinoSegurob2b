@@ -17,7 +17,7 @@ type Props = {
   }
 }
 
-export const fetchCache = 'force-no-store';
+// export const fetchCache = 'force-no-store';
 async function getPageData(slug: string, lng: LocaleType) {
 
   const instance = await getContactarPage({ locale: lng, fields: '*' })
