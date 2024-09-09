@@ -108,7 +108,7 @@ const removeAccents = (str) => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{duration: 0.75}}
-        viewport={{ once: true }}
+        viewport={{ margin:"150px"}}
         className="subtitle w-fit lg:text-[34px] text-[20px] lg:text-3xl
        my-[20px] lg:my-[50px] p-3 text-center font-semibold text-gray-800  lg:mb-10"> 
         {t('paqueteTitulo')}
@@ -119,7 +119,7 @@ const removeAccents = (str) => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{duration: 0.75}}
-        // viewport={{ once: true }}
+        viewport={{ margin:"150px"}}
         className=" grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1  lg:gap-x-24 lg:pl-0 gap-y-10">
         {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={(ele.meta.slug)} time={ele.duracion} lng={params.lng} />))}
       </MotionElement>
@@ -129,7 +129,7 @@ const removeAccents = (str) => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{duration: 0.75}}
-        // viewport={{ once: true }}
+        viewport={{ margin:"150px"}}
         className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {t('destinoTitulo')}
       </MotionElement>
