@@ -1,5 +1,5 @@
 import DefaultPagination from "@/components/Pagination";
-import { getBlog, getBlogPage } from "@/app/lib/wp";
+import { getAllBlogs, getBlog, getBlogPage } from "@/app/lib/wp";
 import BackBanner from "@/components/bacBanner";
 import {CompleteGrid} from "@/components/grids";
 import dynamic from "next/dynamic";
@@ -8,9 +8,10 @@ import CardBlog from "@/components/cardBlog";
 
 interface Props {
   searchParams:{[key:string]:string | string[] |undefined}
+  params:{lng:string}
 }
 
-export default async function BlogPage({searchParams}:Props){
+export default async function BlogPage({searchParams,params}:Props){
 
 
   const dataBlogPage = await getBlogPage({'fields':"*"})
@@ -44,7 +45,7 @@ export default async function BlogPage({searchParams}:Props){
     const newAccumulator = (index + 1)% 5 === 0 ? acc.accumulator + 1 : acc.accumulator;
 
     const component = (
-      <CardBlog ftImageSrc={item.background.meta.download_url} title={item.title} txtDescription={item.description} type={newAccumulator % 2 == 0 ? 1 : 2} slug="aoeaoe"/>
+      <CardBlog ftImageSrc={item.background.meta.download_url} title={item.title} txtDescription={item.description} type={newAccumulator % 2 == 0 ? 1 : 2} slug={item.meta.slug} lng={params.lng}/>
     );
   
 
@@ -77,6 +78,9 @@ export default async function BlogPage({searchParams}:Props){
     };
   }, { accumulator: initialAccumulator, components: [[],[],[]] });
 
+  const gaaa = await getAllBlogs()
+
+  console.log(gaaa.items.map(ele=>(ele.meta)))
 
   return (
     <div className="flex flex-col w-[98vw] items-center">
@@ -84,13 +88,13 @@ export default async function BlogPage({searchParams}:Props){
       <BackBanner imgSrc={dataBlogPage.items[0].background.meta.download_url} txt={dataBlogPage.items[0].title} />
       <div className="flex flex-row mt-10">
         <div className="lg:w-1/2">
-        {<CardBlog ftImageSrc={mainPosts.items[0].background.meta.download_url} title={mainPosts.items[0].title} txtDescription={mainPosts.items[0].description} type={4} slug="aoeaoe" />}
+        {<CardBlog ftImageSrc={mainPosts.items[0].background.meta.download_url} title={mainPosts.items[0].title} txtDescription={mainPosts.items[0].description} type={4} slug={mainPosts.items[0].meta.slug} lng={params.lng} />}
         </div>
       <div className="flex flex-col lg:gap-0 lg:w-1/2 justify-items-start grid-cols-1 lg:gap-x-10 lg:pl-0 gap-y-5">
       <h2 className="subtitle w-full lg:w-fit lg:text-[24px] text-[10px] lg:text-3xl p-3 text-center font-semibold text-gray-800 ">
         Articulos Destacados
       </h2>
-        {mainPosts.items.slice(1,mainPosts.items.lenght).map(item=><CardBlog ftImageSrc={item.background.meta.download_url} title={item.title} txtDescription={item.description} type={3} slug="aoeaoe"/>)}
+        {mainPosts.items.slice(1,mainPosts.items.lenght).map(item=><CardBlog ftImageSrc={item.background.meta.download_url} title={item.title} txtDescription={item.description} type={3} slug={item.meta.slug}/>)}
 
       </div>
 

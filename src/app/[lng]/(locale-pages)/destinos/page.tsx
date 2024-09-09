@@ -1,4 +1,4 @@
-import { getDestinos, getTour } from "@/app/lib/wp";
+import { getAllTours, getDestinos, getTour } from "@/app/lib/wp";
 import BackBanner from "@/components/bacBanner";
 import CardDestinos from "@/components/cardDestinos";
 import { useParams } from "next/navigation";
@@ -42,6 +42,7 @@ export default async function Destino({params,searchParams}:Props) {
   function capitalize(string:string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
+  
 
   return(
     <div className="w-[98vw] flex flex-col items-center">

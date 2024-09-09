@@ -55,7 +55,6 @@ export default async function Page({ params }: PageProps) {
     <div className="w-[98vw] flex flex-col items-center">
       GAAAAAAA
     </div>
-
   )
 
 }

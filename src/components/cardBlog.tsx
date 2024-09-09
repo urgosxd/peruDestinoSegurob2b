@@ -18,10 +18,11 @@ interface Props{
   txtDescription:string
   type:number
   slug:string
+  lng:string
 }
 import { motion, AnimatePresence, Variants } from "framer-motion";
 
-export default function CardBlog({ftImageSrc,title,txtDescription,type,slug}:Props) {
+export default function CardBlog({ftImageSrc,title,txtDescription,type,slug,lng}:Props) {
   
   const ImageMotion = motion(Image)
   
@@ -31,7 +32,7 @@ export default function CardBlog({ftImageSrc,title,txtDescription,type,slug}:Pro
       return (
         
     <Card className={"relative grid  w-full  lg:max-w-[28rem] max-w-[15rem] p-0 border rounded-lg"}>
-      <Link  href={`/blog/${slug}`}>
+      <Link  href={`/${lng}/blogs/${slug}`}>
       <CardHeader
         
         floated={false}
