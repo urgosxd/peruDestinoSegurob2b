@@ -7,6 +7,9 @@ const lngObject:{[keys:string]:string} = {"English": "en","Spanish": "es"}
 
 const tourObject:{[keys:string]:string} = {"English": "destinations","Spanish": "destinos"}
 const salidasObject:{[keys:string]:string} = {"English": "destinations","Spanish": "salidasgrupales"}
+
+
+const nosotrosObject:{[keys:string]:string} = {"English": "about","Spanish": "nosotros"}
 export async function POST(request: NextRequest) {
   // const secret = request.headers.get("secret");
   const document = await request.json();
@@ -27,9 +30,18 @@ export async function POST(request: NextRequest) {
       revalidatePath(`/${lngObject[document.lng as string]}/(dynamics-pages)/tour/[slug]`,"page")
       console.log("TOUR ENTROOO")
       break;
+    case "Blog":
+      revalidatePath("/"+lngObject[document.lng as string]+"/"+"blog"+"/")
+      revalidatePath(`/${lngObject[document.lng as string]}/(dynamics-pages)/blog/[slug]`,"page")
+
     case "SalidasGrupales":
       revalidatePath("/"+lngObject[document.lng as string]+"/"+salidasObject[document.lng]+"/")
       break
+    case "Inicio":
+      revalidatePath("/"+lngObject[document.lng as string]+"/")
+      break
+    case "Nosotros":
+      revalidatePath("/"+lngObject[document.lng as string]+"/"+nosotrosObject[document.lng]+"/")
     default:
       break;
   }

@@ -139,6 +139,11 @@ export async function getAllTours() {
   return data
 }
 
+export async function getAllBlogs() {
+  const data = await fetchAPI('pages/blog/')
+  return data
+}
+
 // export async function getAllSalidasGrupales() {
 //   const data = await fetchAPI('pages/')
 //   return data
