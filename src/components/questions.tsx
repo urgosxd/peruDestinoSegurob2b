@@ -28,7 +28,7 @@ function CollapseDefault({ question, answer, paquete,mobile ,idxx }: miniProps) 
   console.log(question)
   return (
     <div key={idxx} className="w-[90%] mx-auto">
-      <div aria-label="close-Open" className={`px-8 border-solid border border-gray-300 ${(paquete || mobile) ? "rounded-2xl" : "rounded-none"} ${paquete ? "font-bold" : "font-semibold"} py-4 ${(paquete || !mobile) ? mobile ? "text-[12px]":"" : "text-[12px]"} w-full ${(paquete) ? "text-gray-600" : "text-[#000000]"} flex justify-between text-left ${(paquete || mobile )? "bg-gray-200 capitalize" : "bg-white"}`} onClick={toggleOpen}> <div className="flex flex-row gap-x-3">
+      <div aria-label="close-Open" className={`px-8 border-solid border border-gray-300 ${(paquete || mobile) ? "rounded-2xl" : "rounded-none"} ${paquete ? "font-bold" : "font-normal"} py-4 ${(paquete || !mobile) ? mobile ? "text-[12px]":"" : "text-[12px]"} w-full ${(paquete) ? "text-gray-600" : "text-[#000000]"} flex justify-between text-left ${(paquete || mobile )? "bg-gray-200 capitalize" : "bg-white"}`} onClick={toggleOpen}> <div className="flex flex-row gap-x-3">
         {(!paquete && !mobile)  && <Image src="/nubesita.svg" alt="aa" width="25" height="25" />}{(!paquete || mobile) && (idxx + " .")} {question}
       </div>{open ? <ChevronDownIcon className="w-3 inline-block" />
         : <ChevronUpIcon className="w-3 inline-block" />}</div>

@@ -39,7 +39,8 @@ export const RevealBento = ({ img, imgs, urls, lng }: { img: FinalFrame, imgs: F
       initial={{ opacity: 0, y: 200 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, type: 'spring' }}
-      viewport={{ amount: 0.3 }}
+        viewport={{margin:"100px 0px 0px 0px"}}
+      // viewport={{ amount: 0.3 }}
 
       className=" w-full bg-zinc-900 px-4 text-zinc-50">
       <motion.div

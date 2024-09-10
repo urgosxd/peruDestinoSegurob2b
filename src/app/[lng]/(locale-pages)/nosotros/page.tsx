@@ -9,6 +9,7 @@ import { TweakCarousel } from "@/components/tweakcarousel";
 import { ValoresWrapper } from "@/components/valoresWrapper";
 import ImageGrid from "@/components/imageGrid";
 
+import MotionElement from "@/components/clientExportElement"
 
 type Props = {
   params: {
@@ -68,7 +69,13 @@ export default async function Nosotros({ params }: Props) {
     <div className="w-[98vw] flex flex-col items-center">
       {/* <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug={undefined} /> */}
       <BackBanner imgSrc={t('background.meta.download_url')} txt={t('titulo')} />
-      <div className="flex flex-col lg:flex-row flex-col mt-5 lg:mt-10 w-full px-10 items-center lg:items-start"  >
+      <MotionElement as="div"
+        initial={{ opacity: 0 ,translateY: 200}}
+        whileInView={{ opacity: 1 ,translateY: 0}}
+        transition={{duration:1,type:'spring'}}
+        viewport={{margin:"100px 0px 0px 0px"}}
+
+        className="flex flex-col lg:flex-row flex-col mt-5 lg:mt-10 w-full px-10 items-center lg:items-start"  >
         <div className="w-full lg:w-3/5 lg:px-10 px-0 flex flex-col items-center lg:items-start">
 
           <h2
@@ -90,54 +97,107 @@ export default async function Nosotros({ params }: Props) {
           </div>
         </div>
 
-      </div>
-      <div className=" mt-14 lg:mt-28 grid lg:grid-cols-2 gri-cols-1 divide-y-2 divide-neutral-800 border py-5 rounded-3xl">
-        {Datalegal.map((ele, idx) => (<div className={`pr-24 pl-24 py-3 ${idx == 1 ? "dataLegal" : " "}`}><div className="font-semibold lg:text-[18px] text-[#5B5B5F] text-center lg:text-start ">{ele[0]}</div><div className="text-[#B8B8B8] lg:text-[18px] font-normal text-center lg:text-start">{ele[1]}</div></div>))}
-      </div>
+      </MotionElement>
+      <MotionElement
+        as="div"
+        initial={{ opacity: 0 ,translateY: 200}}
+        whileInView={{ opacity: 1 ,translateY: 0}}
+        transition={{duration:1,type:'spring'}}
+        viewport={{margin:"100px 0px 0px 0px"}}
 
-      <div className="flex lg:flex-row flex-col justify-center items-center w-full lg:w-fit lg:gap-x-16 gap-y-10 lg:mx-16 mx-0 lg:mt-28 mt-12 mb-10">
+        className=" mt-14 lg:mt-28 grid lg:grid-cols-2 gri-cols-1 divide-y-2 divide-neutral-800 border py-5 rounded-3xl">
+        {Datalegal.map((ele, idx) => (<div className={`pr-24 pl-24 py-3 ${idx == 1 ? "dataLegal" : " "}`}><div className="font-semibold lg:text-[18px] text-[#5B5B5F] text-center lg:text-start ">{ele[0]}</div><div className="text-[#B8B8B8] lg:text-[18px] font-normal text-center lg:text-start">{ele[1]}</div></div>))}
+      </MotionElement>
+
+      <MotionElement
+        as="div"
+        initial={{ opacity: 0 ,translateY: 200}}
+        whileInView={{ opacity: 1 ,translateY: 0}}
+        transition={{duration:1,type:'spring'}}
+        viewport={{margin:"100px 0px 0px 0px"}}
+
+        className="flex lg:flex-row flex-col justify-center items-center w-full lg:w-fit lg:gap-x-16 gap-y-10 lg:mx-16 mx-0 lg:mt-28 mt-12 mb-10">
         {
           t('estadisticasNosotros', { returnObjects: true }).map(ele => (
             <div className="w-1/2 lg:w-1/3 flex  flex-col items-center ">
-            <p
-              className="text-[64px] font-bold text-[#D20000] leading-[92px]"
-            >
-              {ele.redLet}
-            </p>
-            <div className=" w-full">
               <p
-                className="uppercase font-semibold text-[20px] lg:text-[32px] text-[#5B5B5F] text-center leading-[25px] w-full leading-[30px]"
+                className="text-[64px] font-bold text-[#D20000] leading-[92px]"
               >
-                {ele.grayLet}
+                {ele.redLet}
               </p>
-            </div>
-          </div>))
+              <div className=" w-full">
+                <p
+                  className="uppercase font-semibold text-[20px] lg:text-[32px] text-[#5B5B5F] text-center leading-[25px] w-full leading-[30px]"
+                >
+                  {ele.grayLet}
+                </p>
+              </div>
+            </div>))
         }
 
 
-      </div>
-      <h2 className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
+      </MotionElement>
+      <MotionElement
+        as="div"
+        initial={{ opacity: 0 ,translateY: 200}}
+        whileInView={{ opacity: 1 ,translateY: 0}}
+        transition={{duration:1,type:'spring'}}
+        viewport={{margin:"100px 0px 0px 0px"}}
+
+        className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10">
         {t('valoresSubtitle')}
-    </h2>
-            <div className="lg:mb-10">
+      </MotionElement>
+      <MotionElement
+        as="div"
+        initial={{ opacity: 0 ,translateY: 200}}
+        whileInView={{ opacity: 1 ,translateY: 0}}
+        transition={{duration:1,type:'spring'}}
+        viewport={{margin:"100px 0px 0px 0px"}}
+
+        className="lg:mb-10">
         <div className="flex lg:flex-row lg:gap-x-16 flex-col gap-x-0 gap-y-10 lg:gap-y-0">
           {/* {t('valoresNosotros',{returnObjects:true}).map(ele => (<div className="lg:w-2/12 w-full flex flex-col items-center"><img src={ele.img.meta.download_url} className="w-20 h-16" /> <p className="w-full text-center">{ele.label}</p></div>))} */}
-          {<ValoresWrapper data={t('valoresNosotros',{returnObjects:true})} lng={params.lng}/>}
+          {<ValoresWrapper data={t('valoresNosotros', { returnObjects: true })} lng={params.lng} />}
         </div>
-      </div>
-      <h2 className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl lg:my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
+      </MotionElement>
+      <MotionElement as="h2"
+        initial={{ opacity: 0 ,translateY: 200}}
+        whileInView={{ opacity: 1 ,translateY: 0}}
+        transition={{duration:1,type:'spring'}}
+        viewport={{margin:"100px 0px 0px 0px"}}
+
+        className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl lg:my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10">
         {t('partnersSubtitle')}
-    </h2>
-      <div className="flex lg:flex-row flex-col lg:gap-x-16 lg:gap-y-0 gap-y-8 items-center w-[90%] justify-center">
-        <TweakCarousel imgs={t('partnersNosotros',{returnObjects:true}).map((ele)=>(ele.image.meta.download_url))}/>
+      </MotionElement>
+      <MotionElement as="div"
+        initial={{ opacity: 0 ,translateY: 200}}
+        whileInView={{ opacity: 1 ,translateY: 0}}
+        transition={{duration:1,type:'spring'}}
+        viewport={{margin:"100px 0px 0px 0px"}}
+
+        className="flex lg:flex-row flex-col lg:gap-x-16 lg:gap-y-0 gap-y-8 items-center w-[90%] justify-center">
+        <TweakCarousel imgs={t('partnersNosotros', { returnObjects: true }).map((ele) => (ele.image.meta.download_url))} />
         {/* {logos.map(ele => (<img src={ele} className="lg:w-3/12 w-1/2 lg:h-16 h-10" />))} */}
-      </div>
-            <h2 className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl lg:my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
+      </MotionElement>
+      <MotionElement as="h2"
+        initial={{ opacity: 0 ,translateY: 200}}
+        whileInView={{ opacity: 1 ,translateY: 0}}
+        transition={{duration:1,type:'spring'}}
+        viewport={{margin:"100px 0px 0px 0px"}}
+
+        className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl lg:my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10">
         {t('certificadosSubtitle')}
-    </h2>
-      <div>
-        <ImageGrid srcImages={t('certificadosNosotros',{returnObjects:true}).map(ele=> (ele.image.meta.download_url))} label={false}/>
-      </div>
+      </MotionElement>
+      <MotionElement
+        as="div"
+        initial={{ opacity: 0 ,translateY: 200}}
+        whileInView={{ opacity: 1 ,translateY: 0}}
+        transition={{duration:1,type:'spring'}}
+        viewport={{margin:"100px 0px 0px 0px"}}
+
+      >
+        <ImageGrid srcImages={t('certificadosNosotros', { returnObjects: true }).map(ele => (ele.image.meta.download_url))} label={false} />
+      </MotionElement>
     </div>
   )
 }
