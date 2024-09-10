@@ -15,7 +15,7 @@ import { RevealBento } from '@/components/gridDestino'
 import { createTranslation } from '../../../../i18next'
 import SwitcherGlobal from '@/components/SwitcherGlobal'
 import { LocaleType } from '../../../../i18next/settings'
-import {MotionElement} from "@/components/clientExportTheme"
+import MotionElement from "@/components/clientExportElement"
 
 type Props = {
   params:{
@@ -105,10 +105,10 @@ const removeAccents = (str) => {
       {/* </SessionProvider> */}
       <MotionElement
         as="h2"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{duration: 0.75}}
-        viewport={{ margin:"150px"}}
+        initial={{ opacity: 0 ,translateY: "-200px"}}
+        whileInView={{ opacity: 1 ,translateY: "0px"}}
+        transition={{duration:1,type:'spring'}}
+        viewport={{ margin:"-150px"}}
         className="subtitle w-fit lg:text-[34px] text-[20px] lg:text-3xl
        my-[20px] lg:my-[50px] p-3 text-center font-semibold text-gray-800  lg:mb-10"> 
         {t('paqueteTitulo')}
@@ -118,8 +118,8 @@ const removeAccents = (str) => {
         as="div"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{duration: 0.75}}
-        viewport={{ margin:"150px"}}
+        transition={{duration:1,type:'spring'}}
+        viewport={{ margin:"-150px"}}
         className=" grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1  lg:gap-x-24 lg:pl-0 gap-y-10">
         {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={(ele.meta.slug)} time={ele.duracion} lng={params.lng} />))}
       </MotionElement>
@@ -128,8 +128,8 @@ const removeAccents = (str) => {
         as="h2"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{duration: 0.75}}
-        viewport={{ margin:"150px"}}
+        transition={{duration:1,type:'spring'}}
+        viewport={{ margin:"-150px"}}
         className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {t('destinoTitulo')}
       </MotionElement>
@@ -140,7 +140,8 @@ const removeAccents = (str) => {
         as="div"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{duration: 0.75}}
+        transition={{duration:1,type:'spring'}}
+        viewport={{ margin:"-150px"}}
         className="w-full">
       <div className="flex lg:flex-row flex-col w-full lg:w-[90%] mx-auto mt-10">
         <div className="lg:w-1/2 w-full flex flex-col items-center">
