@@ -105,10 +105,10 @@ const removeAccents = (str) => {
       {/* </SessionProvider> */}
       <MotionElement
         as="h2"
-        initial={{ opacity: 0 ,translateY: "-200px"}}
-        whileInView={{ opacity: 1 ,translateY: "0px"}}
+        initial={{ opacity: 0 ,y: 200}}
+        whileInView={{ opacity: 1 ,y: 0}}
         transition={{duration:1,type:'spring'}}
-        viewport={{ margin:"-150px"}}
+        viewport={{amount:0.3}}
         className="subtitle w-fit lg:text-[34px] text-[20px] lg:text-3xl
        my-[20px] lg:my-[50px] p-3 text-center font-semibold text-gray-800  lg:mb-10"> 
         {t('paqueteTitulo')}
