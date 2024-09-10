@@ -116,20 +116,20 @@ const removeAccents = (str) => {
 
       <MotionElement
         as="div"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0 ,y: 200}}
+        whileInView={{ opacity: 1 ,y: 0}}
         transition={{duration:1,type:'spring'}}
-        viewport={{ margin:"-150px"}}
+        viewport={{amount:0.3}}
         className=" grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1  lg:gap-x-24 lg:pl-0 gap-y-10">
         {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={(ele.meta.slug)} time={ele.duracion} lng={params.lng} />))}
       </MotionElement>
 
         <MotionElement 
         as="h2"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0 ,y: 200}}
+        whileInView={{ opacity: 1 ,y: 0}}
         transition={{duration:1,type:'spring'}}
-        viewport={{ margin:"-150px"}}
+        viewport={{amount:0.3}}
         className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {t('destinoTitulo')}
       </MotionElement>
@@ -138,10 +138,10 @@ const removeAccents = (str) => {
 
     <MotionElement 
         as="div"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0 ,y: 200}}
+        whileInView={{ opacity: 1 ,y: 0}}
         transition={{duration:1,type:'spring'}}
-        viewport={{ margin:"-150px"}}
+        viewport={{amount:0.3}}
         className="w-full">
       <div className="flex lg:flex-row flex-col w-full lg:w-[90%] mx-auto mt-10">
         <div className="lg:w-1/2 w-full flex flex-col items-center">
