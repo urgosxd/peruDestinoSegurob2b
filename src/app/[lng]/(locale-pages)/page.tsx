@@ -125,7 +125,6 @@ const keyframes = { x: [], y: [], rotate: [] };
       <CustomCarousel data={t('galleryIni',{returnObjects:true})} keyframes={keyframes} keyframes2={keyframes2} ></CustomCarousel>
       {/* <SessionProvider> */}
       {/* <SessionValidator>GAAAAAAAA</SessionValidator> */}
-      {/* </SessionProvider> */}
       <MotionElement
         as="h2"
         initial={{ opacity: 0 ,translateY: 200}}

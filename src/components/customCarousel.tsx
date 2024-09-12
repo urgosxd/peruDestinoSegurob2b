@@ -80,9 +80,7 @@ const CustomCarousel = ({ data,keyframes,keyframes2 }: Props) => {
                       ease: "linear",
                     }
                   }}
-
                 >
-
                   <FaPaperPlane size={30} rotate={90} color="white" />
                 </motion.div>
 
