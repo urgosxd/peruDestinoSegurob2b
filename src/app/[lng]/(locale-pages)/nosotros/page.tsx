@@ -184,7 +184,6 @@ export default async function Nosotros({ params }: Props) {
         whileInView={{ opacity: 1 ,translateY: 0}}
         transition={{duration:1,type:'spring'}}
         viewport={{margin:"100px 0px 0px 0px"}}
-
         className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl lg:my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10">
         {t('certificadosSubtitle')}
       </MotionElement>
@@ -194,7 +193,6 @@ export default async function Nosotros({ params }: Props) {
         whileInView={{ opacity: 1 ,translateY: 0}}
         transition={{duration:1,type:'spring'}}
         viewport={{margin:"100px 0px 0px 0px"}}
-
       >
         <ImageGrid srcImages={t('certificadosNosotros', { returnObjects: true }).map(ele => (ele.image.meta.download_url))} label={false} />
       </MotionElement>

@@ -10,13 +10,14 @@ interface Props {
 export function Footer({ data }: Props) {
 
   return (
-    <footer className="w-11/12 bg-white lg:ml-10 ml-2 lg:mt-20 mt-10">
-      <div className="flex lg:flex-row flex-col  flex-wrap items-center justify-center lg:gap-y-6 gap-y-8 lg:gap-x-12 gap-x-3 bg-white text-center md:justify-between">
-        <img src="/pdsLogo.png" alt="logo-ct" className="w-1/12" />
+    <footer className="w-full bg bg-[#F7F7F7] lg:mt-20 mt-10 ">
+      <div className="flex flex-col justify-around px-10">
+      <div className="flex lg:flex-row flex-col  flex-wrap items-center justify-center lg:gap-y-6 gap-y-8 lg:gap-x-12 gap-x-3  text-center md:justify-between">
+        <img src="/pdsLogo.png" alt="logo-ct" className="w-[190px]" />
         <div>
           <Typography
             color="blue-gray"
-            className="font-bold"
+            className="font-semibold text-[20px] "
           >
 
             Nuestras Redes Sociales
@@ -24,7 +25,7 @@ export function Footer({ data }: Props) {
 
           <Typography
             color="blue-gray"
-            className="font-normal"
+            className="font-light text-[20px]"
           >
 
             Peru Destino Seguro S.R.L
@@ -41,7 +42,7 @@ export function Footer({ data }: Props) {
           <li>
             <Typography
               color="blue-gray"
-              className="font-bold leading-normal"
+              className=" leading-normal"
             >
 
               RAZON SOCIAL:
@@ -54,22 +55,22 @@ export function Footer({ data }: Props) {
             </Typography>
             <Typography
               color="blue-gray"
-              className="font-bold leading-normal"
+              className=" leading-normal"
             >
               Direccion:
             </Typography>
 
             <Typography
               color="blue-gray"
-              className="font-normal leading-normal"
+              className=" leading-normal"
             >
-              <MapPinIcon className="w-3 pb-2 inline-block " color="#D20000" />   Av. Tacna Nro. 168 - Cusco
+              <MapPinIcon className="w-5 pb-2 inline-block " color="#D20000" />   Av. Tacna Nro. 168 - Cusco
             </Typography>
 
 
             <Typography
               color="blue-gray"
-              className="font-bold leading-normal"
+              className=" leading-normal"
             >
               Telefono
             </Typography>
@@ -78,33 +79,40 @@ export function Footer({ data }: Props) {
               className="font-normal leading-normal"
             >
 
-              <PhoneIcon className="w-3 pb-2 inline-block" color="#D20000" />  {ele.numero}
+              <PhoneIcon className="w-5 pb-2 inline-block" color="#D20000" />  {ele.numero}
             </Typography>
             )}
 
             <Typography
               color="blue-gray"
-              className="font-bold leading-normal"
+              className=" leading-normal"
             >
               Correo Electronico:
             </Typography>
 
             <Typography
               color="blue-gray"
-              className="font-normal leading-normal"
+              className=" leading-normal"
             >
-              <EnvelopeIcon className="w-3 pb-1 inline-block" color="#D20000" />     {data.email}
+              <EnvelopeIcon className="w-5 pb-1 inline-block" color="#D20000" />     {data.email}
             </Typography>
           </li>
         </ul>
       </div>
+      </div>
       <hr className="my-8 border-blue-gray-50" />
 
-      <div className="w-full flex flex-row flex-wrap justify-between gap-y-6 gap-x-12 bg-white text-center md:justify-between">
+      <div className="w-full flex flex-col justify-center">
+        <div>
         <Typography color="blue-gray" className="text-center font-normal">
-          Derechos reservados Peru Destino Seguro 2024
+            Derechos Reservados - Perú Destino Seguro 2024
         </Typography>
-        <img src="/tarjetas.png" alt="logo-ct" className="w-2/12" />
+        <Typography color="blue-gray" className="text-center font-normal">
+                Desarrollado por: 
+            {/* <img src="" /> */}
+          </Typography>
+        {/* <img src="/tarjetas.png" alt="logo-ct" className="w-2/12" /> */}
+        </div>
       </div>
     </footer>
   );
