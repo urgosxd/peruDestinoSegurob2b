@@ -93,6 +93,28 @@ const removeAccents = (str) => {
 
   const urlsDestinos = destinosF.map(ele=>( ele.name.toLowerCase()))
 
+const keyframes = { x: [], y: [], rotate: [] };
+  const keyframes2 = { x: [], y: [], rotate: [] };
+  const generateKeyframes = () => {
+    for (let t = -0.25; t <= 2 * Math.PI; t += 0.1) {
+      keyframes.x.push(100 * Math.sin(2 * t) - 30); // Example: double frequency for x
+      keyframes2.x.push(100 * Math.cos(t) + 500); // Example: double frequency for x
+      keyframes.y.push(100 * Math.cos(t) + 50); // Single frequency for y
+      keyframes2.y.push(100 * Math.sin(2 * t) + 500)
+    }
+    for (let i = 0; i < keyframes.x.length ; i++) {
+      const dx = keyframes.x[i + 1] - keyframes.x[i];
+      const dy = keyframes.y[i + 1] - keyframes.y[i];
+      const angle = Math.atan2(dy, dx);
+      const degrees = (angle * 180) / Math.PI; // Convert to degrees
+      keyframes.rotate.push(degrees);
+    }
+    // Add the last rotation value to make the array lengths match
+    keyframes.rotate.push(keyframes.rotate[keyframes.rotate.length - 1]);
+    return keyframes;
+  };
+
+  generateKeyframes();
 
 
 
@@ -100,7 +122,7 @@ const removeAccents = (str) => {
     <div className="flex flex-col items-center w-full">
       
       {/* <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug={undefined}/> */}
-      <CustomCarousel data={t('galleryIni',{returnObjects:true})} ></CustomCarousel>
+      <CustomCarousel data={t('galleryIni',{returnObjects:true})} keyframes={keyframes} keyframes2={keyframes2} ></CustomCarousel>
       {/* <SessionProvider> */}
       {/* <SessionValidator>GAAAAAAAA</SessionValidator> */}
       {/* </SessionProvider> */}

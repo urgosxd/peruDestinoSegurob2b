@@ -15,11 +15,13 @@ import RatioComponent from "./ratioComponen";
 
 interface Props {
   data: { type: string, value: any, id: string }[]
+  keyframes: any[]
+  keyframes2: any[]
 }
 
 // const myFont = localFont({ src: '../../public/CoreBoriW01-Regular.ttf' })
 
-const CustomCarousel = ({ data }: Props) => {
+const CustomCarousel = ({ data,keyframes,keyframes2 }: Props) => {
   console.log(data)
   const [animation, cycleAnimation] = useCycle(
     "animationOne",
@@ -30,38 +32,7 @@ const CustomCarousel = ({ data }: Props) => {
 
   // const duration = 2
   // const parabolicY = (x: number) => 2*x;
-  const [trail, setTrail] = useState([]);
-
   const duration = 6; // in seconds
-
-
-  const keyframes = { x: [], y: [], rotate: [] };
-  const keyframes2 = { x: [], y: [], rotate: [] };
-  const generateKeyframes = () => {
-    for (let t = -0.25; t <= 2 * Math.PI; t += 0.1) {
-      keyframes.x.push(100 * Math.sin(2 * t) - 30); // Example: double frequency for x
-      keyframes2.x.push(100 * Math.cos(t) + 500); // Example: double frequency for x
-      keyframes.y.push(100 * Math.cos(t) + 50); // Single frequency for y
-      keyframes2.y.push(100 * Math.sin(2 * t) + 500)
-    }
-    for (let i = 0; i < keyframes.x.length ; i++) {
-      const dx = keyframes.x[i + 1] - keyframes.x[i];
-      const dy = keyframes.y[i + 1] - keyframes.y[i];
-      const angle = Math.atan2(dy, dx);
-      const degrees = (angle * 180) / Math.PI; // Convert to degrees
-      keyframes.rotate.push(degrees);
-    }
-    // Add the last rotation value to make the array lengths match
-    keyframes.rotate.push(keyframes.rotate[keyframes.rotate.length - 1]);
-    return keyframes;
-  };
-
-  generateKeyframes();
-
-  // useEffect(() => {
-  //   setTimeout(cycleAnimation, 1000); // start "animationTwo" after 1 second
-  //   setTimeout(cycleAnimation, 2000); // start "animationThree" after 2 seconds
-  // }, []);
 
 
 
