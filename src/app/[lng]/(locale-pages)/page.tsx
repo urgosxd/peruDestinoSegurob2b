@@ -22,6 +22,7 @@ type Props = {
     lng:string
   }
 }
+
 async function getPageData(slug:string,lng:LocaleType){
 
 const instance =  await getInicioPage({locale:lng,fields:'*'})
