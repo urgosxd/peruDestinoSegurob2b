@@ -1,13 +1,9 @@
 import Image from 'next/image'
 import CustomCarousel from '@/components/customCarousel'
 import ProfileCard from '@/components/cardPaquetes'
-// import paquetes from "@/app/lib/paquetes"
-// import destinos from './lib/destinos'
 import BackCard from '@/components/backCard'
 import {getDestinos, getInicioPage,getPaquete} from '@/app/lib/wp'
-import { GetStaticProps, NextPage } from 'next'
 import Questions from '@/components/questions'
-import AgenciaForm from '@/components/formAgencio'
 import { RevealBento } from '@/components/gridDestino'
 import { createTranslation } from '../../../../i18next'
 import SwitcherGlobal from '@/components/SwitcherGlobal'

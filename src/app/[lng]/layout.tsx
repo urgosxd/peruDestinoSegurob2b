@@ -12,7 +12,7 @@ import localFont from 'next/font/local'
 // import AuthProvider from '@/app/[lng]/components/providers/auth/AuthProvider';
 // import Footer from '@/app/[lng]/components/layout/footer/Footer';
 
-export const revalidate = 60 // seconds
+// export const revalidate = 60 // seconds
 // export const dynamic = 'force-dynamic'
 
 
@@ -25,12 +25,12 @@ type LocaleRouteLayout = SharedPageProps & {
 };
 
 
-const myFont = localFont({ src: [{path:'../../../public/CoreBoriW01-Regular.ttf'}] ,display: 'swap',variable: '--font-Custom',preload:false})
-const font = Poppins({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],display:"swap",variable: '--font-Poppins'})
-const font2 = Montserrat({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],display:"swap",variable: '--font-Monserrat'})
 
 export default async function Layout({ children, params: { lng } }: LocaleRouteLayout) {
 
+const myFont = localFont({ src: [{path:'../../../public/CoreBoriW01-Regular.ttf'}] ,display: 'swap',variable: '--font-Custom',preload:false})
+const font = Poppins({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],display:"swap",variable: '--font-Poppins'})
+const font2 = Montserrat({weight:["100","200","300","400","500","600","700","800","900"],subsets: ['latin-ext'],display:"swap",variable: '--font-Monserrat'})
 
 
   const [destinos,dataGeneralInfo] = await Promise.all([getDestinos({fields:"*"}),getDataGeneral({"fields":"*"})])
