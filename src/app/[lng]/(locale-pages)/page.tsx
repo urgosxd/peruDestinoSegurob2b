@@ -125,65 +125,65 @@ const keyframes = { x: [], y: [], rotate: [] };
       {/* <CustomCarousel data={t('galleryIni',{returnObjects:true})} keyframes={keyframes} keyframes2={keyframes2} ></CustomCarousel> */}
       {/* <SessionProvider> */}
       {/* <SessionValidator>GAAAAAAAA</SessionValidator> */}
-      <MotionElement
-        as="h2"
-        initial={{ opacity: 0 ,translateY: 200}}
-        whileInView={{ opacity: 1 ,translateY: 0}}
-        transition={{duration:1,type:'spring'}}
-        viewport={{margin:"100px 0px 0px 0px"}}
-        className="subtitle w-fit lg:text-[34px] text-[20px] lg:text-3xl
-       my-[20px] lg:my-[50px] p-3 text-center font-semibold text-gray-800  lg:mb-10"> 
-        {t('paqueteTitulo')}
-      </MotionElement>
+    {/*   <MotionElement */}
+    {/*     as="h2" */}
+    {/*     initial={{ opacity: 0 ,translateY: 200}} */}
+    {/*     whileInView={{ opacity: 1 ,translateY: 0}} */}
+    {/*     transition={{duration:1,type:'spring'}} */}
+    {/*     viewport={{margin:"100px 0px 0px 0px"}} */}
+    {/*     className="subtitle w-fit lg:text-[34px] text-[20px] lg:text-3xl */}
+    {/*    my-[20px] lg:my-[50px] p-3 text-center font-semibold text-gray-800  lg:mb-10">  */}
+    {/*     {t('paqueteTitulo')} */}
+    {/*   </MotionElement> */}
 
-      <MotionElement
-        as="div"
-        initial={{ opacity: 0 ,translateY: 200}}
-        whileInView={{ opacity: 1 ,translateY: 0}}
-        transition={{duration:1,type:'spring'}}
-        viewport={{margin:"100px 0px 0px 0px"}}
-        className=" grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1  lg:gap-x-24 lg:pl-0 gap-y-10">
-        {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={(ele.meta.slug)} time={ele.duracion} lng={params.lng} />))}
-      </MotionElement>
+    {/*   <MotionElement */}
+    {/*     as="div" */}
+    {/*     initial={{ opacity: 0 ,translateY: 200}} */}
+    {/*     whileInView={{ opacity: 1 ,translateY: 0}} */}
+    {/*     transition={{duration:1,type:'spring'}} */}
+    {/*     viewport={{margin:"100px 0px 0px 0px"}} */}
+    {/*     className=" grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1  lg:gap-x-24 lg:pl-0 gap-y-10"> */}
+    {/*     {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={(ele.meta.slug)} time={ele.duracion} lng={params.lng} />))} */}
+    {/*   </MotionElement> */}
 
-        <MotionElement 
-        as="h2"
-        initial={{ opacity: 0 ,translateY: 200}}
-        whileInView={{ opacity: 1 ,translateY: 0}}
-        transition={{duration:1,type:'spring'}}
-        viewport={{margin:"100px 0px 0px 0px"}}
-        // viewport={{amount:0.3}}
-        className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
-        {t('destinoTitulo')}
-      </MotionElement>
+    {/*     <MotionElement  */}
+    {/*     as="h2" */}
+    {/*     initial={{ opacity: 0 ,translateY: 200}} */}
+    {/*     whileInView={{ opacity: 1 ,translateY: 0}} */}
+    {/*     transition={{duration:1,type:'spring'}} */}
+    {/*     viewport={{margin:"100px 0px 0px 0px"}} */}
+    {/*     // viewport={{amount:0.3}} */}
+    {/*     className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10">  */}
+    {/*     {t('destinoTitulo')} */}
+    {/*   </MotionElement> */}
 
-    <RevealBento img={{imgSrc:destinosF[0].background.meta.download_url,imgMobileSrc:destinosF[0].backgroundMobile.meta.download_url,label:destinosF[0].name}} imgs={destinosF.slice(1,destinosF.length).map(ele=>({imgSrc:ele.background.meta.download_url,imgMobileSrc:ele.backgroundMobile.meta.download_url,label:ele.name}))} lng={params.lng} urls={urlsDestinos} />
+    {/* <RevealBento img={{imgSrc:destinosF[0].background.meta.download_url,imgMobileSrc:destinosF[0].backgroundMobile.meta.download_url,label:destinosF[0].name}} imgs={destinosF.slice(1,destinosF.length).map(ele=>({imgSrc:ele.background.meta.download_url,imgMobileSrc:ele.backgroundMobile.meta.download_url,label:ele.name}))} lng={params.lng} urls={urlsDestinos} /> */}
 
-    <MotionElement 
-        as="div"
-        initial={{ opacity: 0 ,translateY: 200}}
-        whileInView={{ opacity: 1 ,translateY: 0}}
-        transition={{duration:1,type:'spring'}}
-        viewport={{margin:"100px 0px 0px 0px"}}
-        // viewport={{amount:0.3}}
-        className="w-full">
-      <div className="flex lg:flex-row flex-col w-full lg:w-[90%] mx-auto mt-10">
-        <div className="lg:w-1/2 w-full flex flex-col items-center">
-          <h3 className="my-3 mb-9 lg:my-9 text-[20px] lg:text-[24px] text-[#5B5B5F] lg:text-[#000000] font-semibold text-center lg:no-underline underline underline-offset-8 decoration-red-900 capitalize ">Preguntas Frecuentes</h3>
-          <Questions questionAnswer={(t('faqInicio',{returnObjects:true})).map(ele=>({question:ele.question ,answer: ele.answer}))} />
-        </div>
-        <div className="lg:w-1/2 w-full p-10 lg:p-0 ">
-          <h2 className="lg:mt-9 mt-6 font-bold lg:text-[24px] text-[#5C5C5C]">
-            {t('formularioTitulo')}
-          </h2>
-          <p className="text-left pr-10 my-3 font-normal text-[18px] text-[#989898]">
-            {t('formularioSubtitulo')}
-          </p>
-          <AgenciaForm lng={params.lng} />
-            </div>
-      </div>
-      </MotionElement>
-      
+    {/* <MotionElement  */}
+    {/*     as="div" */}
+    {/*     initial={{ opacity: 0 ,translateY: 200}} */}
+    {/*     whileInView={{ opacity: 1 ,translateY: 0}} */}
+    {/*     transition={{duration:1,type:'spring'}} */}
+    {/*     viewport={{margin:"100px 0px 0px 0px"}} */}
+    {/*     // viewport={{amount:0.3}} */}
+    {/*     className="w-full"> */}
+    {/*   <div className="flex lg:flex-row flex-col w-full lg:w-[90%] mx-auto mt-10"> */}
+    {/*     <div className="lg:w-1/2 w-full flex flex-col items-center"> */}
+    {/*       <h3 className="my-3 mb-9 lg:my-9 text-[20px] lg:text-[24px] text-[#5B5B5F] lg:text-[#000000] font-semibold text-center lg:no-underline underline underline-offset-8 decoration-red-900 capitalize ">Preguntas Frecuentes</h3> */}
+    {/*       <Questions questionAnswer={(t('faqInicio',{returnObjects:true})).map(ele=>({question:ele.question ,answer: ele.answer}))} /> */}
+    {/*     </div> */}
+    {/*     <div className="lg:w-1/2 w-full p-10 lg:p-0 "> */}
+    {/*       <h2 className="lg:mt-9 mt-6 font-bold lg:text-[24px] text-[#5C5C5C]"> */}
+    {/*         {t('formularioTitulo')} */}
+    {/*       </h2> */}
+    {/*       <p className="text-left pr-10 my-3 font-normal text-[18px] text-[#989898]"> */}
+    {/*         {t('formularioSubtitulo')} */}
+    {/*       </p> */}
+    {/*       <AgenciaForm lng={params.lng} /> */}
+    {/*         </div> */}
+    {/*   </div> */}
+    {/*   </MotionElement> */}
+    {/*    */}
     </div>
   )
 }
