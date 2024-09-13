@@ -1,7 +1,5 @@
-import Image from 'next/image'
 import CustomCarousel from '@/components/customCarousel'
 import ProfileCard from '@/components/cardPaquetes'
-import BackCard from '@/components/backCard'
 import {getDestinos, getInicioPage,getPaquete} from '@/app/lib/wp'
 import Questions from '@/components/questions'
 import { RevealBento } from '@/components/gridDestino'

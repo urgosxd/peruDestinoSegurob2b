@@ -1,7 +1,7 @@
 'use client' 
 
-import { AnimatePresence, motion, MotionProps } from "framer-motion";
-import { forwardRef, ElementType, ComponentPropsWithoutRef, ForwardRefExoticComponent } from "react";
+import {  motion, MotionProps } from "framer-motion";
+import {  ElementType, ComponentPropsWithoutRef, ForwardRefExoticComponent } from "react";
 
 // Definimos los props genéricos para nuestro componente MotionElement
 type MotionElementProps<T extends ElementType> = {

@@ -1,16 +1,12 @@
 'use client'
-import { memo, useState } from "react"
-import { Carousel, ListItemSuffix, Typography } from "@material-tailwind/react";
+import { memo } from "react"
+import { Carousel } from "@material-tailwind/react";
 import Image from 'next/image'
 
-import React, { Component, useEffect } from "react";
+import React  from "react";
 import { useCycle, motion } from "framer-motion";
 import { FaPaperPlane } from "react-icons/fa";
 
-// import RatioComponent from "./ratioComponen";
-// const RatioComponent = dynamic(()=>import('./ratioComponen'),{ssr:false})
-import { Console } from "console";
-import dynamic from "next/dynamic";
 import RatioComponent from "./ratioComponen";
 
 interface Props {
