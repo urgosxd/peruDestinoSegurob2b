@@ -1,8 +1,5 @@
 import Image from 'next/image'
-import SessionValidator from "@/components/sessionValidator"
-import SessionProvider from "@/app/context/NextAuthProvider"
 import CustomCarousel from '@/components/customCarousel'
-import Subtitle from '@/components/subtitle'
 import ProfileCard from '@/components/cardPaquetes'
 // import paquetes from "@/app/lib/paquetes"
 // import destinos from './lib/destinos'
