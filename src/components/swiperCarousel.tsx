@@ -63,7 +63,7 @@ export const SwipeCarousel = ({ imgs, labelImgs, label }: Props) => {
   };
 
   return (
-    <div className="relative overflow-hidden rounded-2xl lg:py-4 w-screen">
+    <div className="relative overflow-hidden rounded-2xl lg:py-4 w-screen h-screen">
       <motion.div
         drag="x"
         dragConstraints={{
@@ -78,7 +78,7 @@ export const SwipeCarousel = ({ imgs, labelImgs, label }: Props) => {
         }}
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
-        className="flex cursor-grab items-center active:cursor-grabbing"
+        className="flex cursor-grab items-center active:cursor-grabbing "
       >
         <Images imgIndex={imgIndex} imgs={imgs} labelsImgs={labelImgs} label={label} />
       </motion.div>
@@ -105,7 +105,7 @@ const Images = ({ imgIndex, imgs, labelsImgs, label }: { imgIndex: number, imgs:
               scale: imgIndex === idx ? 0.95 : 0.85,
             }}
             transition={SPRING_OPTIONS}
-            className="relative  w-screen shrink-0 rounded-[35px] bg-neutral-800 object-cover px-7"
+            className="relative  w-screen h-[60vh]  shrink-0 rounded-[35px] bg-neutral-800 object-cover px-7"
           >
                 <Image src={ele.src} quality={100} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover"  fill className="lg:h-full h-full lg:w-full object-cover rounded-[35px] "></Image>
             {/* <img  src={ele.src} className="w-full h-full object-cover rounded-[35px]" loading="lazy" decoding="async"/> */}
