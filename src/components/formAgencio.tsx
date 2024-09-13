@@ -1,10 +1,6 @@
 'use client'
 import {
-  Card,
-  Input,
   Button,
-  Typography,
-  Textarea
 } from "@material-tailwind/react";
 import Link from "next/link";
 
