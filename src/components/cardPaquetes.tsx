@@ -25,7 +25,7 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 import { CalendarIcon } from '@heroicons/react/24/outline'
 import { StarIcon, MapPinIcon } from '@heroicons/react/24/solid'
 
-export default function ProfileCard({ imgSrc, title, price, slug, time, lng ,classNamePlus="lg:min-h-[585px] min-h-[40vh]"}: Props) {
+export default function ProfileCard({ imgSrc, title, price, slug, time, lng ,classNamePlus="lg:min-h-[585px] min-h-[55vh]"}: Props) {
   let rawTime = []
   try {
     rawTime = time.split('-')

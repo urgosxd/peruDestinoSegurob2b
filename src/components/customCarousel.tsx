@@ -33,7 +33,7 @@ const CustomCarousel = ({ data,keyframes,keyframes2 }: Props) => {
 
 
   return (
-    <div className="lg:w-full w-full h-[50vh] lg:h-screen">
+    <div className="lg:w-full w-full h-[70vh] lg:h-screen">
       <Carousel autoplay loop autoplayDelay={8000} transition={{ duration: 2 }} className="overflow-y-hidden">
         {data.map((ele,idxx) => {
 

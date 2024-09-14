@@ -33,15 +33,18 @@ export const RevealBento = ({ img, imgs, urls, lng }: { img: FinalFrame, imgs: F
   const globalItems = [img].concat(imgs)
 
 
-  return isMobile ? <div className=""> <SwipeCarousel imgs={getImages(globalItems)} labelImgs={getLabelsImgs(globalItems)} label /> </div> :
+  return isMobile ?
+    <MotionElement 
+      as="div"
+      initial={{ opacity: 0, y: 200 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, type: 'spring' }}
+    className=""> <SwipeCarousel imgs={getImages(globalItems)} labelImgs={getLabelsImgs(globalItems)} label /> </MotionElement> :
     <MotionElement
       as="div"
       initial={{ opacity: 0, y: 200 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, type: 'spring' }}
-        viewport={{margin:"100px 0px 0px 0px"}}
-      // viewport={{ amount: 0.3 }}
-
       className=" w-full bg-zinc-900 px-4 text-zinc-50">
       <motion.div
         initial="initial"
