@@ -18,7 +18,7 @@ const MotionElement = <T extends ElementType = "div">(
   const isMobile = useMobile()
   const Component = motion(as as string | ForwardRefExoticComponent<any>);
   
-  return <Component  {...props} viewport={isMobile ?{margin: "0px 0px 0px 0px"} : {margin:"100px 0px 0px 0px"}} />;
+  return <Component  {...props} viewport={isMobile ?{margin: "0px 0px 100px 0px"} : {margin:"100px 0px 0px 0px"}} />;
 };
 
 export default MotionElement
