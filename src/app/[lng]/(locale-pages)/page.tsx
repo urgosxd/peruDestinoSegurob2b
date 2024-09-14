@@ -122,7 +122,7 @@ const keyframes = { x: [], y: [], rotate: [] };
         initial={{ opacity: 0 ,translateY: 200}}
         whileInView={{ opacity: 1 ,translateY: 0}}
         transition={{duration:1,type:'spring'}}
-        viewport={{margin:"100px 0px 0px 0px"}}
+        // viewport={{margin:"100px 0px 0px 0px"}}
         className="subtitle w-fit lg:text-[34px] text-[20px] lg:text-3xl
        my-[20px] lg:my-[50px] p-3 text-center font-semibold text-gray-800  lg:mb-10"> 
         {t('paqueteTitulo')}
@@ -133,7 +133,7 @@ const keyframes = { x: [], y: [], rotate: [] };
         initial={{ opacity: 0 ,translateY: 200}}
         whileInView={{ opacity: 1 ,translateY: 0}}
         transition={{duration:1,type:'spring'}}
-        viewport={{margin:"100px 0px 0px 0px"}}
+        // viewport={{margin:"100px 0px 0px 0px"}}
         className=" grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1  lg:gap-x-24 lg:pl-0 gap-y-10">
         {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={(ele.meta.slug)} time={ele.duracion} lng={params.lng} />))}
       </MotionElement>
@@ -143,7 +143,7 @@ const keyframes = { x: [], y: [], rotate: [] };
         initial={{ opacity: 0 ,translateY: 200}}
         whileInView={{ opacity: 1 ,translateY: 0}}
         transition={{duration:1,type:'spring'}}
-        viewport={{margin:"100px 0px 0px 0px"}}
+        // viewport={{margin:"100px 0px 0px 0px"}}
         // viewport={{amount:0.3}}
         className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {t('destinoTitulo')}
@@ -156,7 +156,7 @@ const keyframes = { x: [], y: [], rotate: [] };
         initial={{ opacity: 0 ,translateY: 200}}
         whileInView={{ opacity: 1 ,translateY: 0}}
         transition={{duration:1,type:'spring'}}
-        viewport={{margin:"100px 0px 0px 0px"}}
+        // viewport={{margin:"100px 0px 0px 0px"}}
         // viewport={{amount:0.3}}
         className="w-full">
       <div className="flex lg:flex-row flex-col w-full lg:w-[90%] mx-auto mt-10">
