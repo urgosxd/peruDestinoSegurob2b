@@ -10,9 +10,10 @@ export function getOptions(lng = defaultLanguage, ns = defaultNS) {
     supportedLngs: availableLocales,
     // preload: availableLocales,
     backend: {
-    loadPath: 'https://b2bcms.onrender.com/api/v2/pages/{{ns}}/?locale={{lng}}&fields=*',
+    loadPath: 'https://www.vps.perudestinoseguro.com/api/v2/pages/{{ns}}/?locale={{lng}}&fields=*',
     parse: (data)=>{
         const parseData = JSON.parse(data)
+        console.log(parseData.items[0])
         return parseData.items[0]
       }
     },

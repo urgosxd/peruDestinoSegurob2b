@@ -23,6 +23,29 @@ body {
 }
 
 
+.specialSection{
+  padding: 100px 12vw;
+}
+.custom-shape-divider-top-1726537091 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1726537091 svg {
+    position: relative;
+    display: block;
+    width: calc(118% + 1.3px);
+    height: 104px;
+}
+
+.custom-shape-divider-top-1726537091 .shape-fill {
+    fill: #FFFFFF;
+}
+
 /* .underline { */
 /*   position:inherit; */
 /*   width: 100px; */
