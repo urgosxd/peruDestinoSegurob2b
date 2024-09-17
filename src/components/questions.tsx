@@ -54,7 +54,7 @@ export default function Questions({ questionAnswer, paquete = false }: Props) {
 
   const isMobile = useMobile()
   return (
-    <div className={`flex flex-col w-[90%] ${(paquete || isMobile) ? "gap-y-5" : ""}`}>
+    <div className={`flex flex-col w-[90%] mx-auto ${(paquete || isMobile) ? "gap-y-5" : ""}`}>
       {questionAnswer.map((ele, idx) => (<CollapseDefault question={ele.question} answer={ele.answer} paquete={paquete} mobile={isMobile} idxx={idx + 1} />))}
     </div>
   )
