@@ -228,7 +228,7 @@ export default async function Nosotros({ params }: Props) {
         initial={{ opacity: 0, translateY: 200 }}
         whileInView={{ opacity: 1, translateY: 0 }}
         transition={{ duration: 1, type: 'spring' }}
-        className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl lg:my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10">
+        className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl lg:my-[50px] p-3 text-center font-semibold text-gray-800 lg:mb-10">
         {t('certificadosSubtitle')}
       </MotionElement>
       <MotionElement

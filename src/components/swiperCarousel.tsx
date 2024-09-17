@@ -126,7 +126,7 @@ const Images = ({ imgIndex, imgs, labelsImgs, label }: { imgIndex: number, imgs:
                 scale: imgIndex === idx ? 0.95 : 0.85,
               }}
               transition={SPRING_OPTIONS}
-              className="relative w-screen shrink-0 rounded-xl bg-neutral-800 object-cover"
+              className="relative w-screen h-[75vh] shrink-0 rounded-xl bg-neutral-800 object-cover"
             >
                 <Image src={imgSrc} quality={100} sizes="(max-width: 768px) 50vw, 100vw" alt="ims" objectFit="cover"  fill className="lg:h-full h-full lg:w-full object-cover rounded-xl "></Image>
             {/* <img  src={imgSrc} className="w-full h-full object-cover rounded-xl" loading="lazy" decoding="async"/> */}

@@ -30,7 +30,7 @@ export default function BackBanner({ imgSrc, txt,miniText=undefined }: Props) {
         className={`absolute inset-0  m-0 lg:w-full w-full rounded-none`}
       // style={{backgroundImage: `url(${imgSrc})`}}
         >
-          <Image src={imgSrc} fill={true} alt="aeo" className="rounded-none object-cover" sizes="(max-width: 768px) 150vw, 100vw"/>
+          <Image src={imgSrc} fill alt="aeo" objectFit="cover" className="rounded-none object-cover" sizes="(max-width: 768px) 100vw, 100vw"/>
 
         <div className="to-bg-black-10 absolute inset-0 h-full w-full bg-gradient-to-t from-black/50 via-black/20" />
       </CardHeader>

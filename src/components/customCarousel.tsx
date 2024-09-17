@@ -51,7 +51,7 @@ const CustomCarousel = ({ data,keyframes,keyframes2 }: Props) => {
             case "Tipo1":
               // console.log(ele.value.miniPhotos)
               return (<div className="relative w-full h-full lg:h-full">
-                <Image src={ele.value.photo.url.full_url}  quality={100} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="ims" objectFit="cover" priority={idxx == 0 ? true :false} fill className=""></Image>
+                <Image src={ele.value.photo.url.full_url}  quality={100} sizes="(max-width: 768px) 50vw, 100vw"  alt="ims" objectFit="cover" priority={idxx == 0 ? true :false} fill className=""></Image>
                 <motion.div
                   className="text-2xl text-gray-600 w-fit h-fit mx-auto "
                   animate={{
@@ -134,7 +134,7 @@ const CustomCarousel = ({ data,keyframes,keyframes2 }: Props) => {
             case "Tipo2":
               return (
                 <div className="relative w-full h-full">
-                <Image src={ele.value.photo.url.full_url} quality={100} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="ims" objectFit="cover" priority={true} fill className=""></Image>
+                <Image src={ele.value.photo.url.full_url} quality={100} sizes="(max-width: 768px) 100vw, (max-width: 1400px) 50vw, 33vw" alt="ims" objectFit="cover" priority={true} fill className=""></Image>
                 </div>
               )
             default:

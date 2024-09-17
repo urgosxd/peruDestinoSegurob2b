@@ -137,14 +137,11 @@ const keyframes = { x: [], y: [], rotate: [] };
         className=" grid lg:grid-cols-3 lg:gap-3 justify-items-center w-10/12 grid-cols-1  lg:gap-x-24 lg:pl-0 gap-y-10">
         {paquetes.items.map(ele => (<ProfileCard key={ele.featuredImage.meta.title} imgSrc={ele.featuredImage.meta.download_url} title={ele.title} price={`${ele.precio}`} slug={(ele.meta.slug)} time={ele.duracion} lng={params.lng} />))}
       </MotionElement>
-
-        <MotionElement 
+      <MotionElement 
         as="h2"
         initial={{ opacity: 0 ,translateY: 200}}
         whileInView={{ opacity: 1 ,translateY: 0}}
         transition={{duration:1,type:'spring'}}
-        // viewport={{margin:"100px 0px 0px 0px"}}
-        // viewport={{amount:0.3}}
         className="subtitle w-fit text-[20px] lg:text-[34px] text-3xl my-[50px] p-3 text-center font-semibold text-gray-800 mb-5 lg:mb-10"> 
         {t('destinoTitulo')}
       </MotionElement>
