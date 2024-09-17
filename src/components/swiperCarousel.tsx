@@ -13,11 +13,11 @@ import Image from "next/image"
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 3;
-const DRAG_BUFFER = 30;
+const DRAG_BUFFER = 20;
 
 const SPRING_OPTIONS = {
   type: "spring",
-  mass: 3,
+  mass: 2,
   stiffness: 400,
   damping: 50,
 };
