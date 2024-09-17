@@ -31,14 +31,14 @@ export default function CardBlog({ftImageSrc,title,txtDescription,type,slug,lng}
       
       return (
         
-    <Card className={"relative grid  w-full  lg:max-w-[28rem] max-w-[15rem] p-0 border rounded-lg"}>
+    <Card className={"relative grid  w-full  lg:max-w-[28rem] max-w-[22rem] p-0 border rounded-lg"}>
       <Link  href={`/${lng}/blogs/${slug}`}>
       <CardHeader
         
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[30vh] h-[20vh] cursor-pointer !rounded-md" >
+        className="m-0 w-full lg:h-[30vh] h-[25vh] cursor-pointer !rounded-md" >
         <ImageMotion 
         whileHover={{ scale: 1.05,
         transition: { ease: "easeOut", duration: 1 },}}
@@ -50,11 +50,11 @@ export default function CardBlog({ftImageSrc,title,txtDescription,type,slug,lng}
       </Link>
 
       <CardBody className=" flex flex-col items-center justify-center">
-        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-semibold text-left">
+        <div  className="mb-4 text-[#5B5B5F] lg:text-[25px] text-[14px] font-semibold text-left">
         {title}
         </div>
 
-        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-light text-left "
+        <div  className="mb-4 text-[#5B5B5F] lg:text-[25px] text-[14px] font-light text-left "
           
         >
             {txtDescription}
@@ -65,13 +65,13 @@ export default function CardBlog({ftImageSrc,title,txtDescription,type,slug,lng}
  
 case 2:
       return(
-      <Card className="w-full  max-w-[15rem] lg:max-w-[36rem] lg:flex-row ">
+      <Card className="w-full  max-w-[22rem] lg:max-w-[36rem] lg:flex-row ">
         <Link  href={`/blog/`}>
       <CardHeader 
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:w-[15vw] lg:h-[30vh] h-[20vh] cursor-pointer !rounded-md" >
+        className="m-0 w-full lg:w-[15vw] lg:h-[30vh] h-[25vh] cursor-pointer !rounded-md" >
         <ImageMotion 
 whileHover={{ scale: 1.05,
         transition: { ease: "easeOut", duration: 1 },}}
@@ -80,11 +80,11 @@ whileHover={{ scale: 1.05,
       </CardHeader>
       </Link>
       <CardBody>
-        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-semibold text-left">
+        <div  className="mb-4 text-[#5B5B5F] lg:text-[25px] text-[14px] font-semibold text-left">
         {title}
         </div>
 
-        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-light text-left " 
+        <div  className="mb-4 text-[#5B5B5F] lg:text-[25px] text-[14px] font-light text-left " 
         >
           {txtDescription}
         </div>
@@ -94,13 +94,13 @@ whileHover={{ scale: 1.05,
       )
     case 3:
      return (
-      <Card className="w-full max-w-[15rem] lg:max-w-[44rem] lg:flex-row">
+      <Card className="w-full max-w-[22rem] lg:max-w-[44rem] lg:flex-row mx-auto">
       <CardBody>
-        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-semibold text-left">
+        <div  className="mb-4 text-[#5B5B5F] lg:text-[25px] text-[14px] font-semibold text-left">
         {title}
         </div>
 
-        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-light text-left "
+        <div  className="mb-4 text-[#5B5B5F] lg:text-[25px] text-[14px] font-light text-left "
         >
               {txtDescription}
         </div>
@@ -109,7 +109,7 @@ whileHover={{ scale: 1.05,
       ) 
     case 4:
       return (
-    <Card className={"relative grid  w-full  lg:max-w-[35rem] max-w-[15rem] p-0 border rounded-lg"}>
+    <Card className={"relative grid  w-full  lg:max-w-[35rem] max-w-[22rem] p-0 border rounded-lg mx-auto"}>
 
       <Link  href={`/blog/${slug}`}>
 
@@ -118,7 +118,7 @@ whileHover={{ scale: 1.05,
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[40vh] h-[20vh] cursor-pointer !rounded-md" >
+        className="m-0 w-full lg:h-[40vh] h-[30vh] cursor-pointer !rounded-md" >
         <ImageMotion 
         whileHover={{ scale: 1.05,
         transition: { ease: "easeOut", duration: 1 },}}
@@ -132,11 +132,11 @@ whileHover={{ scale: 1.05,
 
       <CardBody className=" flex flex-col items-center pt-7 gap-y-3 justify-center bg bg-gray-200">
 
-        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-semibold text-left">
+        <div  className="mb-4 text-[#5B5B5F] lg:text-[25px] text-[14px] font-semibold text-left">
         {title}
         </div>
 
-        <div  className="mb-4 text-[#5B5B5F] text-[25px] font-light text-left "
+        <div  className="mb-4 text-[#5B5B5F] lg:text-[25px] text-[14px] font-light text-left "
         >
 
             {txtDescription}

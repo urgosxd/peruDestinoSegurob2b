@@ -86,16 +86,15 @@ export default async function BlogPage({searchParams,params}:Props){
     <div className="flex flex-col w-[98vw] items-center">
 
       <BackBanner imgSrc={dataBlogPage.items[0].background.meta.download_url} txt={dataBlogPage.items[0].title} />
-      <div className="flex flex-row mt-10">
-        <div className="lg:w-1/2">
+      <div className="flex lg:flex-row flex-col mt-10 w-full justify-center">
+        <div className="lg:w-1/2 w-full ">
         {<CardBlog ftImageSrc={mainPosts.items[0].background.meta.download_url} title={mainPosts.items[0].title} txtDescription={mainPosts.items[0].description} type={4} slug={mainPosts.items[0].meta.slug} lng={params.lng} />}
         </div>
-      <div className="flex flex-col lg:gap-0 lg:w-1/2 justify-items-start grid-cols-1 lg:gap-x-10 lg:pl-0 gap-y-5">
-      <h2 className="subtitle w-full lg:w-fit lg:text-[24px] text-[10px] lg:text-3xl p-3 text-center font-semibold text-gray-800 ">
+      <div className="flex flex-col lg:gap-0 lg:w-1/2 w-full justify-items-start grid-cols-1 lg:gap-x-10 lg:pl-0 gap-y-5">
+      <h2 className="subtitle w-[90%] lg:w-fit lg:text-[24px] text-[14px] lg:text-3xl p-3 lg:text-center text-left font-semibold text-gray-800 mx-auto">
         Articulos Destacados
       </h2>
         {mainPosts.items.slice(1,mainPosts.items.lenght).map(item=><CardBlog ftImageSrc={item.background.meta.download_url} title={item.title} txtDescription={item.description} type={3} slug={item.meta.slug}/>)}
-
       </div>
 
       </div>
