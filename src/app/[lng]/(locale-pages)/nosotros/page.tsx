@@ -10,6 +10,7 @@ import { ValoresWrapper } from "@/components/valoresWrapper";
 import ImageGrid from "@/components/imageGrid";
 
 import MotionElement from "@/components/clientExportElement"
+import { Carrou } from "@/components/myCarousel";
 
 type Props = {
   params: {
@@ -239,6 +240,9 @@ export default async function Nosotros({ params }: Props) {
       >
         <ImageGrid srcImages={t('certificadosNosotros', { returnObjects: true }).map(ele => (ele.image.meta.download_url))} label={false} />
       </MotionElement>
+      <div className="w-full">
+      <Carrou list={["a", "b", "c", "d", "e", "f"]}/>
+      </div>
     </div>
   )
 }

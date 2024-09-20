@@ -47,7 +47,7 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
       <CardBody className="text-center !p-3">
         <Typography  as="div"  className="flex flex-row justify-between lg:mb-2 lg:text-[15px] font-normal text-gray-800">
          <div className=""><MapPinIcon className="w-5 pb-1 inline-block" color="#838383"/> Peru </div>
-          <div>{Array(3).fill(0).map((ele)=><StarIcon className="w-5 pb-1 inline-block" color="#ffff00"/>)}</div>
+          <div>{Array(3).fill(0).map((ele)=><StarIcon className="w-5 pb-1 inline-block" color="#D20000"/>)}</div>
         </Typography>
         <Typography  as="p"  className="lg:mb-2 lg:text-[20px] text-md font-bold text-[#424242]">
           {txt1}
@@ -55,7 +55,7 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
         <Typography as="div" className="flex flex-row justify-between font-bold lg:text-4xl text-xl text-black" textGradient>
          <div className="flex flex-col"> <Typography className="lg:text-[12px] text-[#838383] text-left lg:h-[18px] font-normal capitalize">{t('tours.from')} </Typography>
               <Typography className="lg:text-[25px] text-[#00AFD5] lg:h-[22px] font-semibold">USD ${txt2}</Typography>
-          </div>
+         </div>
         </Typography>
         {/* <Typography as="p" className="lg:mb-2 lg:text-2xl text-md font-normal text-gray-800"> */}
         {/*   {txt1} */}
@@ -69,7 +69,7 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
 
           <Typography
             color="white"
-            className="bg bg-[#D20000] border rounded-lg font-semibold p-2 capitalize "
+            className="bg bg-[#D20000] border rounded-md font-semibold  lg:text-[24px] h-16 px-3 leading-[64px]"
           >
           {t('tours.booking')}
           </Typography>

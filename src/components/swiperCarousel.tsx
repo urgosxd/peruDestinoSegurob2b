@@ -13,7 +13,7 @@ import Image from "next/image"
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 3;
-const DRAG_BUFFER = 20;
+const DRAG_BUFFER = 30;
 
 const SPRING_OPTIONS = {
   type: "spring",
@@ -32,35 +32,64 @@ export const SwipeCarousel = ({ imgs, labelImgs, label }: Props) => {
 
   const imgsLen = imgs.length > 0 ? imgs : labelImgs
   const [imgIndex, setImgIndex] = useState(0);
+  
+  const [arr, setArr] = useState(imgsLen.slice(0, 3));
+
+  const [rest, setRest] = useState(imgsLen.slice(3));
+
+  const updateArr = (idx?: number) => {
+    const [a, b, c] = arr;
+
+    if (idx === 0) {
+      const lastRem = rest[rest.length - 1];
+      const beforeArr = [lastRem, a, b];
+      const beforeRem = [c, ...rest.slice(0, rest.length - 1)];
+      setArr(beforeArr);
+      setRest(beforeRem);
+    } else {
+      const firstRem = rest[0];
+      const afterArr = [b, c, firstRem];
+      const afterRem = [...rest.slice(1), a];
+      setArr(afterArr);
+      setRest(afterRem);
+    }
+  };
 
   const dragX = useMotionValue(0);
 
-  useEffect(() => {
-    const intervalRef = setInterval(() => {
-      const x = dragX.get();
+  // useEffect(() => {
+  //   const intervalRef = setInterval(() => {
+  //     const x = dragX.get();
 
-      if (x === 0) {
-        setImgIndex((pv) => {
-          if (pv === imgsLen.length - 1) {
-            return 0;
-          }
-          return pv + 1;
-        });
-      }
-    }, AUTO_DELAY);
+  //     if (x === 0) {
+  //       setImgIndex((pv) => {
+  //         if (pv === imgsLen.length - 1) {
+  //           return 0;
+  //         }
+  //         return pv + 1;
+  //       });
+  //     }
+  //   }, AUTO_DELAY);
 
-    return () => clearInterval(intervalRef);
-  }, []);
+  //   return () => clearInterval(intervalRef);
+  // }, []);
 
   const onDragEnd = () => {
     const x = dragX.get();
+    console.log(x)
 
-    if (x <= -DRAG_BUFFER && imgIndex < imgsLen.length - 1) {
-      setImgIndex((pv) => pv + 1);
-    } else if (x >= DRAG_BUFFER && imgIndex > 0) {
-      setImgIndex((pv) => pv - 1);
+    if (x <= -DRAG_BUFFER ) {
+    console.log('neg')
+      // setImgIndex((pv) => pv + 1);
+      updateArr(2)
+    } else if (x >= DRAG_BUFFER ) {
+    console.log('pos')
+      // setImgIndex((pv) => pv - 1);
+      updateArr(0)
     }
   };
+
+    
 
   return (
     <div className="relative overflow-hidden rounded-2xl lg:py-4 w-screen ">
@@ -73,14 +102,14 @@ export const SwipeCarousel = ({ imgs, labelImgs, label }: Props) => {
         style={{
           x: dragX,
         }}
-        animate={{
-          translateX: `-${imgIndex * 100}%`,
-        }}
+        // animate={{
+        //   translateX: `-${imgIndex * 100}%`,
+        // }}
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
         className="flex cursor-grab items-center active:cursor-grabbing "
       >
-        <Images imgIndex={imgIndex} imgs={imgs} labelsImgs={labelImgs} label={label} />
+        <Images imgIndex={imgIndex} imgs={arr} labelsImgs={labelImgs} label={label} />
       </motion.div>
 
       <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} imgs={imgs} labelImgs={labelImgs} label={label} />

@@ -61,7 +61,7 @@ export default function ProfileCard({ imgSrc, title, price, slug, time, lng ,cla
       <CardBody className="text-center !p-3">
         <Typography as="div" className="flex flex-row justify-between lg:mb-2 lg:text-[15px] font-normal text-gray-800">
           <div className=""><MapPinIcon className="w-5 pb-1 inline-block" color="#838383" /> Peru </div>
-          <div>{Array(3).fill(0).map((ele) => <StarIcon className="w-5 pb-1 inline-block" color="#ffff00" />)}</div>
+          <div>{Array(3).fill(0).map((ele) => <StarIcon className="w-5 pb-1 inline-block" color="#D20000" />)}</div>
         </Typography>
 
         <Typography as="p" className="mb-2 lg:mb-2 lg:text-[20px] text-[18px] font-bold text-[#808080] lg:text-[#424242]">
@@ -80,7 +80,7 @@ export default function ProfileCard({ imgSrc, title, price, slug, time, lng ,cla
 
           <Typography
             color="white"
-            className="bg bg-[#D20000] border rounded-md font-semibold p-1 lg:text-[13px] "
+            className="bg bg-[#D20000] border rounded-md font-semibold  lg:text-[24px] h-16 px-3 leading-[64px]"
           >
             Ver Detalle
           </Typography>
