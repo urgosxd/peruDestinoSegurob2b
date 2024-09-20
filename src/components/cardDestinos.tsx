@@ -69,7 +69,7 @@ export default function CardDestinos({ imgSrc, txt1, txt2, slug,lng }: Props) {
 
           <Typography
             color="white"
-            className="bg bg-[#D20000] border rounded-md font-semibold  lg:text-[24px] h-16 px-3 leading-[64px]"
+            className="bg bg-[#D20000] border rounded-md font-semibold lg:text-[24px] h-16 px-3 leading-[64px]"
           >
           {t('tours.booking')}
           </Typography>

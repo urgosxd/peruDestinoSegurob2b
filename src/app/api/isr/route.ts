@@ -62,10 +62,8 @@ export async function POST(request: NextRequest) {
   // // or with route groups
   // revalidatePath("/(main)/post/[slug]", "layout");
 
-  return new Response(`Revalidating ${document.sender}`, {
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-    },
-  });
-}
+  return NextResponse.json({
+    "cache": `actualizado ${document.sender} 200`
+  })}
+
+export const revalidate = 0;
