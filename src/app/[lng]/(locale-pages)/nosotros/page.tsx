@@ -8,9 +8,10 @@ import SwitcherGlobal from "@/components/SwitcherGlobal";
 import { TweakCarousel } from "@/components/tweakcarousel";
 import { ValoresWrapper } from "@/components/valoresWrapper";
 import ImageGrid from "@/components/imageGrid";
-
+import { Button } from "@/components/ui/button"
 import MotionElement from "@/components/clientExportElement"
 import { Carrou } from "@/components/myCarousel";
+import { CarouselShad } from "@/components/carouselShad";
 
 type Props = {
   params: {
@@ -61,15 +62,12 @@ export default async function Nosotros({ params }: Props) {
     ["CERTIFICADO DE AUTORIZACIÓN", t('certificadoAutorizacion')],
   ]
 
-  console.log(Datalegal)
-  console.log("aaaa")
-  console.log(t('puvImage.meta.download_url'))
   const { NosotrosPage, related } = await getPageData("nosotros", params.lng)
 
   return (
 
     <div className="w-[98vw] flex flex-col items-center">
-      {/* <SwitcherGlobal currentLocale={params.lng} dynamicLinks={related} slug={undefined} /> */}
+
       <BackBanner imgSrc={t('background.meta.download_url')} txt={t('titulo')} />
       <MotionElement as="div"
         initial={{ opacity: 0, translateY: 200 }}
@@ -240,9 +238,8 @@ export default async function Nosotros({ params }: Props) {
       >
         <ImageGrid srcImages={t('certificadosNosotros', { returnObjects: true }).map(ele => (ele.image.meta.download_url))} label={false} />
       </MotionElement>
-      <div className="w-full">
-      <Carrou list={["a", "b", "c", "d", "e", "f"]}/>
-      </div>
+      
+      <CarouselShad/>
     </div>
   )
 }

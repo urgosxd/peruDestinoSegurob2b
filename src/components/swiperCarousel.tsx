@@ -31,13 +31,18 @@ type Props = {
 export const SwipeCarousel = ({ imgs, labelImgs, label }: Props) => {
 
   const imgsLen = imgs.length > 0 ? imgs : labelImgs
+
   const [imgIndex, setImgIndex] = useState(0);
   
+  const [direction,setDirection] = useState(true)
+
   const [arr, setArr] = useState(imgsLen.slice(0, 3));
 
   const [rest, setRest] = useState(imgsLen.slice(3));
 
+
   const updateArr = (idx?: number) => {
+
     const [a, b, c] = arr;
 
     if (idx === 0) {
@@ -79,15 +84,19 @@ export const SwipeCarousel = ({ imgs, labelImgs, label }: Props) => {
     console.log(x)
 
     if (x <= -DRAG_BUFFER ) {
-    console.log('neg')
-      // setImgIndex((pv) => pv + 1);
+
+      setDirection(true)
+
       updateArr(2)
+
     } else if (x >= DRAG_BUFFER ) {
-    console.log('pos')
-      // setImgIndex((pv) => pv - 1);
+      
+      setDirection(false)
+
       updateArr(0)
+
     }
-  };
+  }
 
     
 
@@ -102,18 +111,19 @@ export const SwipeCarousel = ({ imgs, labelImgs, label }: Props) => {
         style={{
           x: dragX,
         }}
-        // animate={{
-        //   translateX: `-${imgIndex * 100}%`,
-        // }}
+        animate={{
+          translateX: direction ?  `-${1 * 100}%` : `-${1 * 100}%`,
+        }}
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
-        className="flex cursor-grab items-center active:cursor-grabbing "
+        className="flex cursor-grab items-center active:cursor-grabbing"
       >
         <Images imgIndex={imgIndex} imgs={arr} labelsImgs={labelImgs} label={label} />
       </motion.div>
 
       <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} imgs={imgs} labelImgs={labelImgs} label={label} />
       <GradientEdges />
+
     </div>
   );
 };

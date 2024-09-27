@@ -8,6 +8,7 @@ import SwitcherGlobal from '@/components/SwitcherGlobal'
 import { LocaleType } from '../../../../i18next/settings'
 import MotionElement from "@/components/clientExportElement"
 import AgenciaForm from '@/components/formAgencio'
+import { CarouselShad } from '@/components/carouselShad'
 
 type Props = {
   params:{
@@ -114,7 +115,8 @@ const keyframes = { x: [], y: [], rotate: [] };
     <div className="flex flex-col items-center w-full">
       
       {/* <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug={undefined}/> */}
-      <CustomCarousel data={t('galleryIni',{returnObjects:true})} keyframes={keyframes} keyframes2={keyframes2} ></CustomCarousel>
+      {/*<CustomCarousel data={t('galleryIni',{returnObjects:true})} keyframes={keyframes} keyframes2={keyframes2} ></CustomCarousel>*/}
+      <CarouselShad data={t('galleryIni',{returnObjects:true})} keyframes={keyframes} keyframes2={keyframes2}/>
       {/* <SessionProvider> */}
       {/* <SessionValidator>GAAAAAAAA</SessionValidator> */}
       <MotionElement
