@@ -19,7 +19,9 @@ interface Props {
 // const myFont = localFont({ src: '../../public/CoreBoriW01-Regular.ttf' })
 
 const CustomCarousel = ({ data,keyframes,keyframes2 }: Props) => {
+
   console.log(data)
+
   const [animation, cycleAnimation] = useCycle(
     "animationOne",
     "animationTwo",

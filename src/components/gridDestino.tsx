@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useMobile } from "@/hooks/useMobile";
 import { SwipeCarousel } from "./swiperCarousel";
 import MotionElement from "@/components/clientExportElement"
+import { CarouselGeneralMobileShad } from "./carouselGeneralMobileShad";
 
 type FinalFrame = {
   imgSrc: string
@@ -39,7 +40,7 @@ export const RevealBento = ({ img, imgs, urls, lng }: { img: FinalFrame, imgs: F
       initial={{ opacity: 0, y: 200 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, type: 'spring' }}
-    className=""> <SwipeCarousel imgs={getImages(globalItems).map(ele=>ele.src)} labelImgs={[]}  label={false} /> </MotionElement> :
+    className="w-full"> <CarouselGeneralMobileShad imgsLabel={getLabelsImgs(globalItems)} /> </MotionElement> :
     // className=""> <SwipeCarousel imgs={getImages(globalItems)} labelImgs={getLabelsImgs(globalItems)} label /> </MotionElement> :
     <MotionElement
       as="div"

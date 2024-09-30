@@ -8,7 +8,8 @@ import SwitcherGlobal from '@/components/SwitcherGlobal'
 import { LocaleType } from '../../../../i18next/settings'
 import MotionElement from "@/components/clientExportElement"
 import AgenciaForm from '@/components/formAgencio'
-import { CarouselShad } from '@/components/carouselShad'
+import { AccordionShad } from '@/components/accordionShad'
+import { CarouselPrincipalShad } from '@/components/carouselPrincipalShad'
 
 type Props = {
   params:{
@@ -116,7 +117,7 @@ const keyframes = { x: [], y: [], rotate: [] };
       
       {/* <SwitcherGlobal currentLocale={params.lng}  dynamicLinks={related} slug={undefined}/> */}
       {/*<CustomCarousel data={t('galleryIni',{returnObjects:true})} keyframes={keyframes} keyframes2={keyframes2} ></CustomCarousel>*/}
-      <CarouselShad data={t('galleryIni',{returnObjects:true})} keyframes={keyframes} keyframes2={keyframes2}/>
+      <CarouselPrincipalShad data={t('galleryIni',{returnObjects:true})} keyframes={keyframes} keyframes2={keyframes2}/>
       {/* <SessionProvider> */}
       {/* <SessionValidator>GAAAAAAAA</SessionValidator> */}
       <MotionElement
@@ -161,7 +162,10 @@ const keyframes = { x: [], y: [], rotate: [] };
       <div className="flex lg:flex-row flex-col w-full lg:w-[90%] mx-auto mt-10">
         <div className="lg:w-1/2 w-full flex flex-col items-center">
           <h3 className="my-3 mb-9 lg:my-9 text-[20px] lg:text-[24px] text-[#5B5B5F] lg:text-[#000000] font-semibold text-center lg:no-underline underline underline-offset-8 decoration-red-900 capitalize ">Preguntas Frecuentes</h3>
-          <Questions questionAnswer={(t('faqInicio',{returnObjects:true})).map(ele=>({question:ele.question ,answer: ele.answer}))} />
+
+          {/*<Questions questionAnswer={(t('faqInicio',{returnObjects:true})).map(ele=>({question:ele.question ,answer: ele.answer}))} />*/}
+          {<AccordionShad questionAnswer={(t('faqInicio',{returnObjects:true})).map(ele=>({question:ele.question ,answer: ele.answer}))}/>}
+
         </div>
         <div className="lg:w-1/2 w-full p-10 lg:p-0 ">
           <h2 className="lg:mt-9 mt-6 font-bold lg:text-[24px] text-[#5C5C5C]">
@@ -171,7 +175,7 @@ const keyframes = { x: [], y: [], rotate: [] };
             {t('formularioSubtitulo')}
           </p>
           <AgenciaForm lng={params.lng} />
-            </div>
+        </div>
       </div>
       </MotionElement>
     </div>

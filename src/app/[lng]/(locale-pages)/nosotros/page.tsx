@@ -239,7 +239,6 @@ export default async function Nosotros({ params }: Props) {
         <ImageGrid srcImages={t('certificadosNosotros', { returnObjects: true }).map(ele => (ele.image.meta.download_url))} label={false} />
       </MotionElement>
       
-      <CarouselShad/>
     </div>
   )
 }

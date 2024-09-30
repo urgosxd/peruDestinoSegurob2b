@@ -13,6 +13,7 @@
     "@googlemaps/js-api-loader": "^1.16.6",
     "@heroicons/react": "^2.0.18",
     "@material-tailwind/react": "^2.1.5",
+    "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@react-google-maps/api": "^2.19.3",
     "@tanstack/react-form": "^0.29.1",

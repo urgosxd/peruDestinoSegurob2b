@@ -1,4 +1,5 @@
 'use client'
+
 import * as React from "react"
 import Image from 'next/image'
 import {  motion } from "framer-motion";
@@ -18,7 +19,7 @@ interface Props {
   keyframes: any[]
   keyframes2: any[]
 }
-export const CarouselShad = ({ data,keyframes,keyframes2 }: Props)=> {
+export const CarouselPrincipalShad = ({ data,keyframes,keyframes2 }: Props)=> {
     
     const duration = 6; // in seconds
     const isMobile = useMobile()
@@ -46,7 +47,7 @@ export const CarouselShad = ({ data,keyframes,keyframes2 }: Props)=> {
           switch (ele.type) {
             case "Tipo1":
               // console.log(ele.value.miniPhotos)
-              return (<CarouselItem key={idxx} className="relative w-full  lg:h-[80vh]">
+              return (<CarouselItem key={idxx} className="relative w-full h-[60vh]  lg:h-[80vh]">
                 <Image src={ele.value.photo.url.full_url}  quality={100} sizes="(max-width: 768px) 50vw, 100vw"  alt="ims" objectFit="cover" priority={idxx == 0 ? true :false} fill className=""></Image>
                 <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
                 <div className="absolute flex flex-col-reverse lg:flex-row top-0  h-full w-full ">
@@ -130,9 +131,9 @@ export const CarouselShad = ({ data,keyframes,keyframes2 }: Props)=> {
 
             case "Tipo2":
               return (
-                <div className="relative w-full h-full">
+                <CarouselItem className="relative w-full h-full">
                 <Image src={ele.value.photo.url.full_url} quality={100} sizes="(max-width: 768px) 100vw, (max-width: 1400px) 50vw, 33vw" alt="ims" objectFit="cover" priority={true} fill className=""></Image>
-                </div>
+                </CarouselItem>
               )
             default:
               break
@@ -140,9 +141,9 @@ export const CarouselShad = ({ data,keyframes,keyframes2 }: Props)=> {
           }
         })}
 
-              </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+    </CarouselContent>
+      <CarouselPrevious insideArrow={true}/>
+      <CarouselNext insideArrow={true}/>
     </Carousel>
   )
 }
