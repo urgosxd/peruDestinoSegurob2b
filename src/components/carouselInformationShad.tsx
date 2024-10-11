@@ -62,7 +62,6 @@ export const CarouselInformationShad = ({data}:Props)=> {
         </CardFooter>
         </Card>
       </CarouselItem>))}
-      
 
       </CarouselContent>
     </Carousel>

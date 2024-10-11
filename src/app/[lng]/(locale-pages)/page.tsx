@@ -19,7 +19,7 @@ type Props = {
 
 async function getPageData(slug:string,lng:LocaleType){
 
-const instance =  await getInicioPage({locale:lng,fields:'*'})
+  const instance =  await getInicioPage({locale:lng,fields:'*'})
 
   const idInstance = instance.items[0].id
 

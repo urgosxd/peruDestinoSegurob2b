@@ -50,10 +50,10 @@ export default async function Page({ params }: PageProps) {
   const dataTours = await getTour({fields:"*",locale:params.lng,sss:"basic",sender:"1001"})
   const dataPaquete = await getPaquete({fields:"*",locale:params.lng,sss:"basic",sender:`1001`})
 
-
+  
   return (
     <div className="w-[98vw] flex flex-col items-center">
-      GAAAAAAA
+
     </div>
   )
 

@@ -35,7 +35,7 @@ export default function CardSalidas({ftImageSrc,title,fecha,time,slug,lng}:Props
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 w-full lg:h-[420px] h-[40vh] cursor-pointer" >
+        className="m-0 w-full lg:h-[420px] min-h-[55vh] cursor-pointer" >
         <ImageMotion  
             whileHover={{
               scale: 1.05,
@@ -47,7 +47,7 @@ export default function CardSalidas({ftImageSrc,title,fecha,time,slug,lng}:Props
       </Link>
 
       <CardBody className="p-2 flex flex-col items-start justify-center gap-y-3 pt-5">
-        <div  className="mb-0 text-black text-sm lg:text-[20px] font-medium text-center uppercase">
+        <div className="mb-0 text-black text-sm lg:text-[20px] font-medium text-center uppercase">
         {title} 
         </div>
           <div className="text-sm lg:text-[20px] text-[#808080] font-normal">{fecha} - {time.split("-")[0]} dias {time.split("-")[1]} noches </div>
